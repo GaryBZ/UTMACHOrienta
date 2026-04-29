@@ -40,16 +40,28 @@ Sistema de diseño visual principal utilizado en la plataforma:
 
 ```scss
 :root {
-  --principal: #3a9ee8;
-  --secundario: #2278bf;
-  --fondo-principal: #ebf5fd;
-  --borde-principal: #b8defa;
-  --texto: #0f1c2e;
-  --texto2: #3a4a5c;
-  --muted: #7a8fa6;
-  --line: #dde8f0;
-  --white: #ffffff;
-  --surface: #f5f9fd;
-  --success: #1d9e75;
-  --warn: #e07b2a;
+  --sky:       #1b6dff;
+  --sky-deep:  #2b86fd;
+  --sky-pale:  #e3edff;
+  --sky-mid:   #95bbff;
+  --sky-dark:  #0C3A6B;
+  --ink:       #0D1B2A;
+  --ink2:      #364759;
+  --muted:     #7A8FA6;
+  --line:      #DDE8F0;
+  --white:     #FFFFFF;
+  --surface:   #F5F9FD;
+  --surface2:  #EEF5FB;
+  --green:     #1D9E75;
+  --green-pale:#E1F5EE;
+  --amber:     #E07B2A;
+  --amber-pale:#FEF3E2;
+
+  --font-head: 'Sora', sans-serif;
+  --font-serif: 'Lora', serif;
+  --font-mono:  'JetBrains Mono', monospace;
+
+  --sh-sm: 0 1px 3px rgba(13,27,42,.05), 0 2px 8px rgba(13,27,42,.06);
+  --sh-md: 0 2px 6px rgba(13,27,42,.06), 0 8px 24px rgba(13,27,42,.09);
+  --sh-lg: 0 4px 12px rgba(13,27,42,.07), 0 6px 6px rgba(13,27,42,.12);
 }
