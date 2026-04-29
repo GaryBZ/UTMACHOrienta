@@ -20,7 +20,9 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "skipLibCheck": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    // Se puso esto para evitar la advertencia que salia
+    "ignoreDeprecations": "6.0"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
