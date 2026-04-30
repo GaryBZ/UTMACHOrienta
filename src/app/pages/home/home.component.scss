@@ -272,7 +272,7 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--sky-pale), var(--sky-mid));
+  background: var(--sky-pale);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -806,6 +806,7 @@
 ═══════════════════════════════════════ */
 .features-section {
   padding: 88px 0;
+  border-bottom: 1px solid var(--line);
 }
 .features-grid {
   display: grid;
@@ -897,6 +898,69 @@
   font-size: 12px;
   font-weight: 600;
   color: rgba(255,255,255,.85);
+}
+
+/* ═══════════════════════════════════════
+   FACULTADES CAROUSEL
+═══════════════════════════════════════ */
+.facultades-section {
+  padding: 80px 0;
+}
+.facultades-section .section-eyebrow {
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.facultades-section .section-h2 {
+  margin-bottom: 60px;
+}
+.facultades-carousel-wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.facultades-carousel {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.02) 15%, rgba(0,0,0,.02) 85%, transparent 100%);
+  padding: 40px 0;
+  border-radius: 16px;
+}
+.carousel-track {
+  display: flex;
+  animation: scroll-infinite 40s linear infinite;
+  gap: 60px;
+  padding: 0 40px;
+  width: max-content;
+}
+.carousel-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  padding: 0 20px;
+  filter: grayscale(60%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+.carousel-item img {
+  max-height: 140px;
+  max-width: 220px;
+  object-fit: contain;
+  width: auto;
+}
+.carousel-item:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.08);
+}
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * (220px + 60px + 40px) * 4));
+  }
 }
 
 /* ═══════════════════════════════════════

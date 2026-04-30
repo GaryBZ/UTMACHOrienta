@@ -3,26 +3,29 @@
 
     <!-- Logo -->
     <a class="nav-logo" href="#">
-      <div class="nav-logo-mark">
+      <div class="nav-logo">
+        <img src="assets/icon/prueba logo.png" alt="Logo UTMACH Orienta" style="height: 50px;"/>
+        <!--
         <i class="fa-solid fa-graduation-cap"></i>
+        -->
       </div>
-      <span class="nav-logo-text">UTMACH<span>Orienta</span></span>
+      <!--<span class="nav-logo-text">UTMACH<span>Orienta</span></span>-->
     </a>
 
     <div class="nav-divider"></div>
 
     <!-- Links -->
     <div class="nav-links">
-      <a class="nav-link active" href="#">
+      <a class="nav-link" routerLink="/inicio" routerLinkActive="active">
         <i class="fa-solid fa-house"></i> Inicio
       </a>
-      <a class="nav-link" href="#">
+      <a class="nav-link" routerLink="/test" routerLinkActive="active">
         <i class="fa-solid fa-brain"></i> Test vocacional
       </a>
-      <a class="nav-link" href="#">
+      <a class="nav-link" routerLink="/carreras" routerLinkActive="active">
         <i class="fa-solid fa-book-open"></i> Carreras
       </a>
-      <a class="nav-link" href="#">
+      <a class="nav-link" routerLink="/campus" routerLinkActive="active">
         <i class="fa-solid fa-map-location-dot"></i> Campus
       </a>
     </div>
@@ -35,18 +38,18 @@
     </div>
 
     <!-- Mobile hamburger -->
-    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <button class="nav-hamburger" id="hamburger" (click)="toggleMenu()">
       <i class="fa-solid fa-bars" id="hamburger-icon"></i>
     </button>
   </nav>
 
   <!-- Mobile dropdown -->
   <div class="nav-mobile-menu" id="mobileMenu">
-    <a class="nav-mobile-link active" href="#"><i class="fa-solid fa-house"></i> Inicio</a>
-    <a class="nav-mobile-link" href="#"><i class="fa-solid fa-brain"></i> Test vocacional</a>
-    <a class="nav-mobile-link" href="#"><i class="fa-solid fa-book-open"></i> Carreras</a>
-    <a class="nav-mobile-link" href="#"><i class="fa-solid fa-map-location-dot"></i> Campus</a>
-    <a class="nav-mobile-link" href="#"><i class="fa-solid fa-user-circle"></i> Mi perfil</a>
+    <a class="nav-mobile-link" routerLink="/inicio" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-house"></i> Inicio</a>
+    <a class="nav-mobile-link" routerLink="/test" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-brain"></i> Test vocacional</a>
+    <a class="nav-mobile-link" routerLink="/carreras" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-book-open"></i> Carreras</a>
+    <a class="nav-mobile-link" routerLink="/campus" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-map-location-dot"></i> Campus</a>
+    <a class="nav-mobile-link" routerLink="/perfil" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-user-circle"></i> Mi perfil</a>
     <div class="nav-mobile-divider"></div>
     <button class="nav-mobile-cta"><i class="fa-solid fa-brain"></i> Hacer el test vocacional</button>
   </div>

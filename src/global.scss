@@ -59,23 +59,3 @@ body {
   scrollbar-color: var(--sky) transparent;
   scrollbar-width: thin;
 }
-
-/* Chromium (Chrome, Edge, etc.) */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--sky);
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--sky-deep);
-}
