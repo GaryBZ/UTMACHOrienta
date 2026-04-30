@@ -25,7 +25,7 @@ Es una guía digital completa para acompañar al futuro universitario desde la o
 
 - Node.js
 - Express.js
-- MySQL
+- SapoSQL
 
 ### Control de versiones
 
