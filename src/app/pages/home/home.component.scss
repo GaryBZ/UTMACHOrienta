@@ -59,50 +59,15 @@
 .anim-6 { animation: fadeUp .6s ease both; animation-delay: .55s; }
 
 
-/* ...existing code... */
-
 .hero {
   position: relative;
-  padding: 80px 32px 0;
+  padding: 160px 32px 0;
   overflow: visible;
-  background: var(--white);
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.671), rgba(255, 255, 255, 0.945)),
+    url('https://upload.wikimedia.org/wikipedia/commons/7/71/Monumento_institucional_UTMACH.jpg') center/cover no-repeat;
   width: 100%;
-}
-
-/* Decorative background blobs */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-.hero-bg-circle1 {
-  position: absolute;
-  top: -120px;
-  right: -160px;
-  width: 640px;
-  height: 640px;
-  background: radial-gradient(circle, rgba(58,158,232,.09) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero-bg-circle2 {
-  position: absolute;
-  bottom: 20px;
-  left: -100px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(58,158,232,.06) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero-bg-dots {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  width: 320px;
-  height: 200px;
-  opacity: .35;
-  background-image: radial-gradient(circle, #3A9EE8 1px, transparent 1px);
-  background-size: 22px 22px;
+  margin-top: -80px;
 }
 
 .hero-inner {
@@ -382,16 +347,6 @@
 }
 .hcard-c-text strong { display: block; font-size: 13px; font-weight: 700; color: #fff; }
 .hcard-c-text span   { font-size: 11px; color: rgba(255,255,255,.8); }
-
-/* Hero bottom wave */
-.hero-wave {
-  position: relative;
-  z-index: 1;
-  margin-top: 56px;
-  line-height: 0;
-}
-.hero-wave svg { display: block; width: 100%; }
-
 
 /* ═══════════════════════════════════════
    STATS STRIP
@@ -869,7 +824,7 @@
   color: #fff;
   font-size: 24px;
 }
-.feat-body {}
+
 .feat-title {
   font-size: 16px;
   font-weight: 700;
@@ -924,6 +879,28 @@
   background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.02) 15%, rgba(0,0,0,.02) 85%, transparent 100%);
   padding: 40px 0;
   border-radius: 16px;
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, transparent 100%);
+  }
+  
+  &::after {
+    right: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,1) 100%);
+  }
 }
 .carousel-track {
   display: flex;
