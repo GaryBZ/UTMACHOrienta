@@ -1,0 +1,14 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.app-router {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 80px;
+  background: transparent;
+}
