@@ -1,7 +1,0 @@
-{
-  "name": "UTMACHOrienta",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
-}
