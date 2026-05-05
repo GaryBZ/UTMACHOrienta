@@ -1,39 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
-interface Carrera {
-  id: number;
-  nombre: string;
-  facultad: string;
-  facultadNombre: string;
-  icon: string;
-  descripcion: string;
-  duracion: string;
-  semestres: number;
-  modalidad: string;
-  puntaje: number;
-  campoLaboral: string;
-  acreditacion: string;
-  opciones: string[];
-  pensum: { semestre: number; materias: number }[];
-  temaClase: string;
-  preguntas: { texto: string; opciones: string[]; respuesta: number }[];
-}
+import { DetailCareersComponent } from './detail-careers/detail-careers.component';
+import { Carrera } from './carrera.model';
 
 @Component({
   selector: 'app-careers',
   templateUrl: './careers.component.html',
   styleUrls: ['./careers.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule]
+  imports: [FormsModule, CommonModule, DetailCareersComponent]
 })
 export class CareersComponent implements OnInit {
-  examForm!: FormGroup;
   carreras: Carrera[] = [
     {
       id: 1,
-      nombre: 'Ingeniería en Sistemas/Tecnologías de la Información',
+      nombre: 'Tecnologías de la Información',
       facultad: 'FIC',
       facultadNombre: 'Facultad de Ingeniería Civil',
       icon: 'fa-solid fa-laptop-code',
@@ -300,16 +282,9 @@ export class CareersComponent implements OnInit {
   filteredCarreras: Carrera[] = [];
   selectedCarrera: Carrera | null = null;
   activeFac = 'all';
-  activeTab = 'info';
   searchTerm = '';
 
-  examAnswers: { [key: number]: number } = {};
-  examChecked = false;
-  examResult = { pass: false, score: 0 };
-
-  constructor(private fb: FormBuilder) {
-    this.examForm = this.fb.group({});
-  }
+  constructor() {}
 
   ngOnInit() {
     this.filterCarreras();
@@ -331,55 +306,9 @@ export class CareersComponent implements OnInit {
 
   openDetail(id: number) {
     this.selectedCarrera = this.carreras.find(c => c.id === id) || null;
-    this.activeTab = 'info';
-    this.examAnswers = {};
-    this.examChecked = false;
   }
 
   closeDetail() {
     this.selectedCarrera = null;
-    this.examAnswers = {};
-    this.examChecked = false;
-  }
-
-  switchTab(tab: string) {
-    this.activeTab = tab;
-  }
-
-  selectExamOpt(questionIndex: number, optionIndex: number) {
-    this.examAnswers[questionIndex] = optionIndex;
-  }
-
-  allQuestionsAnswered(): boolean {
-    if (!this.selectedCarrera) return false;
-    for (let i = 0; i < this.selectedCarrera.preguntas.length; i++) {
-      if (!(i in this.examAnswers)) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  checkExam() {
-    if (!this.selectedCarrera) return;
-
-    let correctCount = 0;
-    for (let i = 0; i < this.selectedCarrera.preguntas.length; i++) {
-      if (this.examAnswers[i] === this.selectedCarrera.preguntas[i].respuesta) {
-        correctCount++;
-      }
-    }
-
-    const score = Math.round((correctCount / this.selectedCarrera.preguntas.length) * 100);
-    this.examResult = {
-      pass: score >= 70,
-      score: score
-    };
-    this.examChecked = true;
-  }
-
-  resetExam() {
-    this.examAnswers = {};
-    this.examChecked = false;
   }
 }
