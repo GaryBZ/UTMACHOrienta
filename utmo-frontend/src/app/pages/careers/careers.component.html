@@ -50,13 +50,13 @@
         @for (carrera of filteredCarreras; track carrera.id) {
           <div class="carrera-card" (click)="openDetail(carrera.id)">
             <div class="card-head">
-              <div class="card-icon" [ngClass]="carrera.facultad.toLowerCase()">
-                <i [ngClass]="carrera.icon"></i>
+              <div class="card-icon" [ngClass]="getFacultadCode(carrera).toLowerCase()">
+                <i [ngClass]="getFacultadIcon(carrera)"></i>
               </div>
               <div class="card-title">
                 <div class="card-name">{{ carrera.nombre }}</div>
-                <div class="card-fac-pill" [ngClass]="carrera.facultad.toLowerCase()">
-                  <i class="fa-solid fa-building"></i> {{ carrera.facultad }}
+                <div class="card-fac-pill" [ngClass]="getFacultadCode(carrera).toLowerCase()">
+                  <i class="fa-solid fa-building"></i> {{ getFacultadCode(carrera) }}
                 </div>
               </div>
             </div>
@@ -64,16 +64,16 @@
             <p class="card-desc">{{ carrera.descripcion | slice:0:110 }}...</p>
 
             <div class="card-meta">
-              @if (carrera.duracion) {
+              @if (getDuracionText(carrera)) {
                 <div class="meta-item">
-                  <i class="fa-solid fa-clock"></i> {{ carrera.duracion }}
+                  <i class="fa-solid fa-clock"></i> {{ getDuracionText(carrera) }}
                 </div>
               }
               <div class="meta-item">
-                <i class="fa-solid fa-book"></i> {{ carrera.semestres }} sem
+                <i class="fa-solid fa-book"></i> {{ getSemestres(carrera) }} sem
               </div>
               <div class="meta-item">
-                <i class="fa-solid fa-layer-group"></i> {{ carrera.modalidad }}
+                <i class="fa-solid fa-layer-group"></i> {{ getModalidad(carrera) }}
               </div>
             </div>
 
@@ -99,7 +99,7 @@
 
   <!-- DETAIL VIEW -->
   @if (selectedCarrera) {
-    <app-detail-careers [carrera]="selectedCarrera" (closed)="closeDetail()"></app-detail-careers>
+    <app-detail-careers [carrera]="selectedCarrera" [facultadesById]="facultadesById" (closed)="closeDetail()"></app-detail-careers>
   }
 
 </div>

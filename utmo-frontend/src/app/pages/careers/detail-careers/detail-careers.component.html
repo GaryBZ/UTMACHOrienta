@@ -8,25 +8,21 @@
     <!-- Hero Header -->
     <div class="detail-hero">
       <div class="detail-hero-body">
-        <div class="detail-hero-icon" [ngClass]="carrera.facultad.toLowerCase()">
-          <i [ngClass]="carrera.icon"></i>
+        <div class="detail-hero-icon" [ngClass]="getFacultadCode(carrera).toLowerCase()">
+          <i [ngClass]="getFacultadIcon(carrera)"></i>
         </div>
         <div class="detail-hero-main">
           <h1>{{ carrera.nombre }}</h1>
           <div class="detail-hero-meta">
             <div class="detail-hero-meta-item">
-              <i class="fa-solid fa-building"></i> {{ carrera.facultadNombre }}
+              <i class="fa-solid fa-building"></i> {{ getFacultadNombre(carrera) }}
             </div>
             <div class="detail-hero-meta-item">
-              <i class="fa-solid fa-clock"></i> {{ carrera.duracion }}
+              <i class="fa-solid fa-clock"></i> {{ getDuracionText(carrera) }}
             </div>
             <div class="detail-hero-meta-item">
-              <i class="fa-solid fa-book"></i> {{ carrera.semestres }} semestres
+              <i class="fa-solid fa-book"></i> {{ getSemestres(carrera) }} semestres
             </div>
-          </div>
-          <div class="detail-hero-tags">
-            <span class="ctag blue">{{ carrera.facultadNombre }}</span>
-            <span class="ctag blue">{{ carrera.modalidad }}</span>
           </div>
         </div>
       </div>
@@ -34,162 +30,37 @@
       <!-- Puntaje Panel -->
       <div class="detail-puntaje">
         <div class="detail-puntaje-label">Puntaje</div>
-        <div class="detail-puntaje-score">{{ carrera.puntaje }}</div>
+        <div class="detail-puntaje-score">{{ getPuntaje(carrera) }}</div>
         <div class="detail-puntaje-max">/100</div>
         <div class="detail-puntaje-hint">Tu afinidad estimada basada en perfil vocacional</div>
       </div>
     </div>
 
-    <!-- Tabs -->
-    <div class="detail-tabs-bar">
-      <button class="dtab" [class.active]="activeTab === 'info'" (click)="switchTab('info')">
-        <i class="fa-solid fa-info-circle"></i> Descripción
-      </button>
-      <button class="dtab" [class.active]="activeTab === 'pensum'" (click)="switchTab('pensum')">
-        <i class="fa-solid fa-book"></i> Pensum
-      </button>
-      <button class="dtab" [class.active]="activeTab === 'clase'" (click)="switchTab('clase')">
-        <i class="fa-solid fa-graduation-cap"></i> Mini Clase
-      </button>
-      <button class="dtab" [class.active]="activeTab === 'examen'" (click)="switchTab('examen')">
-        <i class="fa-solid fa-pencil"></i> Examen
-      </button>
-    </div>
-
     <!-- Panel: Descripción -->
-    <div class="detail-panel" [class.active]="activeTab === 'info'">
+    <div class="detail-panel active">
       <div class="info-grid">
         <div class="info-stat">
           <div class="info-stat-label"><i class="fa-solid fa-graduation-cap"></i> Campo Laboral</div>
-          <div class="info-stat-value">{{ carrera.campoLaboral }}</div>
+          <div class="info-stat-value">{{ carrera.campo_laboral || 'No disponible' }}</div>
         </div>
         <div class="info-stat">
-          <div class="info-stat-label"><i class="fa-solid fa-star"></i> Acreditación</div>
-          <div class="info-stat-value">{{ carrera.acreditacion }}</div>
+          <div class="info-stat-label"><i class="fa-solid fa-layer-group"></i> Modalidad</div>
+          <div class="info-stat-value">{{ getModalidad(carrera) || 'No disponible' }}</div>
         </div>
       </div>
 
       <div class="info-card">
         <div class="info-card-title"><i class="fa-solid fa-align-left"></i> Descripción General</div>
-        <p>{{ carrera.descripcion }}</p>
+        <p>{{ carrera.descripcion || 'Sin descripción' }}</p>
       </div>
-
-      <div class="info-card">
-        <div class="info-card-title"><i class="fa-solid fa-briefcase"></i> Opciones de Carrera</div>
-        <div class="campo-list">
-          @for (campo of carrera.opciones; track campo) {
-            <div class="campo-item">
-              <i class="fa-solid fa-arrow-right"></i> {{ campo }}
-            </div>
-          }
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel: Pensum -->
-    <div class="detail-panel" [class.active]="activeTab === 'pensum'">
-      <p class="pensum-intro">Plan de estudios completo de {{ carrera.semestres }} semestres:</p>
-      <div class="pensum-grid">
-        @for (sem of carrera.pensum; track sem.semestre) {
-          <div class="pensum-item">
-            <div class="pensum-num">{{ sem.semestre }}</div>
-            <div class="pensum-sem">Semestre {{ sem.semestre }}</div>
-            <div class="pensum-mat">{{ sem.materias }} materias</div>
+      @if (getEtiquetas(carrera).length > 0) {
+        <div class="info-card">
+          <div class="info-card-title"><i class="fa-solid fa-briefcase"></i> Opciones de Carrera</div>
+          <div class="badge-list">
+            @for (campo of getEtiquetas(carrera); track campo) {
+              <span class="badge">{{ campo }}</span>
+            }
           </div>
-        }
-      </div>
-    </div>
-
-    <!-- Panel: Clase -->
-    <div class="detail-panel" [class.active]="activeTab === 'clase'">
-      <div class="clase-banner">
-        <div class="clase-banner-icon">
-          <i class="fa-solid fa-video"></i>
-        </div>
-        <div>
-          <h3>Mini Clase Introductoria</h3>
-          <p>Aprende los conceptos básicos de {{ carrera.nombre }}</p>
-        </div>
-      </div>
-      <div class="clase-body">
-        <div class="clase-tip">
-          <i class="fa-solid fa-lightbulb"></i>
-          <p>Esta es una mini clase de introducción. Si te sientes cómodo con estos contenidos, es una buena señal de que esta carrera podría ser para ti.</p>
-        </div>
-        <div style="padding: 20px; background: var(--surface); border-radius: 12px; margin: 20px 0;">
-          <p style="color: var(--muted); font-size: 13px;">Contenido de la clase: {{ carrera.temaClase }}</p>
-        </div>
-        <button class="btn-go-exam" (click)="switchTab('examen')">
-          <i class="fa-solid fa-pencil"></i>
-          Ir al examen
-        </button>
-      </div>
-    </div>
-
-    <!-- Panel: Examen -->
-    <div class="detail-panel" [class.active]="activeTab === 'examen'">
-      @if (!examChecked) {
-        <div class="exam-intro">
-          <i class="fa-solid fa-quiz"></i>
-          <div>
-            <p>Responde <strong>{{ carrera.preguntas.length }} preguntas</strong> sobre {{ carrera.nombre }} para medir tu afinidad real. Puedes tomarte tu tiempo.</p>
-          </div>
-        </div>
-
-        <div>
-          @for (q of carrera.preguntas; let i = $index; track i) {
-            <div class="examen-q">
-              <div class="examen-q-num">{{ i + 1 }}/{{ carrera.preguntas.length }}</div>
-              <div class="examen-q-text">{{ q.texto }}</div>
-              <div class="examen-opts">
-                @for (opt of q.opciones; let oi = $index; track oi) {
-                  <label class="examen-opt" 
-                    [class.sel]="examAnswers[i] === oi"
-                    (click)="selectExamOpt(i, oi)">
-                    <div class="examen-dot">
-                      <div class="examen-dot-inner"></div>
-                    </div>
-                    {{ opt }}
-                  </label>
-                }
-              </div>
-            </div>
-          }
-        </div>
-
-        <div class="exam-actions">
-          <button class="btn-check" (click)="checkExam()" [disabled]="!allQuestionsAnswered()">
-            Revisar respuestas
-          </button>
-        </div>
-      }
-
-      @if (examChecked) {
-        <div [ngClass]="examResult.pass ? 'exam-result pass' : 'exam-result fail'">
-          <div class="exam-result-icon">
-            <i [ngClass]="examResult.pass ? 'fa-solid fa-check' : 'fa-solid fa-times'"></i>
-          </div>
-          <div>
-            <div class="exam-result-title">
-              {{ examResult.pass ? '¡Excelente!' : 'Necesitas práctica' }}
-            </div>
-            <p class="exam-result-desc">
-              {{ examResult.pass 
-                ? 'Demostraste buen dominio del contenido. ¡Esta carrera podría ser ideal para ti!' 
-                : 'Te recomendamos revisar los conceptos antes de continuar.' }}
-            </p>
-            <div class="score-bar-wrap">
-              <div class="score-bar-bg">
-                <div class="score-bar-fill" [style.width.%]="examResult.score"></div>
-              </div>
-            </div>
-            <p style="margin-top: 10px; font-size: 12px; color: var(--ink2);">
-              Puntaje: {{ examResult.score }}%
-            </p>
-          </div>
-          <button class="btn-reset" (click)="resetExam()">
-            <i class="fa-solid fa-redo"></i> Reintentar
-          </button>
         </div>
       }
     </div>

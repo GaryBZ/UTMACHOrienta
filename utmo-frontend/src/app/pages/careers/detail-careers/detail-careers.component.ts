@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Carrera } from '../carrera.model';
+import { Carrera } from '../../../core/models/carrera.model';
+import { Facultad } from '../../../core/models/facultad.model';
 
 @Component({
   selector: 'app-detail-careers',
   templateUrl: './detail-careers.component.html',
   styleUrls: ['./detail-careers.component.scss'],
-  standalone: true,
   imports: [CommonModule]
 })
 export class DetailCareersComponent {
   private _carrera: Carrera | null = null;
+  @Input() facultadesById = new Map<number, Facultad>();
 
   @Input() set carrera(value: Carrera | null) {
     this._carrera = value;
@@ -22,61 +23,41 @@ export class DetailCareersComponent {
 
   @Output() closed = new EventEmitter<void>();
 
-  activeTab = 'info';
-  examAnswers: { [key: number]: number } = {};
-  examChecked = false;
-  examResult = { pass: false, score: 0 };
-
   closeDetail() {
     this.closed.emit();
   }
 
-  switchTab(tab: string) {
-    this.activeTab = tab;
+  getFacultadCode(carrera: Carrera): string {
+    return this.facultadesById.get(carrera.id_facultad)?.codigo || 'GEN';
   }
 
-  selectExamOpt(questionIndex: number, optionIndex: number) {
-    this.examAnswers[questionIndex] = optionIndex;
+  getFacultadNombre(carrera: Carrera): string {
+    return this.facultadesById.get(carrera.id_facultad)?.nombre_completo || 'Facultad';
   }
 
-  allQuestionsAnswered(): boolean {
-    if (!this.carrera) return false;
-    for (let i = 0; i < this.carrera.preguntas.length; i++) {
-      if (!(i in this.examAnswers)) {
-        return false;
-      }
-    }
-    return true;
+  getFacultadIcon(carrera: Carrera): string {
+    return this.facultadesById.get(carrera.id_facultad)?.icono || 'fa-solid fa-graduation-cap';
   }
 
-  checkExam() {
-    if (!this.carrera) return;
-
-    let correctCount = 0;
-    for (let i = 0; i < this.carrera.preguntas.length; i++) {
-      if (this.examAnswers[i] === this.carrera.preguntas[i].respuesta) {
-        correctCount++;
-      }
-    }
-
-    const score = Math.round((correctCount / this.carrera.preguntas.length) * 100);
-    this.examResult = {
-      pass: score >= 70,
-      score: score
-    };
-    this.examChecked = true;
+  getDuracionText(carrera: Carrera): string {
+    return carrera.duracion_anios ? `${carrera.duracion_anios} años` : '';
   }
 
-  resetExam() {
-    this.examAnswers = {};
-    this.examChecked = false;
-    this.examResult = { pass: false, score: 0 };
+  getSemestres(carrera: Carrera): number {
+    return carrera.duracion_anios ? carrera.duracion_anios * 2 : 0;
   }
 
-  private resetDetailState() {
-    this.activeTab = 'info';
-    this.examAnswers = {};
-    this.examChecked = false;
-    this.examResult = { pass: false, score: 0 };
+  getModalidad(carrera: Carrera): string {
+    return carrera.modalidad || '';
   }
+
+  getPuntaje(carrera: Carrera): number {
+    return carrera.puntaje_minimo || 0;
+  }
+
+  getEtiquetas(carrera: Carrera): string[] {
+    return Array.isArray(carrera.etiquetas) ? carrera.etiquetas : [];
+  }
+
+  private resetDetailState() {}
 }

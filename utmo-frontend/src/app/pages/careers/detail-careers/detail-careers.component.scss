@@ -115,11 +115,7 @@
 	color: var(--sky);
 }
 
-.detail-hero-tags {
-	display: flex;
-	gap: 6px;
-	flex-wrap: wrap;
-}
+
 
 /* Puntaje side panel */
 .detail-puntaje {
@@ -141,12 +137,11 @@
 }
 
 .detail-puntaje-score {
-	font-size: 32px;
-	font-weight: 800;
+	font-size: 28px;
+	font-weight: 700;
 	color: var(--sky);
 	letter-spacing: -.03em;
 	line-height: 1;
-	font-family: var(--font-mono);
 }
 
 .detail-puntaje-max {
@@ -245,9 +240,8 @@
 }
 
 .info-stat-value {
-	font-size: 14px;
-	font-weight: 600;
-	color: var(--ink);
+	font-size: 13px;
+	color: var(--ink2);
 }
 
 .info-card {
@@ -256,6 +250,23 @@
 	border-radius: 12px;
 	padding: 20px;
 	margin-bottom: 16px;
+}
+
+.badge-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.badge {
+	background: var(--sky-pale);
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	padding: 6px 12px;
+	font-size: 12px;
+	color: var(--sky-dark);
+	letter-spacing: .01em;
 }
 
 .info-card-title {
