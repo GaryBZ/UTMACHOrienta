@@ -1,3 +1,129 @@
-<div class="container">
-  Campus
+<div class="container page-pad">
+  <div class="campus-header">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Visualizador de campus</span>
+    </div>
+    <h1>Mapa interactivo del campus</h1>
+    <p>Explora las instalaciones, facultades y servicios de la Universidad Tecnica de Machala · Machala, El Oro</p>
+  </div>
+
+  <div class="campus-stats">
+    @for (stat of stats; track stat.label) {
+      <div class="cstat">
+        <div class="cstat-icon" [style.background]="stat.bg" [style.color]="stat.color">
+          <i [ngClass]="stat.icon"></i>
+        </div>
+        <div>
+          <div class="cstat-num">{{ stat.value }}</div>
+          <div class="cstat-lbl">{{ stat.label }}</div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="campus-layout">
+    <div class="map-panel">
+      <div class="map-toolbar">
+        <div class="map-category-chips">
+          @for (chip of categoryChips; track chip.value) {
+            <button
+              class="mchip"
+              [class.active]="activeCat === chip.value"
+              [ngClass]="chip.className"
+              (click)="setCategory(chip.value)">
+              <i [ngClass]="chip.icon"></i> {{ chip.label }}
+            </button>
+          }
+        </div>
+      </div>
+
+      <div id="campus-map"></div>
+
+      <div class="map-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1b6dff"></div> Facultad</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div> Servicio</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#E07B2A"></div> Deportes</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7C3AED"></div> Administracion</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#DC2626"></div> Biblioteca</div>
+      </div>
+    </div>
+
+    <div class="campus-sidebar">
+      <div class="sidebar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          placeholder="Buscar lugar en el campus..."
+          [value]="searchTerm"
+          (input)="onSearchChange($any($event.target).value)">
+      </div>
+
+      <div class="poi-list-card">
+        <div class="poi-list-header">
+          <div class="poi-list-title"><i class="fa-solid fa-location-dot"></i> Puntos de interes</div>
+          <span class="poi-count">{{ filteredPois.length }}</span>
+        </div>
+        <div class="poi-list">
+          @for (group of groupedPois; track group.cat) {
+            <div class="poi-group-header" [style.color]="group.color" [style.background]="group.bg">
+              {{ group.label }}
+            </div>
+            @for (poi of group.items; track poi.id) {
+              <div class="poi-item" [class.active]="selectedPoiId === poi.id" [attr.data-poi-id]="poi.id" (click)="selectPoi(poi)">
+                <div class="poi-item-icon" [style.background]="poi.bgPale" [style.color]="poi.color">
+                  <i [ngClass]="poi.icon"></i>
+                </div>
+                <div class="poi-item-body">
+                  <div class="poi-item-name">{{ poi.name }}</div>
+                  <div class="poi-item-sub">{{ poi.short }}</div>
+                </div>
+                <i class="fa-solid fa-chevron-right poi-item-arrow"></i>
+              </div>
+            }
+          }
+          @if (filteredPois.length === 0) {
+            <div class="poi-empty">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Sin resultados</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      @if (selectedPoi) {
+        <div class="poi-detail-card visible">
+          <div class="poi-detail-stripe" [style.background]="selectedPoi.color"></div>
+          <div class="poi-detail-head">
+            <div class="poi-detail-icon" [style.background]="selectedPoi.bgPale" [style.color]="selectedPoi.color">
+              <i [ngClass]="selectedPoi.icon"></i>
+            </div>
+            <div>
+              <div class="poi-detail-name">{{ selectedPoi.name }}</div>
+              <div class="poi-detail-cat" [style.color]="catMeta[selectedPoi.cat].color">
+                {{ catMeta[selectedPoi.cat].label }}
+              </div>
+            </div>
+          </div>
+          <div class="poi-detail-body">
+            <div class="poi-detail-desc">{{ selectedPoi.desc }}</div>
+            <div class="poi-detail-tags">
+              @for (tag of selectedPoi.tags; track tag.label) {
+                <span class="detail-tag" [style.color]="tag.color" [style.background]="tag.bg" [style.border-color]="tag.color + '40'">
+                  <i [ngClass]="selectedPoi.icon"></i>{{ tag.label }}
+                </span>
+              }
+            </div>
+            <div class="poi-detail-coords">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              {{ selectedPoi.lat.toFixed(5) }}, {{ selectedPoi.lng.toFixed(5) }}
+            </div>
+            <button class="btn-fly" (click)="flyToSelected()">
+              <i class="fa-solid fa-location-dot"></i> Centrar en el mapa
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
 </div>
