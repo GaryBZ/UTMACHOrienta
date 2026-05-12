@@ -1,0 +1,43 @@
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <a class="sidebar-logo" routerLink="/inicio">
+      <img class="sidebar-logo-img" src="assets/logos/utmach-blanco.png" alt="Logo UTMACH Orienta" />
+    </a>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Principal</div>
+
+    <a class="nav-item" routerLink="/admin/dashboard" routerLinkActive="active">
+      <i class="fa-solid fa-chart-pie"></i> Resumen
+    </a>
+    <a class="nav-item" routerLink="/admin/carreras" routerLinkActive="active">
+      <i class="fa-solid fa-book-open"></i> Carreras
+    </a>
+    <a class="nav-item" routerLink="/admin/examenes" routerLinkActive="active">
+      <i class="fa-solid fa-pencil"></i> Examenes
+    </a>
+    <a class="nav-item" routerLink="/admin/campus" routerLinkActive="active">
+      <i class="fa-solid fa-map-location-dot"></i> Campus / POIs
+    </a>
+
+    <div class="nav-section-label" style="margin-top:8px">Gestion</div>
+
+    <a class="nav-item" routerLink="/admin/usuarios" routerLinkActive="active">
+      <i class="fa-solid fa-users"></i> Usuarios
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-user">
+      <div class="sidebar-avatar"><i class="fa-solid fa-user"></i></div>
+      <div>
+        <div class="sidebar-user-name" [attr.title]="displayName">{{ displayName }}</div>
+        <div class="sidebar-user-role">Administrador</div>
+      </div>
+      <button class="sidebar-back" type="button" (click)="goBackToPublic()" title="Volver a vista aspirante">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+  </div>
+</aside>
