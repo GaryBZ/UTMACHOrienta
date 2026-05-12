@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
-import usuarioRoutes from './routes/usuario.routes.js';
 import facultadRoutes from './routes/facultad.routes.js';
 import carreraRoutes from './routes/carrera.routes.js';
 import pensumRoutes from './routes/pensum.routes.js';
