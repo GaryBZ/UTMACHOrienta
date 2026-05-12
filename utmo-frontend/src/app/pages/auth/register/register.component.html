@@ -1,3 +1,234 @@
-<p>
-  register works!
-</p>
+<div class="register-page">
+  <div class="left">
+    <div class="left-logo">
+      <img class="left-logo-img" src="assets/logos/utmach-blanco.png" alt="Logo UTMACH Orienta">
+    </div>
+
+    <div class="left-center">
+      <h2>Tu futuro<br>empieza con<br><em>una buena eleccion</em></h2>
+      <p>Crea tu cuenta y accede al test vocacional, explorador de carreras y toda la informacion de admision de la UTMACH.</p>
+    </div>
+
+
+  </div>
+
+  <div class="right">
+    <div class="form-wrap">
+      <div class="form-header">
+        <h1>Crear cuenta</h1>
+        <p>Ya tienes una cuenta? <a href="/login">Inicia sesion</a></p>
+      </div>
+
+      <div class="steps" id="steps" *ngIf="!success">
+        <div class="step-item" [ngClass]="{ active: step === 1, done: step > 1 }">
+          <div class="step-circle" [ngClass]="{ active: step === 1, done: step > 1 }">
+            <ng-container *ngIf="step <= 1">1</ng-container>
+            <ng-container *ngIf="step > 1"><i class="fa-solid fa-check" style="font-size:10px"></i></ng-container>
+          </div>
+          <span class="step-label">Datos personales</span>
+        </div>
+        <div class="step-line" [ngClass]="{ done: step > 1 }"></div>
+        <div class="step-item" [ngClass]="{ active: step === 2 }">
+          <div class="step-circle" [ngClass]="{ active: step === 2 }">2</div>
+          <span class="step-label">Acceso</span>
+        </div>
+      </div>
+
+      <div class="form-step" [ngClass]="{ active: step === 1 }" *ngIf="!success">
+        <div class="field-row">
+          <div class="field" [ngClass]="fieldStates.nombre.status">
+            <label>Nombre <span>*</span></label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-user input-icon"></i>
+              <input
+                type="text"
+                id="nombre"
+                placeholder="Juan"
+                autocomplete="given-name"
+                [value]="form.nombre"
+                (input)="updateField('nombre', $event)"
+              >
+            </div>
+            <div class="field-hint" *ngIf="fieldStates.nombre.message" [ngClass]="fieldStates.nombre.status === 'error' ? 'error-msg' : 'success-msg'">
+              <i class="fa-solid" [ngClass]="fieldStates.nombre.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+              {{ fieldStates.nombre.message }}
+            </div>
+          </div>
+
+          <div class="field" [ngClass]="fieldStates.apellido.status">
+            <label>Apellido <span>*</span></label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-user input-icon"></i>
+              <input
+                type="text"
+                id="apellido"
+                placeholder="Perez"
+                autocomplete="family-name"
+                [value]="form.apellido"
+                (input)="updateField('apellido', $event)"
+              >
+            </div>
+            <div class="field-hint" *ngIf="fieldStates.apellido.message" [ngClass]="fieldStates.apellido.status === 'error' ? 'error-msg' : 'success-msg'">
+              <i class="fa-solid" [ngClass]="fieldStates.apellido.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+              {{ fieldStates.apellido.message }}
+            </div>
+          </div>
+        </div>
+
+        <div class="field" [ngClass]="fieldStates.ciudad.status">
+          <label>Ciudad <span>*</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-location-dot input-icon"></i>
+            <select id="ciudad" [value]="form.ciudad" (change)="updateField('ciudad', $event)">
+              <option value="" disabled>Selecciona tu ciudad</option>
+              <option>Machala</option>
+              <option>Pasaje</option>
+              <option>Santa Rosa</option>
+              <option>Huaquillas</option>
+              <option>Pinas</option>
+              <option>Zaruma</option>
+              <option>Arenillas</option>
+              <option>Otra</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-arrow"></i>
+          </div>
+          <div class="field-hint" *ngIf="fieldStates.ciudad.message" [ngClass]="fieldStates.ciudad.status === 'error' ? 'error-msg' : 'success-msg'">
+            <i class="fa-solid" [ngClass]="fieldStates.ciudad.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            {{ fieldStates.ciudad.message }}
+          </div>
+        </div>
+
+        <div class="field" [ngClass]="fieldStates.colegio.status">
+          <label>Institucion educativa <span>*</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-school input-icon"></i>
+            <input
+              type="text"
+              id="colegio"
+              placeholder="Ej: Unidad Educativa Olmedo"
+              autocomplete="organization"
+              [value]="form.colegio"
+              (input)="updateField('colegio', $event)"
+            >
+          </div>
+          <div class="field-hint" *ngIf="fieldStates.colegio.message" [ngClass]="fieldStates.colegio.status === 'error' ? 'error-msg' : 'success-msg'">
+            <i class="fa-solid" [ngClass]="fieldStates.colegio.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            {{ fieldStates.colegio.message }}
+          </div>
+        </div>
+
+        <button class="btn-submit" (click)="goStep2()">
+          Continuar <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <div class="form-step" [ngClass]="{ active: step === 2 }" *ngIf="!success">
+        <div class="field" [ngClass]="fieldStates.email.status">
+          <label>Correo electronico <span>*</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="juan@ejemplo.com"
+              autocomplete="email"
+              [value]="form.email"
+              (input)="updateField('email', $event)"
+            >
+          </div>
+          <div class="field-hint" *ngIf="fieldStates.email.message" [ngClass]="fieldStates.email.status === 'error' ? 'error-msg' : 'success-msg'">
+            <i class="fa-solid" [ngClass]="fieldStates.email.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            {{ fieldStates.email.message }}
+          </div>
+        </div>
+
+        <div class="field" [ngClass]="fieldStates.password.status">
+          <label>Contrasena <span>*</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              placeholder="Minimo 8 caracteres"
+              autocomplete="new-password"
+              [value]="form.password"
+              (input)="updateField('password', $event)"
+            >
+            <i
+              class="fa-solid input-icon-right"
+              [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+              (click)="togglePwd('password')"
+            ></i>
+          </div>
+          <div class="pwd-strength" *ngIf="showStrength">
+            <div class="pwd-strength-bars">
+              <div class="pwd-bar" [ngClass]="getStrengthClass(1)"></div>
+              <div class="pwd-bar" [ngClass]="getStrengthClass(2)"></div>
+              <div class="pwd-bar" [ngClass]="getStrengthClass(3)"></div>
+              <div class="pwd-bar" [ngClass]="getStrengthClass(4)"></div>
+            </div>
+            <span class="pwd-strength-label" [style.color]="strengthColor">{{ strengthLabel }}</span>
+          </div>
+          <div class="field-hint" *ngIf="fieldStates.password.message" [ngClass]="fieldStates.password.status === 'error' ? 'error-msg' : 'success-msg'">
+            <i class="fa-solid" [ngClass]="fieldStates.password.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            {{ fieldStates.password.message }}
+          </div>
+        </div>
+
+        <div class="field" [ngClass]="fieldStates.confirm.status">
+          <label>Confirmar contrasena <span>*</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input
+              [type]="showConfirm ? 'text' : 'password'"
+              id="confirm"
+              placeholder="Repite tu contrasena"
+              autocomplete="new-password"
+              [value]="form.confirm"
+              (input)="updateField('confirm', $event)"
+            >
+            <i
+              class="fa-solid input-icon-right"
+              [ngClass]="showConfirm ? 'fa-eye-slash' : 'fa-eye'"
+              (click)="togglePwd('confirm')"
+            ></i>
+          </div>
+          <div class="field-hint" *ngIf="fieldStates.confirm.message" [ngClass]="fieldStates.confirm.status === 'error' ? 'error-msg' : 'success-msg'">
+            <i class="fa-solid" [ngClass]="fieldStates.confirm.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            {{ fieldStates.confirm.message }}
+          </div>
+        </div>
+
+        <div class="terms-check">
+          <input type="checkbox" id="terms" [checked]="form.terms" (change)="toggleTerms($event)">
+          <label for="terms">
+            He leido y acepto los <a href="/terminos-y-condiciones">Terminos y Condiciones</a> de UTMACHOrienta.
+          </label>
+        </div>
+        <div class="terms-error" *ngIf="termsError">
+          <i class="fa-solid fa-circle-xmark"></i> Debes aceptar los terminos para continuar.
+        </div>
+
+        <div class="form-error" *ngIf="errorMessage">
+          <i class="fa-solid fa-circle-xmark"></i> {{ errorMessage }}
+        </div>
+
+        <button class="btn-back" (click)="goStep1()">
+          <i class="fa-solid fa-arrow-left"></i> Volver
+        </button>
+        <button class="btn-submit" id="btn-register" [disabled]="isSubmitting" (click)="submitForm()">
+          <i class="fa-solid fa-user-plus"></i> Crear cuenta
+        </button>
+      </div>
+
+      <div class="success-screen" *ngIf="success">
+        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+        <h2>Cuenta creada con exito!</h2>
+        <p>Tu cuenta ya esta lista. Inicia sesion para continuar con el test vocacional y el explorador de carreras.</p>
+        <a class="btn-submit" style="max-width:260px;margin:0 auto" [routerLink]="['/login']">
+          <i class="fa-solid fa-arrow-right"></i> Ir a login
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

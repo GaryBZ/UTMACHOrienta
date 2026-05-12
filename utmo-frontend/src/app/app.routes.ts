@@ -26,8 +26,20 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/legal/terminos-condiciones/terminos-condiciones.component').then((m) => m.TerminosCondicionesComponent),
   },
   {
+    path: 'register',
+    loadComponent: () => import('./pages/auth/register/register.component').then((m) => m.RegisterComponent),
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./pages/auth/login/login.component').then((m) => m.LoginComponent),
+  },
+  {
     path: '',
     redirectTo: 'inicio',
     pathMatch: 'full',
-  } 
+  },
+  {
+    path: '**',
+    redirectTo: 'inicio',
+  }
 ];

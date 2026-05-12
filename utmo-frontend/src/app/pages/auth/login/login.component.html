@@ -1,3 +1,107 @@
-<p>
-  login works!
-</p>
+<div class="login-page">
+  <div class="left">
+    <div class="left-logo">
+      <img class="left-logo-img" src="assets/logos/utmach-blanco.png" alt="Logo UTMACH Orienta">
+    </div>
+
+    <div class="left-center">
+      <h2>Vuelve a<br>conectar con<br><em>tu vocacion</em></h2>
+      <p>Accede a tu cuenta para continuar el test vocacional, explorar carreras y ver rutas academicas de la UTMACH.</p>
+    </div>
+
+    <div class="left-features">
+      <div class="left-feature">
+        <div class="left-feature-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+        <div class="left-feature-text"><strong>Test en progreso</strong><br>Continua donde lo dejaste.</div>
+      </div>
+      <div class="left-feature">
+        <div class="left-feature-icon"><i class="fa-solid fa-compass"></i></div>
+        <div class="left-feature-text"><strong>Explorador</strong><br>Descubre nuevas opciones.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="form-wrap">
+      <div class="form-header">
+        <h1>Iniciar sesion</h1>
+        <p>Aun no tienes cuenta? <a href="/register">Crear cuenta</a></p>
+      </div>
+
+      <div class="form-card" *ngIf="!success">
+        <div class="field" [ngClass]="fieldStates.email.status">
+          <label>Correo electronico <span>*</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="juan@ejemplo.com"
+              autocomplete="email"
+              [value]="form.email"
+              (input)="updateField('email', $event)"
+            >
+          </div>
+          <div class="field-hint" *ngIf="fieldStates.email.message" [ngClass]="fieldStates.email.status === 'error' ? 'error-msg' : 'success-msg'">
+            <i class="fa-solid" [ngClass]="fieldStates.email.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            {{ fieldStates.email.message }}
+          </div>
+        </div>
+
+        <div class="field" [ngClass]="fieldStates.password.status">
+          <label>Contrasena <span>*</span></label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              placeholder="Tu contrasena"
+              autocomplete="current-password"
+              [value]="form.password"
+              (input)="updateField('password', $event)"
+            >
+            <i
+              class="fa-solid input-icon-right"
+              [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+              (click)="togglePwd()"
+            ></i>
+          </div>
+          <div class="field-hint" *ngIf="fieldStates.password.message" [ngClass]="fieldStates.password.status === 'error' ? 'error-msg' : 'success-msg'">
+            <i class="fa-solid" [ngClass]="fieldStates.password.status === 'error' ? 'fa-circle-xmark' : 'fa-circle-check'"></i>
+            {{ fieldStates.password.message }}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="remember-check">
+            <input type="checkbox" [checked]="form.remember" (change)="toggleRemember($event)">
+            <span>Recordarme</span>
+          </label>
+          <a class="link-muted" href="#">Olvidaste tu contrasena?</a>
+        </div>
+
+        <div class="form-error" *ngIf="errorMessage">
+          <i class="fa-solid fa-circle-xmark"></i> {{ errorMessage }}
+        </div>
+
+        <button class="btn-submit" [disabled]="isSubmitting" (click)="submitForm()">
+          <i class="fa-solid fa-right-to-bracket"></i> Ingresar
+        </button>
+
+        <div class="or-divider">o</div>
+        <button class="btn-ghost" type="button" (click)="exploreAsGuest()">
+          <i class="fa-solid fa-graduation-cap"></i> Explorar sin cuenta
+        </button>
+      </div>
+
+      <div class="success-screen" *ngIf="success">
+        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+        <h2>Bienvenido!</h2>
+        <p>Acceso correcto. Redirigiendo a tu panel de orientacion.</p>
+        <a class="btn-submit" style="max-width:240px;margin:0 auto" [routerLink]="['/inicio']">
+          <i class="fa-solid fa-arrow-right"></i> Ir al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

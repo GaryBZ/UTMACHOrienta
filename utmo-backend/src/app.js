@@ -20,7 +20,6 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/carrera', carreraRoutes);
-app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/facultades', facultadRoutes);
 app.use('/api/carreras', carreraRoutes);
 app.use('/api/pensum', pensumRoutes);
