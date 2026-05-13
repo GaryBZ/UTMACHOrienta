@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
 import facultadRoutes from './routes/facultad.routes.js';
 import carreraRoutes from './routes/carrera.routes.js';
@@ -10,7 +10,7 @@ import examenRoutes from './routes/examen.routes.js';
 import resultadoTestRoutes from './routes/resultado-test.routes.js';
 import poiCampusRoutes from './routes/poi-campus.routes.js';
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 
