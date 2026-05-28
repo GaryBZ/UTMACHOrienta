@@ -1,0 +1,31 @@
+:host {
+  --sidebar-w: 240px;
+  --sidebar-bg: #0d1b2a;
+  --sidebar-item: rgba(255, 255, 255, 0.06);
+  --sidebar-hover: rgba(255, 255, 255, 0.1);
+  --sidebar-active: rgba(27, 109, 255, 0.25);
+  --sidebar-text: rgba(255, 255, 255, 0.65);
+  --sidebar-text-active: #ffffff;
+  display: block;
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-content {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-height: 100vh;
+  background: var(--surface);
+  padding: 24px;
+}
+
+@media (max-width: 768px) {
+  .admin-content {
+    margin-left: 0;
+  }
+}

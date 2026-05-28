@@ -63,6 +63,14 @@
   flex: 1;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
 .nav-link {
   display: inline-flex;
   align-items: center;
@@ -100,35 +108,99 @@
 .nav-link.active i { opacity: 1; }
 
 /* Right side */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-.nav-avatar {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 16px;
+.nav-login {
   background: var(--sky);
   color: #fff;
-  border: none;
+  font-weight: 600;
+}
+
+.nav-login:hover {
+  background: var(--sky-deep);
+  color: #fff;
+}
+
+.nav-profile {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav-profile-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
   border-radius: 99px;
+  border: none;
+  background: var(--sky);
+  color: #fff;
   font-family: var(--font);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: all .18s;
-  white-space: nowrap;
+  transition: all .16s;
   box-shadow: 0 2px 10px rgba(58,158,232,.3);
 }
-.nav-avatar:hover {
+
+.nav-profile-button i:first-child { font-size: 16px; }
+.nav-profile-button i:last-child { font-size: 10px; opacity: .9; }
+
+.nav-profile-button:hover {
   background: var(--sky-deep);
-  box-shadow: 0 4px 16px rgba(58,158,232,.4);
-  transform: translateY(-1px);
+}
+
+.nav-profile-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 10px 26px rgba(13,27,42,.14);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1000;
+}
+
+.nav-profile-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink2);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .15s;
+  text-align: left;
+}
+
+.nav-profile-item:hover {
+  background: var(--sky-pale);
+  color: var(--sky-deep);
+}
+
+.nav-profile-item.danger {
+  color: var(--red);
+}
+
+.nav-profile-item.danger:hover {
+  background: rgba(224, 51, 51, 0.1);
+  color: var(--red);
+}
+
+.nav-profile-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 4px 0;
 }
 
 /* Scrolled state — darker pill */
@@ -217,7 +289,7 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 680px) {
-  .nav-links, .nav-divider, .nav-cta, .nav-avatar { display: none; }
+  .nav-links, .nav-divider, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
   .nav-island { padding: 0px 10px 6px 10x;
   border-radius: 16px; }

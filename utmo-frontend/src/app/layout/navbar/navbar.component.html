@@ -2,7 +2,7 @@
   <nav class="nav-island">
 
     <!-- Logo -->
-    <a class="nav-logo" href="#">
+    <a class="nav-logo" routerLink="/inicio">
       <div class="nav-logo">
         <img src="assets/logos/utmach2.png" alt="Logo UTMACH Orienta" style="height: 54px;"/>
         <!--
@@ -32,9 +32,28 @@
 
     <!-- Right -->
     <div class="nav-right">
-      <button class="nav-avatar" title="Iniciar sesión">
-        <i class="fa-solid fa-sign-in-alt"></i> Ingresar
-      </button>
+      <a class="nav-link nav-login" routerLink="/login" *ngIf="!isLoggedIn">
+        <i class="fa-solid fa-right-to-bracket"></i> Ingresar
+      </a>
+
+      <div class="nav-profile" *ngIf="isLoggedIn">
+        <button
+          class="nav-profile-button"
+          (click)="toggleProfile()"
+          [attr.title]="displayName || 'Usuario'"
+        >
+          <i class="fa-solid fa-user-circle"></i>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="nav-profile-menu" *ngIf="isProfileOpen">
+          <a class="nav-profile-item" routerLink="/perfil" (click)="closeProfile()">Perfil</a>
+          <a class="nav-profile-item" routerLink="/admin" (click)="closeProfile()" *ngIf="isAdmin">Modo admin</a>
+          <button class="nav-profile-item" type="button" (click)="closeProfile()">Item B</button>
+          <button class="nav-profile-item" type="button" (click)="closeProfile()">Item C</button>
+          <div class="nav-profile-divider"></div>
+          <button class="nav-profile-item danger" type="button" (click)="logout()">Cerrar sesion</button>
+        </div>
+      </div>
     </div>
 
     <!-- Mobile hamburger -->
@@ -49,8 +68,13 @@
     <a class="nav-mobile-link" routerLink="/test" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-brain"></i> Test vocacional</a>
     <a class="nav-mobile-link" routerLink="/carreras" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-book-open"></i> Carreras</a>
     <a class="nav-mobile-link" routerLink="/campus" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-map-location-dot"></i> Campus</a>
-    <a class="nav-mobile-link" routerLink="/perfil" routerLinkActive="active" (click)="closeMenu()"><i class="fa-solid fa-user-circle"></i> Mi perfil</a>
+    <a class="nav-mobile-link" routerLink="/login" routerLinkActive="active" (click)="closeMenu()" *ngIf="!isLoggedIn"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</a>
+    <div class="nav-mobile-link" *ngIf="isLoggedIn"><i class="fa-solid fa-user-circle"></i> {{ displayName || 'Usuario' }}</div>
+    <a class="nav-mobile-link" routerLink="/perfil" (click)="closeMenu()" *ngIf="isLoggedIn"><i class="fa-solid fa-user"></i> Perfil</a>
+    <button class="nav-mobile-link" type="button" (click)="closeMenu()" *ngIf="isLoggedIn"><i class="fa-solid fa-circle"></i> Item B</button>
+    <button class="nav-mobile-link" type="button" (click)="closeMenu()" *ngIf="isLoggedIn"><i class="fa-solid fa-circle"></i> Item C</button>
     <div class="nav-mobile-divider"></div>
+    <button class="nav-mobile-link" type="button" (click)="logout()" *ngIf="isLoggedIn"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesion</button>
     <button class="nav-mobile-cta"><i class="fa-solid fa-brain"></i> Hacer el test vocacional</button>
   </div>
 </div>

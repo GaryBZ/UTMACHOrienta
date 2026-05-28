@@ -1,0 +1,449 @@
+.login-page {
+	font-family: 'Sora', sans-serif;
+	color: var(--ink);
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	background: var(--surface);
+ }
+
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes shake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-6px);
+	}
+	75% {
+		transform: translateX(6px);
+	}
+}
+
+.left {
+	background:
+		linear-gradient(145deg, rgba(12, 58, 107, 0.88) 0%, rgba(27, 109, 255, 0.82) 100%),
+		url('https://upload.wikimedia.org/wikipedia/commons/7/71/Monumento_institucional_UTMACH.jpg')
+		center / cover no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 40px 48px;
+	position: relative;
+	overflow: hidden;
+}
+
+.left-logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+	z-index: 1;
+}
+
+.left-logo-img {
+	height: 90px;
+	width: auto;
+	filter: drop-shadow(0 6px 12px rgba(13, 27, 42, 0.35));
+}
+
+.left-center {
+	position: relative;
+	z-index: 1;
+}
+
+.left-center h2 {
+	font-size: 30px;
+	font-weight: 800;
+	color: #fff;
+	letter-spacing: -0.04em;
+	line-height: 1.15;
+	margin-bottom: 12px;
+}
+
+.left-center h2 em {
+	font-style: italic;
+	font-family: 'Lora', serif;
+	font-weight: 500;
+}
+
+.left-center p {
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.7);
+	line-height: 1.7;
+	max-width: 320px;
+}
+
+.left-features {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	position: relative;
+	z-index: 1;
+}
+
+.left-feature {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.left-feature-icon {
+	width: 36px;
+	height: 36px;
+	background: rgba(255, 255, 255, 0.12);
+	border-radius: 9px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-size: 14px;
+	flex-shrink: 0;
+}
+
+.left-feature-text {
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.4;
+}
+
+.left-feature-text strong {
+	color: #fff;
+	font-weight: 600;
+}
+
+.right {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 32px;
+	background: var(--white);
+	overflow-y: auto;
+}
+
+.form-wrap {
+	width: 100%;
+	max-width: 420px;
+	animation: fadeUp 0.5s ease both;
+}
+
+.form-header {
+	margin-bottom: 28px;
+}
+
+.form-header h1 {
+	font-size: 22px;
+	font-weight: 800;
+	letter-spacing: -0.035em;
+	color: var(--ink);
+	margin-bottom: 6px;
+}
+
+.form-header p {
+	font-size: 13px;
+	color: var(--muted);
+}
+
+.form-header p a {
+	color: var(--sky);
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.form-header p a:hover {
+	text-decoration: underline;
+}
+
+.form-card {
+	animation: fadeUp 0.3s ease both;
+}
+
+.field {
+	margin-bottom: 16px;
+}
+
+.field label {
+	display: block;
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--ink2);
+	margin-bottom: 5px;
+}
+
+.field label span {
+	color: var(--red);
+	margin-left: 2px;
+	font-size: 11px;
+}
+
+.input-wrap {
+	position: relative;
+}
+
+.input-wrap i.input-icon {
+	position: absolute;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--muted);
+	font-size: 13px;
+	pointer-events: none;
+	transition: color 0.15s;
+}
+
+.input-wrap input {
+	width: 100%;
+	padding: 10px 12px 10px 36px;
+	border: 1.5px solid var(--line);
+	border-radius: 10px;
+	font-family: 'Sora', sans-serif;
+	font-size: 13px;
+	color: var(--ink);
+	background: var(--white);
+	outline: none;
+	transition: all 0.15s;
+}
+
+.input-wrap input::placeholder {
+	color: var(--muted);
+}
+
+.input-wrap input:focus {
+	border-color: var(--sky-mid);
+	box-shadow: 0 0 0 3px rgba(27, 109, 255, 0.09);
+}
+
+.input-wrap input:focus + i,
+.input-wrap i.input-icon-right {
+	color: var(--sky);
+}
+
+.input-wrap .input-icon-right {
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--muted);
+	font-size: 13px;
+	cursor: pointer;
+	pointer-events: all;
+	transition: color 0.15s;
+}
+
+.input-wrap .input-icon-right:hover {
+	color: var(--sky);
+}
+
+.field.error .input-wrap input {
+	border-color: var(--red);
+	box-shadow: 0 0 0 3px rgba(224, 51, 51, 0.09);
+	animation: shake 0.3s ease;
+}
+
+.field.error .input-wrap i.input-icon {
+	color: var(--red);
+}
+
+.field.success .input-wrap input {
+	border-color: var(--green);
+}
+
+.field.success .input-wrap i.input-icon {
+	color: var(--green);
+}
+
+.field-hint {
+	font-size: 11px;
+	margin-top: 5px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.field-hint.error-msg {
+	color: var(--red);
+}
+
+.field-hint.success-msg {
+	color: var(--green);
+}
+
+.field-hint i {
+	font-size: 10px;
+}
+
+.form-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 6px 0 18px;
+	gap: 12px;
+}
+
+.remember-check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 12px;
+	color: var(--muted);
+	cursor: pointer;
+}
+
+.remember-check input[type='checkbox'] {
+	width: 16px;
+	height: 16px;
+	accent-color: var(--sky);
+	cursor: pointer;
+}
+
+.link-muted {
+	font-size: 12px;
+	color: var(--sky);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.link-muted:hover {
+	text-decoration: underline;
+}
+
+.btn-submit {
+	width: 100%;
+	padding: 12px;
+	background: var(--sky);
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	font-family: 'Sora', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	transition: all 0.18s;
+	box-shadow: 0 4px 14px rgba(27, 109, 255, 0.3);
+}
+
+.btn-submit:hover {
+	background: var(--sky-deep);
+	transform: translateY(-1px);
+}
+
+.btn-ghost {
+	width: 100%;
+	padding: 11px;
+	background: transparent;
+	color: var(--ink2);
+	border: 1.5px solid var(--line);
+	border-radius: 10px;
+	font-family: 'Sora', sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	transition: all 0.15s;
+}
+
+.btn-ghost:hover {
+	border-color: var(--sky-mid);
+	color: var(--sky);
+	background: var(--sky-pale);
+}
+
+.or-divider {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 18px 0;
+	font-size: 11px;
+	color: var(--muted);
+	font-weight: 600;
+}
+
+.or-divider::before,
+.or-divider::after {
+	content: '';
+	flex: 1;
+	height: 1px;
+	background: var(--line);
+}
+
+.form-error {
+	font-size: 12px;
+	color: var(--red);
+	background: rgba(224, 51, 51, 0.08);
+	border: 1px solid rgba(224, 51, 51, 0.2);
+	padding: 8px 10px;
+	border-radius: 8px;
+	margin: 4px 0 14px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.success-screen {
+	text-align: center;
+	padding: 20px 0;
+	animation: fadeUp 0.4s ease both;
+}
+
+.success-icon {
+	width: 72px;
+	height: 72px;
+	border-radius: 50%;
+	background: var(--green-pale);
+	border: 3px solid var(--green);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 20px;
+	color: var(--green);
+	font-size: 28px;
+}
+
+.success-screen h2 {
+	font-size: 20px;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	color: var(--ink);
+	margin-bottom: 8px;
+}
+
+.success-screen p {
+	font-size: 13px;
+	color: var(--muted);
+	line-height: 1.65;
+	max-width: 320px;
+	margin: 0 auto 24px;
+}
+
+@media (max-width: 860px) {
+	.login-page {
+		grid-template-columns: 1fr;
+	}
+
+	.left {
+		display: none;
+	}
+
+	.right {
+		padding: 40px 24px;
+	}
+}

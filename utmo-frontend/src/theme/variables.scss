@@ -3,22 +3,6 @@
 * Para variables de colores
 */
 
-/*
-:root {
-  --principal: #1b6dff;
-  --fondo-principal: #e3edff;
-  --borde-principal: #95bbff;
-  --texto: #0f1c2e;
-  --texto2: #3a4a5c;
-  --muted: #7a8fa6;
-  --line: #dde8f0;
-  --white: #ffffff;
-  --surface: #f5f9fd;
-  --success: #1d9e75;
-  --warn: #e07b2a;
-}
-*/
-
 :root {
   --sky:       #1b6dff;
   --sky-deep:  #2b86fd;
@@ -32,16 +16,19 @@
   --white:     #FFFFFF;
   --surface:   #F5F9FD;
   --surface2:  #EEF5FB;
-  --green:     #1D9E75;
-  --green-pale:#E1F5EE;
   --amber:     #E07B2A;
   --amber-pale:#FEF3E2;
-
+	--green: #0ea572;
+	--green-pale: #d6f5ea;
+	--red: #e03333;
+	--red-pale: #fdeaea;
   --font-head: 'Sora', sans-serif;
   --font-serif: 'Lora', serif;
   --font-mono:  'JetBrains Mono', monospace;
-
   --sh-sm: 0 1px 3px rgba(13,27,42,.05), 0 2px 8px rgba(13,27,42,.06);
   --sh-md: 0 2px 6px rgba(13,27,42,.06), 0 8px 24px rgba(13,27,42,.09);
   --sh-lg: 0 4px 12px rgba(13,27,42,.07), 0 6px 6px rgba(13,27,42,.12);
+  --ion-background-color: #FFFFFF;
+  --ion-text-color: #0D1B2A;
+  color-scheme: light;
 }
