@@ -12,3 +12,15 @@
   padding-top: 80px;
   background: transparent;
 }
+
+/* Mobile adjustments */
+@media (max-width: 680px) {
+  .app-router {
+    padding-top: 0;
+  }
+  
+  /* Hide footer web component on mobile */
+  app-footer {
+    display: none;
+  }
+}

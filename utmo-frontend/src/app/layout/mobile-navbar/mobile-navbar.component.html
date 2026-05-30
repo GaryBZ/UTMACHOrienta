@@ -1,0 +1,37 @@
+<nav class="mobile-navbar" *ngIf="isVisible">
+  <a 
+    routerLink="/inicio" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="mobile-nav-item">
+    <i class="fa-solid fa-home"></i>
+    <span>Inicio</span>
+  </a>
+  
+  <a 
+    routerLink="/carreras" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: false }"
+    class="mobile-nav-item">
+    <i class="fa-solid fa-book-open"></i>
+    <span>Carreras</span>
+  </a>
+  
+  <a 
+    routerLink="/test" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="mobile-nav-item">
+    <i class="fa-solid fa-brain"></i>
+    <span>Test</span>
+  </a>
+  
+  <a 
+    routerLink="/campus" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="mobile-nav-item">
+    <i class="fa-solid fa-map-location-dot"></i>
+    <span>Campus</span>
+  </a>
+</nav>

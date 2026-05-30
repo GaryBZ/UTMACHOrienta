@@ -289,8 +289,7 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 680px) {
-  .nav-links, .nav-divider, .nav-cta { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-links, .nav-divider, .nav-cta, .nav-hamburger { display: none; }
   .nav-island { padding: 0px 10px 6px 10x;
   border-radius: 16px; }
 }
