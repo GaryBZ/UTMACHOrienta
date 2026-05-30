@@ -1,4 +1,3 @@
-```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
@@ -21,4 +20,3 @@
         <item name="android:background">#FFFFFF</item>
     </style>
 </resources>
-```

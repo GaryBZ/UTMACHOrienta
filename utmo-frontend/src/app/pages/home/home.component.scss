@@ -1386,7 +1386,7 @@
     flex-direction: column;
     min-height: 100vh;
     background: #F5F7FA;
-    padding-top: 80px;
+    padding-top: 0;
   }
 
   /* ─────────────────────────────────────
@@ -1396,7 +1396,6 @@
     flex: 1;
     overflow-y: auto;
     padding-bottom: 70px;
-    overscroll-behavior: contain;
   }
 
   /* ─────────────────────────────────────
