@@ -175,7 +175,11 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
       return;
     }
 
-    this.map = leaflet.map('campus-map', {
+    // Detect if we're on mobile
+    const isMobile = window.innerWidth <= 680;
+    const mapElement = isMobile ? 'campus-map-mobile' : 'campus-map';
+
+    this.map = leaflet.map(mapElement, {
       center: [-3.28638, -79.91265],
       zoom: 17,
       zoomControl: false,

@@ -764,3 +764,425 @@
     display: none;
   }
 }
+
+/* ═══════════════════════════════════════
+   MOBILE VERSION - Show on small screens
+═══════════════════════════════════════ */
+.mobile-campus {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  /* Show mobile, hide desktop */
+  .desktop-campus {
+    display: none;
+  }
+
+  .mobile-campus {
+    display: block;
+  }
+
+  .mobile-main {
+    width: 100%;
+    padding-bottom: 70px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ─────────────────────────────────────
+     MOBILE HEADER
+     ───────────────────────────────────── */
+  .mobile-campus-header {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #E6F2FF 100%);
+    margin: 12px 20px 16px 20px;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+  }
+
+  .mobile-campus-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-eyebrow-line {
+    width: 16px;
+    height: 2px;
+    background: #1E73FF;
+    border-radius: 1px;
+  }
+
+  .mobile-eyebrow-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1E73FF;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .mobile-campus-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .mobile-campus-desc {
+    font-size: 13px;
+    color: #64748B;
+    line-height: 1.4;
+  }
+
+  /* ─────────────────────────────────────
+     MOBILE STATS
+     ───────────────────────────────────── */
+  .mobile-campus-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .mobile-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  }
+
+  .mobile-stat-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+
+  .mobile-stat-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0F172A;
+  }
+
+  .mobile-stat-label {
+    font-size: 11px;
+    color: #64748B;
+    margin-top: 2px;
+  }
+
+  /* ─────────────────────────────────────
+     MOBILE MAP SECTION
+     ───────────────────────────────────── */
+  .mobile-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0F172A;
+    padding: 0 20px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-campus-map-section {
+    padding: 0 0 16px 0;
+    margin-bottom: 16px;
+  }
+
+  .mobile-campus-map {
+    width: 100%;
+    height: 240px;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    margin: 0 20px 8px 20px;
+  }
+
+  #campus-map-mobile {
+    width: 100%;
+    height: 240px;
+  }
+
+  .mobile-map-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 20px;
+  }
+
+  .mobile-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #64748B;
+  }
+
+  .mobile-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ─────────────────────────────────────
+     MOBILE SEARCH
+     ───────────────────────────────────── */
+  .mobile-poi-search {
+    padding: 16px 20px;
+  }
+
+  .mobile-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #F5F7FA;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+  }
+
+  .mobile-search-bar i {
+    font-size: 14px;
+    color: #64748B;
+  }
+
+  .mobile-search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    color: #0F172A;
+    outline: none;
+  }
+
+  .mobile-search-bar input::placeholder {
+    color: #94A3B8;
+  }
+
+  /* ─────────────────────────────────────
+     MOBILE POI LIST
+     ───────────────────────────────────── */
+  .mobile-poi-section {
+    padding: 0 0 16px 0;
+  }
+
+  .mobile-poi-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  .mobile-poi-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .mobile-poi-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 115, 255, 0.12);
+    border-color: #1E73FF;
+  }
+
+  .mobile-poi-card-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .mobile-poi-card-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mobile-poi-card-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 2px;
+  }
+
+  .mobile-poi-card-category {
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .mobile-poi-card i:last-child {
+    color: #94A3B8;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .mobile-poi-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 24px;
+    color: #94A3B8;
+  }
+
+  .mobile-poi-empty i {
+    font-size: 28px;
+    opacity: 0.5;
+  }
+
+  /* ─────────────────────────────────────
+     MOBILE POI DETAIL
+     ───────────────────────────────────── */
+  .mobile-poi-detail {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 80vh;
+    background: #FFFFFF;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.12);
+    z-index: 99;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+  }
+
+  .mobile-poi-detail-header {
+    position: relative;
+    padding: 20px;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 80px;
+  }
+
+  .mobile-detail-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-detail-close:active {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .mobile-detail-header-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+  }
+
+  .mobile-poi-detail-body {
+    padding: 20px;
+  }
+
+  .mobile-poi-detail-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 4px;
+  }
+
+  .mobile-poi-detail-category {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1E73FF;
+    margin-bottom: 12px;
+  }
+
+  .mobile-poi-detail-desc {
+    font-size: 13px;
+    color: #64748B;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .mobile-poi-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .mobile-detail-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-poi-detail-coords {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #94A3B8;
+    margin-bottom: 16px;
+    padding: 10px;
+    background: #F5F7FA;
+    border-radius: 8px;
+  }
+
+  .mobile-btn-fly {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1E73FF 0%, #1B66E8 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(30, 115, 255, 0.2);
+  }
+
+  .mobile-btn-fly:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(30, 115, 255, 0.3);
+  }
+
+  .mobile-btn-fly i {
+    margin-right: 4px;
+  }
+}

@@ -1,3 +1,5 @@
+<!-- DESKTOP VERSION -->
+<div class="desktop-campus">
 <div class="container page-pad">
   <div class="campus-header">
     <div class="eyebrow">
@@ -126,4 +128,116 @@
       }
     </div>
   </div>
+</div>
+</div>
+
+<!-- MOBILE VERSION -->
+<div class="mobile-campus">
+  <main class="mobile-main">
+    <!-- Mobile Header -->
+    <section class="mobile-campus-header">
+      <div class="mobile-campus-eyebrow">
+        <div class="mobile-eyebrow-line"></div>
+        <span class="mobile-eyebrow-text">Campus UTMACH</span>
+      </div>
+      <h1 class="mobile-campus-title">Explora el campus</h1>
+      <p class="mobile-campus-desc">Descubre las instalaciones y servicios disponibles</p>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="mobile-campus-stats">
+      @for (stat of stats | slice:0:3; track stat.label) {
+        <div class="mobile-stat-card">
+          <div class="mobile-stat-icon" [style.background]="stat.bg" [style.color]="stat.color">
+            <i [ngClass]="stat.icon"></i>
+          </div>
+          <div class="mobile-stat-num">{{ stat.value }}</div>
+          <div class="mobile-stat-label">{{ stat.label }}</div>
+        </div>
+      }
+    </section>
+
+    <!-- Mobile Map -->
+    <section class="mobile-campus-map-section">
+      <h3 class="mobile-section-title">Mapa del campus</h3>
+      <div id="campus-map-mobile" class="mobile-campus-map"></div>
+      <div class="mobile-map-legend">
+        <div class="mobile-legend-item"><div class="mobile-legend-dot" style="background:#1b6dff"></div> Facultad</div>
+        <div class="mobile-legend-item"><div class="mobile-legend-dot" style="background:#1D9E75"></div> Servicio</div>
+        <div class="mobile-legend-item"><div class="mobile-legend-dot" style="background:#E07B2A"></div> Deportes</div>
+      </div>
+    </section>
+
+    <!-- Mobile Search -->
+    <section class="mobile-poi-search">
+      <div class="mobile-search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          placeholder="Buscar lugar..."
+          [value]="searchTerm"
+          (input)="onSearchChange($any($event.target).value)">
+      </div>
+    </section>
+
+    <!-- Mobile POI List -->
+    <section class="mobile-poi-section">
+      <h3 class="mobile-section-title">Puntos de interés ({{ filteredPois.length }})</h3>
+      <div class="mobile-poi-cards">
+        @for (poi of filteredPois; track poi.id) {
+          <div class="mobile-poi-card" [class.active]="selectedPoiId === poi.id" (click)="selectPoi(poi)">
+            <div class="mobile-poi-card-icon" [style.background]="poi.bgPale" [style.color]="poi.color">
+              <i [ngClass]="poi.icon"></i>
+            </div>
+            <div class="mobile-poi-card-content">
+              <div class="mobile-poi-card-name">{{ poi.name }}</div>
+              <div class="mobile-poi-card-category" [style.color]="catMeta[poi.cat].color">
+                {{ catMeta[poi.cat].label }}
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        }
+        @if (filteredPois.length === 0) {
+          <div class="mobile-poi-empty">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Sin resultados</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Mobile POI Detail -->
+    @if (selectedPoi) {
+      <section class="mobile-poi-detail">
+        <div class="mobile-poi-detail-header" [style.background]="selectedPoi.color">
+          <button class="mobile-detail-close" (click)="selectedPoi = null">
+            <i class="fa-solid fa-times"></i>
+          </button>
+          <div class="mobile-detail-header-icon" [style.background]="selectedPoi.bgPale" [style.color]="selectedPoi.color">
+            <i [ngClass]="selectedPoi.icon"></i>
+          </div>
+        </div>
+        <div class="mobile-poi-detail-body">
+          <div class="mobile-poi-detail-name">{{ selectedPoi.name }}</div>
+          <div class="mobile-poi-detail-category">{{ catMeta[selectedPoi.cat].label }}</div>
+          <p class="mobile-poi-detail-desc">{{ selectedPoi.desc }}</p>
+          <div class="mobile-poi-detail-tags">
+            @for (tag of selectedPoi.tags; track tag.label) {
+              <span class="mobile-detail-tag" [style.color]="tag.color" [style.background]="tag.bg">
+                <i [ngClass]="selectedPoi.icon"></i> {{ tag.label }}
+              </span>
+            }
+          </div>
+          <div class="mobile-poi-detail-coords">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            {{ selectedPoi.lat.toFixed(5) }}, {{ selectedPoi.lng.toFixed(5) }}
+          </div>
+          <button class="mobile-btn-fly" (click)="flyToSelected()">
+            <i class="fa-solid fa-location-dot"></i> Ver en mapa
+          </button>
+        </div>
+      </section>
+    }
+  </main>
 </div>
