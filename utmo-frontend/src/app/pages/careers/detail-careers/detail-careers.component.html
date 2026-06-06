@@ -133,11 +133,13 @@
         </p>
       </div>
 
-      @if (carrera.link_malla) {
-        <button class="btn-malla" (click)="descargarMalla(carrera)">
-          <i class="fa-solid fa-file-pdf"></i> Descargar Malla Curricular
-        </button>
-      }
+      <div class="malla-actions">
+        @if (carrera.link_malla) {
+          <button class="btn-malla" (click)="descargarMalla(carrera)">
+            <i class="fa-solid fa-file"></i> Descargar Malla Curricular
+          </button>
+        }
+      </div>
 
       <div class="pensum-grid">
         @for (materia of getPensum(carrera); track materia.id) {
@@ -161,19 +163,24 @@
           <p>Una probada rápida de lo que estudiarás en {{ carrera.nombre }}</p>
         </div>
       </div>
+
       <div class="clase-body">
-        <div class="info-card">
-          <div class="info-card-title">
-            <i class="fa-solid fa-book-open"></i> ¿Qué aprenderás?
+        @if (getClases(carrera).length === 0) {
+          <div class="clase-tip">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Contenido de mini clase no disponible aún.</p>
           </div>
-          <p>
-            <!--
-            {{
-              getMiniClase(carrera) ||
-                "Contenido de mini clase no disponible aún."
-            }}
-          --></p>
-        </div>
+        }
+
+        @for (clase of getClases(carrera); track clase.id) {
+          <div class="info-card">
+            <div class="info-card-title">
+              <i class="fa-solid fa-book-open"></i> {{ clase.titulo }}
+            </div>
+            <p>{{ clase.contenido }}</p>
+          </div>
+        }
+
         <div class="clase-tip">
           <i class="fa-solid fa-lightbulb"></i>
           <p>

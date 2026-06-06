@@ -799,6 +799,12 @@
   }
 }
 
+.malla-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.25rem;
+}
+
 .btn-malla {
   display: inline-flex;
   align-items: center;

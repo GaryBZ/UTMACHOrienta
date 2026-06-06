@@ -1,3 +1,4 @@
+import { Clases } from './../../../core/models/clases.model';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Carrera } from '../../../core/models/carrera.model';
@@ -20,6 +21,7 @@ export class DetailCareersComponent {
   private _carrera: Carrera | null = null;
   @Input() facultadesById = new Map<number, Facultad>();
   @Input() pensums: Pensum[] = [];
+  @Input() clases: Clases[] = [];
 
   @Input() set carrera(value: Carrera | null) {
     this._carrera = value;
@@ -93,6 +95,12 @@ export class DetailCareersComponent {
   }
 
   private resetDetailState() {}
+
+  getClases(carrera: Carrera): Clases[] {
+    return this.clases
+      .filter(c => c.id_carrera === carrera.id)
+      .sort((a, b) => a.orden - b.orden);
+  }
 
   descargarMalla(carrera: Carrera): void {
   if (!carrera.link_malla) return;
