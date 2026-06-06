@@ -8,6 +8,8 @@ import { Carrera } from '../../core/models/carrera.model';
 import { Facultad } from '../../core/models/facultad.model';
 import { CarreraService } from '../../core/services/carrera.service';
 import { FacultadService } from '../../core/services/facultad.service';
+import { Pensum } from '../../core/models/pensum.model';
+import { PensumService } from '../../core/services/pensum.service';
 
 @Component({
   selector: 'app-careers',
@@ -18,6 +20,7 @@ import { FacultadService } from '../../core/services/facultad.service';
 export class CareersComponent implements OnInit {
   carreras: Carrera[] = [];
   filteredCarreras: Carrera[] = [];
+  pensums: Pensum[] = [];
   selectedCarrera: Carrera | null = null;
   activeFac = 'all';
   searchTerm = '';
@@ -29,6 +32,7 @@ export class CareersComponent implements OnInit {
   constructor(
     private carreraService: CarreraService,
     private facultadService: FacultadService,
+    private pensumService: PensumService,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) {}
@@ -71,10 +75,12 @@ export class CareersComponent implements OnInit {
   private loadInitialData() {
     forkJoin({
       facultades: this.facultadService.getAll().pipe(catchError(() => of([]))),
-      carreras: this.carreraService.getAll().pipe(catchError(() => of([])))
-    }).subscribe(({ facultades, carreras }) => {
+      carreras:   this.carreraService.getAll().pipe(catchError(() => of([]))),
+      pensums:    this.pensumService.getAll().pipe(catchError(() => of([])))
+    }).subscribe(({ facultades, carreras, pensums }) => {
       this.setFacultadMaps(facultades);
       this.carreras = carreras;
+      this.pensums  = pensums;   // ← nuevo
       this.filterCarreras();
       this.syncSelectionFromRoute();
     });

@@ -1,38 +1,18 @@
-/*
-* App Global CSS
-* Para importar fuentes
-*/
-
-/* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
 
-/* ─────────────────────────────────────
-   RESET GLOBAL
-───────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -62,8 +42,40 @@ ion-content {
 /* ─────────────────────────────────────
    SCROLLBAR PERSONALIZADO
 ───────────────────────────────────── */
-/* Firefox */
 * {
   scrollbar-color: var(--sky) transparent;
   scrollbar-width: thin;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(app){
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+}
+
+::view-transition-old(app){
+    animation: slide-out 0.7s ease forwards;
+}
+
+::view-transition-new(app){
+    animation: slide-in 0.7s ease forwards;
+}
+
+.app-router {
+  view-transition-name: app;
+}
+
+@keyframes slide-out {
+  to {
+    translate: -100vw;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    translate: 100vw;
+  }
 }

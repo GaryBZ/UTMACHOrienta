@@ -224,7 +224,7 @@
   border-radius: 20px;
   padding: 22px;
   box-shadow: var(--sh-lg);
-  animation: floatA 6s ease-in-out infinite;
+  //animation: floatA 6s ease-in-out infinite;
   z-index: 3;
 }
 .hcard-main-header {
@@ -291,7 +291,7 @@
 /* Float card B — Campus */
 .hcard-b {
   position: absolute;
-  bottom: 90px;
+  bottom: 95px;
   right: 0;
   width: 180px;
   background: var(--white);
@@ -299,7 +299,7 @@
   border-radius: 16px;
   padding: 16px;
   box-shadow: var(--sh-md);
-  animation: floatB 5s ease-in-out 1s infinite;
+  //animation: floatB 5s ease-in-out 1s infinite;
   z-index: 4;
 }
 .hcard-b-icon {
@@ -320,7 +320,7 @@
 /* Float card C — Admission alert */
 .hcard-c {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 10px;
   right: 100px;
   background: var(--sky);
@@ -330,7 +330,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  animation: floatC 4s ease-in-out .5s infinite;
+  //animation: floatC 4s ease-in-out .5s infinite;
   z-index: 5;
 }
 .hcard-c-icon {
@@ -403,6 +403,7 @@
 ═══════════════════════════════════════ */
 .modules-section {
   padding: 88px 0 72px;
+  border-bottom: 1px solid var(--line);
 }
 .section-intro {
   display: grid;
@@ -861,6 +862,7 @@
 ═══════════════════════════════════════ */
 .facultades-section {
   padding: 80px 0;
+  border-bottom: 1px solid var(--line);
 }
 .facultades-section .section-eyebrow {
   justify-content: center;

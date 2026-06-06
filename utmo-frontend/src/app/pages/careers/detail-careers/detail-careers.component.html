@@ -8,20 +8,25 @@
     <!-- Hero Header -->
     <div class="detail-hero">
       <div class="detail-hero-body">
-        <div class="detail-hero-icon" [ngClass]="getFacultadCode(carrera).toLowerCase()">
+        <div
+          class="detail-hero-icon"
+          [ngClass]="getFacultadCode(carrera).toLowerCase()"
+        >
           <i [ngClass]="getFacultadIcon(carrera)"></i>
         </div>
         <div class="detail-hero-main">
           <h1>{{ carrera.nombre }}</h1>
           <div class="detail-hero-meta">
             <div class="detail-hero-meta-item">
-              <i class="fa-solid fa-building"></i> {{ getFacultadNombre(carrera) }}
+              <i class="fa-solid fa-building"></i>
+              {{ getFacultadNombre(carrera) }}
             </div>
             <div class="detail-hero-meta-item">
               <i class="fa-solid fa-clock"></i> {{ getDuracionText(carrera) }}
             </div>
             <div class="detail-hero-meta-item">
-              <i class="fa-solid fa-book"></i> {{ getSemestres(carrera) }} semestres
+              <i class="fa-solid fa-book"></i>
+              {{ getSemestres(carrera) }} semestres
             </div>
           </div>
         </div>
@@ -32,30 +37,78 @@
         <div class="detail-puntaje-label">Puntaje</div>
         <div class="detail-puntaje-score">{{ getPuntaje(carrera) }}</div>
         <div class="detail-puntaje-max">/100</div>
-        <div class="detail-puntaje-hint">Tu afinidad estimada basada en perfil vocacional</div>
+        <div class="detail-puntaje-hint">
+          Tu afinidad estimada basada en perfil vocacional
+        </div>
       </div>
     </div>
 
-    <!-- Panel: Descripción -->
-    <div class="detail-panel active">
-      <div class="info-grid">
-        <div class="info-stat">
-          <div class="info-stat-label"><i class="fa-solid fa-graduation-cap"></i> Campo Laboral</div>
-          <div class="info-stat-value">{{ carrera.campo_laboral || 'No disponible' }}</div>
-        </div>
-        <div class="info-stat">
-          <div class="info-stat-label"><i class="fa-solid fa-layer-group"></i> Modalidad</div>
-          <div class="info-stat-value">{{ getModalidad(carrera) || 'No disponible' }}</div>
-        </div>
+<!-- Tab Nav -->
+      <div class="detail-tabs">
+        <button
+          class="detail-tab"
+          [ngClass]="{ active: activeTab === 'descripcion' }"
+          (click)="setTab('descripcion')"
+        >
+          <i class="fa-solid fa-align-left"></i> Descripción
+        </button>
+        <button
+          class="detail-tab"
+          [ngClass]="{ active: activeTab === 'pensum' }"
+          (click)="setTab('pensum')"
+        >
+          <i class="fa-solid fa-list"></i> Pensum
+        </button>
+        <button
+          class="detail-tab"
+          [ngClass]="{ active: activeTab === 'clase' }"
+          (click)="setTab('clase')"
+        >
+          <i class="fa-solid fa-chalkboard-teacher"></i> Mini Clase
+        </button>
+        <button
+          class="detail-tab"
+          [ngClass]="{ active: activeTab === 'examen' }"
+          (click)="setTab('examen')"
+        >
+          <i class="fa-solid fa-pen-to-square"></i> Examen
+        </button>
       </div>
 
+    <!-- Panel: Descripción -->
+    <div
+      class="detail-panel"
+      [ngClass]="{ active: activeTab === 'descripcion' }"
+    >
+      <div class="info-grid">
+        <div class="info-stat">
+          <div class="info-stat-label">
+            <i class="fa-solid fa-graduation-cap"></i> Campo Laboral
+          </div>
+          <div class="info-stat-value">
+            {{ carrera.campo_laboral || "No disponible" }}
+          </div>
+        </div>
+        <div class="info-stat">
+          <div class="info-stat-label">
+            <i class="fa-solid fa-layer-group"></i> Modalidad
+          </div>
+          <div class="info-stat-value">
+            {{ getModalidad(carrera) || "No disponible" }}
+          </div>
+        </div>
+      </div>
       <div class="info-card">
-        <div class="info-card-title"><i class="fa-solid fa-align-left"></i> Descripción General</div>
-        <p>{{ carrera.descripcion || 'Sin descripción' }}</p>
+        <div class="info-card-title">
+          <i class="fa-solid fa-align-left"></i> Descripción General
+        </div>
+        <p>{{ carrera.descripcion || "Sin descripción" }}</p>
       </div>
       @if (getEtiquetas(carrera).length > 0) {
         <div class="info-card">
-          <div class="info-card-title"><i class="fa-solid fa-briefcase"></i> Opciones de Carrera</div>
+          <div class="info-card-title">
+            <i class="fa-solid fa-briefcase"></i> Opciones de Carrera
+          </div>
           <div class="badge-list">
             @for (campo of getEtiquetas(carrera); track campo) {
               <span class="badge">{{ campo }}</span>
@@ -63,6 +116,162 @@
           </div>
         </div>
       }
+    </div>
+
+    <!-- Panel: Pensum -->
+    <div class="detail-panel" [ngClass]="{ active: activeTab === 'pensum' }">
+      <div class="info-card">
+        <div class="info-card-title">
+          <i class="fa-solid fa-book"></i> Materias Representativas
+        </div>
+        <p>
+        Estas asignaturas representan algunas de las materias más destacadas de cada semestre dentro de la carrera. A través de ellas, los estudiantes desarrollan conocimientos, habilidades y competencias fundamentales que fortalecen su formación académica y profesional a lo largo de su trayectoria universitaria.
+      </p>
+      </div>
+      <div class="pensum-grid">
+        @for (materia of getPensum(carrera); track materia.id) {
+          <div class="pensum-item">
+            <div class="pensum-num">{{ materia.semestre }}</div>
+            <div class="pensum-sem">Semestre {{ materia.semestre }}</div>
+            <div class="pensum-mat">{{ materia.nombre_materia }}</div>
+
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Panel: Mini Clase -->
+    <div class="detail-panel" [ngClass]="{ active: activeTab === 'clase' }">
+      <div class="clase-banner">
+        <div class="clase-banner-icon">
+          <i class="fa-solid fa-chalkboard-teacher"></i>
+        </div>
+        <div>
+          <h3>Mini clase introductoria</h3>
+          <p>Una probada rápida de lo que estudiarás en {{ carrera.nombre }}</p>
+        </div>
+      </div>
+      <div class="clase-body">
+        <div class="info-card">
+          <div class="info-card-title">
+            <i class="fa-solid fa-book-open"></i> ¿Qué aprenderás?
+          </div>
+          <p>
+            <!--
+            {{
+              getMiniClase(carrera) ||
+                "Contenido de mini clase no disponible aún."
+            }}
+          --></p>
+        </div>
+        <div class="clase-tip">
+          <i class="fa-solid fa-lightbulb"></i>
+          <p>
+            Completa la mini clase antes de rendir el examen para conocer mejor
+            tu afinidad con esta carrera.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel: Examen -->
+    <div class="detail-panel" [ngClass]="{ active: activeTab === 'examen' }">
+      <div class="exam-intro">
+        <i class="fa-solid fa-circle-info"></i>
+        <p>
+          Responde las preguntas para ver tu afinidad con esta carrera.
+          <strong>Selecciona una opción</strong> por pregunta y pulsa Verificar
+          al terminar.
+        </p>
+      </div>
+      <!--
+      @for (q of getPreguntas(carrera); track q.id; let i = $index) {
+        <div class="examen-q">
+          <div class="examen-q-num">Q{{ i + 1 }}</div>
+          <div class="examen-q-text">{{ q.pregunta }}</div>
+          <div class="examen-opts">
+            @for (opt of q.opciones; track opt) {
+              <button
+                class="examen-opt"
+                [ngClass]="{
+                  sel: respuestas[q.id] === opt && !checked,
+                  correct: checked && opt === q.correcta,
+                  wrong:
+                    checked && respuestas[q.id] === opt && opt !== q.correcta,
+                }"
+                (click)="seleccionar(q.id, opt)"
+                [disabled]="checked"
+              >
+                <span class="examen-dot"
+                  ><span class="examen-dot-inner"></span
+                ></span>
+                {{ opt }}
+                @if (checked && opt === q.correcta) {
+                  <i class="fa-solid fa-check opt-feedback-icon"></i>
+                }
+                @if (
+                  checked && respuestas[q.id] === opt && opt !== q.correcta
+                ) {
+                  <i class="fa-solid fa-xmark opt-feedback-icon"></i>
+                }
+              </button>
+            }
+          </div>
+        </div>
+      }
+        --
+
+      @if (!checked) {
+        <div class="exam-actions">
+          <button
+            class="btn-check"
+            [disabled]="!todasRespondidas()"
+            (click)="verificar()"
+          >
+            <i class="fa-solid fa-check"></i> Verificar respuestas
+          </button>
+          <button class="btn-reset" (click)="resetExamen()">
+            <i class="fa-solid fa-rotate-left"></i> Reiniciar
+          </button>
+        </div>
+      }
+
+      @if (checked) {
+        <div class="exam-result" [ngClass]="resultado.pass ? 'pass' : 'fail'">
+          <div class="exam-result-icon">
+            <i
+              [ngClass]="
+                resultado.pass
+                  ? 'fa-solid fa-trophy'
+                  : 'fa-solid fa-rotate-left'
+              "
+            ></i>
+          </div>
+          <div>
+            <div class="exam-result-title">
+              {{ resultado.pass ? "¡Buen resultado!" : "Sigue intentando" }}
+            </div>
+            <div class="exam-result-desc">
+              Obtuviste {{ resultado.correctas }} de
+              {{ resultado.total }} correctas.
+            </div>
+            <div class="score-bar-wrap">
+              <div class="score-bar-bg">
+                <div
+                  class="score-bar-fill"
+                  [style.width]="resultado.pct + '%'"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="exam-actions">
+          <button class="btn-reset" (click)="resetExamen()">
+            <i class="fa-solid fa-rotate-left"></i> Intentar de nuevo
+          </button>
+        </div>
+      }
+        -->
     </div>
   </div>
 }

@@ -229,7 +229,7 @@
 	gap: 6px;
 	font-size: 11px;
 	font-weight: 700;
-	color: var(--muted);
+	color: var(--ink);
 	letter-spacing: .05em;
 	text-transform: uppercase;
 	margin-bottom: 8px;
@@ -315,59 +315,62 @@
 
 /* ─ Panel: Pensum ─ */
 .pensum-intro {
-	font-size: 13px;
-	color: var(--ink2);
-	margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
 }
 
 .pensum-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-	gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
 }
 
 .pensum-item {
-	background: var(--surface);
-	border: 1px solid var(--line);
-	border-radius: 10px;
-	padding: 14px;
-	text-align: center;
-	transition: all .15s;
-}
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: var(--sh-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: box-shadow 0.2s, transform 0.2s;
 
-.pensum-item:hover {
-	border-color: var(--sky-mid);
+  &:hover {
+    box-shadow: var(--sh-md);
+    transform: translateY(-2px);
+  }
 }
 
 .pensum-num {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 32px;
-	height: 32px;
-	background: var(--sky-pale);
-	border: 1.5px solid var(--sky-mid);
-	border-radius: 8px;
-	font-size: 13px;
-	font-weight: 800;
-	color: var(--sky);
-	font-family: var(--font-mono);
-	margin: 0 auto 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--sky-pale);
+  color: var(--sky);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  margin-bottom: 0.25rem;
 }
 
 .pensum-sem {
-	font-size: 11px;
-	font-weight: 600;
-	color: var(--muted);
-	text-transform: uppercase;
-	letter-spacing: .04em;
-	margin-bottom: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .pensum-mat {
-	font-size: 13px;
-	font-weight: 600;
-	color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
 }
 
 /* ─ Panel: Clase ─ */
@@ -764,6 +767,36 @@
 
 .exam-result.fail .score-bar-fill {
 	background: var(--red);
+}
+
+.detail-tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.detail-tab {
+  padding: 0.6rem 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.875rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+
+  i { margin-right: 0.3rem; }
+
+  &:hover { color: #111827; }
+
+  &.active {
+    color: var(--sky);
+    border-bottom-color: var(--sky);
+    font-weight: 600;
+  }
 }
 
 @keyframes fadeUp {
