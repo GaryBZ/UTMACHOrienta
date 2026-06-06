@@ -18,3 +18,6 @@ utmo-frontend/www/
 
 # Logs
 **/*.log
+
+# Python virtual environment
+**/venv/
