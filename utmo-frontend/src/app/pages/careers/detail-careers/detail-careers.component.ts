@@ -93,4 +93,14 @@ export class DetailCareersComponent {
   }
 
   private resetDetailState() {}
+
+  descargarMalla(carrera: Carrera): void {
+  if (!carrera.link_malla) return;
+
+  const link = document.createElement('a');
+  link.href = carrera.link_malla;
+  link.target = '_blank';
+  link.download = `malla-${carrera.nombre.toLowerCase().replace(/\s+/g, '-')}.pdf`;
+  link.click();
+}
 }

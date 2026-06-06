@@ -43,37 +43,37 @@
       </div>
     </div>
 
-<!-- Tab Nav -->
-      <div class="detail-tabs">
-        <button
-          class="detail-tab"
-          [ngClass]="{ active: activeTab === 'descripcion' }"
-          (click)="setTab('descripcion')"
-        >
-          <i class="fa-solid fa-align-left"></i> Descripción
-        </button>
-        <button
-          class="detail-tab"
-          [ngClass]="{ active: activeTab === 'pensum' }"
-          (click)="setTab('pensum')"
-        >
-          <i class="fa-solid fa-list"></i> Pensum
-        </button>
-        <button
-          class="detail-tab"
-          [ngClass]="{ active: activeTab === 'clase' }"
-          (click)="setTab('clase')"
-        >
-          <i class="fa-solid fa-chalkboard-teacher"></i> Mini Clase
-        </button>
-        <button
-          class="detail-tab"
-          [ngClass]="{ active: activeTab === 'examen' }"
-          (click)="setTab('examen')"
-        >
-          <i class="fa-solid fa-pen-to-square"></i> Examen
-        </button>
-      </div>
+    <!-- Tab Nav -->
+    <div class="detail-tabs">
+      <button
+        class="detail-tab"
+        [ngClass]="{ active: activeTab === 'descripcion' }"
+        (click)="setTab('descripcion')"
+      >
+        <i class="fa-solid fa-align-left"></i> Descripción
+      </button>
+      <button
+        class="detail-tab"
+        [ngClass]="{ active: activeTab === 'pensum' }"
+        (click)="setTab('pensum')"
+      >
+        <i class="fa-solid fa-list"></i> Pensum
+      </button>
+      <button
+        class="detail-tab"
+        [ngClass]="{ active: activeTab === 'clase' }"
+        (click)="setTab('clase')"
+      >
+        <i class="fa-solid fa-chalkboard-teacher"></i> Mini Clase
+      </button>
+      <button
+        class="detail-tab"
+        [ngClass]="{ active: activeTab === 'examen' }"
+        (click)="setTab('examen')"
+      >
+        <i class="fa-solid fa-pen-to-square"></i> Examen
+      </button>
+    </div>
 
     <!-- Panel: Descripción -->
     <div
@@ -125,16 +125,26 @@
           <i class="fa-solid fa-book"></i> Materias Representativas
         </div>
         <p>
-        Estas asignaturas representan algunas de las materias más destacadas de cada semestre dentro de la carrera. A través de ellas, los estudiantes desarrollan conocimientos, habilidades y competencias fundamentales que fortalecen su formación académica y profesional a lo largo de su trayectoria universitaria.
-      </p>
+          Estas asignaturas representan algunas de las materias más destacadas
+          de cada semestre dentro de la carrera. A través de ellas, los
+          estudiantes desarrollan conocimientos, habilidades y competencias
+          fundamentales que fortalecen su formación académica y profesional a lo
+          largo de su trayectoria universitaria.
+        </p>
       </div>
+
+      @if (carrera.link_malla) {
+        <button class="btn-malla" (click)="descargarMalla(carrera)">
+          <i class="fa-solid fa-file-pdf"></i> Descargar Malla Curricular
+        </button>
+      }
+
       <div class="pensum-grid">
         @for (materia of getPensum(carrera); track materia.id) {
           <div class="pensum-item">
             <div class="pensum-num">{{ materia.semestre }}</div>
             <div class="pensum-sem">Semestre {{ materia.semestre }}</div>
             <div class="pensum-mat">{{ materia.nombre_materia }}</div>
-
           </div>
         }
       </div>

@@ -799,6 +799,29 @@
   }
 }
 
+.btn-malla {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  transition: opacity 0.2s, transform 0.2s;
+
+  &:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  i { font-size: 1rem; }
+}
+
 @keyframes fadeUp {
 	from {
 		opacity: 0;

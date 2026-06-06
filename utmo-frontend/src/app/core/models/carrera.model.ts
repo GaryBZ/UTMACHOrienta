@@ -10,4 +10,5 @@ export interface Carrera {
   campo_laboral: string | null;
   etiquetas: string[] | null;
   activa: boolean | null;
+  link_malla?: string | null;
 }
