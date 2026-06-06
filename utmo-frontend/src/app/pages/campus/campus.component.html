@@ -1,135 +1,298 @@
 <!-- DESKTOP VERSION -->
 <div class="desktop-campus">
-<div class="container page-pad">
-  <div class="campus-header">
-    <div class="eyebrow">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">Visualizador de campus</span>
-    </div>
-    <h1>Mapa interactivo del campus</h1>
-    <p>Explora las instalaciones, facultades y servicios de la Universidad Tecnica de Machala · Machala, El Oro</p>
-  </div>
-
-  <div class="campus-stats">
-    @for (stat of stats; track stat.label) {
-      <div class="cstat">
-        <div class="cstat-icon" [style.background]="stat.bg" [style.color]="stat.color">
-          <i [ngClass]="stat.icon"></i>
-        </div>
-        <div>
-          <div class="cstat-num">{{ stat.value }}</div>
-          <div class="cstat-lbl">{{ stat.label }}</div>
-        </div>
+  <div class="container page-pad">
+    <div class="campus-header">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Visualizador de campus</span>
       </div>
-    }
-  </div>
-
-  <div class="campus-layout">
-    <div class="map-panel">
-      <div class="map-toolbar">
-        <div class="map-category-chips">
-          @for (chip of categoryChips; track chip.value) {
-            <button
-              class="mchip"
-              [class.active]="activeCat === chip.value"
-              [ngClass]="chip.className"
-              (click)="setCategory(chip.value)">
-              <i [ngClass]="chip.icon"></i> {{ chip.label }}
-            </button>
-          }
-        </div>
-      </div>
-
-      <div id="campus-map"></div>
-
-      <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#1b6dff"></div> Facultad</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div> Servicio</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#E07B2A"></div> Deportes</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#7C3AED"></div> Administracion</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#DC2626"></div> Biblioteca</div>
-      </div>
+      <h1>Mapa interactivo del campus</h1>
+      <p>
+        Explora las instalaciones, facultades y servicios de la Universidad
+        Tecnica de Machala · Machala, El Oro
+      </p>
     </div>
 
-    <div class="campus-sidebar">
-      <div class="sidebar-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input
-          type="text"
-          placeholder="Buscar lugar en el campus..."
-          [value]="searchTerm"
-          (input)="onSearchChange($any($event.target).value)">
-      </div>
-
-      <div class="poi-list-card">
-        <div class="poi-list-header">
-          <div class="poi-list-title"><i class="fa-solid fa-location-dot"></i> Puntos de interes</div>
-          <span class="poi-count">{{ filteredPois.length }}</span>
-        </div>
-        <div class="poi-list">
-          @for (group of groupedPois; track group.cat) {
-            <div class="poi-group-header" [style.color]="group.color" [style.background]="group.bg">
-              {{ group.label }}
-            </div>
-            @for (poi of group.items; track poi.id) {
-              <div class="poi-item" [class.active]="selectedPoiId === poi.id" [attr.data-poi-id]="poi.id" (click)="selectPoi(poi)">
-                <div class="poi-item-icon" [style.background]="poi.bgPale" [style.color]="poi.color">
-                  <i [ngClass]="poi.icon"></i>
-                </div>
-                <div class="poi-item-body">
-                  <div class="poi-item-name">{{ poi.name }}</div>
-                  <div class="poi-item-sub">{{ poi.short }}</div>
-                </div>
-                <i class="fa-solid fa-chevron-right poi-item-arrow"></i>
-              </div>
-            }
-          }
-          @if (filteredPois.length === 0) {
-            <div class="poi-empty">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <span>Sin resultados</span>
-            </div>
-          }
-        </div>
-      </div>
-
-      @if (selectedPoi) {
-        <div class="poi-detail-card visible">
-          <div class="poi-detail-stripe" [style.background]="selectedPoi.color"></div>
-          <div class="poi-detail-head">
-            <div class="poi-detail-icon" [style.background]="selectedPoi.bgPale" [style.color]="selectedPoi.color">
-              <i [ngClass]="selectedPoi.icon"></i>
-            </div>
-            <div>
-              <div class="poi-detail-name">{{ selectedPoi.name }}</div>
-              <div class="poi-detail-cat" [style.color]="catMeta[selectedPoi.cat].color">
-                {{ catMeta[selectedPoi.cat].label }}
-              </div>
-            </div>
+    <div class="campus-stats">
+      @for (stat of stats; track stat.label) {
+        <div class="cstat">
+          <div
+            class="cstat-icon"
+            [style.background]="stat.bg"
+            [style.color]="stat.color"
+          >
+            <i [ngClass]="stat.icon"></i>
           </div>
-          <div class="poi-detail-body">
-            <div class="poi-detail-desc">{{ selectedPoi.desc }}</div>
-            <div class="poi-detail-tags">
-              @for (tag of selectedPoi.tags; track tag.label) {
-                <span class="detail-tag" [style.color]="tag.color" [style.background]="tag.bg" [style.border-color]="tag.color + '40'">
-                  <i [ngClass]="selectedPoi.icon"></i>{{ tag.label }}
-                </span>
-              }
-            </div>
-            <div class="poi-detail-coords">
-              <i class="fa-solid fa-location-crosshairs"></i>
-              {{ selectedPoi.lat.toFixed(5) }}, {{ selectedPoi.lng.toFixed(5) }}
-            </div>
-            <button class="btn-fly" (click)="flyToSelected()">
-              <i class="fa-solid fa-location-dot"></i> Centrar en el mapa
-            </button>
+          <div>
+            <div class="cstat-num">{{ stat.value }}</div>
+            <div class="cstat-lbl">{{ stat.label }}</div>
           </div>
         </div>
       }
     </div>
+
+    <div class="campus-layout">
+      <div class="map-panel">
+        <div class="map-toolbar">
+          <div class="map-category-chips">
+            @for (chip of categoryChips; track chip.value) {
+              <button
+                class="mchip"
+                [class.active]="activeCat === chip.value"
+                [ngClass]="chip.className"
+                (click)="setCategory(chip.value)"
+              >
+                <i [ngClass]="chip.icon"></i> {{ chip.label }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div id="campus-map"></div>
+
+        <div class="map-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background: #1b6dff"></div>
+            Facultad
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: #1d9e75"></div>
+            Servicio
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: #e07b2a"></div>
+            Deportes
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: #7c3aed"></div>
+            Administracion
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: #dc2626"></div>
+            Biblioteca
+          </div>
+        </div>
+      </div>
+
+      <div class="campus-sidebar">
+        <div class="sidebar-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            placeholder="Buscar lugar en el campus..."
+            [value]="searchTerm"
+            (input)="onSearchChange($any($event.target).value)"
+          />
+        </div>
+
+        <div class="poi-list-card">
+          <div class="poi-list-header">
+            <div class="poi-list-title">
+              <i class="fa-solid fa-location-dot"></i> Puntos de interes
+            </div>
+            <span class="poi-count">{{ filteredPois.length }}</span>
+          </div>
+          <div class="poi-list">
+            @for (group of groupedPois; track group.cat) {
+              <div
+                class="poi-group-header"
+                [style.color]="group.color"
+                [style.background]="group.bg"
+              >
+                {{ group.label }}
+              </div>
+              @for (poi of group.items; track poi.id) {
+                <div
+                  class="poi-item"
+                  [class.active]="selectedPoiId === poi.id"
+                  [attr.data-poi-id]="poi.id"
+                  (click)="selectPoi(poi)"
+                >
+                  <div
+                    class="poi-item-icon"
+                    [style.background]="poi.bgPale"
+                    [style.color]="poi.color"
+                  >
+                    <i [ngClass]="poi.icon"></i>
+                  </div>
+                  <div class="poi-item-body">
+                    <div class="poi-item-name">{{ poi.name }}</div>
+                    <div class="poi-item-sub">{{ poi.short }}</div>
+                  </div>
+                  <i class="fa-solid fa-chevron-right poi-item-arrow"></i>
+                </div>
+              }
+            }
+            @if (filteredPois.length === 0) {
+              <div class="poi-empty">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Sin resultados</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        @if (selectedPoi) {
+          <div class="poi-detail-card visible">
+            <div
+              class="poi-detail-stripe"
+              [style.background]="selectedPoi.color"
+            ></div>
+            <div class="poi-detail-head">
+              <div
+                class="poi-detail-icon"
+                [style.background]="selectedPoi.bgPale"
+                [style.color]="selectedPoi.color"
+              >
+                <i [ngClass]="selectedPoi.icon"></i>
+              </div>
+              <div>
+                <div class="poi-detail-name">{{ selectedPoi.name }}</div>
+                <div
+                  class="poi-detail-cat"
+                  [style.color]="catMeta[selectedPoi.cat].color"
+                >
+                  {{ catMeta[selectedPoi.cat].label }}
+                </div>
+              </div>
+            </div>
+            <div class="poi-detail-body">
+              <div class="poi-detail-desc">{{ selectedPoi.desc }}</div>
+              <div class="poi-detail-tags">
+                @for (tag of selectedPoi.tags; track tag.label) {
+                  <span
+                    class="detail-tag"
+                    [style.color]="tag.color"
+                    [style.background]="tag.bg"
+                    [style.border-color]="tag.color + '40'"
+                  >
+                    <i [ngClass]="selectedPoi.icon"></i>{{ tag.label }}
+                  </span>
+                }
+              </div>
+              <div class="poi-detail-coords">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                {{ selectedPoi.lat.toFixed(5) }},
+                {{ selectedPoi.lng.toFixed(5) }}
+              </div>
+              <button class="btn-fly" (click)="flyToSelected()">
+                <i class="fa-solid fa-location-dot"></i> Centrar en el mapa
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
   </div>
 </div>
-</div>
+
+<section class="modules-section">
+  <div class="container">
+
+    <!-- Solo el título aquí -->
+    <div class="section-intro">
+      <div>
+        <div class="section-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Admisión 2026</span>
+        </div>
+        <h2 class="section-h2">
+          Proceso de <em>Matricula</em>
+        </h2>
+        <p class="section-p">
+          Toda la información actualizada sobre fechas, requisitos y proceso de ingreso a la UTMACH.
+        </p>
+      </div>
+    </div>
+
+    <div class="admit-cards-grid">
+      <div class="admit-card highlight">
+        <div class="admit-card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+        <div class="admit-card-label">Inscripciones abiertas</div>
+        <div class="admit-card-date">Ago — Oct 2026</div>
+        <div class="admit-card-desc">Período de postulación para el primer semestre del ciclo 2026-2027.</div>
+      </div>
+      <div class="admit-card">
+        <div class="admit-card-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <div class="admit-card-label">Requisitos</div>
+        <div class="admit-card-desc">Título de bachiller, cédula de identidad, foto carnet, puntaje SNNA mínimo aprobatorio según carrera.</div>
+      </div>
+      <div class="admit-card">
+        <div class="admit-card-icon"><i class="fa-solid fa-laptop"></i></div>
+        <div class="admit-card-label">Postulación online</div>
+        <div class="admit-card-desc">Proceso 100% digital a través del portal del SNNA. No necesitas acercarte a la universidad en esta etapa.</div>
+      </div>
+      <div class="admit-card">
+        <div class="admit-card-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+        <div class="admit-card-label">Costo de matrícula</div>
+        <div class="admit-card-desc">La UTMACH es pública y gratuita. Los trámites de matrícula no tienen costo para los estudiantes admitidos.</div>
+      </div>
+    </div>
+
+    <!-- Cronograma + FAQ: FUERA del section-intro -->
+    <div class="admit-bottom-grid">
+      <div class="admit-section">
+        <div class="admit-section-title">
+          <i class="fa-solid fa-users-line"></i> Cronograma de admisión
+        </div>
+        <div class="cronograma">
+          <div class="crono-item done">
+            <div class="crono-dot"><i class="fa-solid fa-check"></i></div>
+            <div class="crono-line"></div>
+            <div class="crono-body">
+              <div class="crono-title">Apertura de inscripciones</div>
+              <div class="crono-sub">1 de agosto 2025 — Portal SNNA</div>
+            </div>
+          </div>
+          <div class="crono-item done">
+            <div class="crono-dot"><i class="fa-solid fa-check"></i></div>
+            <div class="crono-line"></div>
+            <div class="crono-body">
+              <div class="crono-title">Cierre de postulaciones</div>
+              <div class="crono-sub">15 de octubre 2025</div>
+            </div>
+          </div>
+          <div class="crono-item active">
+            <div class="crono-dot"><i class="fa-solid fa-clock"></i></div>
+            <div class="crono-line"></div>
+            <div class="crono-body">
+              <div class="crono-title">Publicación de resultados</div>
+              <div class="crono-sub">30 de octubre 2025</div>
+            </div>
+          </div>
+          <div class="crono-item">
+            <div class="crono-dot"><i class="fa-solid fa-clock"></i></div>
+            <div class="crono-line"></div>
+            <div class="crono-body">
+              <div class="crono-title">Matrícula presencial</div>
+              <div class="crono-sub">Nov 10-20 de 2025 en la UTMACH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admit-section">
+        <div class="admit-section-title">
+          <i class="fa-solid fa-circle-question"></i> Preguntas frecuentes
+        </div>
+        <div class="faq-list">
+          @for (item of faqs; track item.id) {
+            <div class="faq-item" [ngClass]="{ open: item.open }" (click)="toggleFaq(item)">
+              <div class="faq-q">
+                {{ item.pregunta }}
+                <i class="fa-solid fa-chevron-down faq-icon"></i>
+              </div>
+              @if (item.open) {
+                <div class="faq-a">{{ item.respuesta }}</div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- MOBILE VERSION -->
 <div class="mobile-campus">
@@ -141,14 +304,20 @@
         <span class="mobile-eyebrow-text">Campus UTMACH</span>
       </div>
       <h1 class="mobile-campus-title">Explora el campus</h1>
-      <p class="mobile-campus-desc">Descubre las instalaciones y servicios disponibles</p>
+      <p class="mobile-campus-desc">
+        Descubre las instalaciones y servicios disponibles
+      </p>
     </section>
 
     <!-- Quick Stats -->
     <section class="mobile-campus-stats">
-      @for (stat of stats | slice:0:3; track stat.label) {
+      @for (stat of stats | slice: 0 : 3; track stat.label) {
         <div class="mobile-stat-card">
-          <div class="mobile-stat-icon" [style.background]="stat.bg" [style.color]="stat.color">
+          <div
+            class="mobile-stat-icon"
+            [style.background]="stat.bg"
+            [style.color]="stat.color"
+          >
             <i [ngClass]="stat.icon"></i>
           </div>
           <div class="mobile-stat-num">{{ stat.value }}</div>
@@ -162,9 +331,18 @@
       <h3 class="mobile-section-title">Mapa del campus</h3>
       <div id="campus-map-mobile" class="mobile-campus-map"></div>
       <div class="mobile-map-legend">
-        <div class="mobile-legend-item"><div class="mobile-legend-dot" style="background:#1b6dff"></div> Facultad</div>
-        <div class="mobile-legend-item"><div class="mobile-legend-dot" style="background:#1D9E75"></div> Servicio</div>
-        <div class="mobile-legend-item"><div class="mobile-legend-dot" style="background:#E07B2A"></div> Deportes</div>
+        <div class="mobile-legend-item">
+          <div class="mobile-legend-dot" style="background: #1b6dff"></div>
+          Facultad
+        </div>
+        <div class="mobile-legend-item">
+          <div class="mobile-legend-dot" style="background: #1d9e75"></div>
+          Servicio
+        </div>
+        <div class="mobile-legend-item">
+          <div class="mobile-legend-dot" style="background: #e07b2a"></div>
+          Deportes
+        </div>
       </div>
     </section>
 
@@ -176,22 +354,36 @@
           type="text"
           placeholder="Buscar lugar..."
           [value]="searchTerm"
-          (input)="onSearchChange($any($event.target).value)">
+          (input)="onSearchChange($any($event.target).value)"
+        />
       </div>
     </section>
 
     <!-- Mobile POI List -->
     <section class="mobile-poi-section">
-      <h3 class="mobile-section-title">Puntos de interés ({{ filteredPois.length }})</h3>
+      <h3 class="mobile-section-title">
+        Puntos de interés ({{ filteredPois.length }})
+      </h3>
       <div class="mobile-poi-cards">
         @for (poi of filteredPois; track poi.id) {
-          <div class="mobile-poi-card" [class.active]="selectedPoiId === poi.id" (click)="selectPoi(poi)">
-            <div class="mobile-poi-card-icon" [style.background]="poi.bgPale" [style.color]="poi.color">
+          <div
+            class="mobile-poi-card"
+            [class.active]="selectedPoiId === poi.id"
+            (click)="selectPoi(poi)"
+          >
+            <div
+              class="mobile-poi-card-icon"
+              [style.background]="poi.bgPale"
+              [style.color]="poi.color"
+            >
               <i [ngClass]="poi.icon"></i>
             </div>
             <div class="mobile-poi-card-content">
               <div class="mobile-poi-card-name">{{ poi.name }}</div>
-              <div class="mobile-poi-card-category" [style.color]="catMeta[poi.cat].color">
+              <div
+                class="mobile-poi-card-category"
+                [style.color]="catMeta[poi.cat].color"
+              >
                 {{ catMeta[poi.cat].label }}
               </div>
             </div>
@@ -210,21 +402,34 @@
     <!-- Mobile POI Detail -->
     @if (selectedPoi) {
       <section class="mobile-poi-detail">
-        <div class="mobile-poi-detail-header" [style.background]="selectedPoi.color">
+        <div
+          class="mobile-poi-detail-header"
+          [style.background]="selectedPoi.color"
+        >
           <button class="mobile-detail-close" (click)="selectedPoi = null">
             <i class="fa-solid fa-times"></i>
           </button>
-          <div class="mobile-detail-header-icon" [style.background]="selectedPoi.bgPale" [style.color]="selectedPoi.color">
+          <div
+            class="mobile-detail-header-icon"
+            [style.background]="selectedPoi.bgPale"
+            [style.color]="selectedPoi.color"
+          >
             <i [ngClass]="selectedPoi.icon"></i>
           </div>
         </div>
         <div class="mobile-poi-detail-body">
           <div class="mobile-poi-detail-name">{{ selectedPoi.name }}</div>
-          <div class="mobile-poi-detail-category">{{ catMeta[selectedPoi.cat].label }}</div>
+          <div class="mobile-poi-detail-category">
+            {{ catMeta[selectedPoi.cat].label }}
+          </div>
           <p class="mobile-poi-detail-desc">{{ selectedPoi.desc }}</p>
           <div class="mobile-poi-detail-tags">
             @for (tag of selectedPoi.tags; track tag.label) {
-              <span class="mobile-detail-tag" [style.color]="tag.color" [style.background]="tag.bg">
+              <span
+                class="mobile-detail-tag"
+                [style.color]="tag.color"
+                [style.background]="tag.bg"
+              >
                 <i [ngClass]="selectedPoi.icon"></i> {{ tag.label }}
               </span>
             }

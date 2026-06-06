@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { PoiCampusApi, PoiCampusService } from '../../core/services/poi-campus.service';
+import {
+  PoiCampusApi,
+  PoiCampusService,
+} from '../../core/services/poi-campus.service';
 
 type PoiCategory = 'admin' | 'facultad' | 'servicio' | 'deporte';
 
@@ -53,15 +56,71 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
     facultad: { label: 'Facultad', color: '#1b6dff' },
     servicio: { label: 'Servicio', color: '#1D9E75' },
     deporte: { label: 'Deporte', color: '#E07B2A' },
-    admin: { label: 'Administracion', color: '#7C3AED' }
+    admin: { label: 'Administracion', color: '#7C3AED' },
   };
 
+  faqs = [
+    {
+      id: 1,
+      pregunta: '¿Necesito el título apostillado?',
+      respuesta:
+        'No, para la postulación inicial solo necesitas presentar el título de bachiller nacional. El apostillado se requiere únicamente para títulos extranjeros.',
+      open: false,
+    },
+    {
+      id: 2,
+      pregunta: '¿Cuál es el puntaje mínimo SNNA?',
+      respuesta:
+        'El puntaje varía según la carrera. Generalmente oscila entre 700 y 900 puntos sobre 1000. Consulta el puntaje específico en el explorador de carreras.',
+      open: false,
+    },
+    {
+      id: 3,
+      pregunta: '¿Hay becas disponibles?',
+      respuesta:
+        'Sí, la UTMACH ofrece becas por mérito académico, situación socioeconómica y deportiva. Puedes solicitarlas en Bienestar Universitario una vez admitido.',
+      open: false,
+    },
+    {
+      id: 4,
+      pregunta: '¿Puedo postular a más de una carrera?',
+      respuesta:
+        'A través del SNNA puedes postular hasta 5 opciones en orden de preferencia. El sistema te asigna según tu puntaje y disponibilidad de cupos.',
+      open: false,
+    },
+  ];
+
   readonly categoryChips: CategoryChip[] = [
-    { value: 'all', label: 'Todos', icon: 'fa-solid fa-border-all', className: 'cat-all' },
-    { value: 'facultad', label: 'Facultades', icon: 'fa-solid fa-building-columns', className: 'cat-fac' },
-    { value: 'servicio', label: 'Servicios', icon: 'fa-solid fa-hand-holding-heart', className: 'cat-service' },
-    { value: 'deporte', label: 'Deportes', icon: 'fa-solid fa-futbol', className: 'cat-sport' },
-    { value: 'admin', label: 'Administracion', icon: 'fa-solid fa-landmark', className: 'cat-admin' }
+    {
+      value: 'all',
+      label: 'Todos',
+      icon: 'fa-solid fa-border-all',
+      className: 'cat-all',
+    },
+    {
+      value: 'facultad',
+      label: 'Facultades',
+      icon: 'fa-solid fa-building-columns',
+      className: 'cat-fac',
+    },
+    {
+      value: 'servicio',
+      label: 'Servicios',
+      icon: 'fa-solid fa-hand-holding-heart',
+      className: 'cat-service',
+    },
+    {
+      value: 'deporte',
+      label: 'Deportes',
+      icon: 'fa-solid fa-futbol',
+      className: 'cat-sport',
+    },
+    {
+      value: 'admin',
+      label: 'Administracion',
+      icon: 'fa-solid fa-landmark',
+      className: 'cat-admin',
+    },
   ];
 
   stats: StatItem[] = [];
@@ -69,7 +128,13 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
   activeCat: 'all' | PoiCategory = 'all';
   searchTerm = '';
   filteredPois: Poi[] = [];
-  groupedPois: Array<{ cat: PoiCategory; label: string; color: string; bg: string; items: Poi[] }> = [];
+  groupedPois: Array<{
+    cat: PoiCategory;
+    label: string;
+    color: string;
+    bg: string;
+    items: Poi[];
+  }> = [];
   selectedPoi: Poi | null = null;
   selectedPoiId: number | null = null;
 
@@ -124,29 +189,34 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
 
   flyToSelected() {
     if (this.selectedPoi && this.map) {
-      this.map.flyTo([this.selectedPoi.lat, this.selectedPoi.lng], 20, { duration: 1.2 });
+      this.map.flyTo([this.selectedPoi.lat, this.selectedPoi.lng], 20, {
+        duration: 1.2,
+      });
     }
   }
 
   private updateFilteredPois() {
     const term = this.searchTerm.trim().toLowerCase();
-    const byCat = this.activeCat === 'all'
-      ? this.pois
-      : this.pois.filter((poi) => poi.cat === this.activeCat);
+    const byCat =
+      this.activeCat === 'all'
+        ? this.pois
+        : this.pois.filter((poi) => poi.cat === this.activeCat);
 
-    this.filteredPois = term.length === 0
-      ? byCat
-      : byCat.filter((poi) =>
-        poi.name.toLowerCase().includes(term) ||
-        poi.short.toLowerCase().includes(term) ||
-        poi.desc.toLowerCase().includes(term)
-      );
+    this.filteredPois =
+      term.length === 0
+        ? byCat
+        : byCat.filter(
+            (poi) =>
+              poi.name.toLowerCase().includes(term) ||
+              poi.short.toLowerCase().includes(term) ||
+              poi.desc.toLowerCase().includes(term),
+          );
 
     const grouped: Record<PoiCategory, Poi[]> = {
       admin: [],
       facultad: [],
       servicio: [],
-      deporte: []
+      deporte: [],
     };
     this.filteredPois.forEach((poi) => grouped[poi.cat].push(poi));
 
@@ -158,7 +228,7 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
         label: this.catMeta[cat].label,
         color: this.catMeta[cat].color,
         bg: this.getCategoryBg(cat),
-        items: grouped[cat]
+        items: grouped[cat],
       }));
   }
 
@@ -183,16 +253,21 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
       center: [-3.28638, -79.91265],
       zoom: 17,
       zoomControl: false,
-      scrollWheelZoom: true
+      scrollWheelZoom: true,
     });
 
     leaflet.control.zoom({ position: 'bottomright' }).addTo(this.map);
 
-    leaflet.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 20
-    }).addTo(this.map);
+    leaflet
+      .tileLayer(
+        'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+        {
+          attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+          subdomains: 'abcd',
+          maxZoom: 20,
+        },
+      )
+      .addTo(this.map);
   }
 
   private updateMarkers() {
@@ -204,12 +279,14 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
     this.markers.forEach((marker) => marker.remove());
     this.markers.clear();
 
-    const visible = this.activeCat === 'all'
-      ? this.pois
-      : this.pois.filter((poi) => poi.cat === this.activeCat);
+    const visible =
+      this.activeCat === 'all'
+        ? this.pois
+        : this.pois.filter((poi) => poi.cat === this.activeCat);
 
     visible.forEach((poi) => {
-      const marker = leaflet.marker([poi.lat, poi.lng], { icon: this.makeIcon(poi) })
+      const marker = leaflet
+        .marker([poi.lat, poi.lng], { icon: this.makeIcon(poi) })
         .addTo(this.map)
         .bindPopup(this.buildPopup(poi), { maxWidth: 280, minWidth: 230 })
         .on('click', () => this.selectPoi(poi));
@@ -236,15 +313,18 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
       html,
       iconSize: [size, size],
       iconAnchor: [size / 2, size / 2],
-      popupAnchor: [0, -(size / 2 + 6)]
+      popupAnchor: [0, -(size / 2 + 6)],
     });
   }
 
   private buildPopup(poi: Poi) {
     const tagsHtml = poi.tags.length
-      ? poi.tags.map((tag) =>
-        `<span class="pop-tag" style="color:${tag.color};background:${tag.bg};border-color:${tag.color}40">${tag.label}</span>`
-      ).join('')
+      ? poi.tags
+          .map(
+            (tag) =>
+              `<span class="pop-tag" style="color:${tag.color};background:${tag.bg};border-color:${tag.color}40">${tag.label}</span>`,
+          )
+          .join('')
       : '';
 
     return `
@@ -276,7 +356,7 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
         this.buildStats();
         this.updateFilteredPois();
         this.updateMarkers();
-      }
+      },
     });
   }
 
@@ -297,7 +377,7 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
       lat: item.latitud,
       lng: item.longitud,
       desc,
-      tags: this.buildTags(item.tags, color, bgPale)
+      tags: this.buildTags(item.tags, color, bgPale),
     };
   }
 
@@ -311,7 +391,8 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
 
   private mapCategory(value: string): PoiCategory {
     const normalized = this.normalizeText(value || '');
-    if (normalized.includes('administracion') || normalized === 'admin') return 'admin';
+    if (normalized.includes('administracion') || normalized === 'admin')
+      return 'admin';
     if (normalized.includes('facultad')) return 'facultad';
     if (normalized.includes('deporte')) return 'deporte';
     if (normalized.includes('biblioteca')) return 'servicio';
@@ -339,43 +420,51 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
     return 'fa-solid fa-landmark';
   }
 
-  private buildTags(tags: string[] | null, color: string, bg: string): PoiTag[] {
+  private buildTags(
+    tags: string[] | null,
+    color: string,
+    bg: string,
+  ): PoiTag[] {
     if (!Array.isArray(tags) || tags.length === 0) return [];
     return tags.map((label) => ({ label, color, bg }));
   }
 
+  toggleFaq(item: any) {
+    item.open = !item.open;
+  }
+
   private buildStats() {
-    const countByCat = (cat: PoiCategory) => this.pois.filter((poi) => poi.cat === cat).length;
+    const countByCat = (cat: PoiCategory) =>
+      this.pois.filter((poi) => poi.cat === cat).length;
     this.stats = [
       {
         icon: 'fa-solid fa-building-columns',
         color: '#1b6dff',
         bg: '#e3edff',
         value: countByCat('facultad'),
-        label: 'Facultades'
+        label: 'Facultades',
       },
       {
         icon: 'fa-solid fa-hand-holding-heart',
         color: '#1D9E75',
         bg: '#E1F5EE',
         value: countByCat('servicio'),
-        label: 'Servicios'
+        label: 'Servicios',
       },
       {
         icon: 'fa-solid fa-futbol',
         color: '#E07B2A',
         bg: '#FEF3E2',
         value: countByCat('deporte'),
-        label: 'Instalaciones deportivas'
+        label: 'Instalaciones deportivas',
       },
       {
         icon: 'fa-solid fa-location-dot',
         color: '#7C3AED',
         bg: '#F3E8FF',
         value: this.pois.length,
-        label: 'Puntos de interes totales'
-      }
+        label: 'Puntos de interes totales',
+      },
     ];
   }
-
 }

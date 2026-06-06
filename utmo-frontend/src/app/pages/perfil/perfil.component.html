@@ -1,0 +1,144 @@
+<div class="profile-wrap">
+
+  <!-- Columna izquierda -->
+  <aside class="profile-side">
+
+    <!-- Avatar + info -->
+    <div class="profile-card">
+      <div class="profile-avatar">
+        {{ getInitials() }}
+      </div>
+      <div class="profile-name">{{ usuario.nombre }} {{ usuario.apellido }}</div>
+      <div class="profile-meta">{{ usuario.colegio || 'Sin institución' }}</div>
+      <span class="profile-badge">
+        <i class="fa-solid fa-user-graduate"></i> {{ usuario.rol_nombre | titlecase }}
+      </span>
+    </div>
+
+    <!-- Editar datos -->
+    <div class="profile-card">
+      <div class="profile-card-title">
+        <i class="fa-solid fa-pen-to-square"></i> Editar datos
+      </div>
+
+      <div class="profile-field">
+        <label>Nombre completo</label>
+        <input type="text" [(ngModel)]="form.nombre" [disabled]="!editing" />
+      </div>
+      <div class="profile-field">
+        <label>Apellido</label>
+        <input type="text" [(ngModel)]="form.apellido" [disabled]="!editing" />
+      </div>
+      <div class="profile-row">
+        <div class="profile-field">
+          <label>Ciudad</label>
+          <input type="text" [(ngModel)]="form.ciudad" [disabled]="!editing" />
+        </div>
+      </div>
+      <div class="profile-field">
+        <label>Institución educativa</label>
+        <input type="text" [(ngModel)]="form.colegio" [disabled]="!editing" />
+      </div>
+
+      @if (saveSuccess) {
+        <div class="profile-alert success">
+          <i class="fa-solid fa-circle-check"></i> Cambios guardados
+        </div>
+      }
+      @if (saveError) {
+        <div class="profile-alert error">
+          <i class="fa-solid fa-circle-exclamation"></i> {{ saveError }}
+        </div>
+      }
+
+      <div class="profile-actions">
+        @if (!editing) {
+          <button class="btn-edit" (click)="startEdit()">
+            <i class="fa-solid fa-pen"></i> Editar
+          </button>
+        } @else {
+          <button class="btn-save" (click)="saveChanges()" [disabled]="isSaving">
+            <i class="fa-solid fa-floppy-disk"></i>
+            {{ isSaving ? 'Guardando...' : 'Guardar cambios' }}
+          </button>
+          <button class="btn-cancel" (click)="cancelEdit()">
+            Cancelar
+          </button>
+        }
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Columna derecha -->
+  <main class="profile-main">
+
+    <!-- Estadísticas -->
+    <div class="profile-card">
+      <div class="profile-card-title">
+        <i class="fa-solid fa-chart-simple"></i> Estadísticas
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">{{ stats.carreras }}</div>
+          <div class="stat-label">Carreras exploradas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">{{ stats.examenes }}</div>
+          <div class="stat-label">Exámenes realizados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">{{ usuario.fecha_registro | date:'MMM yyyy' }}</div>
+          <div class="stat-label">Miembro desde</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Historial de carreras visitadas -->
+    <div class="profile-card">
+      <div class="profile-card-title">
+        <i class="fa-solid fa-clock-rotate-left"></i> Historial de carreras exploradas
+      </div>
+      @if (historial.length === 0) {
+        <p class="profile-empty">Aún no has explorado ninguna carrera.</p>
+      }
+      @for (item of historial; track item.id) {
+        <div class="historial-item">
+          <div class="historial-icon" [ngClass]="item.facultad_codigo.toLowerCase()">
+            <i [ngClass]="item.facultad_icono"></i>
+          </div>
+          <div class="historial-info">
+            <div class="historial-nombre">{{ item.nombre }}</div>
+            <div class="historial-meta">{{ item.facultad_codigo }} · {{ item.fecha | date:'dd MMM yyyy' }}</div>
+          </div>
+          <a class="historial-link" [routerLink]="['/carreras', item.id]">
+            Ver <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      }
+    </div>
+
+    <!-- Información de cuenta -->
+    <div class="profile-card">
+      <div class="profile-card-title">
+        <i class="fa-solid fa-shield-halved"></i> Información de cuenta
+      </div>
+      <div class="cuenta-row">
+        <span class="cuenta-label"><i class="fa-solid fa-envelope"></i> Correo</span>
+        <span class="cuenta-value">{{ usuario.email }}</span>
+      </div>
+      <div class="cuenta-row">
+        <span class="cuenta-label"><i class="fa-solid fa-circle-dot"></i> Estado</span>
+        <span class="cuenta-badge" [ngClass]="usuario.activo ? 'active' : 'inactive'">
+          {{ usuario.activo ? 'Activo' : 'Inactivo' }}
+        </span>
+      </div>
+      <div class="cuenta-row">
+        <span class="cuenta-label"><i class="fa-solid fa-calendar"></i> Registro</span>
+        <span class="cuenta-value">{{ usuario.fecha_registro | date:'dd/MM/yyyy' }}</span>
+      </div>
+    </div>
+
+  </main>
+
+</div>

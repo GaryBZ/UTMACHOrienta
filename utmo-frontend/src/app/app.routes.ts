@@ -26,6 +26,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/legal/terminos-condiciones/terminos-condiciones.component').then((m) => m.TerminosCondicionesComponent),
   },
   {
+    path: 'perfil',
+    loadComponent: () => import('./pages/perfil/perfil.component').then((m) => m.PerfilComponent),
+  },
+  {
     path: 'register',
     loadComponent: () => import('./pages/auth/register/register.component').then((m) => m.RegisterComponent),
   },
