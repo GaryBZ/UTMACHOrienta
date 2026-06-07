@@ -1,0 +1,71 @@
+<div class="admin-wrap">
+  <!-- Header -->
+  <div class="admin-header">
+    <div class="admin-header-top">
+      <button class="btn-back" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    <div class="admin-header-body">
+      <div class="admin-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Panel de administración</span>
+      </div>
+      <h1 class="admin-title">Pensum — {{ carrera?.nombre }}</h1>
+      <div class="admin-header-bottom">
+        <p class="admin-subtitle">
+          {{ getSemestres() }} semestres · 1 materia representativa por semestre
+        </p>
+      </div>
+      <div class="admin-header-btn">
+        <button class="btn-save" (click)="guardar()" [disabled]="isSaving">
+          <i class="fa-solid fa-floppy-disk"></i>
+          {{ isSaving ? "Guardando..." : "Guardar pensum" }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @if (isLoading) {
+    <div class="admin-state">
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      <p>Cargando datos...</p>
+    </div>
+  } @else if (!carrera) {
+    <div class="admin-state">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <p>No se encontró la carrera.</p>
+    </div>
+  } @else {
+    @if (saveSuccess) {
+      <div class="form-alert success">
+        <i class="fa-solid fa-circle-check"></i> Pensum guardado correctamente
+      </div>
+    }
+    @if (errorMessage) {
+      <div class="form-alert error">
+        <i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage }}
+      </div>
+    }
+
+    <div class="pensum-grid">
+      @for (item of semestres; track item.semestre) {
+        <div class="pensum-card">
+          <div class="pensum-card-header">
+            <div class="pensum-num">{{ item.semestre }}</div>
+            <div class="pensum-card-label">Semestre {{ item.semestre }}</div>
+          </div>
+          <div class="pensum-card-body">
+            <input
+              type="text"
+              [(ngModel)]="item.nombre_materia"
+              [name]="'semestre_' + item.semestre"
+              placeholder="Ej. Cálculo Diferencial"
+              class="pensum-input"
+            />
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

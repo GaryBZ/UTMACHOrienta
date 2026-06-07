@@ -32,8 +32,17 @@ const CarreraModel = {
     activa,
     link_malla,
   }) => {
+    const etiquetasArray = Array.isArray(etiquetas)
+      ? etiquetas
+      : typeof etiquetas === "string"
+        ? etiquetas
+            .split(",")
+            .map((e) => e.trim())
+            .filter(Boolean)
+        : [];
+
     const result = await db.query(
-      `INSERT INTO carreras (id_facultad, nombre, descripcion, duracion_anios, creditos, modalidad, puntaje_minimo, campo_laboral, etiquetas, activa, link_malla)
+      `INSERT INTO carreras (id_facultad, nombre, descripcion, duracion_anios, creditos, modalidad, puntaje_minimo, campo_laboral, activa, link_malla, etiquetas)
      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`,
       [
         id_facultad,
@@ -44,9 +53,9 @@ const CarreraModel = {
         modalidad,
         puntaje_minimo,
         campo_laboral,
-        etiquetas,
         activa,
         link_malla ?? null,
+        etiquetasArray,
       ],
     );
     return result.rows[0];
@@ -68,12 +77,21 @@ const CarreraModel = {
       link_malla,
     },
   ) => {
+    const etiquetasArray = Array.isArray(etiquetas)
+      ? etiquetas
+      : typeof etiquetas === "string"
+        ? etiquetas
+            .split(",")
+            .map((e) => e.trim())
+            .filter(Boolean)
+        : [];
+
     const result = await db.query(
       `UPDATE carreras SET
       id_facultad = $1, nombre = $2, descripcion = $3,
       duracion_anios = $4, creditos = $5, modalidad = $6,
-      puntaje_minimo = $7, campo_laboral = $8, etiquetas = $9,
-      activa = $10, link_malla = $11
+      puntaje_minimo = $7, campo_laboral = $8, activa = $9,
+      link_malla = $10, etiquetas = $11
      WHERE id = $12 RETURNING *`,
       [
         id_facultad,
@@ -84,9 +102,9 @@ const CarreraModel = {
         modalidad,
         puntaje_minimo,
         campo_laboral,
-        etiquetas,
         activa,
         link_malla ?? null,
+        etiquetasArray,
         id,
       ],
     );

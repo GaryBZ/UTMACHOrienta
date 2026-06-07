@@ -36,6 +36,18 @@ export const create = async (req, res) => {
   }
 };
 
+export const upsertByCarrera = async (req, res) => {
+  try {
+    const { id_carrera } = req.params;
+    const { materias } = req.body;
+    const data = await PensumService.upsertPensumByCarrera(id_carrera, materias);
+    res.json({ ok: true, data });
+  } catch (error) {
+    console.error('ERROR upsert pensum:', error);
+    res.status(500).json({ ok: false, message: error.message });
+  }
+};
+
 export const update = async (req, res) => {
   try {
     const data = await PensumService.updatePensum(req.params.id, req.body);

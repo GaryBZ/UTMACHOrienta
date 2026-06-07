@@ -55,6 +55,30 @@ export const routes: Routes = [
         loadComponent: () => import('./admin/pages/carreras/listar-carreras/listar-carreras.component').then((m) => m.ListarCarrerasComponent),
       },
       {
+        path: 'crear-carrera',
+        loadComponent: () => import('./admin/pages/carreras/crear-carreras/crear-carreras.component').then((m) => m.CrearCarrerasComponent),
+      },
+      {
+        path: 'clases',
+        loadComponent: () => import('./admin/pages/clases/listar-clases/listar-clases.component').then((m) => m.ListarClasesComponent),
+      },
+      {
+        path: 'crear-clases',
+        loadComponent: () => import('./admin/pages/clases/crear-clases/crear-clases.component').then((m) => m.CrearClasesComponent),
+      },
+      {
+        path: 'pensum',
+        loadComponent: () => import('./admin/pages/pensum/listar-pensum/listar-pensum.component').then((m) => m.ListarPensumComponent),
+      },
+      {
+        path: 'pensum/:id',
+        loadComponent: () => import('./admin/pages/pensum/crear-pensum/crear-pensum.component').then((m) => m.CrearPensumComponent),
+      },
+      {
+        path: 'crear-pensum',
+        loadComponent: () => import('./admin/pages/pensum/crear-pensum/crear-pensum.component').then((m) => m.CrearPensumComponent),
+      },
+      {
         path: 'examenes',
         loadComponent: () => import('./admin/pages/examenes/listar-examenes/listar-examenes.component').then((m) => m.ListarExamenesComponent),
       },

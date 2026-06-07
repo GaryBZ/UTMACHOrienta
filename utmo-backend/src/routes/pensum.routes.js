@@ -7,6 +7,7 @@ router.get('/', controller.getAll);
 router.get('/:id', controller.getById);
 router.get('/carrera/:id_carrera', controller.getByCarrera);
 router.post('/', controller.create);
+router.post('/carrera/:id_carrera/upsert', controller.upsertByCarrera);
 router.put('/:id', controller.update);
 router.delete('/:id', controller.remove);
 

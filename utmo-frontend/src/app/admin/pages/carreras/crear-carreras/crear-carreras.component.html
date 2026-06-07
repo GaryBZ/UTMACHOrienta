@@ -1,3 +1,194 @@
-<p>
-  crear-carreras works!
-</p>
+<div class="admin-wrap">
+
+  <!-- Header -->
+  <div class="admin-header">
+
+      <button class="btn-back" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div>
+        <div class="admin-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Panel de administración</span>
+        </div>
+        <h1 class="admin-title">Nueva Carrera</h1>
+      </div>
+
+  </div>
+
+  <form class="admin-form" (ngSubmit)="submitForm()">
+    <div class="form-layout">
+
+      <!-- Columna principal -->
+      <div class="form-main">
+
+        <!-- Información básica -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <i class="fa-solid fa-circle-info"></i> Información básica
+          </div>
+
+          <div class="form-field" [ngClass]="fieldState('nombre')">
+            <label>Nombre de la carrera <span class="required">*</span></label>
+            <input type="text" [(ngModel)]="form.nombre" name="nombre"
+              placeholder="Ej. Ingeniería en Sistemas" (blur)="touch('nombre')" />
+            @if (errors['nombre']) {
+              <span class="field-error">{{ errors['nombre'] }}</span>
+            }
+          </div>
+
+          <div class="form-field" [ngClass]="fieldState('id_facultad')">
+            <label>Facultad <span class="required">*</span></label>
+            <select [(ngModel)]="form.id_facultad" name="id_facultad" (blur)="touch('id_facultad')">
+              <option [ngValue]="null" disabled>Selecciona una facultad</option>
+              @for (fac of facultades; track fac.id) {
+                <option [ngValue]="fac.id">{{ fac.codigo }} — {{ fac.nombre_completo }}</option>
+              }
+            </select>
+            @if (errors['id_facultad']) {
+              <span class="field-error">{{ errors['id_facultad'] }}</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label>Descripción</label>
+            <textarea [(ngModel)]="form.descripcion" name="descripcion"
+              rows="4" placeholder="Descripción general de la carrera..."></textarea>
+          </div>
+
+          <div class="form-field">
+            <label>Campo laboral</label>
+            <input type="text" [(ngModel)]="form.campo_laboral" name="campo_laboral"
+              placeholder="Ej. Desarrollo de software, Redes, Seguridad informática" />
+          </div>
+        </div>
+
+        <!-- Detalles académicos -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <i class="fa-solid fa-graduation-cap"></i> Detalles académicos
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label>Duración (años)</label>
+              <input type="number" [(ngModel)]="form.duracion_anios" name="duracion_anios"
+                min="1" max="10" placeholder="5" />
+            </div>
+            <div class="form-field">
+              <label>Créditos</label>
+              <input type="number" [(ngModel)]="form.creditos" name="creditos"
+                min="0" placeholder="240" />
+            </div>
+            <div class="form-field">
+              <label>Puntaje mínimo</label>
+              <input type="number" [(ngModel)]="form.puntaje_minimo" name="puntaje_minimo"
+                min="0" max="100" placeholder="0" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Modalidad</label>
+            <select [(ngModel)]="form.modalidad" name="modalidad">
+              <option [ngValue]="null">Seleccionar...</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Virtual">Virtual</option>
+              <option value="Semipresencial">Semipresencial</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>Link de malla curricular</label>
+            <input type="url" [(ngModel)]="form.link_malla" name="link_malla"
+              placeholder="https://raw.githubusercontent.com/..." />
+            <span class="field-hint">URL directa al PDF en GitHub (raw.githubusercontent.com)</span>
+          </div>
+        </div>
+
+        <!-- Etiquetas -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <i class="fa-solid fa-tags"></i> Etiquetas
+          </div>
+          <div class="tags-input-wrap">
+            <div class="tags-list">
+              @for (tag of form.etiquetas; track tag) {
+                <span class="tag-chip">
+                  {{ tag }}
+                  <button type="button" class="tag-remove" (click)="removeTag(tag)">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </span>
+              }
+            </div>
+            <div class="tags-add">
+              <input type="text" [(ngModel)]="newTag" name="newTag"
+                placeholder="Agregar etiqueta..."
+                (keydown.enter)="addTag(); $event.preventDefault()" />
+              <button type="button" class="btn-tag-add" (click)="addTag()">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna lateral -->
+      <div class="form-side">
+
+        <!-- Estado -->
+        <div class="form-card">
+          <div class="form-card-title">
+            <i class="fa-solid fa-toggle-on"></i> Estado
+          </div>
+          <label class="toggle-wrap">
+            <div class="toggle-switch" [ngClass]="{ on: form.activa }" (click)="form.activa = !form.activa">
+              <div class="toggle-thumb"></div>
+            </div>
+            <div class="toggle-info">
+              <span class="toggle-label">{{ form.activa ? 'Activa' : 'Inactiva' }}</span>
+              <span class="toggle-hint">{{ form.activa ? 'Visible para los aspirantes' : 'Oculta para los aspirantes' }}</span>
+            </div>
+          </label>
+        </div>
+
+        <!-- Vista previa facultad -->
+        @if (getFacultadSeleccionada()) {
+          <div class="form-card">
+            <div class="form-card-title">
+              <i class="fa-solid fa-building"></i> Facultad seleccionada
+            </div>
+            <div class="fac-preview">
+              <div class="fac-preview-icon">
+                <i [ngClass]="getFacultadSeleccionada()!.icono || 'fa-solid fa-graduation-cap'"></i>
+              </div>
+              <div>
+                <div class="fac-preview-code">{{ getFacultadSeleccionada()!.codigo }}</div>
+                <div class="fac-preview-name">{{ getFacultadSeleccionada()!.nombre_completo }}</div>
+              </div>
+            </div>
+          </div>
+        }
+
+        <!-- Acciones -->
+        <div class="form-card">
+          @if (errorMessage) {
+            <div class="form-alert error">
+              <i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage }}
+            </div>
+          }
+          <button type="submit" class="btn-submit" [disabled]="isSubmitting">
+            <i class="fa-solid fa-floppy-disk"></i>
+            {{ isSubmitting ? 'Guardando...' : 'Crear carrera' }}
+          </button>
+          <button type="button" class="btn-cancel" (click)="goBack()">
+            Cancelar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+</div>

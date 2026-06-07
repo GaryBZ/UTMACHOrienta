@@ -33,6 +33,13 @@ export class PensumService {
     );
   }
 
+  upsertByCarrera(idCarrera: number, materias: { semestre: number; nombre_materia: string }[]) {
+  return this.http.post<ApiResponse<Pensum[]>>(
+    `${this.baseUrl}/carrera/${idCarrera}/upsert`, 
+    { materias }
+  ).pipe(map((response) => this.unwrapResponse(response) ?? []));
+}
+
   private unwrapResponse<T>(response: ApiResponse<T>): T | null {
     if (response && typeof response === 'object' && 'data' in response) {
       return (response as { data?: T }).data ?? null;

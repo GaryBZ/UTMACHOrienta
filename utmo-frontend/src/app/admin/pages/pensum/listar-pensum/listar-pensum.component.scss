@@ -12,11 +12,17 @@
   margin-bottom: 2rem;
 }
 
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .admin-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .eyebrow-line {
@@ -48,29 +54,13 @@
   color: var(--muted);
 }
 
-.btn-new {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.25rem;
-  background: var(--sky);
-  color: var(--white);
-  border: none;
-  border-radius: 10px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-
-  &:hover { opacity: 0.88; transform: translateY(-1px); }
-}
-
 // ── Filtros ────────────────────────────────
 .admin-filters {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .search-wrap {
@@ -109,6 +99,7 @@
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 0.25rem;
+  flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -182,29 +173,13 @@
 }
 
 .td-center { text-align: center; }
-.td-muted  { color: var(--muted); }
 
-.carrera-nombre {
+.td-nombre {
   font-weight: 600;
   color: var(--ink);
-  margin-bottom: 0.25rem;
 }
 
-.carrera-tags {
-  display: flex;
-  gap: 0.3rem;
-  flex-wrap: wrap;
-}
-
-.mini-badge {
-  font-size: 0.65rem;
-  background: var(--sky-pale);
-  color: var(--sky);
-  padding: 0.15rem 0.5rem;
-  border-radius: 99px;
-  font-weight: 600;
-}
-
+// ── Facultad chip ──────────────────────────
 .facultad-chip {
   font-size: 0.72rem;
   font-weight: 700;
@@ -214,46 +189,47 @@
   color: var(--sky);
 }
 
-.malla-link {
-  color: var(--red);
-  font-size: 1rem;
-  transition: opacity 0.2s;
-
-  &:hover { opacity: 0.7; }
+// ── Count badge ────────────────────────────
+.count-badge {
+  font-weight: 700;
+  color: var(--sky);
+  font-family: var(--font-mono);
 }
 
+// ── Status badge ───────────────────────────
 .status-badge {
   font-size: 0.72rem;
   font-weight: 700;
   padding: 0.25rem 0.75rem;
   border-radius: 99px;
 
-  &.active   { background: var(--green-pale); color: var(--green); }
-  &.inactive { background: var(--red-pale);   color: var(--red);   }
+  &.complete { background: var(--green-pale); color: var(--green); }
+  &.partial  { background: var(--amber-pale); color: var(--amber); }
+  &.empty    { background: var(--red-pale);   color: var(--red);   }
 }
 
-// ── Acciones ───────────────────────────────
-.action-group {
-  display: flex;
-  gap: 0.35rem;
-}
-
+// ── Acción ─────────────────────────────────
 .btn-action {
-  width: 32px;
-  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--white);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
   transition: all 0.2s;
 
-  &.edit   { color: var(--sky);   &:hover { background: var(--sky-pale);   border-color: var(--sky);  } }
-  &.toggle { color: var(--muted); &:hover { background: var(--amber-pale); border-color: var(--amber); color: var(--amber); } }
-  &.delete { color: var(--muted); &:hover { background: var(--red-pale);   border-color: var(--red);  color: var(--red);  } }
+  &.edit {
+    color: var(--sky);
+    &:hover {
+      background: var(--sky-pale);
+      border-color: var(--sky);
+    }
+  }
 }
 
 // ── Estado vacío / loading ──────────────────
@@ -268,89 +244,4 @@
 
   i { font-size: 2rem; }
   p { font-size: 0.875rem; }
-}
-
-// ── Modal ──────────────────────────────────
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(13, 27, 42, 0.45);
-  backdrop-filter: blur(3px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.modal {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 2rem;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: var(--sh-lg);
-  text-align: center;
-}
-
-.modal-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--red-pale);
-  color: var(--red);
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-}
-
-.modal-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.5rem;
-}
-
-.modal-desc {
-  font-size: 0.875rem;
-  color: var(--ink2);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.modal-actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-}
-
-.btn-cancel {
-  padding: 0.6rem 1.25rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: none;
-  color: var(--muted);
-  font-size: 0.875rem;
-  cursor: pointer;
-
-  &:hover { border-color: var(--ink2); color: var(--ink); }
-}
-
-.btn-delete {
-  padding: 0.6rem 1.25rem;
-  border: none;
-  border-radius: 8px;
-  background: var(--red);
-  color: var(--white);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: opacity 0.2s;
-
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
-  &:hover:not(:disabled) { opacity: 0.88; }
 }

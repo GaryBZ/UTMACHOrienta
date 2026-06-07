@@ -8,7 +8,7 @@ import { Carrera } from '../models/carrera.model';
 type ApiResponse<T> = { ok: boolean; data: T } | T;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CarreraService {
   private readonly baseUrl = `${environment.apiUrl}/carreras`;
@@ -16,21 +16,21 @@ export class CarreraService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<ApiResponse<Carrera[]>>(this.baseUrl).pipe(
-      map((response) => this.unwrapResponse(response) ?? [])
-    );
+    return this.http
+      .get<ApiResponse<Carrera[]>>(this.baseUrl)
+      .pipe(map((response) => this.unwrapResponse(response) ?? []));
   }
 
   getByFacultad(idFacultad: number) {
-    return this.http.get<ApiResponse<Carrera[]>>(`${this.baseUrl}/facultad/${idFacultad}`).pipe(
-      map((response) => this.unwrapResponse(response) ?? [])
-    );
+    return this.http
+      .get<ApiResponse<Carrera[]>>(`${this.baseUrl}/facultad/${idFacultad}`)
+      .pipe(map((response) => this.unwrapResponse(response) ?? []));
   }
 
   getById(id: number) {
-    return this.http.get<ApiResponse<Carrera>>(`${this.baseUrl}/${id}`).pipe(
-      map((response) => this.unwrapResponse(response))
-    );
+    return this.http
+      .get<ApiResponse<Carrera>>(`${this.baseUrl}/${id}`)
+      .pipe(map((response) => this.unwrapResponse(response)));
   }
 
   private unwrapResponse<T>(response: ApiResponse<T>): T | null {
@@ -38,5 +38,23 @@ export class CarreraService {
       return (response as { data?: T }).data ?? null;
     }
     return response ?? null;
+  }
+
+  create(carrera: Omit<Carrera, 'id'>) {
+    return this.http.post<ApiResponse<Carrera>>(this.baseUrl, carrera).pipe(
+      map((response) => this.unwrapResponse(response))
+    );
+  }
+
+  update(id: number, carrera: Partial<Carrera>) {
+    return this.http
+      .put<ApiResponse<Carrera>>(`${this.baseUrl}/${id}`, carrera)
+      .pipe(map((response) => this.unwrapResponse(response)));
+  }
+
+  remove(id: number) {
+    return this.http
+      .delete<ApiResponse<Carrera>>(`${this.baseUrl}/${id}`)
+      .pipe(map((response) => this.unwrapResponse(response)));
   }
 }

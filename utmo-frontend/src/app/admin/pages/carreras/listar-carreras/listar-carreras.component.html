@@ -1,1 +1,155 @@
-<div class="admin-page"></div>
+<div class="admin-wrap">
+
+  <!-- Header -->
+  <div class="admin-header">
+    <div class="admin-header-left">
+      <div class="admin-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Panel de administración</span>
+      </div>
+      <h1 class="admin-title">Gestión de Carreras</h1>
+      <p class="admin-subtitle">{{ filteredCarreras.length }} carreras registradas</p>
+    </div>
+    <button class="btn-new" (click)="goToCreate()">
+      <i class="fa-solid fa-plus"></i> Nueva carrera
+    </button>
+  </div>
+
+  <!-- Filtros -->
+  <div class="admin-filters">
+    <div class="search-wrap">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Buscar carrera..."
+        [(ngModel)]="searchTerm"
+        (input)="filterCarreras()"
+      />
+    </div>
+    <div class="filter-group">
+      <button
+        class="filter-btn"
+        [ngClass]="{ active: filterActiva === null }"
+        (click)="setFilter(null)"
+      >Todas</button>
+      <button
+        class="filter-btn"
+        [ngClass]="{ active: filterActiva === true }"
+        (click)="setFilter(true)"
+      >Activas</button>
+      <button
+        class="filter-btn"
+        [ngClass]="{ active: filterActiva === false }"
+        (click)="setFilter(false)"
+      >Inactivas</button>
+    </div>
+  </div>
+
+  <!-- Tabla -->
+  <div class="admin-table-wrap">
+    @if (isLoading) {
+      <div class="admin-state">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <p>Cargando carreras...</p>
+      </div>
+    } @else if (filteredCarreras.length === 0) {
+      <div class="admin-state">
+        <i class="fa-solid fa-folder-open"></i>
+        <p>No se encontraron carreras</p>
+      </div>
+    } @else {
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Carrera</th>
+            <th>Facultad</th>
+            <th>Duración</th>
+            <th>Modalidad</th>
+            <th>Puntaje</th>
+            <th>Malla</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (carrera of filteredCarreras; track carrera.id) {
+            <tr>
+              <td class="td-id">#{{ carrera.id }}</td>
+              <td class="td-nombre">
+                <div class="carrera-nombre">{{ carrera.nombre }}</div>
+                @if (carrera.etiquetas?.length) {
+                  <div class="carrera-tags">
+                    @for (tag of carrera.etiquetas!.slice(0, 2); track tag) {
+                      <span class="mini-badge">{{ tag }}</span>
+                    }
+                  </div>
+                }
+              </td>
+              <td>
+                <span class="facultad-chip" [ngClass]="getFacultadCode(carrera.id_facultad).toLowerCase()">
+                  {{ getFacultadCode(carrera.id_facultad) }}
+                </span>
+              </td>
+              <td class="td-center">
+                {{ carrera.duracion_anios ? carrera.duracion_anios + ' años' : '—' }}
+              </td>
+              <td class="td-center">{{ carrera.modalidad || '—' }}</td>
+              <td class="td-center">{{ carrera.puntaje_minimo ?? '—' }}</td>
+              <td class="td-center">
+                @if (carrera.link_malla) {
+                  <a [href]="carrera.link_malla" target="_blank" class="malla-link">
+                    <i class="fa-solid fa-file-pdf"></i>
+                  </a>
+                } @else {
+                  <span class="td-muted">—</span>
+                }
+              </td>
+              <td class="td-center">
+                <span class="status-badge" [ngClass]="carrera.activa ? 'active' : 'inactive'">
+                  {{ carrera.activa ? 'Activa' : 'Inactiva' }}
+                </span>
+              </td>
+              <td>
+                <div class="action-group">
+                  <button class="btn-action edit" (click)="goToEdit(carrera.id)" title="Editar">
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button class="btn-action toggle" (click)="toggleActiva(carrera)" [title]="carrera.activa ? 'Desactivar' : 'Activar'">
+                    <i [ngClass]="carrera.activa ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                  </button>
+                  <button class="btn-action delete" (click)="confirmDelete(carrera)" title="Eliminar">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+
+  <!-- Modal confirmar eliminar -->
+  @if (carreraToDelete) {
+    <div class="modal-overlay" (click)="cancelDelete()">
+      <div class="modal" (click)="$event.stopPropagation()">
+        <div class="modal-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3 class="modal-title">¿Eliminar carrera?</h3>
+        <p class="modal-desc">
+          Estás a punto de eliminar <strong>{{ carreraToDelete.nombre }}</strong>.
+          Esta acción no se puede deshacer.
+        </p>
+        <div class="modal-actions">
+          <button class="btn-cancel" (click)="cancelDelete()">Cancelar</button>
+          <button class="btn-delete" (click)="deleteCarrera()" [disabled]="isDeleting">
+            <i class="fa-solid fa-trash"></i>
+            {{ isDeleting ? 'Eliminando...' : 'Sí, eliminar' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+
+</div>

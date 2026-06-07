@@ -18,6 +18,10 @@ export const createPensum = async (data) => {
   return await PensumModel.create(data);
 };
 
+export const upsertPensumByCarrera = async (id_carrera, materias) => {
+  return await PensumModel.upsertByCarrera(id_carrera, materias);
+};
+
 export const updatePensum = async (id, data) => {
   const pensum = await PensumModel.update(id, data);
   if (!pensum) throw new Error('Pensum no encontrado');
