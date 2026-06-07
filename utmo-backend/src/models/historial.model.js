@@ -10,7 +10,7 @@ const HistorialModel = {
     return result.rows[0];
   },
 
-  getByUsuario: async (id_usuario) => {
+  getByUsuario: async (id_usuario, limit = 5) => {
     const result = await db.query(
       `SELECT h.id as historial_id,
             h.id_usuario,
@@ -25,8 +25,9 @@ const HistorialModel = {
      JOIN carreras c ON c.id = h.id_carrera
      JOIN facultades f ON f.id = c.id_facultad
      WHERE h.id_usuario = $1
-     ORDER BY h.fecha DESC`,
-      [id_usuario],
+     ORDER BY h.fecha DESC
+     LIMIT $2`,
+      [id_usuario, limit],
     );
     return result.rows;
   },
@@ -50,6 +51,14 @@ const HistorialModel = {
       [id_carrera],
     );
     return result.rows[0];
+  },
+
+  countByUsuario: async (id_usuario) => {
+    const result = await db.query(
+      `SELECT COUNT(*) as total FROM historial_carreras WHERE id_usuario = $1`,
+      [id_usuario],
+    );
+    return parseInt(result.rows[0].total);
   },
 
   getTendencias: async () => {

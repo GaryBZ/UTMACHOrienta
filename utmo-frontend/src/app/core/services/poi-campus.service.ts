@@ -23,21 +23,52 @@ export interface PoiCampusApi {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PoiCampusService {
   private readonly baseUrl = `${environment.apiUrl}/poi-campus`;
 
   constructor(private http: HttpClient) {}
 
-  getAll(params?: { categoria?: string; id_facultad?: number; activo?: boolean | 'all' }) {
+  getAll(params?: {
+    categoria?: string;
+    id_facultad?: number;
+    activo?: boolean | 'all';
+  }) {
     let httpParams = new HttpParams();
-    if (params?.categoria) httpParams = httpParams.set('categoria', params.categoria);
-    if (params?.id_facultad !== undefined) httpParams = httpParams.set('id_facultad', params.id_facultad.toString());
-    if (params?.activo !== undefined) httpParams = httpParams.set('activo', String(params.activo));
+    if (params?.categoria)
+      httpParams = httpParams.set('categoria', params.categoria);
+    if (params?.id_facultad !== undefined)
+      httpParams = httpParams.set('id_facultad', params.id_facultad.toString());
+    if (params?.activo !== undefined)
+      httpParams = httpParams.set('activo', String(params.activo));
 
-    return this.http.get<ApiResponse<PoiCampusApi[]>>(this.baseUrl, { params: httpParams }).pipe(
-      map((response) => response.data || [])
-    );
+    return this.http
+      .get<ApiResponse<PoiCampusApi[]>>(this.baseUrl, { params: httpParams })
+      .pipe(map((response) => response.data || []));
+  }
+
+  getById(id: number) {
+    return this.http
+      .get<ApiResponse<PoiCampusApi>>(`${this.baseUrl}/${id}`)
+      .pipe(map((response) => response.data));
+  }
+
+  create(payload: Omit<PoiCampusApi, 'id'>) {
+    return this.http
+      .post<ApiResponse<PoiCampusApi>>(this.baseUrl, payload)
+      .pipe(map((response) => response.data));
+  }
+
+  update(id: number, payload: Partial<PoiCampusApi>) {
+    return this.http
+      .put<ApiResponse<PoiCampusApi>>(`${this.baseUrl}/${id}`, payload)
+      .pipe(map((response) => response.data));
+  }
+
+  remove(id: number) {
+    return this.http
+      .delete<ApiResponse<PoiCampusApi>>(`${this.baseUrl}/${id}`)
+      .pipe(map((response) => response.data));
   }
 }

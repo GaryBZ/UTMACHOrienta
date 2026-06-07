@@ -29,8 +29,12 @@ export const actualizarTabs = async (req, res) => {
 export const getHistorialUsuario = async (req, res) => {
   try {
     const id_usuario = req.user.id;
-    const data = await HistorialService.getHistorialUsuario(id_usuario);
-    res.json({ ok: true, data });
+    const limit = req.query.limit ? parseInt(req.query.limit) : 5;
+    const [data, total] = await Promise.all([
+      HistorialService.getHistorialUsuario(id_usuario, limit),
+      HistorialService.countHistorialUsuario(id_usuario)
+    ]);
+    res.json({ ok: true, data, total });
   } catch (error) {
     res.status(500).json({ ok: false, message: error.message });
   }

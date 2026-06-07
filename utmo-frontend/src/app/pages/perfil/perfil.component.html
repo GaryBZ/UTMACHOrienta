@@ -106,7 +106,7 @@
       @if (historial.length === 0) {
         <p class="profile-empty">Aún no has explorado ninguna carrera.</p>
       }
-      @for (item of historial; track item.id) {
+      @for (item of historial; track item.historial_id) {
         <div class="historial-item">
           <div
             class="historial-icon"
@@ -129,8 +129,14 @@
           </a>
         </div>
       }
-    </div>
 
+      @if (!mostrandoTodo && historialTotal > historialLimit) {
+        <button class="btn-ver-todo" (click)="verTodo()">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          Ver todo el historial ({{ historialTotal }} visitas)
+        </button>
+      }
+    </div>
     <!-- Información de cuenta -->
     <div class="profile-card">
       <div class="profile-card-title">

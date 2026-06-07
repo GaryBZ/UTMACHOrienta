@@ -17,10 +17,15 @@ export class HistorialService {
       .pipe(map((r) => this.unwrap(r)));
   }
 
-  getHistorialUsuario() {
-    return this.http
-      .get<ApiResponse<any[]>>(`${this.baseUrl}/usuario`)
-      .pipe(map((r) => this.unwrap(r) ?? []));
+  getHistorialUsuario(limit: number = 5) {
+    return this.http.get<any>(`${this.baseUrl}/usuario?limit=${limit}`).pipe(
+      map((r) => {
+        if (r && typeof r === 'object' && 'data' in r) {
+          return { data: r.data, total: r.total };
+        }
+        return { data: r, total: 0 };
+      }),
+    );
   }
 
   getMasVisitadas() {

@@ -1,0 +1,319 @@
+.admin-wrap {
+  padding: 2rem 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+.admin-header-top { display: flex; align-items: center; justify-content: space-between; }
+.admin-header-body { display: flex; flex-direction: column; }
+.admin-header-bottom { display: flex; align-items: center; gap: 1rem; margin-top: 0.25rem; }
+
+.btn-back {
+  width: 38px; height: 38px;
+  border-radius: 10px; border: 1px solid var(--line);
+  background: var(--white); color: var(--ink);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  &:hover { border-color: var(--sky); color: var(--sky); }
+}
+
+.admin-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.eyebrow-line { width: 22px; height: 2px; background: var(--sky); border-radius: 1px; }
+.eyebrow-text { font-size: 11px; font-weight: 700; color: var(--sky); letter-spacing: .1em; text-transform: uppercase; }
+.admin-title { font-size: 1.75rem; font-weight: 800; color: var(--ink); font-family: var(--font-head); letter-spacing: -0.03em; margin-bottom: 0.25rem; }
+.admin-subtitle { font-size: 0.8rem; color: var(--muted); }
+
+// ── Layout ─────────────────────────────────
+.poi-form-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.form-col { display: flex; flex-direction: column; gap: 1.25rem; }
+
+// ── Mapa ───────────────────────────────────
+.map-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--sh-sm);
+  position: sticky;
+  top: 1.5rem;
+}
+
+.map-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.map-card-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sky);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.coords-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--green);
+  background: var(--green-pale);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.coords-hint {
+  font-size: 0.72rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+#admin-poi-map {
+  height: 480px;
+  width: 100%;
+  cursor: crosshair !important;
+}
+
+.map-card-footer {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+// ── Form card ──────────────────────────────
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--sh-sm);
+}
+
+.form-card-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sky);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+  &:last-child { margin-bottom: 0; }
+
+  label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink2);
+    margin-bottom: 0.35rem;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    font-size: 0.875rem;
+    color: var(--ink);
+    background: var(--white);
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus { outline: none; border-color: var(--sky); box-shadow: 0 0 0 3px rgba(27,109,255,.08); }
+    &::placeholder { color: var(--muted); }
+  }
+
+  textarea { resize: vertical; }
+  &.error input, &.error select { border-color: var(--red); }
+}
+
+.required { color: var(--red); margin-left: 2px; }
+.field-error { display: block; font-size: 0.72rem; color: var(--red); margin-top: 0.25rem; }
+.field-hint  { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+
+// ── Color preview ──────────────────────────
+.color-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.color-label { font-size: 0.75rem; color: var(--ink2); font-family: var(--font-mono); }
+
+// ── Icon input ─────────────────────────────
+.icon-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input { flex: 1; }
+}
+
+.icon-preview {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+// ── Tags ───────────────────────────────────
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  min-height: 28px;
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+}
+
+.tag-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  &:hover { opacity: 1; }
+}
+
+.tags-add {
+  display: flex;
+  gap: 0.5rem;
+
+  input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--ink);
+    background: var(--white);
+    &:focus { outline: none; border-color: var(--sky); }
+    &::placeholder { color: var(--muted); }
+  }
+}
+
+.btn-tag-add {
+  width: 36px; height: 36px;
+  border: 1px solid var(--sky);
+  border-radius: 8px;
+  background: var(--sky-pale);
+  color: var(--sky);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; flex-shrink: 0;
+  transition: all 0.2s;
+  &:hover { background: var(--sky); color: var(--white); }
+}
+
+// ── Toggle ─────────────────────────────────
+.toggle-wrap { display: flex; align-items: center; gap: 0.85rem; cursor: pointer; }
+
+.toggle-switch {
+  width: 44px; height: 24px;
+  border-radius: 99px; background: var(--line);
+  position: relative; transition: background 0.2s; flex-shrink: 0; cursor: pointer;
+  &.on { background: var(--sky); }
+}
+
+.toggle-thumb {
+  width: 18px; height: 18px;
+  border-radius: 50%; background: var(--white);
+  position: absolute; top: 3px; left: 3px;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  .toggle-switch.on & { transform: translateX(20px); }
+}
+
+.toggle-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+.toggle-hint  { display: block; font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
+
+// ── Alertas ────────────────────────────────
+.form-alert {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.65rem 0.85rem; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 500;
+  &.success { background: var(--green-pale); color: var(--green); }
+  &.error   { background: var(--red-pale);   color: var(--red);   }
+}
+
+// ── Acciones ───────────────────────────────
+.form-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+
+.btn-submit {
+  width: 100%; padding: 0.75rem;
+  background: var(--sky); color: var(--white);
+  border: none; border-radius: 10px;
+  font-size: 0.875rem; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  transition: opacity 0.2s;
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:hover:not(:disabled) { opacity: 0.88; }
+}
+
+.btn-cancel-form {
+  width: 100%; padding: 0.65rem;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: none; color: var(--muted); font-size: 0.875rem; cursor: pointer;
+  transition: all 0.2s;
+  &:hover { border-color: var(--ink2); color: var(--ink); }
+}

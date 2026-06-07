@@ -16,6 +16,9 @@ export class PerfilComponent implements OnInit {
   editing = false;
   isSaving = false;
   saveSuccess = false;
+  historialTotal = 0;
+  historialLimit = 5;
+  mostrandoTodo = false;
   saveError = '';
 
   form = { nombre: '', apellido: '', ciudad: '', colegio: '' };
@@ -37,15 +40,21 @@ export class PerfilComponent implements OnInit {
     this.cargarHistorial();
   }
 
-  private cargarHistorial() {
-    this.historialService.getHistorialUsuario().subscribe({
-      next: (data) => {
+  private cargarHistorial(limit = 5) {
+    this.historialService.getHistorialUsuario(limit).subscribe({
+      next: ({ data, total }) => {
         this.historial = data;
+        this.historialTotal = total;
         this.stats.carreras = new Set(data.map((h: any) => h.id_carrera)).size;
       },
       error: (e) => console.error('Error historial:', e),
     });
   }
+
+  verTodo() {
+  this.mostrandoTodo = true;
+  this.cargarHistorial(100);
+}
 
   getInitials(): string {
     return `${this.usuario.nombre[0]}${this.usuario.apellido[0]}`.toUpperCase();

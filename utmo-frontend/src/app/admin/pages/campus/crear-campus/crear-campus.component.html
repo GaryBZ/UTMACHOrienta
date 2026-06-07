@@ -1,3 +1,187 @@
-<p>
-  crear-campus works!
-</p>
+<div class="admin-wrap">
+
+  <!-- Header -->
+  <div class="admin-header">
+    <div class="admin-header-top">
+      <button class="btn-back" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    <div class="admin-header-body">
+      <div class="admin-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Panel de administración</span>
+      </div>
+      <h1 class="admin-title">{{ isEditing ? 'Editar POI' : 'Nuevo punto de interés' }}</h1>
+      <div class="admin-header-bottom">
+        <p class="admin-subtitle">Haz clic en el mapa para seleccionar la ubicación</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="poi-form-layout">
+
+    <!-- Mapa -->
+    <div class="map-card">
+      <div class="map-card-header">
+        <div class="map-card-title">
+          <i class="fa-solid fa-map-location-dot"></i> Ubicación
+        </div>
+        @if (form.latitud && form.longitud) {
+          <div class="coords-badge">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            {{ form.latitud | number:'1.5-5' }}, {{ form.longitud | number:'1.5-5' }}
+          </div>
+        } @else {
+          <div class="coords-hint">
+            <i class="fa-solid fa-hand-pointer"></i> Haz clic en el mapa
+          </div>
+        }
+      </div>
+      <div id="admin-poi-map"></div>
+      <div class="map-card-footer">
+        <i class="fa-solid fa-circle-info"></i>
+        Haz clic en cualquier punto del campus para fijar las coordenadas automáticamente.
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="form-col">
+
+      <!-- Info básica -->
+      <div class="form-card">
+        <div class="form-card-title">
+          <i class="fa-solid fa-circle-info"></i> Información básica
+        </div>
+
+        <div class="form-field" [ngClass]="{ error: touched['nombre'] && !form.nombre }">
+          <label>Nombre <span class="required">*</span></label>
+          <input type="text" [(ngModel)]="form.nombre" name="nombre"
+            placeholder="Ej. Facultad de Ingeniería Civil"
+            (blur)="touch('nombre')" />
+          @if (touched['nombre'] && !form.nombre) {
+            <span class="field-error">El nombre es requerido</span>
+          }
+        </div>
+
+        <div class="form-field">
+          <label>Descripción</label>
+          <textarea [(ngModel)]="form.descripcion" name="descripcion"
+            rows="3" placeholder="Descripción del punto de interés..."></textarea>
+        </div>
+
+        <div class="form-field" [ngClass]="{ error: touched['categoria'] && !form.categoria }">
+          <label>Categoría <span class="required">*</span></label>
+          <select [(ngModel)]="form.categoria" name="categoria"
+            (change)="onCategoriaChange()" (blur)="touch('categoria')">
+            <option value="">Seleccionar...</option>
+            @for (cat of categorias; track cat.value) {
+              <option [value]="cat.value">{{ cat.label }}</option>
+            }
+          </select>
+          @if (touched['categoria'] && !form.categoria) {
+            <span class="field-error">La categoría es requerida</span>
+          }
+        </div>
+
+        <!-- Preview color automático -->
+        @if (form.categoria) {
+          <div class="color-preview">
+            <div class="color-swatch" [style.background]="form.color_hex"></div>
+            <span class="color-label">Color asignado: {{ form.color_hex }}</span>
+          </div>
+        }
+
+        <div class="form-field">
+          <label>Icono (Font Awesome)</label>
+          <div class="icon-input-wrap">
+            <div class="icon-preview" [style.color]="form.color_hex || '#1b6dff'">
+              <i [ngClass]="form.icono || 'fa-solid fa-location-dot'"></i>
+            </div>
+            <input type="text" [(ngModel)]="form.icono" name="icono"
+              placeholder="fa-solid fa-building-columns" />
+          </div>
+          <span class="field-hint">Clases de Font Awesome, ej: fa-solid fa-building-columns</span>
+        </div>
+
+      </div>
+
+      <!-- Facultad + Tags -->
+      <div class="form-card">
+        <div class="form-card-title">
+          <i class="fa-solid fa-tags"></i> Detalles adicionales
+        </div>
+
+        <div class="form-field">
+          <label>Facultad relacionada</label>
+          <select [(ngModel)]="form.id_facultad" name="id_facultad">
+            <option [ngValue]="null">Sin facultad</option>
+            @for (fac of facultades; track fac.id) {
+              <option [ngValue]="fac.id">{{ fac.codigo }} — {{ fac.nombre_completo }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Tags</label>
+          <div class="tags-list">
+            @for (tag of form.tags; track tag) {
+              <span class="tag-chip" [style.background]="getCatPale()" [style.color]="form.color_hex">
+                {{ tag }}
+                <button type="button" class="tag-remove" (click)="removeTag(tag)">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </span>
+            }
+          </div>
+          <div class="tags-add">
+            <input type="text" [(ngModel)]="newTag" name="newTag"
+              placeholder="Agregar tag..."
+              (keydown.enter)="addTag(); $event.preventDefault()" />
+            <button type="button" class="btn-tag-add" (click)="addTag()">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estado + Acciones -->
+      <div class="form-card">
+        <div class="form-card-title">
+          <i class="fa-solid fa-toggle-on"></i> Estado
+        </div>
+
+        <label class="toggle-wrap">
+          <div class="toggle-switch" [ngClass]="{ on: form.activo }" (click)="form.activo = !form.activo">
+            <div class="toggle-thumb"></div>
+          </div>
+          <div class="toggle-info">
+            <span class="toggle-label">{{ form.activo ? 'Activo' : 'Inactivo' }}</span>
+            <span class="toggle-hint">{{ form.activo ? 'Visible en el mapa' : 'Oculto en el mapa' }}</span>
+          </div>
+        </label>
+
+        @if (errorMessage) {
+          <div class="form-alert error" style="margin-top: 1rem">
+            <i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage }}
+          </div>
+        }
+        @if (saveSuccess) {
+          <div class="form-alert success" style="margin-top: 1rem">
+            <i class="fa-solid fa-circle-check"></i> Guardado correctamente
+          </div>
+        }
+
+        <div class="form-actions">
+          <button class="btn-submit" (click)="submitForm()" [disabled]="isSubmitting">
+            <i class="fa-solid fa-floppy-disk"></i>
+            {{ isSubmitting ? 'Guardando...' : (isEditing ? 'Actualizar POI' : 'Crear POI') }}
+          </button>
+          <button class="btn-cancel-form" (click)="goBack()">Cancelar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

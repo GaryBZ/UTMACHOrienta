@@ -4,8 +4,12 @@ export const registrarVisita = async (id_usuario, id_carrera) => {
   return await HistorialModel.registrarVisita(id_usuario, id_carrera);
 };
 
-export const getHistorialUsuario = async (id_usuario) => {
-  return await HistorialModel.getByUsuario(id_usuario);
+export const getHistorialUsuario = async (id_usuario, limit = 5) => {
+  return await HistorialModel.getByUsuario(id_usuario, limit);
+};
+
+export const countHistorialUsuario = async (id_usuario) => {
+  return await HistorialModel.countByUsuario(id_usuario);
 };
 
 export const getMasVisitadas = async () => {

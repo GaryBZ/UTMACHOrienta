@@ -48,8 +48,6 @@
         <div class="nav-profile-menu" *ngIf="isProfileOpen">
           <a class="nav-profile-item" routerLink="/perfil" (click)="closeProfile()">Perfil</a>
           <a class="nav-profile-item" routerLink="/admin" (click)="closeProfile()" *ngIf="isAdmin">Modo admin</a>
-          <button class="nav-profile-item" type="button" (click)="closeProfile()">Item B</button>
-          <button class="nav-profile-item" type="button" (click)="closeProfile()">Item C</button>
           <div class="nav-profile-divider"></div>
           <button class="nav-profile-item danger" type="button" (click)="logout()">Cerrar sesion</button>
         </div>
