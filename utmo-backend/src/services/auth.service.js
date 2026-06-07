@@ -1,6 +1,16 @@
 import bcrypt from 'bcryptjs';
 import db from '../config/db.js';
 import UsuarioModel from '../models/usuario.model.js';
+import jwt from 'jsonwebtoken';
+
+const generateToken = (user) => {
+  return jwt.sign(
+    { id: user.id, email: user.email, id_rol: user.id_rol, rol_nombre: user.rol_nombre },
+    process.env.JWT_SECRET,
+    { expiresIn: '7d' }
+  );
+};
+
 
 const createError = (message, status = 400, code) => {
 	const error = new Error(message);
@@ -50,52 +60,54 @@ const resolveRole = async ({ id_rol, rol_nombre }) => {
 };
 
 export const login = async ({ email, password }) => {
-	const normalizedEmail = email ? email.trim().toLowerCase() : '';
-	if (!normalizedEmail || !password) {
-		throw createError('Email y contrasena requeridos', 400);
-	}
+  const normalizedEmail = email ? email.trim().toLowerCase() : '';
+  if (!normalizedEmail || !password) {
+    throw createError('Email y contraseña requeridos', 400);
+  }
 
-	const user = await UsuarioModel.getAuthByEmail(normalizedEmail);
-	if (!user) throw createError('Usuario no encontrado', 404);
+  const user = await UsuarioModel.getAuthByEmail(normalizedEmail);
+  if (!user) throw createError('Usuario no encontrado', 404);
 
-	const isValid = await bcrypt.compare(password, user.password);
-	if (!isValid) throw createError('Credenciales invalidas', 401);
+  const isValid = await bcrypt.compare(password, user.password);
+  if (!isValid) throw createError('Credenciales inválidas', 401);
 
-	const { password: _password, ...safeUser } = user;
-	return safeUser;
+  const { password: _password, ...safeUser } = user;
+  const token = generateToken(safeUser);
+  return { ...safeUser, token };
 };
 
 export const register = async (payload) => {
-	const { nombre, apellido, email, password, colegio, ciudad, id_rol, rol_nombre } = payload;
+  const { nombre, apellido, email, password, colegio, ciudad, id_rol, rol_nombre } = payload;
 
-	if (!nombre || !apellido || !email || !password) {
-		throw createError('Datos incompletos', 400);
-	}
+  if (!nombre || !apellido || !email || !password) {
+    throw createError('Datos incompletos', 400);
+  }
 
-	if (password.length < 8) {
-		throw createError('La contrasena debe tener minimo 8 caracteres', 400);
-	}
+  if (password.length < 8) {
+    throw createError('La contrasena debe tener minimo 8 caracteres', 400);
+  }
 
-	const normalizedEmail = email.trim().toLowerCase();
-	const existingByEmail = await UsuarioModel.getByEmail(normalizedEmail);
-	if (existingByEmail) {
-		throw createError('El correo ya esta registrado', 409, '23505');
-	}
+  const normalizedEmail = email.trim().toLowerCase();
+  const existingByEmail = await UsuarioModel.getByEmail(normalizedEmail);
+  if (existingByEmail) {
+    throw createError('El correo ya esta registrado', 409, '23505');
+  }
 
-	const role = await resolveRole({ id_rol, rol_nombre });
-	const passwordHash = await bcrypt.hash(password, 10);
+  const role = await resolveRole({ id_rol, rol_nombre });
+  const passwordHash = await bcrypt.hash(password, 10);
 
-	const created = await UsuarioModel.create({
-		nombre,
-		apellido,
-		email: normalizedEmail,
-		password: passwordHash,
-		id_rol: role.id,
-		colegio,
-		ciudad
-	});
+  const created = await UsuarioModel.create({
+    nombre,
+    apellido,
+    email: normalizedEmail,
+    password: passwordHash,
+    id_rol: role.id,
+    colegio,
+    ciudad
+  });
 
-	const user = await UsuarioModel.getAuthByEmail(created.email);
-	const { password: _password, ...safeUser } = user;
-	return safeUser;
+  const user = await UsuarioModel.getAuthByEmail(created.email);
+  const { password: _pwd, ...safeUser } = user;
+  const token = generateToken(safeUser);
+  return { ...safeUser, token };
 };

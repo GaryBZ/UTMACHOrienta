@@ -16,6 +16,7 @@ export interface AuthUser {
   ciudad: string | null;
   activo: boolean;
   fecha_registro: string;
+  token: string;
 }
 
 export interface LoginPayload {
@@ -51,6 +52,25 @@ export class AuthService {
     return this.http.post<ApiResponse<AuthUser>>(`${this.baseUrl}/register`, payload).pipe(
       map((response) => this.unwrapResponse(response))
     );
+  }
+
+  getToken(): string | null {
+    const raw = localStorage.getItem('utmo_user');
+    if (!raw) return null;
+    try {
+      return JSON.parse(raw)?.token ?? null;
+    } catch { return null; }
+  }
+
+  getCurrentUser(): AuthUser | null {
+    const raw = localStorage.getItem('utmo_user');
+    if (!raw) return null;
+    try { return JSON.parse(raw); } 
+    catch { return null; }
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
   }
 
   private unwrapResponse<T>(response: ApiResponse<T>): T {

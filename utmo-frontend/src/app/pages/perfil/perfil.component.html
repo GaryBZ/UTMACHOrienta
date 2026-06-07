@@ -1,17 +1,18 @@
 <div class="profile-wrap">
-
   <!-- Columna izquierda -->
   <aside class="profile-side">
-
     <!-- Avatar + info -->
     <div class="profile-card">
       <div class="profile-avatar">
         {{ getInitials() }}
       </div>
-      <div class="profile-name">{{ usuario.nombre }} {{ usuario.apellido }}</div>
-      <div class="profile-meta">{{ usuario.colegio || 'Sin institución' }}</div>
+      <div class="profile-name">
+        {{ usuario.nombre }} {{ usuario.apellido }}
+      </div>
+      <div class="profile-meta">{{ usuario.colegio || "Sin institución" }}</div>
       <span class="profile-badge">
-        <i class="fa-solid fa-user-graduate"></i> {{ usuario.rol_nombre | titlecase }}
+        <i class="fa-solid fa-user-graduate"></i>
+        {{ usuario.rol_nombre | titlecase }}
       </span>
     </div>
 
@@ -57,22 +58,22 @@
             <i class="fa-solid fa-pen"></i> Editar
           </button>
         } @else {
-          <button class="btn-save" (click)="saveChanges()" [disabled]="isSaving">
+          <button
+            class="btn-save"
+            (click)="saveChanges()"
+            [disabled]="isSaving"
+          >
             <i class="fa-solid fa-floppy-disk"></i>
-            {{ isSaving ? 'Guardando...' : 'Guardar cambios' }}
+            {{ isSaving ? "Guardando..." : "Guardar cambios" }}
           </button>
-          <button class="btn-cancel" (click)="cancelEdit()">
-            Cancelar
-          </button>
+          <button class="btn-cancel" (click)="cancelEdit()">Cancelar</button>
         }
       </div>
     </div>
-
   </aside>
 
   <!-- Columna derecha -->
   <main class="profile-main">
-
     <!-- Estadísticas -->
     <div class="profile-card">
       <div class="profile-card-title">
@@ -88,7 +89,9 @@
           <div class="stat-label">Exámenes realizados</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">{{ usuario.fecha_registro | date:'MMM yyyy' }}</div>
+          <div class="stat-value">
+            {{ usuario.fecha_registro | date: "MMM yyyy" }}
+          </div>
           <div class="stat-label">Miembro desde</div>
         </div>
       </div>
@@ -97,21 +100,31 @@
     <!-- Historial de carreras visitadas -->
     <div class="profile-card">
       <div class="profile-card-title">
-        <i class="fa-solid fa-clock-rotate-left"></i> Historial de carreras exploradas
+        <i class="fa-solid fa-clock-rotate-left"></i> Historial de carreras
+        exploradas
       </div>
       @if (historial.length === 0) {
         <p class="profile-empty">Aún no has explorado ninguna carrera.</p>
       }
       @for (item of historial; track item.id) {
         <div class="historial-item">
-          <div class="historial-icon" [ngClass]="item.facultad_codigo.toLowerCase()">
+          <div
+            class="historial-icon"
+            [ngClass]="item.facultad_codigo.toLowerCase()"
+          >
             <i [ngClass]="item.facultad_icono"></i>
           </div>
           <div class="historial-info">
-            <div class="historial-nombre">{{ item.nombre }}</div>
-            <div class="historial-meta">{{ item.facultad_codigo }} · {{ item.fecha | date:'dd MMM yyyy' }}</div>
+            <div class="historial-nombre">{{ item.carrera_nombre }}</div>
+            <div class="historial-meta">
+              {{ item.facultad_codigo }} ·
+              {{ item.fecha | date: "dd MMM yyyy" }}
+            </div>
           </div>
-          <a class="historial-link" [routerLink]="['/carreras', item.id]">
+          <a
+            class="historial-link"
+            [routerLink]="['/carreras', item.id_carrera]"
+          >
             Ver <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -124,21 +137,30 @@
         <i class="fa-solid fa-shield-halved"></i> Información de cuenta
       </div>
       <div class="cuenta-row">
-        <span class="cuenta-label"><i class="fa-solid fa-envelope"></i> Correo</span>
+        <span class="cuenta-label"
+          ><i class="fa-solid fa-envelope"></i> Correo</span
+        >
         <span class="cuenta-value">{{ usuario.email }}</span>
       </div>
       <div class="cuenta-row">
-        <span class="cuenta-label"><i class="fa-solid fa-circle-dot"></i> Estado</span>
-        <span class="cuenta-badge" [ngClass]="usuario.activo ? 'active' : 'inactive'">
-          {{ usuario.activo ? 'Activo' : 'Inactivo' }}
+        <span class="cuenta-label"
+          ><i class="fa-solid fa-circle-dot"></i> Estado</span
+        >
+        <span
+          class="cuenta-badge"
+          [ngClass]="usuario.activo ? 'active' : 'inactive'"
+        >
+          {{ usuario.activo ? "Activo" : "Inactivo" }}
         </span>
       </div>
       <div class="cuenta-row">
-        <span class="cuenta-label"><i class="fa-solid fa-calendar"></i> Registro</span>
-        <span class="cuenta-value">{{ usuario.fecha_registro | date:'dd/MM/yyyy' }}</span>
+        <span class="cuenta-label"
+          ><i class="fa-solid fa-calendar"></i> Registro</span
+        >
+        <span class="cuenta-value">{{
+          usuario.fecha_registro | date: "dd/MM/yyyy"
+        }}</span>
       </div>
     </div>
-
   </main>
-
 </div>
