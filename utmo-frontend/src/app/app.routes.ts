@@ -63,6 +63,10 @@ export const routes: Routes = [
         loadComponent: () => import('./admin/pages/clases/listar-clases/listar-clases.component').then((m) => m.ListarClasesComponent),
       },
       {
+        path: 'clases/:id',
+        loadComponent: () => import('./admin/pages/clases/crear-clases/crear-clases.component').then((m) => m.CrearClasesComponent),
+      },
+      {
         path: 'crear-clases',
         loadComponent: () => import('./admin/pages/clases/crear-clases/crear-clases.component').then((m) => m.CrearClasesComponent),
       },
