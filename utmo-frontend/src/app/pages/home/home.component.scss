@@ -960,26 +960,7 @@
   justify-content: space-between;
   gap: 32px;
 }
-.cta-banner::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.05);
-}
-.cta-banner::after {
-  content: '';
-  position: absolute;
-  bottom: -60px;
-  left: 200px;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.04);
-}
+
 .cta-text { position: relative; z-index: 1; }
 .cta-text h2 {
   font-size: 30px;

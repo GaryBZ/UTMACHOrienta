@@ -1,1 +1,218 @@
-<div class="admin-page"></div>
+<div class="dashboard-wrap">
+
+  <!-- Header -->
+  <div class="dash-header">
+    <div>
+      <div class="admin-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Panel de administración</span>
+      </div>
+      <h1 class="dash-title">Dashboard</h1>
+      <p class="dash-subtitle">Resumen general de la plataforma UTMACHOrienta</p>
+    </div>
+    <div class="dash-header-right">
+      <div class="dash-date">
+        <i class="fa-solid fa-calendar-days"></i>
+        {{ today | date:'EEEE, d MMMM yyyy' }}
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-icon" style="background:#e3edff;color:#1b6dff">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-value">26</div>
+        <div class="kpi-label">Carreras activas</div>
+      </div>
+      <div class="kpi-trend up">
+        <i class="fa-solid fa-arrow-trend-up"></i> +2 este mes
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon" style="background:#E1F5EE;color:#1D9E75">
+        <i class="fa-solid fa-users"></i>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-value">142</div>
+        <div class="kpi-label">Usuarios registrados</div>
+      </div>
+      <div class="kpi-trend up">
+        <i class="fa-solid fa-arrow-trend-up"></i> +18 este mes
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon" style="background:#FEF3E2;color:#E07B2A">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-value">1,284</div>
+        <div class="kpi-label">Visitas a carreras</div>
+      </div>
+      <div class="kpi-trend up">
+        <i class="fa-solid fa-arrow-trend-up"></i> +94 esta semana
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon" style="background:#F3E8FF;color:#7C3AED">
+        <i class="fa-solid fa-map-location-dot"></i>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-value">24</div>
+        <div class="kpi-label">POIs en el campus</div>
+      </div>
+      <div class="kpi-trend neutral">
+        <i class="fa-solid fa-minus"></i> Sin cambios
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon" style="background:#FEE2E2;color:#DC2626">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-value">87</div>
+        <div class="kpi-label">Exámenes realizados</div>
+      </div>
+      <div class="kpi-trend up">
+        <i class="fa-solid fa-arrow-trend-up"></i> +12 esta semana
+      </div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-icon" style="background:#e3edff;color:#1b6dff">
+        <i class="fa-solid fa-building-columns"></i>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-value">5</div>
+        <div class="kpi-label">Facultades</div>
+      </div>
+      <div class="kpi-trend neutral">
+        <i class="fa-solid fa-minus"></i> Sin cambios
+      </div>
+    </div>
+  </div>
+
+  <!-- Fila principal -->
+  <div class="dash-grid">
+
+    <!-- Flujo de visitas -->
+    <div class="dash-card span-2">
+      <div class="dash-card-header">
+        <div class="dash-card-title">
+          <i class="fa-solid fa-chart-line"></i> Flujo de visitas — últimos 30 días
+        </div>
+        <div class="dash-card-actions">
+          <button class="chip-btn active">30d</button>
+          <button class="chip-btn">7d</button>
+          <button class="chip-btn">Hoy</button>
+        </div>
+      </div>
+      <div class="chart-area">
+        <div class="chart-bars">
+          @for (bar of chartBars; track bar.day) {
+            <div class="bar-wrap">
+              <div class="bar" [style.height]="bar.pct + '%'" [style.background]="bar.pct > 70 ? '#1b6dff' : '#95bbff'">
+                <div class="bar-tooltip">{{ bar.val }} visitas</div>
+              </div>
+              <div class="bar-label">{{ bar.day }}</div>
+            </div>
+          }
+        </div>
+        <div class="chart-yaxis">
+          <span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carreras más visitadas -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <div class="dash-card-title">
+          <i class="fa-solid fa-fire"></i> Carreras más visitadas
+        </div>
+        <select class="mini-select">
+          <option>Todas las facultades</option>
+          <option>FCA</option>
+          <option>FCE</option>
+          <option>FCS</option>
+          <option>FCQS</option>
+          <option>FIC</option>
+        </select>
+      </div>
+      <div class="ranking-list">
+        @for (item of topCarreras; track item.nombre; let i = $index) {
+          <div class="ranking-item">
+            <div class="ranking-pos" [ngClass]="{ gold: i === 0, silver: i === 1, bronze: i === 2 }">
+              {{ i + 1 }}
+            </div>
+            <div class="ranking-body">
+              <div class="ranking-nombre">{{ item.nombre }}</div>
+              <div class="ranking-bar-wrap">
+                <div class="ranking-bar" [style.width]="item.pct + '%'" [style.background]="item.color"></div>
+              </div>
+            </div>
+            <div class="ranking-count">{{ item.visitas }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Distribución por facultad -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <div class="dash-card-title">
+          <i class="fa-solid fa-building"></i> Visitas por facultad
+        </div>
+      </div>
+      <div class="fac-list">
+        @for (fac of facStats; track fac.codigo) {
+          <div class="fac-item">
+            <div class="fac-chip" [style.background]="fac.pale" [style.color]="fac.color">
+              {{ fac.codigo }}
+            </div>
+            <div class="fac-body">
+              <div class="fac-nombre">{{ fac.nombre }}</div>
+              <div class="fac-bar-wrap">
+                <div class="fac-bar" [style.width]="fac.pct + '%'" [style.background]="fac.color"></div>
+              </div>
+            </div>
+            <div class="fac-count" [style.color]="fac.color">{{ fac.visitas }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Distribución usuarios por rol -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <div class="dash-card-title">
+          <i class="fa-solid fa-user-group"></i> Usuarios por rol
+        </div>
+      </div>
+      <div class="roles-list">
+        @for (rol of rolesStats; track rol.nombre) {
+          <div class="rol-item">
+            <div class="rol-icon" [style.background]="rol.pale" [style.color]="rol.color">
+              <i [ngClass]="rol.icon"></i>
+            </div>
+            <div class="rol-body">
+              <div class="rol-nombre">{{ rol.nombre | titlecase }}</div>
+              <div class="rol-bar-wrap">
+                <div class="rol-bar" [style.width]="rol.pct + '%'" [style.background]="rol.color"></div>
+              </div>
+            </div>
+            <div class="rol-count">{{ rol.cantidad }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>
