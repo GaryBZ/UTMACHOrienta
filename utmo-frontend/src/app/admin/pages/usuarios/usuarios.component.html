@@ -1,1 +1,101 @@
-<div class="admin-page"></div>
+<div class="admin-wrap">
+
+  <div class="admin-header">
+    <div class="admin-header-left">
+      <div>
+        <div class="admin-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Panel de administración</span>
+        </div>
+        <h1 class="admin-title">Gestión de Usuarios</h1>
+        <p class="admin-subtitle">{{ filteredUsuarios.length }} usuarios registrados</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-filters">
+    <div class="search-wrap">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="text" class="search-input" placeholder="Buscar por nombre o email..."
+        [(ngModel)]="searchTerm" (input)="filterUsuarios()" />
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn" [ngClass]="{ active: filterRol === null }" (click)="setRol(null)">Todos</button>
+      @for (rol of roles; track rol) {
+        <button class="filter-btn" [ngClass]="{ active: filterRol === rol }" (click)="setRol(rol)">
+          {{ rol | titlecase }}
+        </button>
+      }
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn" [ngClass]="{ active: filterActivo === null }" (click)="setActivo(null)">Todos</button>
+      <button class="filter-btn" [ngClass]="{ active: filterActivo === true }" (click)="setActivo(true)">Activos</button>
+      <button class="filter-btn" [ngClass]="{ active: filterActivo === false }" (click)="setActivo(false)">Inactivos</button>
+    </div>
+  </div>
+
+  <div class="admin-table-wrap">
+    @if (isLoading) {
+      <div class="admin-state">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <p>Cargando usuarios...</p>
+      </div>
+    } @else if (filteredUsuarios.length === 0) {
+      <div class="admin-state">
+        <i class="fa-solid fa-users"></i>
+        <p>No se encontraron usuarios</p>
+      </div>
+    } @else {
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Ciudad</th>
+            <th>Institución</th>
+            <th class="td-center">Registro</th>
+            <th class="td-center">Estado</th>
+            <th class="td-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (usuario of filteredUsuarios; track usuario.id) {
+            <tr>
+              <td class="td-id">#{{ usuario.id }}</td>
+              <td>
+                <div class="usuario-info">
+                  <div class="usuario-avatar">{{ getInitials(usuario) }}</div>
+                  <div class="usuario-nombre">{{ usuario.nombre }} {{ usuario.apellido }}</div>
+                </div>
+              </td>
+              <td class="td-email">{{ usuario.email }}</td>
+              <td>
+                <span class="rol-badge" [ngClass]="usuario.rol_nombre.toLowerCase()">
+                  {{ usuario.rol_nombre | titlecase }}
+                </span>
+              </td>
+              <td class="td-muted">{{ usuario.ciudad || '—' }}</td>
+              <td class="td-muted">{{ usuario.colegio || '—' }}</td>
+              <td class="td-center td-muted">{{ usuario.fecha_registro | date:'dd/MM/yyyy' }}</td>
+              <td class="td-center">
+                <span class="status-badge" [ngClass]="usuario.activo ? 'active' : 'inactive'">
+                  {{ usuario.activo ? 'Activo' : 'Inactivo' }}
+                </span>
+              </td>
+              <td class="td-center">
+                <button class="btn-action toggle"
+                  (click)="toggleActivo(usuario)"
+                  [title]="usuario.activo ? 'Desactivar' : 'Activar'">
+                  <i [ngClass]="usuario.activo ? 'fa-solid fa-user-slash' : 'fa-solid fa-user-check'"></i>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+
+</div>
