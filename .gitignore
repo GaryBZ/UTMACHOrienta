@@ -20,4 +20,4 @@ utmo-frontend/www/
 **/*.log
 
 # Python virtual environment
-**/venv/
+**/.venv/
