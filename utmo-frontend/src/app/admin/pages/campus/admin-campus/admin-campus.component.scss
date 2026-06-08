@@ -392,7 +392,7 @@
   &:hover { background: var(--sky); color: var(--white); }
 }
 
-.toggle-wrap { display: flex; align-items: center; gap: 0.85rem; cursor: pointer; }
+.toggle-wrap { display: flex; align-items: center; gap: 0.85rem; cursor: pointer; padding-top: 0.2rem; }
 
 .toggle-switch {
   width: 44px; height: 24px;
