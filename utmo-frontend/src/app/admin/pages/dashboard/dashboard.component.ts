@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ChartBar, DashboardService, FacStat, RolStat, TopCarrera } from '../../../core/services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,134 +10,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   today = new Date();
-  constructor() {}
+  totalCarreras = 0;
+  totalUsuarios = 0;
+  totalVisitas = 0;
+  totalPois = 0;
+  totalExamenes = 0;
+  totalFacultades = 0;
 
-  ngOnInit() {}
-  
-  chartBars = [
-    { day: '9/5', val: 42, pct: 42 },
-    { day: '10/5', val: 58, pct: 58 },
-    { day: '11/5', val: 35, pct: 35 },
-    { day: '12/5', val: 71, pct: 71 },
-    { day: '13/5', val: 90, pct: 90 },
-    { day: '14/5', val: 65, pct: 65 },
-    { day: '15/5', val: 48, pct: 48 },
-    { day: '16/5', val: 82, pct: 82 },
-    { day: '17/5', val: 55, pct: 55 },
-    { day: '18/5', val: 38, pct: 38 },
-    { day: '19/5', val: 95, pct: 95 },
-    { day: '20/5', val: 78, pct: 78 },
-    { day: '21/5', val: 62, pct: 62 },
-    { day: '22/5', val: 44, pct: 44 },
-    { day: '23/5', val: 88, pct: 88 },
-    { day: '24/5', val: 100, pct: 100 },
-    { day: '25/5', val: 73, pct: 73 },
-    { day: '26/5', val: 51, pct: 51 },
-    { day: '27/5', val: 67, pct: 67 },
-    { day: '28/5', val: 83, pct: 83 },
-  ];
+  constructor(private dashboardService: DashboardService) {}
 
-  topCarreras = [
-    {
-      nombre: 'Ing. en Sistemas y Computación',
-      visitas: 284,
-      pct: 100,
-      color: '#1b6dff',
-    },
-    {
-      nombre: 'Administración de Empresas',
-      visitas: 231,
-      pct: 81,
-      color: '#1D9E75',
-    },
-    { nombre: 'Medicina', visitas: 198, pct: 70, color: '#E07B2A' },
-    { nombre: 'Derecho', visitas: 165, pct: 58, color: '#7C3AED' },
-    {
-      nombre: 'Contabilidad y Auditoría',
-      visitas: 142,
-      pct: 50,
-      color: '#DC2626',
-    },
-    { nombre: 'Ingeniería Civil', visitas: 118, pct: 42, color: '#1b6dff' },
-  ];
+  ngOnInit() {
+    this.dashboardService.getStats().subscribe((stats) => {
+      this.totalCarreras = stats.carreras_activas;
+      this.totalUsuarios = stats.usuarios_registrados;
+      this.totalVisitas = stats.visitas_carreras;
+      this.totalPois = stats.pois_campus;
+      this.totalExamenes = stats.examenes_realizados;
+      this.totalFacultades = stats.facultades;
+    });
 
-  facStats = [
-    {
-      codigo: 'FIC',
-      nombre: 'Ing. Civil y Computación',
-      visitas: 512,
-      pct: 100,
-      color: '#1b6dff',
-      pale: '#e3edff',
-    },
-    {
-      codigo: 'FCA',
-      nombre: 'Ciencias Administrativas',
-      visitas: 389,
-      pct: 76,
-      color: '#1D9E75',
-      pale: '#E1F5EE',
-    },
-    {
-      codigo: 'FCQS',
-      nombre: 'Cs. Químicas y de la Salud',
-      visitas: 298,
-      pct: 58,
-      color: '#E07B2A',
-      pale: '#FEF3E2',
-    },
-    {
-      codigo: 'FCS',
-      nombre: 'Ciencias Sociales',
-      visitas: 187,
-      pct: 37,
-      color: '#7C3AED',
-      pale: '#F3E8FF',
-    },
-    {
-      codigo: 'FCE',
-      nombre: 'Ciencias Empresariales',
-      visitas: 142,
-      pct: 28,
-      color: '#DC2626',
-      pale: '#FEE2E2',
-    },
-  ];
+    this.dashboardService.getChartBars().subscribe((bars) => {
+      this.chartBars = bars; // { day, val, pct }
+    });
 
-  rolesStats = [
-    {
-      nombre: 'Aspirante',
-      cantidad: 98,
-      pct: 100,
-      color: '#1b6dff',
-      pale: '#e3edff',
-      icon: 'fa-solid fa-user-graduate',
-    },
-    {
-      nombre: 'Estudiante',
-      cantidad: 31,
-      pct: 32,
-      color: '#1D9E75',
-      pale: '#E1F5EE',
-      icon: 'fa-solid fa-book',
-    },
-    {
-      nombre: 'Administrador',
-      cantidad: 8,
-      pct: 8,
-      color: '#7C3AED',
-      pale: '#F3E8FF',
-      icon: 'fa-solid fa-shield-halved',
-    },
-    {
-      nombre: 'Invitado',
-      cantidad: 5,
-      pct: 5,
-      color: '#E07B2A',
-      pale: '#FEF3E2',
-      icon: 'fa-solid fa-user',
-    },
-  ];
+    this.dashboardService.getTopCarreras().subscribe((data) => {
+      this.topCarreras = data;
+    });
+
+    this.dashboardService.getFacStats().subscribe((data) => {
+      this.facStats = data;
+    });
+
+    this.dashboardService.getRolesStats().subscribe((data) => {
+      this.rolesStats = data;
+    });
+  }
+
+  chartBars: ChartBar[] = [];
+  topCarreras: TopCarrera[] = [];
+  facStats: FacStat[] = [];
+  rolesStats: RolStat[] = [];
 
   actividad = [
     {

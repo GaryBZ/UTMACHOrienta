@@ -10,6 +10,7 @@ import examenRoutes from './routes/examen.routes.js';
 import resultadoTestRoutes from './routes/resultado-test.routes.js';
 import poiCampusRoutes from './routes/poi-campus.routes.js';
 import usuariosRoutes from './routes/usuario.routes.js';
+import dashboardRoutes from './routes/dashboard.routes.js';
 
 const app = express();
 
@@ -27,5 +28,6 @@ app.use('/api/examenes', examenRoutes);
 app.use('/api/resultado-test', resultadoTestRoutes);
 app.use('/api/poi-campus', poiCampusRoutes);
 app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 export default app;

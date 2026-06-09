@@ -188,7 +188,6 @@
 
 <section class="modules-section">
   <div class="container">
-
     <!-- Solo el título aquí -->
     <div class="section-intro">
       <div>
@@ -196,36 +195,52 @@
           <div class="eyebrow-line"></div>
           <span class="eyebrow-text">Admisión 2026</span>
         </div>
-        <h2 class="section-h2">
-          Proceso de <em>Matricula</em>
-        </h2>
+        <h2 class="section-h2">Proceso de <em>Matricula</em></h2>
         <p class="section-p">
-          Toda la información actualizada sobre fechas, requisitos y proceso de ingreso a la UTMACH.
+          Toda la información actualizada sobre fechas, requisitos y proceso de
+          ingreso a la UTMACH.
         </p>
       </div>
     </div>
 
     <div class="admit-cards-grid">
       <div class="admit-card highlight">
-        <div class="admit-card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+        <div class="admit-card-icon">
+          <i class="fa-solid fa-calendar-days"></i>
+        </div>
         <div class="admit-card-label">Inscripciones abiertas</div>
         <div class="admit-card-date">Ago — Oct 2026</div>
-        <div class="admit-card-desc">Período de postulación para el primer semestre del ciclo 2026-2027.</div>
+        <div class="admit-card-desc">
+          Período de postulación para el primer semestre del ciclo 2026-2027.
+        </div>
       </div>
       <div class="admit-card">
-        <div class="admit-card-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <div class="admit-card-icon">
+          <i class="fa-solid fa-file-lines"></i>
+        </div>
         <div class="admit-card-label">Requisitos</div>
-        <div class="admit-card-desc">Título de bachiller, cédula de identidad, foto carnet, puntaje SNNA mínimo aprobatorio según carrera.</div>
+        <div class="admit-card-desc">
+          Título de bachiller, cédula de identidad, foto carnet, puntaje SNNA
+          mínimo aprobatorio según carrera.
+        </div>
       </div>
       <div class="admit-card">
         <div class="admit-card-icon"><i class="fa-solid fa-laptop"></i></div>
         <div class="admit-card-label">Postulación online</div>
-        <div class="admit-card-desc">Proceso 100% digital a través del portal del SNNA. No necesitas acercarte a la universidad en esta etapa.</div>
+        <div class="admit-card-desc">
+          Proceso 100% digital a través del portal del SNNA. No necesitas
+          acercarte a la universidad en esta etapa.
+        </div>
       </div>
       <div class="admit-card">
-        <div class="admit-card-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+        <div class="admit-card-icon">
+          <i class="fa-solid fa-money-bill-wave"></i>
+        </div>
         <div class="admit-card-label">Costo de matrícula</div>
-        <div class="admit-card-desc">La UTMACH es pública y gratuita. Los trámites de matrícula no tienen costo para los estudiantes admitidos.</div>
+        <div class="admit-card-desc">
+          La UTMACH es pública y gratuita. Los trámites de matrícula no tienen
+          costo para los estudiantes admitidos.
+        </div>
       </div>
     </div>
 
@@ -277,7 +292,11 @@
         </div>
         <div class="faq-list">
           @for (item of faqs; track item.id) {
-            <div class="faq-item" [ngClass]="{ open: item.open }" (click)="toggleFaq(item)">
+            <div
+              class="faq-item"
+              [ngClass]="{ open: item.open }"
+              (click)="toggleFaq(item)"
+            >
               <div class="faq-q">
                 {{ item.pregunta }}
                 <i class="fa-solid fa-chevron-down faq-icon"></i>
@@ -290,7 +309,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 

@@ -318,30 +318,32 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   private buildPopup(poi: Poi) {
-    const tagsHtml = poi.tags.length
-      ? poi.tags
-          .map(
-            (tag) =>
-              `<span class="pop-tag" style="color:${tag.color};background:${tag.bg};border-color:${tag.color}40">${tag.label}</span>`,
-          )
-          .join('')
-      : '';
+  const tagsHtml = poi.tags.length
+    ? poi.tags.map(tag =>
+        `<span class="pop-tag" style="color:${tag.color};background:${tag.bg};border-color:${tag.color}40">${tag.label}</span>`
+      ).join('')
+    : '';
 
-    return `
-      <div class="pop-wrap">
-        <div class="pop-head">
-          <div class="pop-icon" style="background:${poi.bgPale};color:${poi.color}"><i class="${poi.icon}"></i></div>
-          <div>
-            <div class="pop-title">${poi.name}</div>
-            <div class="pop-sub">${poi.short}</div>
-          </div>
+  const gmapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${poi.lat},${poi.lng}`;
+
+  return `
+    <div class="pop-wrap">
+      <div class="pop-head">
+        <div class="pop-icon" style="background:${poi.bgPale};color:${poi.color}"><i class="${poi.icon}"></i></div>
+        <div>
+          <div class="pop-title">${poi.name}</div>
+          <div class="pop-sub">${poi.short}</div>
         </div>
-        <div class="pop-body">
-          <div class="pop-desc">${poi.desc.substring(0, 100)}...</div>
-          <div class="pop-tags">${tagsHtml}</div>
-        </div>
-      </div>`;
-  }
+      </div>
+      <div class="pop-body">
+        <div class="pop-desc">${poi.desc.substring(0, 100)}...</div>
+        <div class="pop-tags">${tagsHtml}</div>
+        <a class="pop-gmaps-btn" href="${gmapsUrl}" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-google"></i> Cómo llegar
+        </a>
+      </div>
+    </div>`;
+}
 
   private loadPois() {
     this.poiCampusService.getAll({ activo: true }).subscribe({
@@ -433,6 +435,8 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
     item.open = !item.open;
   }
 
+
+  
   private buildStats() {
     const countByCat = (cat: PoiCategory) =>
       this.pois.filter((poi) => poi.cat === cat).length;
@@ -467,4 +471,6 @@ export class CampusComponent implements AfterViewInit, OnDestroy, OnInit {
       },
     ];
   }
+
+  
 }

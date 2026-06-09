@@ -4,6 +4,84 @@
   animation: fadeUp .45s ease both;
 }
 
+// ── Google Maps buttons ───────────────────
+.btn-gmaps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  padding: 10px;
+  background: var(--white);
+  color: #1b6dff;
+  border: 1.5px solid var(--sky-mid);
+  border-radius: 10px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s;
+  margin-top: 8px;
+  text-decoration: none;
+
+  i { font-size: 12px; }
+
+  &:hover {
+    background: var(--sky-pale);
+    border-color: var(--sky);
+    transform: translateY(-1px);
+  }
+}
+
+.mobile-btn-gmaps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  padding: 12px;
+  background: var(--white);
+  color: #1b6dff;
+  border: 1.5px solid var(--sky-mid);
+  border-radius: 10px;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s;
+  margin-top: 8px;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--sky-pale);
+    border-color: var(--sky);
+  }
+}
+
+// Popup map button
+:host ::ng-deep .pop-gmaps-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 7px 12px;
+  background: var(--white);
+  border: 1.5px solid #1b6dff40;
+  border-radius: 8px;
+  color: #1b6dff;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .15s;
+  font-family: var(--font-head);
+
+  &:hover {
+    background: #e3edff;
+    border-color: #1b6dff;
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
