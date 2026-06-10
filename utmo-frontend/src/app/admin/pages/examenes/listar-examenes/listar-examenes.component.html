@@ -1,1 +1,86 @@
-<div class="admin-page"></div>
+<div class="admin-wrap">
+
+  <div class="admin-header">
+    <div class="admin-header-left">
+      <div>
+        <div class="admin-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Panel de administración</span>
+        </div>
+        <h1 class="admin-title">Gestión de Exámenes</h1>
+        <p class="admin-subtitle">{{ filteredCarreras.length }} carreras disponibles</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-filters">
+    <div class="search-wrap">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="text" class="search-input" placeholder="Buscar carrera..."
+        [(ngModel)]="searchTerm" (input)="filterCarreras()" />
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn" [ngClass]="{ active: filterFac === null }" (click)="setFac(null)">Todas</button>
+      @for (fac of facultades; track fac.id) {
+        <button class="filter-btn" [ngClass]="{ active: filterFac === fac.id }" (click)="setFac(fac.id)">
+          {{ fac.codigo }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="admin-table-wrap">
+    @if (isLoading) {
+      <div class="admin-state">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <p>Cargando carreras...</p>
+      </div>
+    } @else if (filteredCarreras.length === 0) {
+      <div class="admin-state">
+        <i class="fa-solid fa-folder-open"></i>
+        <p>No se encontraron carreras</p>
+      </div>
+    } @else {
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Carrera</th>
+            <th>Facultad</th>
+            <th class="td-center">Preguntas cargadas</th>
+            <th class="td-center">Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (carrera of filteredCarreras; track carrera.id) {
+            <tr>
+              <td class="td-id">#{{ carrera.id }}</td>
+              <td class="td-nombre">{{ carrera.nombre }}</td>
+              <td>
+                <span class="facultad-chip" [ngClass]="getFacultadCode(carrera.id_facultad).toLowerCase()">
+                  {{ getFacultadCode(carrera.id_facultad) }}
+                </span>
+              </td>
+              <td class="td-center">
+                <span class="count-badge">{{ getExamenCount(carrera.id) }}</span>
+                pregunta(s)
+              </td>
+              <td class="td-center">
+                <span class="status-badge" [ngClass]="getExamenStatus(carrera.id)">
+                  {{ getExamenStatusLabel(carrera.id) }}
+                </span>
+              </td>
+              <td>
+                <button class="btn-action edit" (click)="gestionar(carrera.id)">
+                  <i class="fa-solid fa-pen"></i> Gestionar
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+
+</div>

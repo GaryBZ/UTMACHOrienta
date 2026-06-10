@@ -1,3 +1,247 @@
-.admin-page {
-	min-height: calc(100vh - 48px);
+.admin-wrap {
+  padding: 2rem 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// ── Header ─────────────────────────────────
+.admin-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.eyebrow-line {
+  width: 22px;
+  height: 2px;
+  background: var(--sky);
+  border-radius: 1px;
+}
+
+.eyebrow-text {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sky);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.admin-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--ink);
+  font-family: var(--font-head);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.admin-subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+// ── Filtros ────────────────────────────────
+.admin-filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 360px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.6rem 0.85rem 0.6rem 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.875rem;
+  color: var(--ink);
+  background: var(--white);
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+
+  &:focus { outline: none; border-color: var(--sky); }
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.4rem 0.85rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &.active {
+    background: var(--white);
+    color: var(--sky);
+    font-weight: 700;
+    box-shadow: var(--sh-sm);
+  }
+}
+
+// ── Tabla ──────────────────────────────────
+.admin-table-wrap {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--sh-sm);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+
+  thead tr {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+
+  th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    vertical-align: middle;
+  }
+
+  tbody tr {
+    transition: background 0.15s;
+
+    &:last-child td { border-bottom: none; }
+    &:hover { background: var(--surface); }
+  }
+}
+
+.td-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.td-center { text-align: center; }
+
+.td-nombre {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+// ── Facultad chip ──────────────────────────
+.facultad-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: var(--sky-pale);
+  color: var(--sky);
+}
+
+// ── Count badge ────────────────────────────
+.count-badge {
+  font-weight: 700;
+  color: var(--sky);
+  font-family: var(--font-mono);
+}
+
+// ── Status badge ───────────────────────────
+.status-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+
+  &.complete { background: var(--green-pale); color: var(--green); }
+  &.partial  { background: var(--amber-pale); color: var(--amber); }
+  &.empty    { background: var(--red-pale);   color: var(--red);   }
+}
+
+// ── Acción ─────────────────────────────────
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s;
+
+  &.edit {
+    color: var(--sky);
+    &:hover {
+      background: var(--sky-pale);
+      border-color: var(--sky);
+    }
+  }
+}
+
+// ── Estado vacío / loading ──────────────────
+.admin-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  gap: 0.75rem;
+  color: var(--muted);
+
+  i { font-size: 2rem; }
+  p { font-size: 0.875rem; }
 }

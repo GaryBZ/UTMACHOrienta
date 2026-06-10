@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Carrera } from '../../../../core/models/carrera.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CarreraService } from '../../../../core/services/carrera.service';
 import { ClaseService } from '../../../../core/services/clase.service';
 import { catchError, forkJoin, of } from 'rxjs';
-import { Clases } from '../../../../core/models/clases.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Facultad } from '../../../../core/models/facultad.model';
