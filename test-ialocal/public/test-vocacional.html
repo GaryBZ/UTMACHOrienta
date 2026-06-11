@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba Test Vocacional IA</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #64708a;
+      --line: #dbe2ef;
+      --primary: #1769aa;
+      --primary-dark: #0f4d7f;
+      --ok: #16794c;
+      --warn: #a95d00;
+      --danger: #b42318;
+      --soft: #eef6fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    main {
+      width: min(1040px, calc(100% - 32px));
+      margin: 28px auto;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(28, 45, 76, 0.08);
+    }
+
+    .topbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    input,
+    select {
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0 10px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 15px;
+    }
+
+    input[type="number"] {
+      width: 120px;
+    }
+
+    button {
+      min-height: 40px;
+      border: 0;
+      border-radius: 6px;
+      padding: 0 14px;
+      color: #fff;
+      background: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+    }
+
+    button.secondary {
+      color: var(--primary);
+      background: var(--soft);
+      border: 1px solid #c7dded;
+    }
+
+    button.secondary:hover {
+      background: #e1f0fa;
+    }
+
+    button.danger {
+      background: var(--danger);
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.62;
+    }
+
+    .status {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #edf1f8;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .badge.ok {
+      color: var(--ok);
+      background: #eaf7f0;
+    }
+
+    .badge.warn {
+      color: var(--warn);
+      background: #fff3df;
+    }
+
+    .question {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .question-text {
+      margin: 10px 0 14px;
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .likert {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .likert button,
+    .option button {
+      width: 100%;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .likert button {
+      text-align: center;
+    }
+
+    .likert button:hover,
+    .option button:hover {
+      border-color: var(--primary);
+      background: var(--soft);
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .option small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .log {
+      min-height: 180px;
+      max-height: 420px;
+      overflow: auto;
+      margin: 0;
+      padding: 12px;
+      border-radius: 6px;
+      background: #101827;
+      color: #d9e6ff;
+      font-size: 12px;
+      white-space: pre-wrap;
+    }
+
+    .result {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .career {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: #fbfcff;
+    }
+
+    .career strong {
+      display: block;
+    }
+
+    .empty {
+      padding: 34px 16px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .error {
+      margin-top: 12px;
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    @media (max-width: 840px) {
+      header,
+      .layout {
+        display: block;
+      }
+
+      aside {
+        margin-top: 18px;
+      }
+
+      .likert {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Test vocacional adaptativo</h1>
+        <p class="meta">Pantalla temporal para probar banco de preguntas, IA local y resultado.</p>
+      </div>
+      <button class="secondary" id="btn-limpiar">Limpiar</button>
+    </header>
+
+    <section class="layout">
+      <div class="panel">
+        <div class="topbar">
+          <label>
+            ID usuario
+            <input id="id-usuario" type="number" min="1" value="1">
+          </label>
+          <button id="btn-iniciar">Iniciar test</button>
+          <button class="secondary" id="btn-pregunta" disabled>Obtener pregunta</button>
+          <button class="danger" id="btn-finalizar" disabled>Finalizar</button>
+        </div>
+
+        <div class="status">
+          <span class="badge" id="badge-sesion">Sin sesion</span>
+          <span class="badge" id="badge-fuente">Sin pregunta</span>
+          <span class="badge" id="badge-contador">0 respuestas</span>
+        </div>
+
+        <div id="error" class="error" hidden></div>
+
+        <section class="question" id="question-panel">
+          <div class="empty">Inicia una sesion para cargar la primera pregunta.</div>
+        </section>
+      </div>
+
+      <aside class="panel">
+        <h2>Resultado y trazas</h2>
+        <div id="resultado" class="result"></div>
+        <pre class="log" id="log"></pre>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const state = {
+      sesion: null,
+      pregunta: null,
+      config: null,
+      busy: false
+    };
+
+    const $ = selector => document.querySelector(selector);
+
+    const refs = {
+      idUsuario: $('#id-usuario'),
+      iniciar: $('#btn-iniciar'),
+      pregunta: $('#btn-pregunta'),
+      finalizar: $('#btn-finalizar'),
+      limpiar: $('#btn-limpiar'),
+      panel: $('#question-panel'),
+      error: $('#error'),
+      log: $('#log'),
+      resultado: $('#resultado'),
+      sesion: $('#badge-sesion'),
+      fuente: $('#badge-fuente'),
+      contador: $('#badge-contador')
+    };
+
+    function setBusy(value) {
+      state.busy = value;
+      refs.iniciar.disabled = value;
+      refs.pregunta.disabled = value || !state.sesion;
+      refs.finalizar.disabled = value || !state.sesion;
+      document.querySelectorAll('#answer-zone button').forEach(button => {
+        button.disabled = value;
+      });
+    }
+
+    function log(title, payload) {
+      const time = new Date().toLocaleTimeString();
+      refs.log.textContent = `[${time}] ${title}\n${JSON.stringify(payload, null, 2)}\n\n${refs.log.textContent}`;
+    }
+
+    function showError(message) {
+      refs.error.hidden = !message;
+      refs.error.textContent = message || '';
+    }
+
+    async function api(path, options = {}) {
+      setBusy(true);
+      showError('');
+
+      try {
+        const response = await fetch(`/api/test-vocacional${path}`, {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          ...options
+        });
+
+        const body = await response.json();
+        log(`${options.method || 'GET'} ${path}`, body);
+
+        if (!response.ok || !body.ok) {
+          throw new Error(body.mensaje || 'La solicitud no se pudo completar');
+        }
+
+        return body.data;
+      } catch (error) {
+        showError(error.message);
+        throw error;
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    function updateBadges() {
+      refs.sesion.textContent = state.sesion ? `Sesion ${state.sesion.id}` : 'Sin sesion';
+      refs.sesion.className = state.sesion ? 'badge ok' : 'badge';
+
+      refs.fuente.textContent = state.pregunta ? `Fuente: ${state.pregunta.fuente}` : 'Sin pregunta';
+      refs.fuente.className = state.pregunta && state.pregunta.fuente === 'ia' ? 'badge warn' : 'badge';
+
+      const total = state.sesion?.preguntas_realizadas ?? 0;
+      const objetivo = state.config?.total_preguntas;
+      refs.contador.textContent = objetivo ? `${total} / ${objetivo} respuestas` : `${total} respuestas`;
+    }
+
+    function renderQuestion(pregunta) {
+      state.pregunta = pregunta;
+      updateBadges();
+
+      if (!pregunta) {
+        refs.panel.innerHTML = '<div class="empty">No hay pregunta disponible.</div>';
+        return;
+      }
+
+      const meta = [
+        pregunta.fuente ? `Fuente: ${pregunta.fuente}` : null,
+        pregunta.tipo ? `Tipo: ${pregunta.tipo}` : null,
+        pregunta.id_generada ? `IA #${pregunta.id_generada}` : null,
+        pregunta.id ? `Banco #${pregunta.id}` : null
+      ].filter(Boolean).join(' · ');
+
+      refs.panel.innerHTML = `
+        <p class="meta">${escapeHtml(meta)}</p>
+        <div class="question-text">${escapeHtml(pregunta.pregunta)}</div>
+        ${pregunta.objetivo ? `<p class="meta">${escapeHtml(pregunta.objetivo)}</p>` : ''}
+        <div id="answer-zone"></div>
+      `;
+
+      if (pregunta.fuente === 'ia') {
+        renderIAOptions(pregunta);
+      } else {
+        renderLikert(pregunta);
+      }
+    }
+
+    function renderLikert(pregunta) {
+      const zone = $('#answer-zone');
+      zone.innerHTML = `
+        <p class="meta">Escala: 1 = muy poco, 5 = mucho.</p>
+        <div class="likert">
+          ${[1, 2, 3, 4, 5].map(value => `<button data-value="${value}">${value}</button>`).join('')}
+        </div>
+      `;
+
+      zone.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => responderBanco(pregunta.id, Number(button.dataset.value)));
+      });
+    }
+
+    function renderIAOptions(pregunta) {
+      const zone = $('#answer-zone');
+      zone.innerHTML = `
+        <div class="options">
+          ${(pregunta.opciones || []).map((opcion, index) => `
+            <div class="option">
+              <button data-index="${index}" class="${opcion.rechazo_areas ? 'secondary' : ''}">
+                ${escapeHtml(opcion.texto)}
+                <small>${opcion.rechazo_areas ? 'No suma afinidad' : `Opcion ${index + 1}`}</small>
+              </button>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      zone.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => responderIA(pregunta.id_generada, Number(button.dataset.index)));
+      });
+    }
+
+    function renderResultado(resultado) {
+      const carreras = resultado.carreras_recomendadas || resultado.ranking_carreras || [];
+
+      refs.resultado.innerHTML = `
+        <p>${escapeHtml(resultado.explicacion || 'Resultado guardado.')}</p>
+        ${carreras.map(carrera => `
+          <div class="career">
+            <strong>${escapeHtml(carrera.carrera || carrera.nombre_carrera || 'Carrera')}</strong>
+            <span class="meta">${escapeHtml(String(carrera.compatibilidad ?? ''))}% · ${escapeHtml(carrera.nivel || '')}</span>
+          </div>
+        `).join('')}
+      `;
+    }
+
+    async function iniciar() {
+      const idUsuario = Number(refs.idUsuario.value);
+      const data = await api('/iniciar', {
+        method: 'POST',
+        body: JSON.stringify({ idUsuario })
+      });
+
+      state.sesion = data.sesion;
+      state.config = data.configuracion || state.config;
+      renderQuestion({ fuente: 'banco', ...data.pregunta });
+      refs.resultado.innerHTML = '';
+      updateBadges();
+    }
+
+    async function obtenerPregunta() {
+      if (!state.sesion) return;
+      const pregunta = await api(`/${state.sesion.id}/pregunta`);
+
+      if (pregunta.test_finalizado) {
+        renderResultado(pregunta.resultado);
+        refs.panel.innerHTML = '<div class="empty">Test finalizado automaticamente.</div>';
+        state.pregunta = null;
+        updateBadges();
+        return;
+      }
+
+      renderQuestion(pregunta);
+    }
+
+    async function responderBanco(preguntaId, valorRespuesta) {
+      if (!state.sesion) return;
+      setBusy(true);
+
+      const data = await api(`/${state.sesion.id}/responder`, {
+        method: 'POST',
+        body: JSON.stringify({ preguntaId, valorRespuesta })
+      });
+
+      state.sesion = data.sesion;
+
+      if (data.test_finalizado) {
+        renderResultado(data.resultado);
+        refs.panel.innerHTML = '<div class="empty">Test finalizado automaticamente.</div>';
+        state.pregunta = null;
+        updateBadges();
+        return;
+      }
+
+      updateBadges();
+      await obtenerPregunta();
+    }
+
+    async function responderIA(idPreguntaGenerada, opcionSeleccionada) {
+      if (!state.sesion) return;
+      setBusy(true);
+
+      const data = await api(`/${state.sesion.id}/responder-ia`, {
+        method: 'POST',
+        body: JSON.stringify({ idPreguntaGenerada, opcionSeleccionada })
+      });
+
+      state.sesion = data.sesion;
+
+      if (data.test_finalizado) {
+        renderResultado(data.resultado);
+        refs.panel.innerHTML = '<div class="empty">Test finalizado automaticamente.</div>';
+        state.pregunta = null;
+        updateBadges();
+        return;
+      }
+
+      renderQuestion(data.siguiente_pregunta);
+      updateBadges();
+    }
+
+    async function finalizar() {
+      if (!state.sesion) return;
+
+      const resultado = await api(`/${state.sesion.id}/finalizar`, {
+        method: 'POST'
+      });
+
+      renderResultado(resultado);
+      refs.panel.innerHTML = '<div class="empty">Test finalizado. Puedes iniciar una nueva sesion para seguir probando.</div>';
+      state.pregunta = null;
+      updateBadges();
+    }
+
+    function limpiar() {
+      state.sesion = null;
+      state.pregunta = null;
+      state.config = null;
+      refs.log.textContent = '';
+      refs.resultado.innerHTML = '';
+      refs.panel.innerHTML = '<div class="empty">Inicia una sesion para cargar la primera pregunta.</div>';
+      showError('');
+      updateBadges();
+      setBusy(false);
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    refs.iniciar.addEventListener('click', iniciar);
+    refs.pregunta.addEventListener('click', obtenerPregunta);
+    refs.finalizar.addEventListener('click', finalizar);
+    refs.limpiar.addEventListener('click', limpiar);
+
+    updateBadges();
+  </script>
+</body>
+</html>
