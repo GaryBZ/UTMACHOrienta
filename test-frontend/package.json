@@ -1,0 +1,26 @@
+{
+  "name": "utmachorient-test-frontend",
+  "version": "1.0.0",
+  "description": "Frontend de testing para UTMACHOrienta - Sistema de Orientación Vocacional",
+  "author": "UTMACHOrienta Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "start": "npm run server",
+    "server": "npx http-server . -p 8080 -c-1 -o"
+  },
+  "keywords": [
+    "testing",
+    "frontend",
+    "orientacion-vocacional",
+    "utmach",
+    "rag",
+    "test-adaptativo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UTMACHOrienta/test-frontend"
+  }
+}

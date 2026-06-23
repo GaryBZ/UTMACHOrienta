@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTMACHOrienta - Test Frontend</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 UTMACHOrienta - Frontend de Testing</h1>
+            <p>Prueba los pipelines de IA y endpoints del backend</p>
+        </header>
+
+        <div class="config-section">
+            <h2>⚙️ Configuración</h2>
+            <div class="config-inputs">
+                <div class="config-group">
+                    <label for="motoriaUrl">Motor IA API:</label>
+                    <input type="text" id="motoriaUrl" value="http://localhost:8000" placeholder="URL del Motor IA">
+                </div>
+                <div class="config-group">
+                    <label for="backendUrl">Backend API:</label>
+                    <input type="text" id="backendUrl" value="http://localhost:3000" placeholder="URL del Backend">
+                </div>
+                <button id="saveConfig" class="btn-primary">💾 Guardar Config</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="chat">💬 Chat RAG</button>
+                <button class="tab-btn" data-tab="test">📋 Motor Test</button>
+                <button class="tab-btn" data-tab="api">🔌 API Explorer</button>
+            </div>
+
+            <!-- ═══ TAB: CHAT RAG ═══ -->
+            <div id="chat" class="tab-content active">
+                <h2>Chat RAG Interactivo</h2>
+                <div class="info-box">
+                    <p>💡 Emula un chat con el pipeline RAG. Responde preguntas sobre orientación vocacional.</p>
+                </div>
+
+                <div class="chat-container">
+                    <div id="chatMessages" class="chat-messages">
+                        <div class="message system">
+                            <strong>Sistema:</strong> Hola 👋 Soy tu asistente de orientación vocacional. ¿Cuáles son tus intereses académicos?
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            placeholder="Escribe tu mensaje..."
+                            class="chat-input"
+                        >
+                        <button id="chatSendBtn" class="btn-primary">Enviar</button>
+                        <button id="chatResetBtn" class="btn-secondary">🔄 Nueva Sesión</button>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <h3>📊 Perfil Acumulado</h3>
+                    <pre id="chatProfile" class="json-output">{}</pre>
+                </div>
+            </div>
+
+            <!-- ═══ TAB: MOTOR TEST ═══ -->
+            <div id="test" class="tab-content">
+                <h2>Motor de Test Adaptativo</h2>
+                <div class="info-box">
+                    <p>📝 Sistema de preguntas adaptativas basadas en el perfil del estudiante (5-12 preguntas).</p>
+                </div>
+
+                <div class="test-container">
+                    <div class="test-progress">
+                        <div class="progress-info">
+                            <span id="testProgress">Pregunta 0 de 0</span>
+                            <div class="progress-bar">
+                                <div id="progressFill" class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="testQuestion" class="test-question">
+                        <p class="message system">👇 Haz clic en "Iniciar Test" para comenzar</p>
+                    </div>
+
+                    <div id="testOptions" class="test-options">
+                        <!-- Las opciones se generan dinámicamente -->
+                    </div>
+
+                    <div class="test-buttons">
+                        <button id="testStartBtn" class="btn-primary">Iniciar Test</button>
+                        <button id="testSubmitBtn" class="btn-primary" style="display: none;">Enviar Respuesta</button>
+                        <button id="testResetBtn" class="btn-secondary">🔄 Reiniciar</button>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <h3>🎯 Resultado (cuando termine)</h3>
+                    <pre id="testResult" class="json-output">Esperando resultado...</pre>
+                </div>
+            </div>
+
+            <!-- ═══ TAB: API EXPLORER ═══ -->
+            <div id="api" class="tab-content">
+                <h2>Explorador de Motor IA</h2>
+                <div class="info-box">
+                    <p>🔧 Prueba los endpoints del Motor IA (FastAPI) directamente.</p>
+                </div>
+
+                <div class="api-section">
+                    <h3>🔐 Autenticación (Motor IA)</h3>
+                    <div class="api-card">
+                        <div class="api-endpoint">
+                            <span class="method post">POST</span>
+                            <span class="endpoint">/auth/registro</span>
+                        </div>
+                        <input type="text" class="api-input" placeholder="Nombre completo" id="apiRegNombre">
+                        <input type="email" class="api-input" placeholder="Email" id="apiRegEmail">
+                        <input type="password" class="api-input" placeholder="Password" id="apiRegPass">
+                        <button class="btn-primary" onclick="testAPI('registro')">Registrar</button>
+                    </div>
+
+                    <div class="api-card">
+                        <div class="api-endpoint">
+                            <span class="method post">POST</span>
+                            <span class="endpoint">/auth/login</span>
+                        </div>
+                        <input type="email" class="api-input" placeholder="Email" id="apiLoginEmail">
+                        <input type="password" class="api-input" placeholder="Password" id="apiLoginPass">
+                        <button class="btn-primary" onclick="testAPI('login')">Login</button>
+                    </div>
+                </div>
+
+                <div class="api-section">
+                    <h3>🎓 Carreras y Facultades (Motor IA)</h3>
+                    <div class="api-card">
+                        <div class="api-endpoint">
+                            <span class="method get">GET</span>
+                            <span class="endpoint">/carreras</span>
+                        </div>
+                        <button class="btn-primary" onclick="testAPI('getCarreras')">Obtener Carreras</button>
+                    </div>
+
+                    <div class="api-card">
+                        <div class="api-endpoint">
+                            <span class="method get">GET</span>
+                            <span class="endpoint">/facultades</span>
+                        </div>
+                        <button class="btn-primary" onclick="testAPI('getFacultades')">Obtener Facultades</button>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <h3>📡 Respuesta</h3>
+                    <pre id="apiResponse" class="json-output">{}</pre>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Sistema de Orientación Vocacional - UTMACH 🏫</p>
+            <p id="status" class="status">Listo</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
