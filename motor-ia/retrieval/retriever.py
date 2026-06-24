@@ -16,13 +16,13 @@ Uso:
 import logging
 from typing import Optional
 
+from settings import CHROMA_PATH, EMBEDDING_MODEL, LMSTUDIO_URL
+
 logger = logging.getLogger(__name__)
 
-LMSTUDIO_BASE_URL  = "http://localhost:1234/v1"
-EMBEDDING_MODEL    = "nomic-ai/nomic-embed-text-v1.5-GGUF"
-CHROMA_PATH        = "./data/chroma_db"
+LMSTUDIO_BASE_URL  = LMSTUDIO_URL
 
-COLECCIONES_VALIDAS = {"vocacional", "test", "malla"}
+COLECCIONES_VALIDAS = {"vocacional", "test", "malla", "carrera"}
 TOP_K_DEFAULT       = 4
 
 
@@ -91,7 +91,7 @@ class Retriever:
 
         Args:
             consulta:    Texto libre de la pregunta o contexto del estudiante.
-            coleccion:   "vocacional" | "test" | "malla"
+            coleccion:   "vocacional" | "test" | "malla" | "carrera"
             top_k:       Cuántos chunks retornar.
             filtro_meta: Filtro adicional de metadatos ChromaDB.
                          Ej: {"carrera": "ingenieria sistemas"}
@@ -147,7 +147,7 @@ class Retriever:
 
         Útil para preguntas que tocan tanto teoría vocacional como mallas.
         """
-        colecciones = colecciones or ["vocacional", "malla"]
+        colecciones = colecciones or ["vocacional", "carrera", "malla"]
         todos = []
         for col in colecciones:
             try:

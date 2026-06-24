@@ -1,0 +1,69 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Administración de Empresas",
+  "slug": "administracion_de_empresas",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Administración de Empresas",
+  "descripcion": "Estudia la planificación, organización, dirección y control de recursos y procesos en organizaciones públicas y privadas.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Formula estrategias, organiza recursos, lidera equipos, evalúa proyectos y mejora procesos y organizaciones.",
+    "competencias": [
+      "Formula estrategias, organiza recursos, lidera equipos, evalúa proyectos y mejora procesos y organizaciones"
+    ]
+  },
+  "campo_ocupacional": [
+    "Dirección y gestión en empresas públicas o privadas, talento humano, operaciones, proyectos, consultoría y emprendimiento"
+  ],
+  "areas_vocacionales": [
+    "negocios/economia"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Contabilidad I",
+    "Álgebra Lineal",
+    "Fundamentos de Marketing",
+    "Estadística Inferencial",
+    "Seminario de Titulación II",
+    "Administración de la Producción"
+  ],
+  "palabras_clave": [
+    "administracion de empresas",
+    "negocios/economia",
+    "Contabilidad I",
+    "Álgebra Lineal",
+    "Fundamentos de Marketing",
+    "Estadística Inferencial",
+    "Seminario de Titulación II",
+    "Administración de la Producción"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uace/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_CURRICULAR_ADMINISTRACION_DE_EMPRESAS.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

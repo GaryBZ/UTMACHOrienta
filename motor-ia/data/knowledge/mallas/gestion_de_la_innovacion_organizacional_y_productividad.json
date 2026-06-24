@@ -1,0 +1,413 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "Gestión de la Innovación Organizacional y Productividad",
+  "slug": "gestion_de_la_innovacion_organizacional_y_productividad",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "total_semestres": 8,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "Matemáticas Digital",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Principios de Calidad y Productividad",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Ecosistemas Digitales y Comunicación",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Pensamiento Creativo e Innovación",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Escritura Académica",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Contabilidad Inteligente",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "materias": [
+        {
+          "nombre": "Herramientas Digitales",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión Sostenible: Ambiente y Sociedad",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Marketing de Contenidos y Digital",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Innovación en Excelencia Operativa",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Legislación en el Entorno Social Moderno",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Contabilidad de Costos",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "materias": [
+        {
+          "nombre": "Inglés con Fines Específicos",
+          "area_vocacional": "turismo/idiomas",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Administración 4.0 de la Producción y los Servicios",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Microeconomía",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Dinámicas de Gestión Moderna",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Bienestar Laboral y Gestión de Riesgos",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Finanzas Innovadoras y Mercados Globales",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "materias": [
+        {
+          "nombre": "Innovación y Desarrollo de Productos y Servicios",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Administración Estratégica 4.0",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Macroeconomía",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Innovación y Gestión de la Calidad Integral",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Marco Regulatorio de la Innovación Empresarial",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Administración de Operaciones",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "materias": [
+        {
+          "nombre": "Metodología de la Investigación",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Administración de la Producción I",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Arquitectura Organizacional y Diseño Estratégico",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Innovación en la Gestión del Talento Humano",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Responsabilidad y Ética Corporativa",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Optimización de Procesos y Excelencia Organizacional",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "materias": [
+        {
+          "nombre": "Estadística",
+          "area_vocacional": "tecnologia/datos",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Administración de la Producción II",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Estrategias de Engagement y Fidelización del Cliente",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Innovación en la Gestión de Operaciones Logísticas",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Auditoría de Sistemas de Gestión de la Calidad",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Ciencias de Datos para la Innovación y Productividad",
+          "area_vocacional": "tecnologia/datos",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación I",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Optimización de la Productividad y Rendimiento",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Diseño y Evaluación de Proyectos de Innovación y Productividad",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Tecnologías Avanzadas en Automatización de Procesos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Sostenibilidad y Eficiencia en Logística Inversa",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Aplicaciones Avanzadas de Inteligencia Artificial",
+          "area_vocacional": "tecnologia/datos",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación II",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Estrategias y Modelos para la Innovación Sostenible",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión de Proyectos de Innovación y Productividad",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Innovación en Sistemas de Control Organizacional",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión de la Cadena de Suministros",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión del Cambio Organizacional",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [
+    "Matemáticas Digital",
+    "Principios de Calidad y Productividad",
+    "Metodología de la Investigación",
+    "Administración de la Producción I",
+    "Seminario de Titulación II",
+    "Estrategias y Modelos para la Innovación Sostenible"
+  ],
+  "areas_detectadas": [
+    "matematicas/logica",
+    "comunicacion/periodismo",
+    "negocios/economia",
+    "ciencias_sociales/derecho",
+    "turismo/idiomas",
+    "artes/diseno",
+    "tecnologia/datos"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_DE_GESTI%C3%93N_DE_LA_INNOVACI%C3%93N_ORGANIZACIONAL_Y_PRODUCTIVIDAD.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial",
+      "archivo_original": "utmach_carreras_fichas_y_mallas_2026.md"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas de asignaturas y tipo_formacion son inferencias iniciales."
+}

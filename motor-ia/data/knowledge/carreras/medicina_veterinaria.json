@@ -1,0 +1,76 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Medicina Veterinaria",
+  "slug": "medicina_veterinaria",
+  "facultad": "Facultad de Ciencias Agropecuarias",
+  "modalidad": "Presencial",
+  "duracion": "10 periodos académicos",
+  "titulo_otorga": "Médico/a Veterinario/a",
+  "descripcion": "Forma profesionales en salud, bienestar, clínica, prevención sanitaria y producción responsable de animales.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Previene, diagnostica y trata enfermedades animales; gestiona bienestar, salud pública veterinaria y producción pecuaria.",
+    "competencias": [
+      "Previene, diagnostica y trata enfermedades animales",
+      "gestiona bienestar, salud pública veterinaria y producción pecuaria"
+    ]
+  },
+  "campo_ocupacional": [
+    "Clínicas y hospitales veterinarios, producción animal, laboratorios, inspección sanitaria, salud pública, investigación y docencia"
+  ],
+  "areas_vocacionales": [
+    "agropecuaria/ambiente",
+    "salud",
+    "ciencias_naturales"
+  ],
+  "entornos_trabajo": [
+    "salud/clinica",
+    "exterior/naturaleza",
+    "laboratorio"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Anatomía Animal I",
+    "Histología Animal",
+    "Enfermedades Infecciosas",
+    "Patología Clínica",
+    "Seminario de Titulación II",
+    "Inspección Sanitaria"
+  ],
+  "palabras_clave": [
+    "medicina veterinaria",
+    "agropecuaria/ambiente",
+    "salud",
+    "ciencias_naturales",
+    "Anatomía Animal I",
+    "Histología Animal",
+    "Enfermedades Infecciosas",
+    "Patología Clínica",
+    "Seminario de Titulación II",
+    "Inspección Sanitaria"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uaca/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCA/MALLA_CURRICULAR_DE_MEDICINA_VETERINARIA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

@@ -1,0 +1,462 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "Acuicultura",
+  "slug": "acuicultura",
+  "facultad": "Facultad de Ciencias Agropecuarias",
+  "total_semestres": 10,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "Matemática I",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Física I",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Botánica Acuática",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Biología",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Introducción a la Acuicultura",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "materias": [
+        {
+          "nombre": "Matemática II",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Física II",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Química Inorgánica",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comunicación Académica",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Investigación Científica",
+          "area_vocacional": "",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "materias": [
+        {
+          "nombre": "Matemática III",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Química Orgánica",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Topografía y SIG",
+          "area_vocacional": "ingenieria/construccion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Zoología de Organismos Acuáticos",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Ecología Acuática",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "materias": [
+        {
+          "nombre": "Bioquímica",
+          "area_vocacional": "salud",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Hidráulica",
+          "area_vocacional": "ingenieria/construccion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fisiología de Organismos Acuáticos",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Estadística",
+          "area_vocacional": "tecnologia/datos",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Legislación Acuícola y Regulación Ambiental",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "materias": [
+        {
+          "nombre": "Ingeniería para Acuicultura I",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Microbiología Acuática",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Diseño Experimental",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Análisis Químico",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Reproducción de Organismos Acuáticos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "materias": [
+        {
+          "nombre": "Ingeniería para Acuicultura II",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Genética y Biología Molecular",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Patología de Organismos Acuáticos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Calidad de Agua en Acuicultura",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Toxicología Acuática",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Economía Aplicada y Administración de Empresas Acuícolas",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "materias": [
+        {
+          "nombre": "Sanidad Acuícola",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Calidad de Suelo en Acuicultura",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Biotecnología Aplicada",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Nutrición de Organismos Acuáticos I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cultivo de Plancton",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "materias": [
+        {
+          "nombre": "Larvicultura",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Nutrición de Organismos Acuáticos II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Sistemas de Producción I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Informática Aplicada a la Acuicultura",
+          "area_vocacional": "tecnologia/programacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cultivo de Crustáceos",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación I",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Sistemas de Producción II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Tecnologías Aplicadas a la Acuicultura",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Impacto Ambiental de la Acuicultura",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cultivo de Peces",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Avalúos y Peritajes",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 10,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación II",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cultivo de Moluscos",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Diseño y Evaluación de Proyectos Acuícolas",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Maricultura",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Procesamiento de Organismos Acuáticos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Biorremediación Aplicada en Acuicultura",
+          "area_vocacional": "agropecuaria/ambiente",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [
+    "Matemática I",
+    "Física I",
+    "Ingeniería para Acuicultura II",
+    "Genética y Biología Molecular",
+    "Seminario de Titulación II",
+    "Cultivo de Moluscos"
+  ],
+  "areas_detectadas": [
+    "matematicas/logica",
+    "ciencias_naturales",
+    "agropecuaria/ambiente",
+    "comunicacion/periodismo",
+    "ingenieria/construccion",
+    "salud",
+    "tecnologia/datos",
+    "ciencias_sociales/derecho",
+    "artes/diseno",
+    "negocios/economia",
+    "tecnologia/programacion"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCA/MALLA_CURRICULAR_ACUICULTURA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial",
+      "archivo_original": "utmach_carreras_fichas_y_mallas_2026.md"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas de asignaturas y tipo_formacion son inferencias iniciales."
+}

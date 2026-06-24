@@ -1,0 +1,446 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "Psicología Clínica",
+  "slug": "psicologia_clinica",
+  "facultad": "Facultad de Ciencias Químicas y de la Salud",
+  "total_semestres": 9,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "Fundamentos Biológicos del Comportamiento",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fundamentos Filosóficos de la Psicología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Corrientes y Sistemas Psicológicos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Epistemología de la Psicología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fundamentos Socio-Antropológicos del Comportamiento",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Tecnologías de la Información y Gestión del Conocimiento",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "materias": [
+        {
+          "nombre": "Psicología Social",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología del Desarrollo Infanto Juvenil",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Procesos Psicológicos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Metodología de la Investigación",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cultura Física",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Introducción al Discurso Académico",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "materias": [
+        {
+          "nombre": "Neuropsicología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología del Aprendizaje",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología del Adulto y Adulto Mayor",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología de la Personalidad",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Métodos Estadísticos I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Redacción Científica",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "materias": [
+        {
+          "nombre": "Psicología Clínica y de la Salud",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología Comunitaria",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología de los Grupos y de las Organizaciones",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicopatología General",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Métodos Estadísticos II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Sexualidad Humana",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "materias": [
+        {
+          "nombre": "Psicoanálisis",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicopatología Infanto Juvenil",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Evaluación Psicológica I",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Diseño de Investigación I",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Ética Profesional",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Inglés Técnico",
+          "area_vocacional": "turismo/idiomas",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "materias": [
+        {
+          "nombre": "Psicofarmacología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Bases Teóricas de la Terapia Cognitiva",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicopatología del Adulto y Adulto Mayor",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fundamentos de la Psicoterapia",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Evaluación Psicológica II",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Tecnologías Aplicadas a la Psicología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "materias": [
+        {
+          "nombre": "Psicología Positiva",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicoterapia en la Niñez y Adolescencia",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Intervención Psicológica en Crisis y Emergencias",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Discapacidad",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Intervención Psicológica en la Familia",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Diseño de Investigación II",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "materias": [
+        {
+          "nombre": "Intervención Psicológica en Adicciones",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología Jurídica y Peritaje Psicológico",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicoterapia en la Adultez y Adultez Mayor",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Intervención Comunitaria",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Preparación para la Opción de Titulación",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Emprendimiento",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "materias": [
+        {
+          "nombre": "Intervención Psicológica en Enfermedades Médicas y Psicosomáticas",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Intervención Psicológica en Violencia",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Desarrollo de la Opción de Titulación",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Taller de Desarrollo Personal",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [
+    "Fundamentos Biológicos del Comportamiento",
+    "Fundamentos Filosóficos de la Psicología",
+    "Psicoanálisis",
+    "Psicopatología Infanto Juvenil",
+    "Intervención Psicológica en Enfermedades Médicas y Psicosomáticas",
+    "Intervención Psicológica en Violencia"
+  ],
+  "areas_detectadas": [
+    "negocios/economia",
+    "matematicas/logica",
+    "comunicacion/periodismo",
+    "salud",
+    "artes/diseno",
+    "turismo/idiomas",
+    "ciencias_sociales/derecho"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCQS/MALLA_CURRICULAR_DE_PSICOLOGIA_CLINICA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial",
+      "archivo_original": "utmach_carreras_fichas_y_mallas_2026.md"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas de asignaturas y tipo_formacion son inferencias iniciales."
+}

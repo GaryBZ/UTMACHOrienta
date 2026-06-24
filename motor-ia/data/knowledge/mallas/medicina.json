@@ -1,0 +1,557 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "Medicina",
+  "slug": "medicina",
+  "facultad": "Facultad de Ciencias Químicas y de la Salud",
+  "total_semestres": 11,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "Anatomía I",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fisiología I",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Histología I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Embriología I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Bioquímica",
+          "area_vocacional": "salud",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Derechos Humanos, Ciudadanía y Buen Vivir",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "materias": [
+        {
+          "nombre": "Anatomía II",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fisiología II",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Histología II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Embriología II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Biología Molecular y Genética",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Expresión Oral y Escrita",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "materias": [
+        {
+          "nombre": "Morfofisiología Neuroendocrina",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Microbiología",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Parasitología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fisiopatología I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Inglés Técnico",
+          "area_vocacional": "turismo/idiomas",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Informática",
+          "area_vocacional": "tecnologia/programacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "materias": [
+        {
+          "nombre": "Patología General",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Laboratorio Clínico",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fisiopatología II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Inmunología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Salud y Sociedad",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psicología Clínica",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Metodología de la Investigación Científica",
+          "area_vocacional": "",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "materias": [
+        {
+          "nombre": "Semiología I (Osteomuscular, Cardiovascular, Respiratorio)",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Farmacología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Imagenología I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Patología Sistémica",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Bioestadística",
+          "area_vocacional": "tecnologia/datos",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Epidemiología",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "materias": [
+        {
+          "nombre": "Semiología II (Digestivo, Renourinario, Neuroendocrino, Reproductivo)",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Imagenología II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Nutrición",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Terapéutica",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Salud Comunitaria",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Medicina Tropical",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "materias": [
+        {
+          "nombre": "Medicina Interna I (Cardio-Neumo-Digestivo-Infectología)",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Medicina Interna II (Oncología-Hematología-Toxicología)",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Psiquiatría y Salud Mental",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Dermatología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Metodología de la Investigación Médica",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Nefrología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "materias": [
+        {
+          "nombre": "Medicina Interna III (Neuro-Endocrino-Reumato-Geriatría-Degenerativa)",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cirugía I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Oftalmología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Urología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Medicina Legal",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión Sanitaria",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "materias": [
+        {
+          "nombre": "Pediatría I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gineco-Obstetricia I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cirugía II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Otorrinolaringología",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Bioética",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Trabajo de Titulación I",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 10,
+      "materias": [
+        {
+          "nombre": "Pediatría II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gineco-Obstetricia II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Traumatología y Ortopedia",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Medicina Familiar",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Salud y Ecosistema",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Trabajo de Titulación II",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 11,
+      "materias": [
+        {
+          "nombre": "Internado Rotativo Pediatría",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Internado Rotativo Cirugía",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Internado Rotativo Medicina Interna",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Internado Rotativo Ginecología y Obstetricia",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Internado Rotativo de Medicina Familiar y Comunitaria",
+          "area_vocacional": "salud",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [
+    "Anatomía I",
+    "Fisiología I",
+    "Semiología II (Digestivo",
+    "Renourinario",
+    "Neuroendocrino",
+    "Reproductivo)",
+    "Imagenología II",
+    "Internado Rotativo Pediatría",
+    "Internado Rotativo Cirugía"
+  ],
+  "areas_detectadas": [
+    "salud",
+    "ciencias_sociales/derecho",
+    "ciencias_naturales",
+    "turismo/idiomas",
+    "tecnologia/programacion",
+    "tecnologia/datos",
+    "negocios/economia"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCQS/MALLA_CURRICULAR_DE_MEDICINA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial",
+      "archivo_original": "utmach_carreras_fichas_y_mallas_2026.md"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas de asignaturas y tipo_formacion son inferencias iniciales."
+}

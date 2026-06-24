@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Contabilidad y Auditoría",
+  "slug": "contabilidad_y_auditoria",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Contabilidad y Auditoría",
+  "descripcion": "Forma en registro y análisis financiero, control interno, auditoría, tributación y toma de decisiones empresariales.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Genera y analiza información financiera, evalúa controles, ejecuta auditorías y aplica normativa contable y tributaria.",
+    "competencias": [
+      "Genera y analiza información financiera, evalúa controles, ejecuta auditorías y aplica normativa contable y tributaria"
+    ]
+  },
+  "campo_ocupacional": [
+    "Departamentos contables y financieros, firmas de auditoría, tributación, control interno, sector público y consultoría"
+  ],
+  "areas_vocacionales": [
+    "negocios/economia",
+    "matematicas/logica"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "independiente",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Contabilidad I",
+    "Legislación Mercantil y Societaria",
+    "Contabilidad de Costos II",
+    "Fundamentos de Auditoría",
+    "Seminario de Titulación II",
+    "Auditoría Forense"
+  ],
+  "palabras_clave": [
+    "contabilidad y auditoria",
+    "negocios/economia",
+    "matematicas/logica",
+    "Contabilidad I",
+    "Legislación Mercantil y Societaria",
+    "Contabilidad de Costos II",
+    "Fundamentos de Auditoría",
+    "Seminario de Titulación II",
+    "Auditoría Forense"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uace/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_CURRICULAR_DE_CONTABILIDAD_Y_AUDITORIA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

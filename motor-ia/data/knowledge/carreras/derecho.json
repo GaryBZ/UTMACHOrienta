@@ -1,0 +1,69 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Derecho",
+  "slug": "derecho",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Abogado/a",
+  "descripcion": "Brinda formación jurídica integral para interpretar normas, argumentar, defender derechos y resolver conflictos.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Interpreta y aplica el ordenamiento jurídico, construye argumentos y teorías del caso y actúa con ética y responsabilidad.",
+    "competencias": [
+      "Interpreta y aplica el ordenamiento jurídico, construye argumentos y teorías del caso y actúa con ética y responsabilidad"
+    ]
+  },
+  "campo_ocupacional": [
+    "Litigación, asesoría jurídica, función judicial, instituciones públicas, empresas, mediación, investigación y docencia"
+  ],
+  "areas_vocacionales": [
+    "ciencias_sociales/derecho"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Ciencia Política",
+    "Derechos Humanos",
+    "Derecho Internacional",
+    "Derecho Civil IV: Obligaciones y Contratos",
+    "Seminario de Titulación II",
+    "Clínica Jurídica Civil"
+  ],
+  "palabras_clave": [
+    "derecho",
+    "ciencias_sociales/derecho",
+    "Ciencia Política",
+    "Derechos Humanos",
+    "Derecho Internacional",
+    "Derecho Civil IV: Obligaciones y Contratos",
+    "Seminario de Titulación II",
+    "Clínica Jurídica Civil"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_DERECHO.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

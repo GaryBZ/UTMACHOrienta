@@ -1,0 +1,357 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "Comercio Exterior",
+  "slug": "comercio_exterior",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "total_semestres": 8,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "Legislación Aduanera I",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comercio Exterior I",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Contabilidad Gerencial",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Investigación Científica",
+          "area_vocacional": "",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comunicación Académica",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "materias": [
+        {
+          "nombre": "Matemáticas",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comercio Exterior II",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Técnicas Aduaneras I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Estadística",
+          "area_vocacional": "tecnologia/datos",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Geopolítica y Realidad Nacional",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "materias": [
+        {
+          "nombre": "Legislación Aduanera II",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Microeconomía",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Técnicas Aduaneras II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Matemáticas Financieras",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Costos y Presupuesto",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "materias": [
+        {
+          "nombre": "Business English I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Macroeconomía",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Nomenclatura Arancelaria y Valoración Aduanera",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Investigación de Mercados Internacionales",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Investigación de Operaciones",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "materias": [
+        {
+          "nombre": "Business English II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Herramientas Informáticas",
+          "area_vocacional": "tecnologia/programacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Trámites de Importación y Exportación",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Marketing Internacional",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Logística Internacional y Transportes",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "materias": [
+        {
+          "nombre": "Business English III",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Negociaciones Internacionales",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Convenios y Contratos Internacionales",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Administración e Innovación en Modelos de Negocios Internacionales",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Dirección Estratégica",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación I",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Responsabilidad Social Empresarial",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Operaciones Bancarias",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión de la Calidad",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Operatividad de Regímenes Aduaneros",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación II",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Integración y Globalización",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comercio Electrónico Internacional",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Formulación y Evaluación de Proyectos de Inversión",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Finanzas Internacionales",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [
+    "Legislación Aduanera I",
+    "Comercio Exterior I",
+    "Business English II",
+    "Herramientas Informáticas",
+    "Seminario de Titulación II",
+    "Integración y Globalización"
+  ],
+  "areas_detectadas": [
+    "ciencias_sociales/derecho",
+    "negocios/economia",
+    "comunicacion/periodismo",
+    "matematicas/logica",
+    "tecnologia/datos",
+    "tecnologia/programacion",
+    "turismo/idiomas"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_CURRICULAR_COMERCIO_EXTERIOR.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial",
+      "archivo_original": "utmach_carreras_fichas_y_mallas_2026.md"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas de asignaturas y tipo_formacion son inferencias iniciales."
+}

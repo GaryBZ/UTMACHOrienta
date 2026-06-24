@@ -8,6 +8,7 @@ Estrategias por tipo de documento:
                  cada pregunta/ítem debe quedar en su propio chunk
   - malla      → chunks grandes (768 tokens), overlap medio (80)
                  una asignatura con sus créditos no debe partirse
+  - carrera    → chunks medianos y directos para fichas de carreras
 
 Uso rápido:
     from ingesta.chunker import chunkear_documento, chunkear_documentos
@@ -46,6 +47,12 @@ ESTRATEGIAS = {
         "chunk_overlap": 80,
         "separadores": ["\n\n\n", "\n\n", "\n", ". ", " "],
         "descripcion": "Mallas curriculares",
+    },
+    "carrera": {
+        "chunk_size": 640,
+        "chunk_overlap": 60,
+        "separadores": ["\n\n", "\n", ". ", "? ", "! ", " "],
+        "descripcion": "Fichas y afinidades de carreras",
     },
 }
 

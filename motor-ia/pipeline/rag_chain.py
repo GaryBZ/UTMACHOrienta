@@ -31,12 +31,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from retrieval.retriever import Retriever
 from llm.lmstudio_client import LLMClient
+from settings import CHROMA_PATH, EMBEDDING_MODEL, LLM_MODEL, LMSTUDIO_URL
 
 logger = logging.getLogger(__name__)
 
 # Cuántos chunks pasar al LLM por llamada
 TOP_K_VOCACIONAL = 4
 TOP_K_MALLA      = 3
+TOP_K_CARRERA    = 4
 
 
 class RAGChain:
@@ -58,10 +60,10 @@ class RAGChain:
 
     def __init__(
         self,
-        lmstudio_url: str    = "http://localhost:1234/v1",
-        embedding_model: str = "nomic-ai/nomic-embed-text-v1.5-GGUF",
-        llm_model: str       = "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF",
-        chroma_path: str     = "./data/chroma_db",
+        lmstudio_url: str    = LMSTUDIO_URL,
+        embedding_model: str = EMBEDDING_MODEL,
+        llm_model: str       = LLM_MODEL,
+        chroma_path: str     = CHROMA_PATH,
         max_historial: int   = 10,
     ):
         self.max_historial = max_historial
@@ -108,22 +110,32 @@ class RAGChain:
         """
         msg = mensaje.lower()
 
-        keywords_malla = {
-            "malla", "materias", "asignatura", "currículo", "pensum",
-            "semestre", "créditos", "carrera", "ingeniería", "medicina",
-            "derecho", "administración", "economía", "arquitectura",
+        keywords_carrera = {
+            "carrera", "carreras", "recomienda", "recomendar", "estudiar",
+            "perfil", "egreso", "ingreso", "campo laboral", "ocupacional",
+            "facultad", "titulo", "título", "modalidad", "duracion", "duración",
+            "ingeniería", "medicina", "derecho", "administración", "economía",
+            "datos", "programación", "salud", "educación", "turismo",
         }
-        keywords_test = {
+        keywords_malla = {
+            "malla", "materias", "asignatura", "asignaturas", "currículo",
+            "curriculo", "pensum", "semestre", "semestres", "créditos",
+            "creditos", "curso", "cursos",
+        }
+        keywords_vocacional = {
             "test", "prueba", "cuestionario", "holland", "riasec",
-            "intereses", "aptitud", "habilidad",
+            "intereses", "aptitud", "habilidad", "habilidades", "valores",
+            "vocacional", "orientación", "orientacion",
         }
 
-        colecciones = ["vocacional"]  # siempre incluida
+        colecciones = ["vocacional", "carrera"]
 
         if any(k in msg for k in keywords_malla):
             colecciones.append("malla")
-        if any(k in msg for k in keywords_test):
-            colecciones.append("test")
+        if any(k in msg for k in keywords_carrera) and "carrera" not in colecciones:
+            colecciones.append("carrera")
+        if any(k in msg for k in keywords_vocacional) and "vocacional" not in colecciones:
+            colecciones.append("vocacional")
 
         return colecciones
 
@@ -216,13 +228,8 @@ class RAGChain:
         # 2. Construir consulta enriquecida con perfil del estudiante
         consulta = self._construir_consulta(mensaje)
 
-        # 3. Recuperar chunks relevantes
-        k = top_k or TOP_K_VOCACIONAL
-        chunks = self.retriever.buscar_multi(
-            consulta,
-            colecciones=cols,
-            top_k_por_coleccion=k,
-        )
+        # 3. Recuperar chunks relevantes con presupuestos por colección
+        chunks = self._recuperar_contexto(consulta, cols, top_k)
 
         # 4. Generar respuesta con el LLM
         respuesta = self.llm.generar(
@@ -243,6 +250,44 @@ class RAGChain:
             len(chunks),
         )
         return respuesta
+
+    def _recuperar_contexto(
+        self,
+        consulta: str,
+        colecciones: list[str],
+        top_k: Optional[int] = None,
+    ) -> list[dict]:
+        """Recupera contexto balanceado entre vocacional, carrera y malla."""
+        if top_k is not None:
+            return self.retriever.buscar_multi(
+                consulta,
+                colecciones=colecciones,
+                top_k_por_coleccion=top_k,
+            )
+
+        presupuestos = {
+            "vocacional": TOP_K_VOCACIONAL,
+            "carrera": TOP_K_CARRERA,
+            "malla": TOP_K_MALLA,
+            "test": 2,
+        }
+
+        chunks = []
+        for coleccion in colecciones:
+            try:
+                encontrados = self.retriever.buscar(
+                    consulta,
+                    coleccion=coleccion,
+                    top_k=presupuestos.get(coleccion, TOP_K_VOCACIONAL),
+                )
+                for chunk in encontrados:
+                    chunk["coleccion"] = coleccion
+                chunks.extend(encontrados)
+            except Exception as exc:
+                logger.warning("Error buscando en '%s': %s", coleccion, exc)
+
+        chunks.sort(key=lambda x: x["distancia"])
+        return chunks
 
     # ── Utilidades ───────────────────────────────────────────────────
 

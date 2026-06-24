@@ -1,0 +1,358 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "Educación Básica",
+  "slug": "educacion_basica",
+  "facultad": "Facultad de Ciencias Sociales",
+  "total_semestres": 8,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "Sociedad Contemporánea y Política Educativa",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Filosofía de la Educación",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Sistemas y Contextos Educativos en Educación Básica",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Investigación Científica",
+          "area_vocacional": "",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comunicación Académica",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "materias": [
+        {
+          "nombre": "Ecología del Desarrollo y Aprendizaje",
+          "area_vocacional": "ciencias_naturales",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Neurociencia y Aprendizaje",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cultura y Contextos de los Sujetos Educativos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Investigación y Acción Participativa: Historias de Vida",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Enseñanza y Aprendizaje de la Comunicación Humana (Dominio de la Comunicación en Diversos Niveles de Comprensión de Textos Escritos)",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "materias": [
+        {
+          "nombre": "Experiencias de Aprendizaje: Abordajes Pedagógicos Contextualizados e Inclusivos – Pedagogía",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Teoría y Diseño Curricular",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Diseño y Desarrollo de Modelos Pedagógicos y Curriculares (Métodos, Medios y Estrategias de Aprendizaje) – Didáctica",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Observación y Exploración – Metodología de la Investigación",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "El Arte en los Estilos de Aprendizaje",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "materias": [
+        {
+          "nombre": "Ambientes de Aprendizaje",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Enseñanza-Aprendizaje de las Matemáticas I",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Enseñanza-Aprendizaje de las Ciencias Naturales",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Diagnóstico – Investigación Educativa Diagnóstica",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Tecnología Educativa",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "materias": [
+        {
+          "nombre": "Enseñanza-Aprendizaje de las Ciencias Sociales",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Enseñanza-Aprendizaje de las Matemáticas II",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Diseño de Estrategias y Recursos Educativos",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Diseño y Planificación de la Investigación",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Experiencias de Aprendizaje: Abordaje Pedagógico Curricular",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "materias": [
+        {
+          "nombre": "Evaluación Educativa",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Ejecución del Diseño de Investigación",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Expresión Corporal y Representación Teatral",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Educación Inclusiva",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Lectura y Escritura de Textos Académicos: Narrativas Académicas en Torno a Problemáticas Educativas",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación I",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión Escolar y Comunidades de Aprendizaje",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Materiales y Medios para Atención a la Diversidad",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Experiencias de Aprendizaje",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Educación Cultural y Artística",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación II",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Evaluación y Sistematización de la Práctica Educativa",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Elaboración de Proyectos de Mejoramiento de Contextos Educativos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Interpretación y Reflexión, Construcción del Sentido",
+          "area_vocacional": "ingenieria/construccion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Creatividad e Innovación en la Praxis Pedagógica",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [
+    "Sociedad Contemporánea y Política Educativa",
+    "Filosofía de la Educación",
+    "Enseñanza-Aprendizaje de las Ciencias Sociales",
+    "Enseñanza-Aprendizaje de las Matemáticas II",
+    "Seminario de Titulación II",
+    "Evaluación y Sistematización de la Práctica Educativa"
+  ],
+  "areas_detectadas": [
+    "ciencias_sociales/derecho",
+    "educacion",
+    "comunicacion/periodismo",
+    "ciencias_naturales",
+    "artes/diseno",
+    "matematicas/logica",
+    "negocios/economia",
+    "ingenieria/construccion"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_EDUCACI%C3%93N_B%C3%81SICA_%28Presencial%29.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial",
+      "archivo_original": "utmach_carreras_fichas_y_mallas_2026.md"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas de asignaturas y tipo_formacion son inferencias iniciales."
+}

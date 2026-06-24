@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Turismo",
+  "slug": "turismo",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Turismo",
+  "descripcion": "Forma para planificar, gestionar y desarrollar destinos, servicios y productos turísticos sostenibles.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Planifica destinos y servicios, gestiona proyectos y recursos turísticos y propone soluciones sostenibles e inclusivas.",
+    "competencias": [
+      "Planifica destinos y servicios, gestiona proyectos y recursos turísticos y propone soluciones sostenibles e inclusivas"
+    ]
+  },
+  "campo_ocupacional": [
+    "Operadores y agencias, hotelería, gobiernos locales, destinos, patrimonio, eventos, consultoría y emprendimiento turístico"
+  ],
+  "areas_vocacionales": [
+    "turismo/idiomas",
+    "negocios/economia"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina",
+    "servicio/personas"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Razonamiento Lógico Matemático",
+    "Introducción al Turismo",
+    "Economía Turística",
+    "Patrimonio Natural del Ecuador",
+    "Seminario de Titulación II",
+    "Sistemas de Información Geográfica y Ordenamiento Territorial Turístico"
+  ],
+  "palabras_clave": [
+    "turismo",
+    "turismo/idiomas",
+    "negocios/economia",
+    "Razonamiento Lógico Matemático",
+    "Introducción al Turismo",
+    "Economía Turística",
+    "Patrimonio Natural del Ecuador",
+    "Seminario de Titulación II",
+    "Sistemas de Información Geográfica y Ordenamiento Territorial Turístico"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uace/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_CURRICULAR_DE_TURISMO.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

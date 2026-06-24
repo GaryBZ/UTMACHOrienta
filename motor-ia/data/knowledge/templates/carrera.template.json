@@ -1,0 +1,36 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "",
+  "slug": "",
+  "facultad": "",
+  "modalidad": "",
+  "duracion": "",
+  "titulo_otorga": "",
+  "descripcion": "",
+  "perfil_ingreso": {
+    "resumen": "",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "",
+    "competencias": []
+  },
+  "campo_ocupacional": [],
+  "areas_vocacionales": [],
+  "entornos_trabajo": [],
+  "modalidades_trabajo": [],
+  "materias_representativas": [],
+  "palabras_clave": [],
+  "fuentes": [
+    {
+      "titulo": "",
+      "url": "",
+      "fecha_consulta": "",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": ""
+}

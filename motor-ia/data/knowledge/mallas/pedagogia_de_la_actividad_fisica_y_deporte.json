@@ -1,0 +1,372 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "Pedagogía de la Actividad Física y Deporte",
+  "slug": "pedagogia_de_la_actividad_fisica_y_deporte",
+  "facultad": "Facultad de Ciencias Sociales",
+  "total_semestres": 8,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "Estructura y Funcionamiento del Ser Humano",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Desarrollo y Funcionamiento del Ser Humano en la Actividad Física y Deporte",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Contextos y Sistemas Pedagógicos de la Educación en el Área de la Actividad Física y Deporte",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Movimientos Gimnásticos Básicos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comunicación Académica",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "materias": [
+        {
+          "nombre": "Desarrollo Psicológico del Ser Humano en Forma General y Evolutiva",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Metodología del Proceso de Enseñanza-Aprendizaje de los Estilos Básicos de la Natación",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Contextos y Sistemas Didácticos de la Educación en el Área de la Actividad Física y Deporte",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Movimientos Gimnásticos Reglamentados",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Investigación Científica",
+          "area_vocacional": "",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "materias": [
+        {
+          "nombre": "Psicopedagogía de la Actividad Física y Deporte",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Teoría y Práctica de los Juegos I",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Diseño y Desarrollo de Modelos Pedagógicos, Métodos, Medios, Estrategias, Trayectorias y Valores de la Educación Corporal",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Atletismo: Metodología del Proceso de Enseñanza-Aprendizaje del Desarrollo de Habilidades Motoras Básicas",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Comunicación Académica II",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Fundamentos Básicos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "materias": [
+        {
+          "nombre": "Fundamentos de la Recreación y su Aplicación en sus Diferentes Contextos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Atletismo: Metodología del Proceso de Enseñanza-Aprendizaje del Desarrollo de Habilidades Motoras Condicionantes",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Procesos Metodológicos de Enseñanza-Aprendizaje de la Actividad Física y Deporte en la Educación Inicial",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Teoría y Práctica de los Juegos II",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Diagnóstico",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "materias": [
+        {
+          "nombre": "Metodología de la Enseñanza-Aprendizaje de los Deportes Colectivos: Fútbol",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Procesos Metodológicos de Enseñanza-Aprendizaje de la Actividad Física y Deporte en la Educación General Básica",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Teoría y Metodología del Entrenamiento Deportivo",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Danza y Expresión Corporal",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Modelos y Procesos de Investigación Educativa: Diseño y Planificación de la Investigación",
+          "area_vocacional": "artes/diseno",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "materias": [
+        {
+          "nombre": "Metodología de la Enseñanza-Aprendizaje de los Deportes Colectivos: Baloncesto",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Procesos Metodológicos de Enseñanza-Aprendizaje de la Actividad Física y Deporte en el Bachillerato General Unificado",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Gestión Escolar y Desarrollo Profesional Docente",
+          "area_vocacional": "negocios/economia",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Lectura y Escritura de Textos Académicos",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Ejecución del Diseño de Investigación y Estadística Aplicada",
+          "area_vocacional": "tecnologia/datos",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Tecnología de la Información y la Comunicación",
+          "area_vocacional": "comunicacion/periodismo",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación I",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Metodología de la Enseñanza-Aprendizaje de los Deportes Colectivos: Voleibol",
+          "area_vocacional": "educacion",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Procesos Metodológicos de Enseñanza-Aprendizaje de la Actividad Física y Deporte Inclusivo",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Teoría Curricular y Evaluación Educativa",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Fútbol Sala",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "materias": [
+        {
+          "nombre": "Seminario de Titulación II",
+          "area_vocacional": "",
+          "tipo_formacion": "integracion_curricular",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Normativa del Deporte y Políticas Educativas",
+          "area_vocacional": "ciencias_sociales/derecho",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Masificación Deportiva Escolar",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Cátedra Integradora: Gestión de Proyectos de la Actividad Física, Deporte y Recreación",
+          "area_vocacional": "matematicas/logica",
+          "tipo_formacion": "basica",
+          "creditos": null,
+          "descripcion_curada": ""
+        },
+        {
+          "nombre": "Musculación",
+          "area_vocacional": "",
+          "tipo_formacion": "profesionalizante",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [
+    "Estructura y Funcionamiento del Ser Humano",
+    "Desarrollo y Funcionamiento del Ser Humano en la Actividad Física y Deporte",
+    "Metodología de la Enseñanza-Aprendizaje de los Deportes Colectivos: Fútbol",
+    "Cátedra Integradora: Procesos Metodológicos de Enseñanza-Aprendizaje de la Actividad Física y Deporte en la Educación General Básica",
+    "Seminario de Titulación II",
+    "Normativa del Deporte y Políticas Educativas"
+  ],
+  "areas_detectadas": [
+    "matematicas/logica",
+    "comunicacion/periodismo",
+    "educacion",
+    "artes/diseno",
+    "negocios/economia",
+    "tecnologia/datos",
+    "ciencias_sociales/derecho",
+    "salud"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_PEDAGOG%C3%8DA_DE_LA_ACTIVIDAD_FISICA_Y_DEPORTE.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial",
+      "archivo_original": "utmach_carreras_fichas_y_mallas_2026.md"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas de asignaturas y tipo_formacion son inferencias iniciales."
+}

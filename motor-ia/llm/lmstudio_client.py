@@ -19,10 +19,11 @@ Uso:
 import logging
 from typing import Optional
 
+from settings import LLM_MODEL, LMSTUDIO_URL
+
 logger = logging.getLogger(__name__)
 
-LMSTUDIO_BASE_URL = "http://localhost:1234/v1"
-LLM_MODEL         = "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF"  # ajusta al tuyo
+LMSTUDIO_BASE_URL = LMSTUDIO_URL
 MAX_TOKENS        = 1024
 TEMPERATURE       = 0.3   # bajo: respuestas más consistentes y menos inventadas
 

@@ -1,0 +1,69 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Gestión de la Innovación Organizacional y Productividad",
+  "slug": "gestion_de_la_innovacion_organizacional_y_productividad",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "modalidad": "En línea",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Gestión de la Innovación Organizacional y Productividad",
+  "descripcion": "Forma para diseñar y mejorar sistemas de innovación, calidad, procesos y productividad organizacional.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Diseña sistemas de gestión, innovación y mejora continua y mide productividad e impacto organizacional.",
+    "competencias": [
+      "Diseña sistemas de gestión, innovación y mejora continua y mide productividad e impacto organizacional"
+    ]
+  },
+  "campo_ocupacional": [
+    "Calidad, procesos, productividad, innovación, logística, proyectos, transformación organizacional y consultoría"
+  ],
+  "areas_vocacionales": [
+    "negocios/economia"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Matemáticas Digital",
+    "Principios de Calidad y Productividad",
+    "Metodología de la Investigación",
+    "Administración de la Producción I",
+    "Seminario de Titulación II",
+    "Estrategias y Modelos para la Innovación Sostenible"
+  ],
+  "palabras_clave": [
+    "gestion de la innovacion organizacional y productividad",
+    "negocios/economia",
+    "Matemáticas Digital",
+    "Principios de Calidad y Productividad",
+    "Metodología de la Investigación",
+    "Administración de la Producción I",
+    "Seminario de Titulación II",
+    "Estrategias y Modelos para la Innovación Sostenible"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uace/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_DE_GESTI%C3%93N_DE_LA_INNOVACI%C3%93N_ORGANIZACIONAL_Y_PRODUCTIVIDAD.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

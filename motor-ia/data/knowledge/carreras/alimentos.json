@@ -1,0 +1,75 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Alimentos",
+  "slug": "alimentos",
+  "facultad": "Facultad de Ciencias Químicas y de la Salud",
+  "modalidad": "Presencial",
+  "duracion": "10 periodos académicos",
+  "titulo_otorga": "Ingeniero/a en Alimentos",
+  "descripcion": "Aborda el diseño, transformación, conservación, inocuidad, calidad y gestión de procesos de la industria alimentaria.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Diseña y controla procesos alimentarios, asegura inocuidad y calidad y desarrolla productos y soluciones tecnológicas.",
+    "competencias": [
+      "Diseña y controla procesos alimentarios, asegura inocuidad y calidad y desarrolla productos y soluciones tecnológicas"
+    ]
+  },
+  "campo_ocupacional": [
+    "Industrias alimentarias, laboratorios de calidad, desarrollo de productos, inocuidad, producción, regulación y consultoría"
+  ],
+  "areas_vocacionales": [
+    "ciencias_naturales",
+    "agropecuaria/ambiente",
+    "salud"
+  ],
+  "entornos_trabajo": [
+    "salud/clinica",
+    "exterior/naturaleza",
+    "laboratorio"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Cálculo Diferencial",
+    "Química General",
+    "Procesamiento de Frutas y Hortalizas",
+    "Biotecnología Alimentaria",
+    "Diseño y Desarrollo de Nuevos Productos",
+    "Gestión de Proyectos Alimentarios"
+  ],
+  "palabras_clave": [
+    "alimentos",
+    "ciencias_naturales",
+    "agropecuaria/ambiente",
+    "salud",
+    "Cálculo Diferencial",
+    "Química General",
+    "Procesamiento de Frutas y Hortalizas",
+    "Biotecnología Alimentaria",
+    "Diseño y Desarrollo de Nuevos Productos",
+    "Gestión de Proyectos Alimentarios"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacq/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCQS/MALLA_CURRICULAR_ALIMENTOS.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

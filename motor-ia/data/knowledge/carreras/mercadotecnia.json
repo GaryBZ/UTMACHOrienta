@@ -1,0 +1,71 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Mercadotecnia",
+  "slug": "mercadotecnia",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Mercadotecnia",
+  "descripcion": "Estudia consumidores, investigación de mercados, marca, comunicación, ventas y estrategias de comercialización.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Investiga mercados, diseña propuestas de valor, gestiona marcas y ejecuta estrategias comerciales y digitales.",
+    "competencias": [
+      "Investiga mercados, diseña propuestas de valor, gestiona marcas y ejecuta estrategias comerciales y digitales"
+    ]
+  },
+  "campo_ocupacional": [
+    "Marketing, ventas, publicidad, investigación de mercados, comercio digital, gestión de marca y consultoría"
+  ],
+  "areas_vocacionales": [
+    "negocios/economia",
+    "comunicacion/periodismo"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Comunicación Académica",
+    "Matemáticas",
+    "Marketing Comunitario",
+    "Gerencia de Ventas",
+    "Seminario de Titulación II",
+    "Marketing Estratégico"
+  ],
+  "palabras_clave": [
+    "mercadotecnia",
+    "negocios/economia",
+    "comunicacion/periodismo",
+    "Comunicación Académica",
+    "Matemáticas",
+    "Marketing Comunitario",
+    "Gerencia de Ventas",
+    "Seminario de Titulación II",
+    "Marketing Estratégico"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uace/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_CURRICULAR_DE_MERCADOTECNIA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

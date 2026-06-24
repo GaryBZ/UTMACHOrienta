@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Pedagogía de las Ciencias Experimentales",
+  "slug": "pedagogia_de_las_ciencias_experimentales",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Pedagogía de la Informática",
+  "descripcion": "Forma docentes de informática capaces de integrar pedagogía, pensamiento computacional y tecnología educativa.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Diseña procesos de enseñanza de informática, crea recursos digitales y resuelve problemas educativos con innovación.",
+    "competencias": [
+      "Diseña procesos de enseñanza de informática, crea recursos digitales y resuelve problemas educativos con innovación"
+    ]
+  },
+  "campo_ocupacional": [
+    "Docencia de informática, coordinación tecnológica, diseño de recursos, capacitación e innovación educativa"
+  ],
+  "areas_vocacionales": [
+    "educacion",
+    "ciencias_naturales"
+  ],
+  "entornos_trabajo": [
+    "laboratorio",
+    "aula/educacion"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Sociedad Contemporánea y Política Educativa",
+    "Pedagogía",
+    "Enseñanza-Aprendizaje de Programación y Bases de Datos",
+    "Enseñanza-Aprendizaje de Herramientas Multimedia",
+    "Seminario de Titulación II",
+    "Fundamentos de Proyectos Educativos Mediados por TIC"
+  ],
+  "palabras_clave": [
+    "pedagogia de las ciencias experimentales",
+    "educacion",
+    "ciencias_naturales",
+    "Sociedad Contemporánea y Política Educativa",
+    "Pedagogía",
+    "Enseñanza-Aprendizaje de Programación y Bases de Datos",
+    "Enseñanza-Aprendizaje de Herramientas Multimedia",
+    "Seminario de Titulación II",
+    "Fundamentos de Proyectos Educativos Mediados por TIC"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_PEDAGOGIA_DE_LAS_CIENCIAS_EXPERIMENTALES.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

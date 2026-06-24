@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Acuicultura",
+  "slug": "acuicultura",
+  "facultad": "Facultad de Ciencias Agropecuarias",
+  "modalidad": "Presencial",
+  "duracion": "10 periodos académicos",
+  "titulo_otorga": "Ingeniero/a Acuícola",
+  "descripcion": "Forma profesionales para el cultivo, manejo, sanidad, diseño y gestión sostenible de sistemas de producción de organismos acuáticos.",
+  "perfil_ingreso": {
+    "resumen": "Bases de razonamiento lógico y científico, interés por los sistemas acuáticos, disposición para el trabajo práctico y responsabilidad ambiental.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Gestiona sistemas acuícolas, controla sanidad y calidad, diseña proyectos y aplica investigación con criterios productivos y ambientales.",
+    "competencias": [
+      "Gestiona sistemas acuícolas, controla sanidad y calidad, diseña proyectos y aplica investigación con criterios productivos y ambientales"
+    ]
+  },
+  "campo_ocupacional": [
+    "Granjas y laboratorios acuícolas, hatcheries, empresas de alimentos y procesamiento, sanidad, consultoría, investigación y docencia"
+  ],
+  "areas_vocacionales": [
+    "agropecuaria/ambiente",
+    "ciencias_naturales"
+  ],
+  "entornos_trabajo": [
+    "exterior/naturaleza",
+    "laboratorio"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Matemática I",
+    "Física I",
+    "Ingeniería para Acuicultura II",
+    "Genética y Biología Molecular",
+    "Seminario de Titulación II",
+    "Cultivo de Moluscos"
+  ],
+  "palabras_clave": [
+    "acuicultura",
+    "agropecuaria/ambiente",
+    "ciencias_naturales",
+    "Matemática I",
+    "Física I",
+    "Ingeniería para Acuicultura II",
+    "Genética y Biología Molecular",
+    "Seminario de Titulación II",
+    "Cultivo de Moluscos"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uaca/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCA/MALLA_CURRICULAR_ACUICULTURA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

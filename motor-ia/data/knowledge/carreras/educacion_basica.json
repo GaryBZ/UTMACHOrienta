@@ -1,0 +1,69 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Educación Básica",
+  "slug": "educacion_basica",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Ciencias de la Educación Básica",
+  "descripcion": "Forma docentes para los niveles de educación básica con competencias didácticas, investigativas, inclusivas y tecnológicas.",
+  "perfil_ingreso": {
+    "resumen": "Interés por la docencia y el aprendizaje, comunicación efectiva, sensibilidad social, disposición para investigar y trabajar con diversidad.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Diseña, ejecuta y evalúa experiencias de aprendizaje inclusivas y contextualizadas y desarrolla investigación educativa.",
+    "competencias": [
+      "Diseña, ejecuta y evalúa experiencias de aprendizaje inclusivas y contextualizadas y desarrolla investigación educativa"
+    ]
+  },
+  "campo_ocupacional": [
+    "Escuelas y unidades educativas, coordinación pedagógica, diseño curricular, proyectos educativos e investigación"
+  ],
+  "areas_vocacionales": [
+    "educacion"
+  ],
+  "entornos_trabajo": [
+    "aula/educacion"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Sociedad Contemporánea y Política Educativa",
+    "Filosofía de la Educación",
+    "Enseñanza-Aprendizaje de las Ciencias Sociales",
+    "Enseñanza-Aprendizaje de las Matemáticas II",
+    "Seminario de Titulación II",
+    "Evaluación y Sistematización de la Práctica Educativa"
+  ],
+  "palabras_clave": [
+    "educacion basica",
+    "educacion",
+    "Sociedad Contemporánea y Política Educativa",
+    "Filosofía de la Educación",
+    "Enseñanza-Aprendizaje de las Ciencias Sociales",
+    "Enseñanza-Aprendizaje de las Matemáticas II",
+    "Seminario de Titulación II",
+    "Evaluación y Sistematización de la Práctica Educativa"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_EDUCACI%C3%93N_B%C3%81SICA_%28Presencial%29.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

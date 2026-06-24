@@ -1,0 +1,70 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Sociología",
+  "slug": "sociologia",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Sociología",
+  "descripcion": "Analiza fenómenos, estructuras y cambios sociales mediante investigación, diagnóstico y planificación social.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Investiga y explica fenómenos sociales, formula diagnósticos y gestiona proyectos y políticas sociales.",
+    "competencias": [
+      "Investiga y explica fenómenos sociales, formula diagnósticos y gestiona proyectos y políticas sociales"
+    ]
+  },
+  "campo_ocupacional": [
+    "Investigación social, planificación, gobiernos",
+    "ONG, desarrollo comunitario, políticas públicas y consultoría"
+  ],
+  "areas_vocacionales": [
+    "ciencias_sociales/derecho"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Introducción a la Sociología",
+    "Historia Contemporánea del Ecuador y América Latina",
+    "Sociología Política",
+    "Sociología de la Educación",
+    "Seminario de Titulación II",
+    "Gobernanza y Políticas Públicas"
+  ],
+  "palabras_clave": [
+    "sociologia",
+    "ciencias_sociales/derecho",
+    "Introducción a la Sociología",
+    "Historia Contemporánea del Ecuador y América Latina",
+    "Sociología Política",
+    "Sociología de la Educación",
+    "Seminario de Titulación II",
+    "Gobernanza y Políticas Públicas"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_SOCIOLOGIA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

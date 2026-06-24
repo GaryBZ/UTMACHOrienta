@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Psicopedagogía",
+  "slug": "psicopedagogia",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Psicopedagogía",
+  "descripcion": "Forma para evaluar, orientar e intervenir en procesos de aprendizaje y necesidades educativas.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Evalúa necesidades de aprendizaje, diseña intervenciones y orienta a estudiantes, docentes y familias.",
+    "competencias": [
+      "Evalúa necesidades de aprendizaje, diseña intervenciones y orienta a estudiantes, docentes y familias"
+    ]
+  },
+  "campo_ocupacional": [
+    "Departamentos de consejería y apoyo, centros educativos, atención psicopedagógica, orientación y proyectos inclusivos"
+  ],
+  "areas_vocacionales": [
+    "educacion",
+    "salud"
+  ],
+  "entornos_trabajo": [
+    "salud/clinica",
+    "aula/educacion"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Psicología General",
+    "Fundamentos Psicopedagógicos de la Educación",
+    "Didáctica II",
+    "Técnicas de Exploración Psicopedagógica",
+    "Seminario de Titulación II",
+    "Orientación Vocacional y Profesional"
+  ],
+  "palabras_clave": [
+    "psicopedagogia",
+    "educacion",
+    "salud",
+    "Psicología General",
+    "Fundamentos Psicopedagógicos de la Educación",
+    "Didáctica II",
+    "Técnicas de Exploración Psicopedagógica",
+    "Seminario de Titulación II",
+    "Orientación Vocacional y Profesional"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_PSICOPEDAGOG%C3%8DA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

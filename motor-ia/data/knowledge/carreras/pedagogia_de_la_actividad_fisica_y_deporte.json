@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Pedagogía de la Actividad Física y Deporte",
+  "slug": "pedagogia_de_la_actividad_fisica_y_deporte",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Pedagogía de la Actividad Física y Deporte",
+  "descripcion": "Prepara docentes y gestores de procesos de actividad física, deporte, recreación y promoción de la salud.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Planifica y evalúa programas de educación física, deporte y recreación con enfoque inclusivo y saludable.",
+    "competencias": [
+      "Planifica y evalúa programas de educación física, deporte y recreación con enfoque inclusivo y saludable"
+    ]
+  },
+  "campo_ocupacional": [
+    "Instituciones educativas, clubes, centros deportivos, recreación, programas comunitarios y promoción de salud"
+  ],
+  "areas_vocacionales": [
+    "educacion",
+    "salud"
+  ],
+  "entornos_trabajo": [
+    "salud/clinica",
+    "aula/educacion"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Estructura y Funcionamiento del Ser Humano",
+    "Desarrollo y Funcionamiento del Ser Humano en la Actividad Física y Deporte",
+    "Metodología de la Enseñanza-Aprendizaje de los Deportes Colectivos: Fútbol",
+    "Cátedra Integradora: Procesos Metodológicos de Enseñanza-Aprendizaje de la Actividad Física y Deporte en la Educación General Básica",
+    "Seminario de Titulación II",
+    "Normativa del Deporte y Políticas Educativas"
+  ],
+  "palabras_clave": [
+    "pedagogia de la actividad fisica y deporte",
+    "educacion",
+    "salud",
+    "Estructura y Funcionamiento del Ser Humano",
+    "Desarrollo y Funcionamiento del Ser Humano en la Actividad Física y Deporte",
+    "Metodología de la Enseñanza-Aprendizaje de los Deportes Colectivos: Fútbol",
+    "Cátedra Integradora: Procesos Metodológicos de Enseñanza-Aprendizaje de la Actividad Física y Deporte en la Educación General Básica",
+    "Seminario de Titulación II",
+    "Normativa del Deporte y Políticas Educativas"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_PEDAGOG%C3%8DA_DE_LA_ACTIVIDAD_FISICA_Y_DEPORTE.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

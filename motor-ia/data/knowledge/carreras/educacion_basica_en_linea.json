@@ -1,0 +1,59 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Educación Básica en Línea",
+  "slug": "educacion_basica_en_linea",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "En línea",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Ciencias de la Educación Básica",
+  "descripcion": "Forma docentes de educación básica mediante una modalidad virtual, con énfasis en didáctica, investigación e innovación educativa.",
+  "perfil_ingreso": {
+    "resumen": "Interés por la docencia, autonomía para el aprendizaje virtual, competencias digitales básicas, comunicación y responsabilidad.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Planifica y evalúa procesos educativos, integra recursos digitales y desarrolla investigación y acompañamiento pedagógico.",
+    "competencias": [
+      "Planifica y evalúa procesos educativos, integra recursos digitales y desarrolla investigación y acompañamiento pedagógico"
+    ]
+  },
+  "campo_ocupacional": [
+    "Docencia escolar, educación virtual, diseño de recursos digitales, tutoría, coordinación e innovación educativa"
+  ],
+  "areas_vocacionales": [
+    "educacion"
+  ],
+  "entornos_trabajo": [
+    "aula/educacion"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "No disponible de forma legible en la fuente oficial"
+  ],
+  "palabras_clave": [
+    "educacion basica en linea",
+    "educacion",
+    "No disponible de forma legible en la fuente oficial"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_EDUCACION_BASICA_%28EN_L%C3%8DNEA%29.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

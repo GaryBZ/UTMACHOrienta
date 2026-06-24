@@ -1,0 +1,74 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Ingeniería Ambiental",
+  "slug": "ingenieria_ambiental",
+  "facultad": "Facultad de Ingeniería Civil",
+  "modalidad": "Presencial",
+  "duracion": "10 periodos académicos",
+  "titulo_otorga": "Ingeniero/a Ambiental",
+  "descripcion": "Forma para prevenir, evaluar, mitigar y remediar impactos ambientales y gestionar recursos y riesgos.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Elabora estudios, auditorías y planes ambientales y aplica tecnologías de prevención, control y remediación.",
+    "competencias": [
+      "Elabora estudios, auditorías y planes ambientales y aplica tecnologías de prevención, control y remediación"
+    ]
+  },
+  "campo_ocupacional": [
+    "Gestión ambiental pública y privada, consultoría, auditoría, evaluación de impacto, saneamiento, riesgos e investigación"
+  ],
+  "areas_vocacionales": [
+    "agropecuaria/ambiente",
+    "ingenieria/construccion",
+    "ciencias_naturales"
+  ],
+  "entornos_trabajo": [
+    "exterior/naturaleza",
+    "laboratorio"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Biología I",
+    "Cálculo Diferencial",
+    "Monitoreo y Muestreo Ambiental",
+    "Toxicología Ambiental",
+    "Seminario de Titulación II",
+    "Cambio Climático y Desarrollo Sustentable"
+  ],
+  "palabras_clave": [
+    "ingenieria ambiental",
+    "agropecuaria/ambiente",
+    "ingenieria/construccion",
+    "ciencias_naturales",
+    "Biología I",
+    "Cálculo Diferencial",
+    "Monitoreo y Muestreo Ambiental",
+    "Toxicología Ambiental",
+    "Seminario de Titulación II",
+    "Cambio Climático y Desarrollo Sustentable"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uaic/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FIC/MALLA_CURRICULAR_DE_INGENIERIA_AMBIENTAL.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

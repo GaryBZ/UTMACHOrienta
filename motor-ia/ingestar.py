@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
-ingestar.py — Script de línea de comandos para indexar PDFs.
+ingestar.py — Script de línea de comandos para indexar PDFs o conocimiento curado.
 
 Uso:
+    # Indexar la base curada data/knowledge/
+    python ingestar.py --knowledge
+
     # Indexar toda la carpeta data/raw/
     python ingestar.py
 
@@ -36,6 +39,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+from settings import CHROMA_PATH, EMBEDDING_MODEL, LMSTUDIO_URL
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -50,16 +55,20 @@ def main():
                         help="Referencia bibliográfica o URL del documento")
     parser.add_argument("--dir",   type=str, default="data/raw",
                         help="Directorio a indexar (default: data/raw)")
+    parser.add_argument("--knowledge", action="store_true",
+                        help="Indexar la base curada data/knowledge en vez de PDFs")
+    parser.add_argument("--knowledge-dir", type=str, default="data/knowledge",
+                        help="Directorio de conocimiento curado (default: data/knowledge)")
     parser.add_argument("--stats", action="store_true",
                         help="Mostrar estadísticas de ChromaDB y salir")
     parser.add_argument("--eliminar", type=str, metavar="NOMBRE_ARCHIVO",
                         help="Eliminar chunks de un archivo de ChromaDB")
-    parser.add_argument("--lmstudio", type=str, default="http://localhost:1234/v1",
-                        help="URL base de LM Studio (default: http://localhost:1234/v1)")
+    parser.add_argument("--lmstudio", type=str, default=LMSTUDIO_URL,
+                        help=f"URL base de LM Studio (default: {LMSTUDIO_URL})")
     parser.add_argument("--modelo-embedding", type=str,
-                        default="nomic-ai/nomic-embed-text-v1.5-GGUF",
+                        default=EMBEDDING_MODEL,
                         help="Nombre del modelo de embeddings en LM Studio")
-    parser.add_argument("--chroma-path", type=str, default="./data/chroma_db",
+    parser.add_argument("--chroma-path", type=str, default=CHROMA_PATH,
                         help="Ruta donde persiste ChromaDB")
 
     args = parser.parse_args()
@@ -114,6 +123,25 @@ def main():
         _imprimir_stats(stats)
         return
 
+    # ── Indexar base curada ─────────────────
+    if args.knowledge:
+        directorio = Path(args.knowledge_dir)
+        if not directorio.exists():
+            logger.error("El directorio de conocimiento '%s' no existe.", directorio)
+            print(f"\n✗ No se encontró el directorio '{directorio}'.")
+            sys.exit(1)
+
+        print(f"\n📚 Indexando base curada: {directorio.resolve()}")
+        stats = idx.indexar_knowledge(directorio)
+        _imprimir_stats(stats)
+
+        print()
+        chroma_stats = idx.estadisticas()
+        print("📊 Estado final de ChromaDB:")
+        for col, count in chroma_stats.items():
+            print(f"   {col:<15} {count:>6} chunks")
+        return
+
     # ── Indexar directorio ───────────────────
     directorio = Path(args.dir)
     if not directorio.exists():
@@ -139,6 +167,8 @@ def _imprimir_stats(stats: dict):
     print("\n✅ Ingesta completada:")
     if "pdfs_procesados" in stats:
         print(f"   PDFs procesados : {stats['pdfs_procesados']}")
+    if "documentos_procesados" in stats:
+        print(f"   Docs procesados : {stats['documentos_procesados']}")
     if "chunks_generados" in stats:
         print(f"   Chunks generados: {stats['chunks_generados']}")
     print(f"   Indexados       : {stats['indexados']}")

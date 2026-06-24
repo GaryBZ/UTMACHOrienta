@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Tecnologías de la Información",
+  "slug": "tecnologias_de_la_informacion",
+  "facultad": "Facultad de Ingeniería Civil",
+  "modalidad": "Presencial",
+  "duracion": "10 periodos académicos",
+  "titulo_otorga": "Ingeniero/a en Tecnologías de la Información",
+  "descripcion": "Forma para diseñar, implementar, administrar y asegurar software, datos, redes, infraestructura y servicios de TI.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Desarrolla sistemas, administra bases de datos, redes y seguridad y dirige proyectos y servicios tecnológicos.",
+    "competencias": [
+      "Desarrolla sistemas, administra bases de datos, redes y seguridad y dirige proyectos y servicios tecnológicos"
+    ]
+  },
+  "campo_ocupacional": [
+    "Desarrollo de software, administración de sistemas y redes, ciberseguridad, datos, auditoría, proyectos y consultoría"
+  ],
+  "areas_vocacionales": [
+    "tecnologia/programacion",
+    "tecnologia/datos"
+  ],
+  "entornos_trabajo": [
+    "laboratorio",
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "independiente",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Fundamentos de Programación",
+    "Fundamentos de Tecnologías de la Información",
+    "Ingeniería de Software II",
+    "Seguridad de la Información",
+    "Seminario de Titulación II",
+    "Auditoría de TI"
+  ],
+  "palabras_clave": [
+    "tecnologias de la informacion",
+    "tecnologia/programacion",
+    "tecnologia/datos",
+    "Fundamentos de Programación",
+    "Fundamentos de Tecnologías de la Información",
+    "Ingeniería de Software II",
+    "Seguridad de la Información",
+    "Seminario de Titulación II",
+    "Auditoría de TI"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uaic/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FIC/MALLA_CURRICULAR_DE_TECNOLOGIA_DE_LA_INFORMACION_%282%29.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

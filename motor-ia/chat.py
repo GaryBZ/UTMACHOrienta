@@ -23,12 +23,9 @@ logging.basicConfig(
 )
 
 from pipeline.rag_chain import RAGChain
+from settings import CHROMA_PATH, EMBEDDING_MODEL, LLM_MODEL, LMSTUDIO_URL
 
 # ── Configuración ── ajusta estos valores a tu LM Studio ────────────
-LMSTUDIO_URL     = "http://localhost:1234/v1"
-EMBEDDING_MODEL  = "nomic-ai/nomic-embed-text-v1.5-GGUF"
-LLM_MODEL        = "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF"
-CHROMA_PATH      = "./data/chroma_db"
 # ────────────────────────────────────────────────────────────────────
 
 BANNER = """

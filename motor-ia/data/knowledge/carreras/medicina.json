@@ -1,0 +1,75 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Medicina",
+  "slug": "medicina",
+  "facultad": "Facultad de Ciencias Químicas y de la Salud",
+  "modalidad": "Presencial",
+  "duracion": "11 periodos académicos",
+  "titulo_otorga": "Médico/a",
+  "descripcion": "Prepara para la prevención, diagnóstico, tratamiento y seguimiento integral de problemas de salud individuales y comunitarios.",
+  "perfil_ingreso": {
+    "resumen": "Interés por las ciencias de la salud, capacidad de estudio autónomo, razonamiento científico, comunicación y compromiso ético con las personas.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Atiende integralmente el proceso salud-enfermedad, aplica razonamiento clínico y epidemiológico y promueve prevención.",
+    "competencias": [
+      "Atiende integralmente el proceso salud-enfermedad, aplica razonamiento clínico y epidemiológico y promueve prevención"
+    ]
+  },
+  "campo_ocupacional": [
+    "Hospitales, centros de salud, consulta general, programas comunitarios, salud pública, investigación y docencia"
+  ],
+  "areas_vocacionales": [
+    "salud",
+    "ciencias_naturales"
+  ],
+  "entornos_trabajo": [
+    "salud/clinica",
+    "laboratorio"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Anatomía I",
+    "Fisiología I",
+    "Semiología II (Digestivo",
+    "Renourinario",
+    "Neuroendocrino",
+    "Reproductivo)",
+    "Imagenología II",
+    "Internado Rotativo Pediatría",
+    "Internado Rotativo Cirugía"
+  ],
+  "palabras_clave": [
+    "medicina",
+    "salud",
+    "ciencias_naturales",
+    "Anatomía I",
+    "Fisiología I",
+    "Semiología II (Digestivo",
+    "Renourinario",
+    "Neuroendocrino",
+    "Reproductivo)"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacq/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCQS/MALLA_CURRICULAR_DE_MEDICINA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

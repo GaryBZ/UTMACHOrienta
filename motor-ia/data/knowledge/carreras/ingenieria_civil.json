@@ -1,0 +1,71 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Ingeniería Civil",
+  "slug": "ingenieria_civil",
+  "facultad": "Facultad de Ingeniería Civil",
+  "modalidad": "Presencial",
+  "duracion": "10 periodos académicos",
+  "titulo_otorga": "Ingeniero/a Civil",
+  "descripcion": "Prepara para planificar, diseñar, construir, fiscalizar y mantener infraestructura y obras civiles.",
+  "perfil_ingreso": {
+    "resumen": "Pensamiento crítico y razonamiento lógico; capacidad para resolver problemas y comunicarse; bases en ciencias exactas, naturales y computacionales.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Diseña y calcula obras, administra proyectos, aplica normativa y tecnología y controla calidad, costos y seguridad.",
+    "competencias": [
+      "Diseña y calcula obras, administra proyectos, aplica normativa y tecnología y controla calidad, costos y seguridad"
+    ]
+  },
+  "campo_ocupacional": [
+    "Construcción, diseño estructural, vías, hidráulica, geotecnia, fiscalización, consultoría y gestión de obras"
+  ],
+  "areas_vocacionales": [
+    "ingenieria/construccion",
+    "matematicas/logica"
+  ],
+  "entornos_trabajo": [
+    "flexible"
+  ],
+  "modalidades_trabajo": [
+    "independiente",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Cálculo Diferencial",
+    "Física I",
+    "Geotecnia",
+    "Resistencia de Materiales II",
+    "Seminario de Titulación II",
+    "Diseño Hidráulico"
+  ],
+  "palabras_clave": [
+    "ingenieria civil",
+    "ingenieria/construccion",
+    "matematicas/logica",
+    "Cálculo Diferencial",
+    "Física I",
+    "Geotecnia",
+    "Resistencia de Materiales II",
+    "Seminario de Titulación II",
+    "Diseño Hidráulico"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uaic/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FIC/MALLA_CURRICULAR_DE_INGENIERIA_CIVIL.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

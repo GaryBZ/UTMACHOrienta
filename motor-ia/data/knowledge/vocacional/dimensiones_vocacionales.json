@@ -1,0 +1,101 @@
+{
+  "tipo_doc": "vocacional",
+  "version_conocimiento": "2026-06",
+  "titulo": "Dimensiones vocacionales para UTMACHOrienta",
+  "descripcion": "Catalogo de dimensiones usadas para interpretar respuestas del estudiante y orientar preguntas adaptativas.",
+  "dimensiones": [
+    {
+      "id": "intereses",
+      "nombre": "Intereses",
+      "descripcion": "Actividades, temas o problemas que despiertan curiosidad, disfrute o motivacion sostenida en el estudiante.",
+      "ejemplos": [
+        "resolver problemas matematicos",
+        "ayudar a personas",
+        "crear contenido visual",
+        "trabajar con tecnologia",
+        "comprender la naturaleza"
+      ],
+      "uso_en_motor": "Permite elevar afinidades por areas vocacionales y seleccionar carreras candidatas."
+    },
+    {
+      "id": "habilidades",
+      "nombre": "Habilidades percibidas",
+      "descripcion": "Capacidades que el estudiante reconoce en si mismo o que disfruta aplicar.",
+      "ejemplos": [
+        "razonamiento logico",
+        "comunicacion oral",
+        "trabajo manual",
+        "analisis de informacion",
+        "empatia"
+      ],
+      "uso_en_motor": "Ayuda a validar si el interes declarado tiene soporte en habilidades o materias fuertes."
+    },
+    {
+      "id": "materias_preferidas",
+      "nombre": "Materias preferidas",
+      "descripcion": "Asignaturas escolares que el estudiante disfruta o en las que se siente competente.",
+      "ejemplos": [
+        "matematicas",
+        "biologia",
+        "lengua",
+        "historia",
+        "informatica",
+        "ingles"
+      ],
+      "uso_en_motor": "Conecta experiencia escolar con areas vocacionales y materias universitarias representativas."
+    },
+    {
+      "id": "entorno",
+      "nombre": "Entorno de trabajo preferido",
+      "descripcion": "Contexto donde el estudiante imagina desempenarse con mayor comodidad.",
+      "valores": [
+        "interior/oficina",
+        "exterior/naturaleza",
+        "laboratorio",
+        "salud/clinica",
+        "aula/educacion",
+        "servicio/personas",
+        "taller/creativo",
+        "flexible"
+      ],
+      "uso_en_motor": "Sirve para desempatar carreras con afinidad tematica similar, pero entornos distintos."
+    },
+    {
+      "id": "modalidad_trabajo",
+      "nombre": "Modalidad de trabajo",
+      "descripcion": "Preferencia sobre trabajar en equipo, de forma independiente o combinando ambos estilos.",
+      "valores": [
+        "equipo",
+        "independiente",
+        "flexible"
+      ],
+      "uso_en_motor": "Ajusta afinidades segun el estilo de trabajo comun en cada carrera."
+    },
+    {
+      "id": "valores",
+      "nombre": "Valores profesionales",
+      "descripcion": "Aspectos que el estudiante considera importantes para su futuro profesional.",
+      "ejemplos": [
+        "ayudar directamente a personas",
+        "innovar",
+        "tener estabilidad",
+        "emprender",
+        "proteger el ambiente",
+        "expresarse creativamente"
+      ],
+      "uso_en_motor": "Enriquece la explicacion final y ayuda a formular preguntas adaptativas de cierre."
+    },
+    {
+      "id": "restricciones_contexto",
+      "nombre": "Restricciones o contexto personal",
+      "descripcion": "Condiciones que pueden influir en la decision, como modalidad, tiempo, movilidad o expectativas familiares.",
+      "ejemplos": [
+        "preferencia por modalidad en linea",
+        "necesidad de estudiar cerca de casa",
+        "interes por trabajar mientras estudia",
+        "dudas por presion familiar"
+      ],
+      "uso_en_motor": "No debe penalizar afinidades academicas, pero puede personalizar recomendaciones y advertencias."
+    }
+  ]
+}

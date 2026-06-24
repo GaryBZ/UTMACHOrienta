@@ -296,13 +296,15 @@ function renderTestOptions(question) {
     optionsDiv.innerHTML = '';
 
     if (question.tipo === 'opciones' || question.tipo === 'escala') {
-        question.opciones.forEach((opcion, index) => {
+        question.opciones.forEach((opcion) => {
             const label = document.createElement('label');
             label.className = 'test-option';
-            label.innerHTML = `
-                <input type="radio" name="respuesta" value="${index}">
-                ${escapeHtml(opcion)}
-            `;
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'respuesta';
+            input.value = opcion;
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(` ${opcion}`));
             optionsDiv.appendChild(label);
 
             label.addEventListener('click', () => {
@@ -311,23 +313,33 @@ function renderTestOptions(question) {
             });
         });
     } else if (question.tipo === 'multiple') {
-        question.opciones.forEach((opcion, index) => {
+        question.opciones.forEach((opcion) => {
             const label = document.createElement('label');
             label.className = 'test-option';
-            label.innerHTML = `
-                <input type="checkbox" name="respuesta" value="${index}">
-                ${escapeHtml(opcion)}
-            `;
+            const input = document.createElement('input');
+            input.type = 'checkbox';
+            input.name = 'respuesta';
+            input.value = opcion;
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(` ${opcion}`));
             optionsDiv.appendChild(label);
 
-            label.addEventListener('click', (e) => {
-                if (e.target.checked) {
+            input.addEventListener('change', () => {
+                if (input.checked) {
                     label.classList.add('selected');
                 } else {
                     label.classList.remove('selected');
                 }
             });
         });
+    } else if (question.tipo === 'texto_libre') {
+        const textarea = document.createElement('textarea');
+        textarea.id = 'testFreeTextAnswer';
+        textarea.name = 'respuesta';
+        textarea.rows = 4;
+        textarea.placeholder = 'Escribe tu respuesta...';
+        textarea.style.width = '100%';
+        optionsDiv.appendChild(textarea);
     }
 }
 
@@ -341,16 +353,24 @@ function updateTestProgress() {
 
 async function submitTestAnswer() {
     const selectedOptions = document.querySelectorAll('input[name="respuesta"]:checked');
+    const freeText = document.getElementById('testFreeTextAnswer');
 
-    if (selectedOptions.length === 0) {
-        showError('Selecciona una respuesta');
+    let respuesta = '';
+    if (freeText) {
+        respuesta = freeText.value.trim();
+    } else if (testCurrentQuestion?.tipo === 'multiple') {
+        respuesta = Array.from(selectedOptions).map(option => option.value).join('; ');
+    } else if (selectedOptions.length > 0) {
+        respuesta = selectedOptions[0].value;
+    }
+
+    if (!respuesta) {
+        showError(freeText ? 'Escribe una respuesta' : 'Selecciona una respuesta');
         return;
     }
 
     try {
         showLoading('📊 Procesando respuesta...');
-
-        const respuesta = selectedOptions[0].value;
 
         // Send answer to Motor IA API
         const response = await fetchAPI(

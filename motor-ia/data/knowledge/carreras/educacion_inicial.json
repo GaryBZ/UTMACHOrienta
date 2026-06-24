@@ -1,0 +1,70 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Educación Inicial",
+  "slug": "educacion_inicial",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "9 periodos académicos según la ficha institucional; la malla publicada organiza 8 PAO",
+  "titulo_otorga": "Licenciado/a en Ciencias de la Educación Inicial",
+  "descripcion": "Forma docentes para acompañar el desarrollo integral y el aprendizaje de niñas y niños de 0 a 6 años.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Diseña ambientes y experiencias para la primera infancia, evalúa el desarrollo y trabaja con familias y comunidad.",
+    "competencias": [
+      "Diseña ambientes y experiencias para la primera infancia, evalúa el desarrollo y trabaja con familias y comunidad"
+    ]
+  },
+  "campo_ocupacional": [
+    "Centros de educación inicial, servicios de desarrollo infantil, coordinación pedagógica, proyectos y asesoría educativa"
+  ],
+  "areas_vocacionales": [
+    "educacion"
+  ],
+  "entornos_trabajo": [
+    "aula/educacion"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Realidad Local",
+    "Nacional y Mundial de la Educación Infantil",
+    "Investigación Científica",
+    "Ciencias Naturales y Sociales y su Didáctica",
+    "Ambientes de Aprendizaje en Educación Inicial",
+    "Seminario de Titulación II",
+    "Planificación Curricular de 5 a 6 Años"
+  ],
+  "palabras_clave": [
+    "educacion inicial",
+    "educacion",
+    "Realidad Local",
+    "Nacional y Mundial de la Educación Infantil",
+    "Investigación Científica",
+    "Ciencias Naturales y Sociales y su Didáctica",
+    "Ambientes de Aprendizaje en Educación Inicial",
+    "Seminario de Titulación II"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_EDUCACION_INICIAL.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

@@ -1,0 +1,73 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Trabajo Social",
+  "slug": "trabajo_social",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Trabajo Social",
+  "descripcion": "Forma para diagnosticar e intervenir en problemáticas sociales con personas, familias, grupos y comunidades.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Diagnostica necesidades, diseña intervenciones, articula redes y evalúa políticas y proyectos sociales.",
+    "competencias": [
+      "Diagnostica necesidades, diseña intervenciones, articula redes y evalúa políticas y proyectos sociales"
+    ]
+  },
+  "campo_ocupacional": [
+    "Salud, educación, justicia, protección social, empresas",
+    "ONG, gobiernos y programas comunitarios"
+  ],
+  "areas_vocacionales": [
+    "ciencias_sociales/derecho",
+    "educacion"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina",
+    "aula/educacion"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Comunicación Académica",
+    "Filosofía del Trabajo Social",
+    "Mediación y Resolución de Conflictos",
+    "Modelos de Intervención Profesional",
+    "Seminario de Titulación II",
+    "Trabajo Social y Medio Ambiente"
+  ],
+  "palabras_clave": [
+    "trabajo social",
+    "ciencias_sociales/derecho",
+    "educacion",
+    "Comunicación Académica",
+    "Filosofía del Trabajo Social",
+    "Mediación y Resolución de Conflictos",
+    "Modelos de Intervención Profesional",
+    "Seminario de Titulación II",
+    "Trabajo Social y Medio Ambiente"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_TRABAJO_SOCIAL.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

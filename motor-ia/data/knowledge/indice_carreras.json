@@ -1,0 +1,387 @@
+{
+  "version_conocimiento": "2026-06",
+  "fuente_original": "/home/deibisuk/Descargas/utmach_carreras_fichas_y_mallas_2026.md",
+  "fecha_verificacion_fuente": "2026-06-22",
+  "total_carreras": 32,
+  "carreras": [
+    {
+      "nombre": "Acuicultura",
+      "slug": "acuicultura",
+      "facultad": "Facultad de Ciencias Agropecuarias",
+      "archivo_carrera": "carreras/acuicultura.json",
+      "archivo_malla": "mallas/acuicultura.json",
+      "areas_vocacionales": [
+        "agropecuaria/ambiente",
+        "ciencias_naturales"
+      ],
+      "total_semestres": 10
+    },
+    {
+      "nombre": "Agronomía",
+      "slug": "agronomia",
+      "facultad": "Facultad de Ciencias Agropecuarias",
+      "archivo_carrera": "carreras/agronomia.json",
+      "archivo_malla": "mallas/agronomia.json",
+      "areas_vocacionales": [
+        "agropecuaria/ambiente",
+        "ciencias_naturales"
+      ],
+      "total_semestres": 10
+    },
+    {
+      "nombre": "Agropecuaria",
+      "slug": "agropecuaria",
+      "facultad": "Facultad de Ciencias Agropecuarias",
+      "archivo_carrera": "carreras/agropecuaria.json",
+      "archivo_malla": "mallas/agropecuaria.json",
+      "areas_vocacionales": [
+        "agropecuaria/ambiente",
+        "negocios/economia"
+      ],
+      "total_semestres": 9
+    },
+    {
+      "nombre": "Medicina Veterinaria",
+      "slug": "medicina_veterinaria",
+      "facultad": "Facultad de Ciencias Agropecuarias",
+      "archivo_carrera": "carreras/medicina_veterinaria.json",
+      "archivo_malla": "mallas/medicina_veterinaria.json",
+      "areas_vocacionales": [
+        "agropecuaria/ambiente",
+        "salud",
+        "ciencias_naturales"
+      ],
+      "total_semestres": 10
+    },
+    {
+      "nombre": "Administración de Empresas",
+      "slug": "administracion_de_empresas",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/administracion_de_empresas.json",
+      "archivo_malla": "mallas/administracion_de_empresas.json",
+      "areas_vocacionales": [
+        "negocios/economia"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Comercio Exterior",
+      "slug": "comercio_exterior",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/comercio_exterior.json",
+      "archivo_malla": "mallas/comercio_exterior.json",
+      "areas_vocacionales": [
+        "negocios/economia",
+        "turismo/idiomas"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Contabilidad y Auditoría",
+      "slug": "contabilidad_y_auditoria",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/contabilidad_y_auditoria.json",
+      "archivo_malla": "mallas/contabilidad_y_auditoria.json",
+      "areas_vocacionales": [
+        "negocios/economia",
+        "matematicas/logica"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Economía",
+      "slug": "economia",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/economia.json",
+      "archivo_malla": "mallas/economia.json",
+      "areas_vocacionales": [
+        "negocios/economia",
+        "matematicas/logica"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Finanzas y Negocios Digitales",
+      "slug": "finanzas_y_negocios_digitales",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/finanzas_y_negocios_digitales.json",
+      "archivo_malla": "mallas/finanzas_y_negocios_digitales.json",
+      "areas_vocacionales": [
+        "negocios/economia",
+        "tecnologia/datos"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Gestión de la Innovación Organizacional y Productividad",
+      "slug": "gestion_de_la_innovacion_organizacional_y_productividad",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/gestion_de_la_innovacion_organizacional_y_productividad.json",
+      "archivo_malla": "mallas/gestion_de_la_innovacion_organizacional_y_productividad.json",
+      "areas_vocacionales": [
+        "negocios/economia"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Mercadotecnia",
+      "slug": "mercadotecnia",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/mercadotecnia.json",
+      "archivo_malla": "mallas/mercadotecnia.json",
+      "areas_vocacionales": [
+        "negocios/economia",
+        "comunicacion/periodismo"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Turismo",
+      "slug": "turismo",
+      "facultad": "Facultad de Ciencias Empresariales",
+      "archivo_carrera": "carreras/turismo.json",
+      "archivo_malla": "mallas/turismo.json",
+      "areas_vocacionales": [
+        "turismo/idiomas",
+        "negocios/economia"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Alimentos",
+      "slug": "alimentos",
+      "facultad": "Facultad de Ciencias Químicas y de la Salud",
+      "archivo_carrera": "carreras/alimentos.json",
+      "archivo_malla": "mallas/alimentos.json",
+      "areas_vocacionales": [
+        "ciencias_naturales",
+        "agropecuaria/ambiente",
+        "salud"
+      ],
+      "total_semestres": 10
+    },
+    {
+      "nombre": "Enfermería",
+      "slug": "enfermeria",
+      "facultad": "Facultad de Ciencias Químicas y de la Salud",
+      "archivo_carrera": "carreras/enfermeria.json",
+      "archivo_malla": "mallas/enfermeria.json",
+      "areas_vocacionales": [
+        "salud"
+      ],
+      "total_semestres": 9
+    },
+    {
+      "nombre": "Medicina",
+      "slug": "medicina",
+      "facultad": "Facultad de Ciencias Químicas y de la Salud",
+      "archivo_carrera": "carreras/medicina.json",
+      "archivo_malla": "mallas/medicina.json",
+      "areas_vocacionales": [
+        "salud",
+        "ciencias_naturales"
+      ],
+      "total_semestres": 11
+    },
+    {
+      "nombre": "Psicología Clínica",
+      "slug": "psicologia_clinica",
+      "facultad": "Facultad de Ciencias Químicas y de la Salud",
+      "archivo_carrera": "carreras/psicologia_clinica.json",
+      "archivo_malla": "mallas/psicologia_clinica.json",
+      "areas_vocacionales": [
+        "salud",
+        "ciencias_sociales/derecho"
+      ],
+      "total_semestres": 9
+    },
+    {
+      "nombre": "Artes Plásticas",
+      "slug": "artes_plasticas",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/artes_plasticas.json",
+      "archivo_malla": "mallas/artes_plasticas.json",
+      "areas_vocacionales": [
+        "artes/diseno"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Comunicación",
+      "slug": "comunicacion",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/comunicacion.json",
+      "archivo_malla": "mallas/comunicacion.json",
+      "areas_vocacionales": [
+        "comunicacion/periodismo",
+        "artes/diseno"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Derecho",
+      "slug": "derecho",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/derecho.json",
+      "archivo_malla": "mallas/derecho.json",
+      "areas_vocacionales": [
+        "ciencias_sociales/derecho"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Educación Básica",
+      "slug": "educacion_basica",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/educacion_basica.json",
+      "archivo_malla": "mallas/educacion_basica.json",
+      "areas_vocacionales": [
+        "educacion"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Educación Básica en Línea",
+      "slug": "educacion_basica_en_linea",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/educacion_basica_en_linea.json",
+      "archivo_malla": "mallas/educacion_basica_en_linea.json",
+      "areas_vocacionales": [
+        "educacion"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Educación Inicial",
+      "slug": "educacion_inicial",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/educacion_inicial.json",
+      "archivo_malla": "mallas/educacion_inicial.json",
+      "areas_vocacionales": [
+        "educacion"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Pedagogía de las Ciencias Experimentales",
+      "slug": "pedagogia_de_las_ciencias_experimentales",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/pedagogia_de_las_ciencias_experimentales.json",
+      "archivo_malla": "mallas/pedagogia_de_las_ciencias_experimentales.json",
+      "areas_vocacionales": [
+        "educacion",
+        "ciencias_naturales"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Pedagogía de la Actividad Física y Deporte",
+      "slug": "pedagogia_de_la_actividad_fisica_y_deporte",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/pedagogia_de_la_actividad_fisica_y_deporte.json",
+      "archivo_malla": "mallas/pedagogia_de_la_actividad_fisica_y_deporte.json",
+      "areas_vocacionales": [
+        "educacion",
+        "salud"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Pedagogía de los Idiomas Nacionales y Extranjeros",
+      "slug": "pedagogia_de_los_idiomas_nacionales_y_extranjeros",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/pedagogia_de_los_idiomas_nacionales_y_extranjeros.json",
+      "archivo_malla": "mallas/pedagogia_de_los_idiomas_nacionales_y_extranjeros.json",
+      "areas_vocacionales": [
+        "educacion",
+        "turismo/idiomas"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Psicopedagogía",
+      "slug": "psicopedagogia",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/psicopedagogia.json",
+      "archivo_malla": "mallas/psicopedagogia.json",
+      "areas_vocacionales": [
+        "educacion",
+        "salud"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Sociología",
+      "slug": "sociologia",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/sociologia.json",
+      "archivo_malla": "mallas/sociologia.json",
+      "areas_vocacionales": [
+        "ciencias_sociales/derecho"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Trabajo Social",
+      "slug": "trabajo_social",
+      "facultad": "Facultad de Ciencias Sociales",
+      "archivo_carrera": "carreras/trabajo_social.json",
+      "archivo_malla": "mallas/trabajo_social.json",
+      "areas_vocacionales": [
+        "ciencias_sociales/derecho",
+        "educacion"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Ciencia de Datos e Inteligencia Artificial",
+      "slug": "ciencia_de_datos_e_inteligencia_artificial",
+      "facultad": "Facultad de Ingeniería Civil",
+      "archivo_carrera": "carreras/ciencia_de_datos_e_inteligencia_artificial.json",
+      "archivo_malla": "mallas/ciencia_de_datos_e_inteligencia_artificial.json",
+      "areas_vocacionales": [
+        "tecnologia/datos",
+        "tecnologia/programacion",
+        "matematicas/logica"
+      ],
+      "total_semestres": 8
+    },
+    {
+      "nombre": "Ingeniería Ambiental",
+      "slug": "ingenieria_ambiental",
+      "facultad": "Facultad de Ingeniería Civil",
+      "archivo_carrera": "carreras/ingenieria_ambiental.json",
+      "archivo_malla": "mallas/ingenieria_ambiental.json",
+      "areas_vocacionales": [
+        "agropecuaria/ambiente",
+        "ingenieria/construccion",
+        "ciencias_naturales"
+      ],
+      "total_semestres": 10
+    },
+    {
+      "nombre": "Ingeniería Civil",
+      "slug": "ingenieria_civil",
+      "facultad": "Facultad de Ingeniería Civil",
+      "archivo_carrera": "carreras/ingenieria_civil.json",
+      "archivo_malla": "mallas/ingenieria_civil.json",
+      "areas_vocacionales": [
+        "ingenieria/construccion",
+        "matematicas/logica"
+      ],
+      "total_semestres": 10
+    },
+    {
+      "nombre": "Tecnologías de la Información",
+      "slug": "tecnologias_de_la_informacion",
+      "facultad": "Facultad de Ingeniería Civil",
+      "archivo_carrera": "carreras/tecnologias_de_la_informacion.json",
+      "archivo_malla": "mallas/tecnologias_de_la_informacion.json",
+      "areas_vocacionales": [
+        "tecnologia/programacion",
+        "tecnologia/datos"
+      ],
+      "total_semestres": 10
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Psicología Clínica",
+  "slug": "psicologia_clinica",
+  "facultad": "Facultad de Ciencias Químicas y de la Salud",
+  "modalidad": "Presencial",
+  "duracion": "9 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Psicología Clínica",
+  "descripcion": "Estudia la evaluación, prevención e intervención psicológica y el bienestar mental desde una perspectiva biopsicosocial.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Evalúa e interviene en problemas psicológicos, promueve bienestar y trabaja ética e interdisciplinariamente.",
+    "competencias": [
+      "Evalúa e interviene en problemas psicológicos, promueve bienestar y trabaja ética e interdisciplinariamente"
+    ]
+  },
+  "campo_ocupacional": [
+    "Servicios de salud mental, hospitales, consulta privada, centros educativos, organizaciones, investigación y programas comunitarios"
+  ],
+  "areas_vocacionales": [
+    "salud",
+    "ciencias_sociales/derecho"
+  ],
+  "entornos_trabajo": [
+    "salud/clinica",
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Fundamentos Biológicos del Comportamiento",
+    "Fundamentos Filosóficos de la Psicología",
+    "Psicoanálisis",
+    "Psicopatología Infanto Juvenil",
+    "Intervención Psicológica en Enfermedades Médicas y Psicosomáticas",
+    "Intervención Psicológica en Violencia"
+  ],
+  "palabras_clave": [
+    "psicologia clinica",
+    "salud",
+    "ciencias_sociales/derecho",
+    "Fundamentos Biológicos del Comportamiento",
+    "Fundamentos Filosóficos de la Psicología",
+    "Psicoanálisis",
+    "Psicopatología Infanto Juvenil",
+    "Intervención Psicológica en Enfermedades Médicas y Psicosomáticas",
+    "Intervención Psicológica en Violencia"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacq/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCQS/MALLA_CURRICULAR_DE_PSICOLOGIA_CLINICA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

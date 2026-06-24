@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Comercio Exterior",
+  "slug": "comercio_exterior",
+  "facultad": "Facultad de Ciencias Empresariales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Comercio Exterior",
+  "descripcion": "Prepara para gestionar importaciones, exportaciones, logística, aduanas, negociación y mercados internacionales.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Gestiona operaciones internacionales, logística y aduanas, negocia con mercados externos y evalúa oportunidades comerciales.",
+    "competencias": [
+      "Gestiona operaciones internacionales, logística y aduanas, negocia con mercados externos y evalúa oportunidades comerciales"
+    ]
+  },
+  "campo_ocupacional": [
+    "Importadoras, exportadoras, agencias de aduana, operadores logísticos, puertos, comercio internacional y consultoría"
+  ],
+  "areas_vocacionales": [
+    "negocios/economia",
+    "turismo/idiomas"
+  ],
+  "entornos_trabajo": [
+    "interior/oficina",
+    "servicio/personas"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Legislación Aduanera I",
+    "Comercio Exterior I",
+    "Business English II",
+    "Herramientas Informáticas",
+    "Seminario de Titulación II",
+    "Integración y Globalización"
+  ],
+  "palabras_clave": [
+    "comercio exterior",
+    "negocios/economia",
+    "turismo/idiomas",
+    "Legislación Aduanera I",
+    "Comercio Exterior I",
+    "Business English II",
+    "Herramientas Informáticas",
+    "Seminario de Titulación II",
+    "Integración y Globalización"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uace/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCE/MALLA_CURRICULAR_COMERCIO_EXTERIOR.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

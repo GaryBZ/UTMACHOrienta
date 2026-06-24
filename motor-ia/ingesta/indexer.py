@@ -5,6 +5,7 @@ Colecciones ChromaDB:
   - vocacional  → artículos y teorías
   - test        → tests e instrumentos
   - malla       → mallas curriculares
+  - carrera     → fichas, perfiles y mapas de carreras
 
 LM Studio expone una API OpenAI-compatible en localhost:1234.
 El modelo de embeddings debe estar cargado en LM Studio antes de correr esto.
@@ -26,6 +27,8 @@ import time
 from pathlib import Path
 from typing import Optional
 
+from settings import CHROMA_PATH, EMBEDDING_MODEL, LMSTUDIO_URL
+
 logger = logging.getLogger(__name__)
 
 
@@ -33,15 +36,13 @@ logger = logging.getLogger(__name__)
 # Configuración
 # ─────────────────────────────────────────────
 
-LMSTUDIO_BASE_URL = "http://localhost:1234/v1"
-EMBEDDING_MODEL = "nomic-ai/nomic-embed-text-v1.5-GGUF"  # ajusta al modelo que tengas en LM Studio
-
-CHROMA_PATH = "./data/chroma_db"  # donde persiste ChromaDB en disco
+LMSTUDIO_BASE_URL = LMSTUDIO_URL
 
 COLECCIONES = {
     "vocacional": "vocacional",
     "test": "test",
     "malla": "malla",
+    "carrera": "carrera",
 }
 
 BATCH_SIZE = 32        # chunks por request de embedding (no saturar la VRAM del B580)
@@ -340,6 +341,23 @@ class Indexer:
         stats["chunks_generados"] = len(chunks)
         return stats
 
+    def indexar_knowledge(self, directorio: str | Path = "data/knowledge") -> dict:
+        """
+        Indexa la base de conocimiento curada JSON/Markdown.
+
+        Returns:
+            Dict acumulado con estadísticas totales.
+        """
+        from ingesta.knowledge_loader import cargar_knowledge_dir
+        from ingesta.chunker import chunkear_documentos
+
+        docs = cargar_knowledge_dir(directorio)
+        chunks = chunkear_documentos(docs)
+        stats = self.indexar_chunks(chunks)
+        stats["documentos_procesados"] = len(docs)
+        stats["chunks_generados"] = len(chunks)
+        return stats
+
     # ── Utilidades ───────────────────────────────────────────────────
 
     def estadisticas(self) -> dict:
@@ -347,10 +365,11 @@ class Indexer:
         stats = self.chroma.estadisticas()
         total = sum(stats.values())
         logger.info(
-            "ChromaDB — vocacional: %d | test: %d | malla: %d | total: %d",
+            "ChromaDB — vocacional: %d | test: %d | malla: %d | carrera: %d | total: %d",
             stats.get("vocacional", 0),
             stats.get("test", 0),
             stats.get("malla", 0),
+            stats.get("carrera", 0),
             total,
         )
         return stats

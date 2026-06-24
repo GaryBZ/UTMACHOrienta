@@ -1,0 +1,504 @@
+{
+  "version_conocimiento": "2026-06",
+  "descripcion": "Mapa inicial generado desde fichas y mallas curadas. Los pesos son heuristicas iniciales y deben revisarse antes de usarse para decisiones finales.",
+  "carreras": {
+    "Acuicultura": {
+      "slug": "acuicultura",
+      "areas": {
+        "agropecuaria/ambiente": 0.9,
+        "ciencias_naturales": 0.78
+      },
+      "entornos": {
+        "exterior/naturaleza": 0.75,
+        "laboratorio": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Administración de Empresas": {
+      "slug": "administracion_de_empresas",
+      "areas": {
+        "negocios/economia": 0.9
+      },
+      "entornos": {
+        "interior/oficina": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Agronomía": {
+      "slug": "agronomia",
+      "areas": {
+        "agropecuaria/ambiente": 0.9,
+        "ciencias_naturales": 0.78
+      },
+      "entornos": {
+        "exterior/naturaleza": 0.75,
+        "laboratorio": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Agropecuaria": {
+      "slug": "agropecuaria",
+      "areas": {
+        "agropecuaria/ambiente": 0.9,
+        "negocios/economia": 0.78
+      },
+      "entornos": {
+        "exterior/naturaleza": 0.75,
+        "interior/oficina": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Alimentos": {
+      "slug": "alimentos",
+      "areas": {
+        "ciencias_naturales": 0.9,
+        "agropecuaria/ambiente": 0.78,
+        "salud": 0.66
+      },
+      "entornos": {
+        "salud/clinica": 0.75,
+        "exterior/naturaleza": 0.67,
+        "laboratorio": 0.59
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Artes Plásticas": {
+      "slug": "artes_plasticas",
+      "areas": {
+        "artes/diseno": 0.9
+      },
+      "entornos": {
+        "taller/creativo": 0.75
+      },
+      "modalidades": {
+        "independiente": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Ciencia de Datos e Inteligencia Artificial": {
+      "slug": "ciencia_de_datos_e_inteligencia_artificial",
+      "areas": {
+        "tecnologia/datos": 0.9,
+        "tecnologia/programacion": 0.78,
+        "matematicas/logica": 0.66
+      },
+      "entornos": {
+        "laboratorio": 0.75,
+        "interior/oficina": 0.67
+      },
+      "modalidades": {
+        "independiente": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Comercio Exterior": {
+      "slug": "comercio_exterior",
+      "areas": {
+        "negocios/economia": 0.9,
+        "turismo/idiomas": 0.78
+      },
+      "entornos": {
+        "interior/oficina": 0.75,
+        "servicio/personas": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Comunicación": {
+      "slug": "comunicacion",
+      "areas": {
+        "comunicacion/periodismo": 0.9,
+        "artes/diseno": 0.78
+      },
+      "entornos": {
+        "taller/creativo": 0.75
+      },
+      "modalidades": {
+        "independiente": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Contabilidad y Auditoría": {
+      "slug": "contabilidad_y_auditoria",
+      "areas": {
+        "negocios/economia": 0.9,
+        "matematicas/logica": 0.78
+      },
+      "entornos": {
+        "interior/oficina": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "independiente": 0.62,
+        "flexible": 0.54
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Derecho": {
+      "slug": "derecho",
+      "areas": {
+        "ciencias_sociales/derecho": 0.9
+      },
+      "entornos": {
+        "interior/oficina": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Economía": {
+      "slug": "economia",
+      "areas": {
+        "negocios/economia": 0.9,
+        "matematicas/logica": 0.78
+      },
+      "entornos": {
+        "interior/oficina": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "independiente": 0.62,
+        "flexible": 0.54
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Educación Básica": {
+      "slug": "educacion_basica",
+      "areas": {
+        "educacion": 0.9
+      },
+      "entornos": {
+        "aula/educacion": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Educación Básica en Línea": {
+      "slug": "educacion_basica_en_linea",
+      "areas": {
+        "educacion": 0.9
+      },
+      "entornos": {
+        "aula/educacion": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Educación Inicial": {
+      "slug": "educacion_inicial",
+      "areas": {
+        "educacion": 0.9
+      },
+      "entornos": {
+        "aula/educacion": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Enfermería": {
+      "slug": "enfermeria",
+      "areas": {
+        "salud": 0.9
+      },
+      "entornos": {
+        "salud/clinica": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Finanzas y Negocios Digitales": {
+      "slug": "finanzas_y_negocios_digitales",
+      "areas": {
+        "negocios/economia": 0.9,
+        "tecnologia/datos": 0.78
+      },
+      "entornos": {
+        "laboratorio": 0.75,
+        "interior/oficina": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "independiente": 0.62,
+        "flexible": 0.54
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Gestión de la Innovación Organizacional y Productividad": {
+      "slug": "gestion_de_la_innovacion_organizacional_y_productividad",
+      "areas": {
+        "negocios/economia": 0.9
+      },
+      "entornos": {
+        "interior/oficina": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Ingeniería Ambiental": {
+      "slug": "ingenieria_ambiental",
+      "areas": {
+        "agropecuaria/ambiente": 0.9,
+        "ingenieria/construccion": 0.78,
+        "ciencias_naturales": 0.66
+      },
+      "entornos": {
+        "exterior/naturaleza": 0.75,
+        "laboratorio": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Ingeniería Civil": {
+      "slug": "ingenieria_civil",
+      "areas": {
+        "ingenieria/construccion": 0.9,
+        "matematicas/logica": 0.78
+      },
+      "entornos": {
+        "flexible": 0.75
+      },
+      "modalidades": {
+        "independiente": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Medicina": {
+      "slug": "medicina",
+      "areas": {
+        "salud": 0.9,
+        "ciencias_naturales": 0.78
+      },
+      "entornos": {
+        "salud/clinica": 0.75,
+        "laboratorio": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Medicina Veterinaria": {
+      "slug": "medicina_veterinaria",
+      "areas": {
+        "agropecuaria/ambiente": 0.9,
+        "salud": 0.78,
+        "ciencias_naturales": 0.66
+      },
+      "entornos": {
+        "salud/clinica": 0.75,
+        "exterior/naturaleza": 0.67,
+        "laboratorio": 0.59
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Mercadotecnia": {
+      "slug": "mercadotecnia",
+      "areas": {
+        "negocios/economia": 0.9,
+        "comunicacion/periodismo": 0.78
+      },
+      "entornos": {
+        "interior/oficina": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Pedagogía de la Actividad Física y Deporte": {
+      "slug": "pedagogia_de_la_actividad_fisica_y_deporte",
+      "areas": {
+        "educacion": 0.9,
+        "salud": 0.78
+      },
+      "entornos": {
+        "salud/clinica": 0.75,
+        "aula/educacion": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Pedagogía de las Ciencias Experimentales": {
+      "slug": "pedagogia_de_las_ciencias_experimentales",
+      "areas": {
+        "educacion": 0.9,
+        "ciencias_naturales": 0.78
+      },
+      "entornos": {
+        "laboratorio": 0.75,
+        "aula/educacion": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Pedagogía de los Idiomas Nacionales y Extranjeros": {
+      "slug": "pedagogia_de_los_idiomas_nacionales_y_extranjeros",
+      "areas": {
+        "educacion": 0.9,
+        "turismo/idiomas": 0.78
+      },
+      "entornos": {
+        "aula/educacion": 0.75,
+        "servicio/personas": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Psicología Clínica": {
+      "slug": "psicologia_clinica",
+      "areas": {
+        "salud": 0.9,
+        "ciencias_sociales/derecho": 0.78
+      },
+      "entornos": {
+        "salud/clinica": 0.75,
+        "interior/oficina": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Psicopedagogía": {
+      "slug": "psicopedagogia",
+      "areas": {
+        "educacion": 0.9,
+        "salud": 0.78
+      },
+      "entornos": {
+        "salud/clinica": 0.75,
+        "aula/educacion": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Sociología": {
+      "slug": "sociologia",
+      "areas": {
+        "ciencias_sociales/derecho": 0.9
+      },
+      "entornos": {
+        "interior/oficina": 0.75
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Tecnologías de la Información": {
+      "slug": "tecnologias_de_la_informacion",
+      "areas": {
+        "tecnologia/programacion": 0.9,
+        "tecnologia/datos": 0.78
+      },
+      "entornos": {
+        "laboratorio": 0.75,
+        "interior/oficina": 0.67
+      },
+      "modalidades": {
+        "independiente": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Trabajo Social": {
+      "slug": "trabajo_social",
+      "areas": {
+        "ciencias_sociales/derecho": 0.9,
+        "educacion": 0.78
+      },
+      "entornos": {
+        "interior/oficina": 0.75,
+        "aula/educacion": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    },
+    "Turismo": {
+      "slug": "turismo",
+      "areas": {
+        "turismo/idiomas": 0.9,
+        "negocios/economia": 0.78
+      },
+      "entornos": {
+        "interior/oficina": 0.75,
+        "servicio/personas": 0.67
+      },
+      "modalidades": {
+        "equipo": 0.7,
+        "flexible": 0.62
+      },
+      "fuente_criterio": "Mapa inicial curado por carrera a partir de ficha y malla. Requiere validacion academica."
+    }
+  }
+}

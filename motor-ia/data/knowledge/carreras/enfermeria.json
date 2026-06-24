@@ -1,0 +1,69 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Enfermería",
+  "slug": "enfermeria",
+  "facultad": "Facultad de Ciencias Químicas y de la Salud",
+  "modalidad": "Presencial",
+  "duracion": "9 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Enfermería",
+  "descripcion": "Forma para brindar cuidados integrales a personas, familias y comunidades durante todo el ciclo de vida.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Proporciona cuidados seguros y humanizados, gestiona servicios, educa en salud y participa en investigación.",
+    "competencias": [
+      "Proporciona cuidados seguros y humanizados, gestiona servicios, educa en salud y participa en investigación"
+    ]
+  },
+  "campo_ocupacional": [
+    "Hospitales, centros de salud, atención comunitaria, instituciones educativas, gestión sanitaria e investigación"
+  ],
+  "areas_vocacionales": [
+    "salud"
+  ],
+  "entornos_trabajo": [
+    "salud/clinica"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Bioquímica",
+    "Anatomía y Fisiología",
+    "Enfermería Clínico Quirúrgico II",
+    "Enfermería Pediátrica I",
+    "Internado Rotativo Enfermería Clínico Quirúrgico IV",
+    "Internado Rotativo Enfermería Materno Infantil II"
+  ],
+  "palabras_clave": [
+    "enfermeria",
+    "salud",
+    "Bioquímica",
+    "Anatomía y Fisiología",
+    "Enfermería Clínico Quirúrgico II",
+    "Enfermería Pediátrica I",
+    "Internado Rotativo Enfermería Clínico Quirúrgico IV",
+    "Internado Rotativo Enfermería Materno Infantil II"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacq/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCQS/MALLA_CURRICULAR_DE_ENFERMERIA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

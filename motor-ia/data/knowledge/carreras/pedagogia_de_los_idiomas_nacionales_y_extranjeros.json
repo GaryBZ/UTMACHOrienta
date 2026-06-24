@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Pedagogía de los Idiomas Nacionales y Extranjeros",
+  "slug": "pedagogia_de_los_idiomas_nacionales_y_extranjeros",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Pedagogía del Idioma",
+  "descripcion": "Forma docentes de idiomas con competencias lingüísticas, interculturales, didácticas e investigativas.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Enseña idiomas, diseña currículo y recursos y evalúa competencias comunicativas en contextos interculturales.",
+    "competencias": [
+      "Enseña idiomas, diseña currículo y recursos y evalúa competencias comunicativas en contextos interculturales"
+    ]
+  },
+  "campo_ocupacional": [
+    "Instituciones educativas, academias, capacitación, diseño curricular, traducción educativa y proyectos interculturales"
+  ],
+  "areas_vocacionales": [
+    "educacion",
+    "turismo/idiomas"
+  ],
+  "entornos_trabajo": [
+    "aula/educacion",
+    "servicio/personas"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Sociedad Contemporánea y Políticas Legales en Educación",
+    "Cátedra Integradora: Sistemas y Contextos Educativos",
+    "Ambientes de Aprendizaje",
+    "Cátedra Integradora: Classroom Management",
+    "Seminario de Titulación II",
+    "Cátedra Integradora: Gestión Escolar y Desarrollo Profesional Docente"
+  ],
+  "palabras_clave": [
+    "pedagogia de los idiomas nacionales y extranjeros",
+    "educacion",
+    "turismo/idiomas",
+    "Sociedad Contemporánea y Políticas Legales en Educación",
+    "Cátedra Integradora: Sistemas y Contextos Educativos",
+    "Ambientes de Aprendizaje",
+    "Cátedra Integradora: Classroom Management",
+    "Seminario de Titulación II",
+    "Cátedra Integradora: Gestión Escolar y Desarrollo Profesional Docente"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_LOS_IDIOMAS_NACIONAES_Y_EXTRANJEROS.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

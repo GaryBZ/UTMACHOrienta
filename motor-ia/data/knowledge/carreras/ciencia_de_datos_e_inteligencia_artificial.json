@@ -1,0 +1,75 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Ciencia de Datos e Inteligencia Artificial",
+  "slug": "ciencia_de_datos_e_inteligencia_artificial",
+  "facultad": "Facultad de Ingeniería Civil",
+  "modalidad": "Híbrida",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Ingeniero/a en Ciencia de Datos e Inteligencia Artificial",
+  "descripcion": "Integra estadística, programación, gestión de datos, aprendizaje automático e inteligencia artificial para resolver problemas.",
+  "perfil_ingreso": {
+    "resumen": "Interés por matemáticas, estadística, programación y solución de problemas; pensamiento lógico, curiosidad y disposición para aprender tecnología.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Construye soluciones de datos e IA, desarrolla modelos, administra su ciclo de vida y comunica resultados.",
+    "competencias": [
+      "Construye soluciones de datos e IA, desarrolla modelos, administra su ciclo de vida y comunica resultados"
+    ]
+  },
+  "campo_ocupacional": [
+    "Ciencia e ingeniería de datos, analítica, machine learning, arquitectura de datos",
+    "IA, consultoría e investigación"
+  ],
+  "areas_vocacionales": [
+    "tecnologia/datos",
+    "tecnologia/programacion",
+    "matematicas/logica"
+  ],
+  "entornos_trabajo": [
+    "laboratorio",
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "independiente",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Fundamentos de Programación",
+    "Cálculo I",
+    "Desarrollo de Aplicaciones Móviles",
+    "Machine Learning I",
+    "Desarrollo de Aplicaciones de Ciencia de Datos e IA II",
+    "Inteligencia Artificial Generativa"
+  ],
+  "palabras_clave": [
+    "ciencia de datos e inteligencia artificial",
+    "tecnologia/datos",
+    "tecnologia/programacion",
+    "matematicas/logica",
+    "Fundamentos de Programación",
+    "Cálculo I",
+    "Desarrollo de Aplicaciones Móviles",
+    "Machine Learning I",
+    "Desarrollo de Aplicaciones de Ciencia de Datos e IA II",
+    "Inteligencia Artificial Generativa"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uaic/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FIC/MALLA_DE_CIENCIA_DE_DATOS_E_INTELIGENCIA_ARTIFICIAL.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

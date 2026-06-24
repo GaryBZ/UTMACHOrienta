@@ -1,0 +1,96 @@
+{
+  "version_conocimiento": "2026-06",
+  "areas": [
+    {
+      "id": "matematicas/logica",
+      "nombre": "Matematicas y logica",
+      "descripcion": "Interes por resolver problemas, razonar con numeros, patrones, modelos y estructuras logicas.",
+      "habilidades_asociadas": ["razonamiento logico", "analisis cuantitativo", "resolucion de problemas"],
+      "materias_indicadoras": ["matematicas", "fisica", "estadistica"]
+    },
+    {
+      "id": "tecnologia/programacion",
+      "nombre": "Tecnologia y programacion",
+      "descripcion": "Interes por crear software, automatizar procesos, entender sistemas digitales y construir soluciones tecnologicas.",
+      "habilidades_asociadas": ["programacion", "pensamiento computacional", "atencion al detalle"],
+      "materias_indicadoras": ["informatica", "matematicas", "tecnologia"]
+    },
+    {
+      "id": "tecnologia/datos",
+      "nombre": "Tecnologia y datos",
+      "descripcion": "Interes por analizar informacion, encontrar patrones y tomar decisiones basadas en datos.",
+      "habilidades_asociadas": ["analisis de datos", "estadistica", "pensamiento critico"],
+      "materias_indicadoras": ["matematicas", "estadistica", "informatica"]
+    },
+    {
+      "id": "salud",
+      "nombre": "Salud",
+      "descripcion": "Interes por el bienestar humano, la atencion clinica, la prevencion y el cuidado de personas.",
+      "habilidades_asociadas": ["empatia", "observacion", "responsabilidad", "comunicacion"],
+      "materias_indicadoras": ["biologia", "quimica", "ciencias naturales"]
+    },
+    {
+      "id": "ciencias_naturales",
+      "nombre": "Ciencias naturales",
+      "descripcion": "Interes por comprender seres vivos, ecosistemas, procesos fisicos, quimicos y ambientales.",
+      "habilidades_asociadas": ["observacion", "investigacion", "analisis experimental"],
+      "materias_indicadoras": ["biologia", "quimica", "fisica", "ciencias naturales"]
+    },
+    {
+      "id": "negocios/economia",
+      "nombre": "Negocios y economia",
+      "descripcion": "Interes por gestionar recursos, emprender, analizar mercados, finanzas y organizaciones.",
+      "habilidades_asociadas": ["gestion", "analisis financiero", "negociacion", "toma de decisiones"],
+      "materias_indicadoras": ["emprendimiento", "matematicas", "economia"]
+    },
+    {
+      "id": "ciencias_sociales/derecho",
+      "nombre": "Ciencias sociales y derecho",
+      "descripcion": "Interes por normas, justicia, sociedad, ciudadania, instituciones y resolucion de conflictos.",
+      "habilidades_asociadas": ["argumentacion", "lectura critica", "comunicacion", "analisis social"],
+      "materias_indicadoras": ["historia", "educacion para la ciudadania", "lengua"]
+    },
+    {
+      "id": "educacion",
+      "nombre": "Educacion",
+      "descripcion": "Interes por ensenar, acompanar aprendizajes y trabajar con ninos, jovenes o comunidades educativas.",
+      "habilidades_asociadas": ["paciencia", "comunicacion", "planificacion", "empatia"],
+      "materias_indicadoras": ["lengua", "ciencias sociales", "psicologia"]
+    },
+    {
+      "id": "artes/diseno",
+      "nombre": "Artes y diseno",
+      "descripcion": "Interes por crear, comunicar visualmente, expresar ideas y resolver problemas desde la estetica.",
+      "habilidades_asociadas": ["creatividad", "sensibilidad visual", "expresion artistica"],
+      "materias_indicadoras": ["educacion artistica", "dibujo", "diseno"]
+    },
+    {
+      "id": "comunicacion/periodismo",
+      "nombre": "Comunicacion y periodismo",
+      "descripcion": "Interes por informar, investigar historias, producir contenidos y conectar con audiencias.",
+      "habilidades_asociadas": ["redaccion", "expresion oral", "investigacion", "criterio social"],
+      "materias_indicadoras": ["lengua", "literatura", "estudios sociales"]
+    },
+    {
+      "id": "ingenieria/construccion",
+      "nombre": "Ingenieria y construccion",
+      "descripcion": "Interes por disenar, construir, optimizar estructuras, procesos, materiales o sistemas fisicos.",
+      "habilidades_asociadas": ["razonamiento espacial", "matematicas", "planificacion", "solucion de problemas"],
+      "materias_indicadoras": ["matematicas", "fisica", "dibujo tecnico"]
+    },
+    {
+      "id": "agropecuaria/ambiente",
+      "nombre": "Agropecuaria y ambiente",
+      "descripcion": "Interes por produccion agricola, animales, sostenibilidad, territorio y recursos naturales.",
+      "habilidades_asociadas": ["observacion de campo", "gestion ambiental", "trabajo practico"],
+      "materias_indicadoras": ["biologia", "ciencias naturales", "quimica"]
+    },
+    {
+      "id": "turismo/idiomas",
+      "nombre": "Turismo e idiomas",
+      "descripcion": "Interes por culturas, viajes, atencion a personas, patrimonio, servicios e idiomas.",
+      "habilidades_asociadas": ["comunicacion", "servicio", "organizacion", "idiomas"],
+      "materias_indicadoras": ["ingles", "historia", "geografia", "lengua"]
+    }
+  ]
+}

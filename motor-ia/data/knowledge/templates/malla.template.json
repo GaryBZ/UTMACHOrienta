@@ -1,0 +1,34 @@
+{
+  "tipo_doc": "malla",
+  "version_conocimiento": "2026-06",
+  "carrera": "",
+  "slug": "",
+  "facultad": "",
+  "total_semestres": null,
+  "semestres": [
+    {
+      "numero": 1,
+      "materias": [
+        {
+          "nombre": "",
+          "area_vocacional": "",
+          "tipo_formacion": "",
+          "creditos": null,
+          "descripcion_curada": ""
+        }
+      ]
+    }
+  ],
+  "materias_representativas": [],
+  "areas_detectadas": [],
+  "fuentes": [
+    {
+      "titulo": "",
+      "url": "",
+      "archivo_original": "",
+      "fecha_consulta": "",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": ""
+}

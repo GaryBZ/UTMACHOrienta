@@ -1,0 +1,72 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Agropecuaria",
+  "slug": "agropecuaria",
+  "facultad": "Facultad de Ciencias Agropecuarias",
+  "modalidad": "Presencial",
+  "duracion": "9 periodos académicos",
+  "titulo_otorga": "Ingeniero/a Agropecuario/a",
+  "descripcion": "Integra producción vegetal y animal, administración, innovación tecnológica, sostenibilidad y agronegocios.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Administra sistemas agropecuarios, usa tecnología y datos, desarrolla agronegocios y propone soluciones sostenibles.",
+    "competencias": [
+      "Administra sistemas agropecuarios, usa tecnología y datos, desarrolla agronegocios y propone soluciones sostenibles"
+    ]
+  },
+  "campo_ocupacional": [
+    "Producción agrícola y pecuaria, agronegocios, comercialización, innovación tecnológica, consultoría y emprendimientos rurales"
+  ],
+  "areas_vocacionales": [
+    "agropecuaria/ambiente",
+    "negocios/economia"
+  ],
+  "entornos_trabajo": [
+    "exterior/naturaleza",
+    "interior/oficina"
+  ],
+  "modalidades_trabajo": [
+    "equipo",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Biología celular",
+    "Química analítica",
+    "Sistemas de producción agrícola básico",
+    "Sistemas de producción pecuaria básico",
+    "Titulación II",
+    "Legislación agropecuaria"
+  ],
+  "palabras_clave": [
+    "agropecuaria",
+    "agropecuaria/ambiente",
+    "negocios/economia",
+    "Biología celular",
+    "Química analítica",
+    "Sistemas de producción agrícola básico",
+    "Sistemas de producción pecuaria básico",
+    "Titulación II",
+    "Legislación agropecuaria"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uaca/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCA/MALLA_CURRICULAR_AGROPECUARIA.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

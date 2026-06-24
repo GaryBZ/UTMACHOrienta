@@ -1,0 +1,71 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Comunicación",
+  "slug": "comunicacion",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Comunicación",
+  "descripcion": "Forma para investigar, producir y gestionar contenidos, medios, narrativas y estrategias de comunicación.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Investiga fenómenos comunicacionales y diseña, produce y evalúa contenidos y estrategias en distintos medios.",
+    "competencias": [
+      "Investiga fenómenos comunicacionales y diseña, produce y evalúa contenidos y estrategias en distintos medios"
+    ]
+  },
+  "campo_ocupacional": [
+    "Medios, comunicación institucional, agencias, producción audiovisual, periodismo, comunicación digital y proyectos sociales"
+  ],
+  "areas_vocacionales": [
+    "comunicacion/periodismo",
+    "artes/diseno"
+  ],
+  "entornos_trabajo": [
+    "taller/creativo"
+  ],
+  "modalidades_trabajo": [
+    "independiente",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Teorías de la Comunicación",
+    "Introducción a la Comunicación",
+    "Taller de Fotografía",
+    "Comunicación para el Desarrollo",
+    "Seminario de Titulación II",
+    "Comunicación Estratégica"
+  ],
+  "palabras_clave": [
+    "comunicacion",
+    "comunicacion/periodismo",
+    "artes/diseno",
+    "Teorías de la Comunicación",
+    "Introducción a la Comunicación",
+    "Taller de Fotografía",
+    "Comunicación para el Desarrollo",
+    "Seminario de Titulación II",
+    "Comunicación Estratégica"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_DE_COMUNICACION.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}

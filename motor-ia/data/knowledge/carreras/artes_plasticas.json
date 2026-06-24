@@ -1,0 +1,69 @@
+{
+  "tipo_doc": "carrera",
+  "version_conocimiento": "2026-06",
+  "nombre_oficial": "Artes Plásticas",
+  "slug": "artes_plasticas",
+  "facultad": "Facultad de Ciencias Sociales",
+  "modalidad": "Presencial",
+  "duracion": "8 periodos académicos",
+  "titulo_otorga": "Licenciado/a en Artes Plásticas",
+  "descripcion": "Desarrolla creación, investigación y reflexión crítica sobre prácticas artísticas, lenguajes visuales y contextos culturales.",
+  "perfil_ingreso": {
+    "resumen": "No especificado de forma expresa en la ficha o malla oficial consultada.",
+    "intereses_recomendados": [],
+    "habilidades_recomendadas": [],
+    "materias_escolares_relacionadas": []
+  },
+  "perfil_egreso": {
+    "resumen": "Produce obra artística, investiga prácticas visuales, gestiona proyectos culturales y comunica discursos críticos.",
+    "competencias": [
+      "Produce obra artística, investiga prácticas visuales, gestiona proyectos culturales y comunica discursos críticos"
+    ]
+  },
+  "campo_ocupacional": [
+    "Producción artística, museos, galerías, gestión cultural, proyectos comunitarios, curaduría, mediación y docencia"
+  ],
+  "areas_vocacionales": [
+    "artes/diseno"
+  ],
+  "entornos_trabajo": [
+    "taller/creativo"
+  ],
+  "modalidades_trabajo": [
+    "independiente",
+    "flexible"
+  ],
+  "materias_representativas": [
+    "Cátedra Integradora: Historia del Arte I",
+    "Apreciación del Arte",
+    "Teoría del Arte",
+    "Laboratorio de Gráfica I",
+    "Seminario de Titulación II",
+    "Laboratorio de Gráfica IV"
+  ],
+  "palabras_clave": [
+    "artes plasticas",
+    "artes/diseno",
+    "Cátedra Integradora: Historia del Arte I",
+    "Apreciación del Arte",
+    "Teoría del Arte",
+    "Laboratorio de Gráfica I",
+    "Seminario de Titulación II",
+    "Laboratorio de Gráfica IV"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Página oficial de la facultad",
+      "url": "https://www.utmachala.edu.ec/portalwp/index.php/uacs/",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    },
+    {
+      "titulo": "Malla curricular oficial UTMACH",
+      "url": "https://www.utmachala.edu.ec/archivos/filesportal/2025/ACADEMICO/Mallas_Curriculares_UTMACH/FCS/MALLA_CURRICULAR_ARTES_PLASTICAS.pdf",
+      "fecha_consulta": "2026-06-22",
+      "tipo": "oficial"
+    }
+  ],
+  "notas_curadoria": "Generado desde utmach_carreras_fichas_y_mallas_2026.md. Areas, entornos y modalidades son inferencias iniciales para el motor; deben revisarse academicamente."
+}
