@@ -294,17 +294,22 @@ async function startTest() {
 function renderTestOptions(question) {
     const optionsDiv = document.getElementById('testOptions');
     optionsDiv.innerHTML = '';
+    const opcionesDetalle = question.opciones_detalle || [];
+    const opciones = opcionesDetalle.length
+        ? opcionesDetalle
+        : (question.opciones || []).map((texto, index) => ({ id: `legacy_${index}`, texto }));
 
     if (question.tipo === 'opciones' || question.tipo === 'escala') {
-        question.opciones.forEach((opcion) => {
+        opciones.forEach((opcion) => {
             const label = document.createElement('label');
             label.className = 'test-option';
             const input = document.createElement('input');
             input.type = 'radio';
             input.name = 'respuesta';
-            input.value = opcion;
+            input.value = opcion.texto;
+            input.dataset.opcionId = opcion.id;
             label.appendChild(input);
-            label.appendChild(document.createTextNode(` ${opcion}`));
+            label.appendChild(document.createTextNode(` ${opcion.texto}`));
             optionsDiv.appendChild(label);
 
             label.addEventListener('click', () => {
@@ -313,15 +318,16 @@ function renderTestOptions(question) {
             });
         });
     } else if (question.tipo === 'multiple') {
-        question.opciones.forEach((opcion) => {
+        opciones.forEach((opcion) => {
             const label = document.createElement('label');
             label.className = 'test-option';
             const input = document.createElement('input');
             input.type = 'checkbox';
             input.name = 'respuesta';
-            input.value = opcion;
+            input.value = opcion.texto;
+            input.dataset.opcionId = opcion.id;
             label.appendChild(input);
-            label.appendChild(document.createTextNode(` ${opcion}`));
+            label.appendChild(document.createTextNode(` ${opcion.texto}`));
             optionsDiv.appendChild(label);
 
             input.addEventListener('change', () => {
@@ -356,12 +362,19 @@ async function submitTestAnswer() {
     const freeText = document.getElementById('testFreeTextAnswer');
 
     let respuesta = '';
+    let opcionIds = [];
+    let textoLibre = null;
     if (freeText) {
         respuesta = freeText.value.trim();
+        textoLibre = respuesta;
     } else if (testCurrentQuestion?.tipo === 'multiple') {
-        respuesta = Array.from(selectedOptions).map(option => option.value).join('; ');
+        const selected = Array.from(selectedOptions);
+        respuesta = selected.map(option => option.value).join('; ');
+        opcionIds = selected.map(option => option.dataset.opcionId).filter(id => id && !id.startsWith('legacy_'));
     } else if (selectedOptions.length > 0) {
         respuesta = selectedOptions[0].value;
+        const opcionId = selectedOptions[0].dataset.opcionId;
+        opcionIds = opcionId && !opcionId.startsWith('legacy_') ? [opcionId] : [];
     }
 
     if (!respuesta) {
@@ -380,7 +393,10 @@ async function submitTestAnswer() {
                 body: JSON.stringify({
                     respuesta: respuesta,
                     pregunta_texto: testCurrentQuestion.texto,
-                    pregunta_tipo: testCurrentQuestion.tipo
+                    pregunta_tipo: testCurrentQuestion.tipo,
+                    pregunta_id: testCurrentQuestion.pregunta_id || null,
+                    opcion_ids: opcionIds,
+                    texto_libre: textoLibre
                 })
             }
         );

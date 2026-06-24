@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 from sqlalchemy.orm import Session
 import bcrypt
 import jwt
@@ -96,20 +96,26 @@ class LoginOutput(BaseModel):
     nombre: str
 
 class RespuestaInput(BaseModel):
-    respuesta: str
+    respuesta: str = ""
     # El frontend devuelve también el texto y tipo de la pregunta que acaba de responder
     pregunta_texto: str = ""
     pregunta_tipo: str  = "opciones"
+    pregunta_id: Optional[str] = None
+    opcion_ids: list[str] = Field(default_factory=list)
+    texto_libre: Optional[str] = None
 
 class PreguntaOutput(BaseModel):
     sesion_id: int
     turno: int
+    pregunta_id: Optional[str] = None
     texto: str
     tipo: str
     opciones: list[str]
+    opciones_detalle: list[dict] = Field(default_factory=list)
     permite_texto_libre: bool
     es_recomendacion: bool
     progreso: float
+    estado_parcial: Optional[dict] = None
 
 class RecomendacionOutput(BaseModel):
     sesion_id: int
@@ -118,6 +124,7 @@ class RecomendacionOutput(BaseModel):
     carreras: list[dict]
     resumen_perfil: str
     progreso: float
+    estado_parcial: Optional[dict] = None
 
 class EstadoOutput(BaseModel):
     sesion_id: int
@@ -210,7 +217,12 @@ def iniciar_sesion(
     # la devuelva en el primer /responder
     sesion = SesionTest(
         usuario_id=usuario.id,
-        perfil={"_ultima_pregunta": pregunta["texto"], "_ultimo_tipo": pregunta["tipo"]},
+        perfil={
+            "_ultima_pregunta": pregunta["texto"],
+            "_ultima_pregunta_id": pregunta.get("pregunta_id"),
+            "_ultimo_tipo": pregunta["tipo"],
+            "_ultima_dimension": pregunta.get("dimension"),
+        },
         turno_actual=1,
     )
     db.add(sesion)
@@ -220,12 +232,15 @@ def iniciar_sesion(
     return PreguntaOutput(
         sesion_id=sesion.id,
         turno=1,
+        pregunta_id=pregunta.get("pregunta_id"),
         texto=pregunta["texto"],
         tipo=pregunta["tipo"],
         opciones=pregunta["opciones"],
+        opciones_detalle=pregunta.get("opciones_detalle", []),
         permite_texto_libre=pregunta["permite_texto_libre"],
         es_recomendacion=False,
         progreso=calcular_progreso(1),
+        estado_parcial=motor.estado_parcial(sesion.perfil),
     )
 
 
@@ -254,16 +269,35 @@ def responder(
 
     # Recuperar texto de la pregunta: primero desde el payload del frontend,
     # si no viene usamos el guardado en el perfil como fallback
-    pregunta_texto = (
-        datos.pregunta_texto.strip()
-        or perfil.pop("_ultima_pregunta", "")
-    )
+    pregunta_obj_guardada = perfil.pop("_ultima_pregunta_obj", None)
+    pregunta_id = datos.pregunta_id or perfil.pop("_ultima_pregunta_id", None)
+    pregunta_texto = datos.pregunta_texto.strip() or perfil.pop("_ultima_pregunta", "")
     pregunta_tipo = datos.pregunta_tipo or perfil.pop("_ultimo_tipo", "opciones")
+    pregunta = None
+    if (
+        isinstance(pregunta_obj_guardada, dict)
+        and pregunta_obj_guardada.get("pregunta_id") == pregunta_id
+    ):
+        pregunta = pregunta_obj_guardada
+    pregunta = pregunta or motor.obtener_pregunta(pregunta_id, pregunta_texto)
+    if pregunta:
+        pregunta_id = pregunta.get("id")
+        pregunta_texto = pregunta.get("texto", pregunta_texto)
+        pregunta_tipo = pregunta.get("tipo", pregunta_tipo)
     # Limpiar claves internas del perfil
     perfil.pop("_ultima_pregunta", None)
+    perfil.pop("_ultima_pregunta_id", None)
     perfil.pop("_ultimo_tipo", None)
+    perfil.pop("_ultima_dimension", None)
 
     turno_actual = sesion.turno_actual
+    normalizada = motor.normalizar_respuesta(
+        pregunta,
+        datos.respuesta,
+        opcion_ids=datos.opcion_ids,
+        texto_libre=datos.texto_libre,
+    )
+    respuesta_texto = normalizada["respuesta_texto"]
 
     # ── 1. Reconstruir historial previo antes de agregar la respuesta actual ──
     respuestas_db = db.query(Respuesta).filter(
@@ -274,7 +308,7 @@ def responder(
         {"pregunta": r.pregunta_texto, "respuesta": r.respuesta_dada}
         for r in respuestas_db
     ]
-    historial.append({"pregunta": pregunta_texto, "respuesta": datos.respuesta})
+    historial.append({"pregunta": pregunta_texto, "respuesta": respuesta_texto})
 
     # ── 2. Guardar respuesta con el texto real de la pregunta ──
     respuesta_row = Respuesta(
@@ -282,16 +316,33 @@ def responder(
         turno=turno_actual,
         pregunta_texto=pregunta_texto,
         tipo_pregunta=pregunta_tipo,
-        opciones=None,
-        respuesta_dada=datos.respuesta,
+        opciones={
+            "pregunta_id": pregunta_id,
+            "opcion_ids": normalizada["opcion_ids"],
+            "dimension": pregunta.get("dimension") if pregunta else None,
+            "objetivo": pregunta.get("objetivo") if pregunta else None,
+            "areas_en_conflicto": pregunta.get("areas_en_conflicto", []) if pregunta else [],
+            "fuente_pregunta": pregunta.get("fuente") if pregunta else None,
+            "pesos_aplicados": [
+                {
+                    "opcion_id": op.get("id"),
+                    "pesos_area": op.get("pesos_area", {}),
+                }
+                for op in normalizada["opciones"]
+            ],
+            "texto_libre": normalizada.get("texto_libre"),
+        },
+        respuesta_dada=respuesta_texto,
     )
     db.add(respuesta_row)
 
     # ── 3. Actualizar perfil ──
     perfil = motor.actualizar_perfil(
         perfil,
-        {"texto": pregunta_texto, "tipo": pregunta_tipo},
-        datos.respuesta,
+        pregunta or {"texto": pregunta_texto, "tipo": pregunta_tipo},
+        respuesta_texto,
+        opcion_ids=normalizada["opcion_ids"],
+        turno=turno_actual,
     )
 
     # ── 4. Decidir siguiente paso ──
@@ -321,12 +372,16 @@ def responder(
             carreras=resultado.get("carreras", []),
             resumen_perfil=resultado.get("resumen_perfil", ""),
             progreso=1.0,
+            estado_parcial=motor.estado_parcial(perfil),
         )
 
     # Guardar texto de la siguiente pregunta en el perfil
     # para usarlo como fallback si el frontend no lo devuelve
     perfil["_ultima_pregunta"] = resultado.get("texto", "")
+    perfil["_ultima_pregunta_id"] = resultado.get("pregunta_id")
     perfil["_ultimo_tipo"]     = resultado.get("tipo", "opciones")
+    perfil["_ultima_dimension"] = resultado.get("dimension")
+    perfil["_ultima_pregunta_obj"] = resultado
 
     sesion.perfil       = perfil
     sesion.turno_actual = siguiente_turno
@@ -335,12 +390,15 @@ def responder(
     return PreguntaOutput(
         sesion_id=sesion_id,
         turno=siguiente_turno,
+        pregunta_id=resultado.get("pregunta_id"),
         texto=resultado.get("texto", ""),
         tipo=resultado.get("tipo", "opciones"),
         opciones=resultado.get("opciones", []),
+        opciones_detalle=resultado.get("opciones_detalle", []),
         permite_texto_libre=resultado.get("permite_texto_libre", True),
         es_recomendacion=False,
         progreso=calcular_progreso(siguiente_turno),
+        estado_parcial=motor.estado_parcial(perfil),
     )
 
 
@@ -389,7 +447,12 @@ def reiniciar_sesion(
     pregunta = motor.primera_pregunta()
     nueva = SesionTest(
         usuario_id=usuario.id,
-        perfil={"_ultima_pregunta": pregunta["texto"], "_ultimo_tipo": pregunta["tipo"]},
+        perfil={
+            "_ultima_pregunta": pregunta["texto"],
+            "_ultima_pregunta_id": pregunta.get("pregunta_id"),
+            "_ultimo_tipo": pregunta["tipo"],
+            "_ultima_dimension": pregunta.get("dimension"),
+        },
         turno_actual=1,
     )
     db.add(nueva)
@@ -399,12 +462,15 @@ def reiniciar_sesion(
     return PreguntaOutput(
         sesion_id=nueva.id,
         turno=1,
+        pregunta_id=pregunta.get("pregunta_id"),
         texto=pregunta["texto"],
         tipo=pregunta["tipo"],
         opciones=pregunta["opciones"],
+        opciones_detalle=pregunta.get("opciones_detalle", []),
         permite_texto_libre=pregunta["permite_texto_libre"],
         es_recomendacion=False,
         progreso=calcular_progreso(1),
+        estado_parcial=motor.estado_parcial(nueva.perfil),
     )
 
 
@@ -443,4 +509,3 @@ def listar_carreras():
 @app.get("/health")
 def health():
     return {"status": "ok", "timestamp": datetime.utcnow().isoformat()}
-

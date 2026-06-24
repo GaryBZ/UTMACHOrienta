@@ -21,11 +21,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from retrieval.retriever import Retriever
 from llm.lmstudio_client import LLMClient
+from pipeline.adaptive_policy import AdaptivePolicy
+from pipeline.affinity_engine import AffinityEngine
+from pipeline.question_bank import QuestionBank
 from settings import CHROMA_PATH, EMBEDDING_MODEL, LLM_MODEL, LMSTUDIO_URL
 
 logger = logging.getLogger(__name__)
 
-MIN_PREGUNTAS = 5
+MIN_PREGUNTAS = 6
 MAX_PREGUNTAS = 12
 
 # ── Prompts ───────────────────────────────────────────────────────────
@@ -51,6 +54,24 @@ Reglas estrictas:
 - Las preguntas deben ser claras, empáticas y en español ecuatoriano
 - No repitas áreas ya exploradas según el historial
 - No menciones carreras específicas en las preguntas"""
+
+SYSTEM_GENERAR_PREGUNTA_ADAPTATIVA = """Eres un redactor de preguntas vocacionales para UTMACHOrienta. \
+El motor ya decidio la estrategia; tu unica tarea es redactar UNA pregunta alineada al objetivo recibido.
+
+Reglas estrictas:
+- Responde SOLO con un objeto JSON valido, sin markdown ni explicaciones.
+- El JSON debe tener exactamente:
+{
+  "texto": "texto de la pregunta",
+  "tipo": "opciones" | "escala" | "texto_libre" | "multiple",
+  "opciones": ["op1", "op2", "op3", "op4"],
+  "permite_texto_libre": true | false
+}
+- No menciones carreras universitarias especificas.
+- No repitas preguntas del historial.
+- Prefiere opciones, multiple o escala. Usa texto_libre solo si el objetivo pide matices.
+- Si el tipo no es texto_libre, incluye entre 3 y 5 opciones claras.
+- Redacta en espanol ecuatoriano, con tono cercano y directo."""
 
 SYSTEM_EVALUAR_PERFIL = """Eres un evaluador de perfiles vocacionales. \
 Analiza el perfil acumulado del estudiante y decide si hay suficiente información \
@@ -145,26 +166,15 @@ class MotorTest:
             max_tokens=900,
             temperature=0.4,
         )
+        self.question_bank = QuestionBank()
+        self.affinity_engine = AffinityEngine()
+        self.adaptive_policy = AdaptivePolicy()
 
     # ── Pregunta inicial ──────────────────────────────────────────────
 
     def primera_pregunta(self) -> dict:
-        """Retorna siempre la misma pregunta de apertura (sin llamar al LLM)."""
-        return {
-            "turno": 1,
-            "texto": "¡Hola! Para ayudarte a encontrar tu carrera ideal en la UTMACH, "
-                     "vamos a hacerte algunas preguntas. ¿Con cuál de estas actividades "
-                     "disfrutas más tu tiempo?",
-            "tipo": "opciones",
-            "opciones": [
-                "Resolver problemas matemáticos o lógicos",
-                "Crear cosas con mis manos o de forma artística",
-                "Ayudar o trabajar con otras personas",
-                "Investigar, leer y aprender cosas nuevas",
-            ],
-            "permite_texto_libre": True,
-            "es_recomendacion": False,
-        }
+        """Retorna la primera pregunta estructurada del banco."""
+        return self._pregunta_desde_banco(1)
 
     # ── Siguiente pregunta ────────────────────────────────────────────
 
@@ -181,21 +191,101 @@ class MotorTest:
             Dict con la pregunta O con la recomendación.
             Siempre incluye "es_recomendacion": bool y "turno": int.
         """
-        # Turno 1-4: siempre pregunta
-        if turno <= MIN_PREGUNTAS:
-            return self._generar_pregunta(perfil, historial, turno)
+        if turno <= max(MIN_PREGUNTAS, self.question_bank.total_preguntas()):
+            return self._pregunta_desde_banco(turno)
 
         # Turno 13+: forzar recomendación
         if turno > MAX_PREGUNTAS:
             logger.info("Turno %d: forzando recomendación (límite máximo).", turno)
             return self._generar_recomendacion(perfil, turno)
 
-        # Turnos 5-12: el LLM decide
         if self._perfil_suficiente(perfil, historial):
             logger.info("Turno %d: perfil suficiente, generando recomendación.", turno)
             return self._generar_recomendacion(perfil, turno)
 
-        return self._generar_pregunta(perfil, historial, turno)
+        if turno <= self.question_bank.total_preguntas():
+            return self._pregunta_desde_banco(turno)
+
+        objetivo = self.adaptive_policy.decidir(perfil, historial)
+        return self._generar_pregunta_adaptativa(perfil, historial, turno, objetivo)
+
+    def obtener_pregunta(self, pregunta_id: str | None = None, pregunta_texto: str = "") -> dict | None:
+        """Recupera una pregunta estructurada por id o texto para compatibilidad."""
+        return self.question_bank.por_id(pregunta_id) or self.question_bank.buscar_por_texto(pregunta_texto)
+
+    def normalizar_respuesta(
+        self,
+        pregunta: dict | None,
+        respuesta_texto: str,
+        opcion_ids: list[str] | None = None,
+        texto_libre: str | None = None,
+    ) -> dict:
+        """Convierte respuestas nuevas o legadas en texto + opcion_ids auditable."""
+        opcion_ids = opcion_ids or []
+        texto = (texto_libre or respuesta_texto or "").strip()
+        opciones = []
+
+        if pregunta:
+            if pregunta.get("opciones_detalle"):
+                ids = set(opcion_ids or [])
+                opciones = [
+                    op for op in pregunta.get("opciones_detalle", [])
+                    if op.get("id") in ids
+                ]
+            if not opciones:
+                opciones = self.question_bank.opciones_por_ids(pregunta, opcion_ids)
+            if not opciones and texto:
+                opciones_disponibles = pregunta.get("opciones_detalle") or pregunta.get("opciones", [])
+                if pregunta.get("tipo") == "multiple":
+                    partes = [p.strip() for p in texto.split(";") if p.strip()]
+                    for parte in partes:
+                        opcion = self._opcion_por_texto_en_lista(opciones_disponibles, parte)
+                        if opcion:
+                            opciones.append(opcion)
+                else:
+                    opcion = self._opcion_por_texto_en_lista(opciones_disponibles, texto)
+                    if opcion:
+                        opciones.append(opcion)
+
+            if opciones:
+                opcion_ids = [op["id"] for op in opciones]
+                texto = "; ".join(op["texto"] for op in opciones)
+
+        return {
+            "respuesta_texto": texto,
+            "opcion_ids": opcion_ids,
+            "opciones": opciones,
+            "texto_libre": texto_libre,
+        }
+
+    @staticmethod
+    def _opcion_por_texto_en_lista(opciones: list, texto: str) -> dict | None:
+        texto_limpio = (texto or "").strip()
+        for opcion in opciones:
+            if isinstance(opcion, dict):
+                if opcion.get("texto", "").strip() == texto_limpio:
+                    return opcion
+            elif str(opcion).strip() == texto_limpio:
+                return {"id": "", "texto": str(opcion), "pesos_area": {}}
+        return None
+
+    def estado_parcial(self, perfil: dict) -> dict:
+        return self.affinity_engine.estado_parcial(perfil)
+
+    def _pregunta_desde_banco(self, turno: int) -> dict:
+        pregunta = self.question_bank.por_turno(turno)
+        return {
+            "turno": turno,
+            "id": pregunta["id"],
+            "pregunta_id": pregunta["id"],
+            "dimension": pregunta["dimension"],
+            "texto": pregunta["texto"],
+            "tipo": pregunta["tipo"],
+            "opciones": pregunta["opciones_texto"],
+            "opciones_detalle": pregunta.get("opciones", []),
+            "permite_texto_libre": pregunta.get("permite_texto_libre", False),
+            "es_recomendacion": False,
+        }
 
     # ── Generar pregunta ──────────────────────────────────────────────
 
@@ -234,31 +324,175 @@ class MotorTest:
         pregunta["es_recomendacion"] = False
         return pregunta
 
+    def _generar_pregunta_adaptativa(
+        self,
+        perfil: dict,
+        historial: list[dict],
+        turno: int,
+        objetivo: dict,
+    ) -> dict:
+        """Genera una pregunta con estrategia decidida por el motor."""
+        historial_txt = self._formatear_historial(historial)
+        perfil_txt = json.dumps(self.affinity_engine.estado_parcial(perfil), ensure_ascii=False, indent=2)
+        objetivo_txt = json.dumps(objetivo, ensure_ascii=False, indent=2)
+
+        prompt = (
+            f"OBJETIVO DEL MOTOR:\n{objetivo_txt}\n\n"
+            f"ESTADO PARCIAL:\n{perfil_txt}\n\n"
+            f"HISTORIAL:\n{historial_txt}\n\n"
+            "Redacta la siguiente pregunta adaptativa. No decidas si el test termina; solo redacta la pregunta."
+        )
+
+        chunks_guia = self._buscar_contexto_seguro(
+            "preguntas adaptativas dimensiones vocacionales intereses habilidades valores",
+            coleccion="vocacional",
+            top_k=3,
+        )
+        respuesta_raw = self.llm.generar(
+            pregunta=prompt,
+            chunks=chunks_guia,
+            system_prompt=SYSTEM_GENERAR_PREGUNTA_ADAPTATIVA,
+        )
+        pregunta = self._parsear_json(respuesta_raw)
+
+        if not self._pregunta_llm_valida(pregunta, historial):
+            logger.warning("Pregunta adaptativa inválida; usando fallback.")
+            pregunta = self._pregunta_adaptativa_fallback(turno, objetivo)
+        else:
+            pregunta = self._normalizar_pregunta_adaptativa(pregunta, turno, objetivo, fuente="llm")
+
+        return pregunta
+
+    def _normalizar_pregunta_adaptativa(
+        self,
+        pregunta: dict,
+        turno: int,
+        objetivo: dict,
+        fuente: str,
+    ) -> dict:
+        opciones = pregunta.get("opciones") or []
+        opciones_detalle = [
+            {
+                "id": f"ad_t{turno}_op{i}",
+                "texto": texto,
+                "pesos_area": {},
+            }
+            for i, texto in enumerate(opciones, start=1)
+        ]
+        pregunta_id = f"qa_t{turno}_{objetivo.get('objetivo', 'adaptativa')}"
+        return {
+            "turno": turno,
+            "id": pregunta_id,
+            "pregunta_id": pregunta_id,
+            "dimension": objetivo.get("dimension", "adaptativa"),
+            "objetivo": objetivo.get("objetivo"),
+            "areas_en_conflicto": objetivo.get("areas_en_conflicto", []),
+            "texto": pregunta.get("texto", "").strip(),
+            "tipo": pregunta.get("tipo", "opciones"),
+            "opciones": opciones,
+            "opciones_detalle": opciones_detalle,
+            "permite_texto_libre": bool(pregunta.get("permite_texto_libre", True)),
+            "es_recomendacion": False,
+            "fuente": fuente,
+        }
+
+    def _pregunta_llm_valida(self, pregunta: dict | None, historial: list[dict]) -> bool:
+        if not isinstance(pregunta, dict):
+            return False
+        texto = (pregunta.get("texto") or "").strip()
+        tipo = pregunta.get("tipo")
+        opciones = pregunta.get("opciones")
+        if not texto or len(texto) > 240:
+            return False
+        if tipo not in {"opciones", "multiple", "escala", "texto_libre"}:
+            return False
+        if tipo != "texto_libre":
+            if not isinstance(opciones, list) or not (2 <= len(opciones) <= 5):
+                return False
+            if any(not isinstance(op, str) or not op.strip() or len(op) > 120 for op in opciones):
+                return False
+        if tipo == "texto_libre" and opciones not in ([], None):
+            return False
+        if self._pregunta_repetida(texto, historial):
+            return False
+        if self._menciona_carrera(texto, opciones or []):
+            return False
+        return True
+
+    @staticmethod
+    def _pregunta_repetida(texto: str, historial: list[dict]) -> bool:
+        normalizada = texto.strip().lower()
+        return any(turno.get("pregunta", "").strip().lower() == normalizada for turno in historial)
+
+    @staticmethod
+    def _menciona_carrera(texto: str, opciones: list[str]) -> bool:
+        contenido = " ".join([texto, *opciones]).lower()
+        carreras = {
+            "derecho",
+            "medicina",
+            "enfermería",
+            "administración de empresas",
+            "tecnologías de la información",
+            "ciencia de datos",
+            "inteligencia artificial",
+            "agronomía",
+            "turismo",
+            "arquitectura",
+            "contabilidad",
+            "economía",
+            "acuicultura",
+            "alimentos",
+        }
+        return any(carrera in contenido for carrera in carreras)
+
+    def _pregunta_adaptativa_fallback(self, turno: int, objetivo: dict) -> dict:
+        objetivo_tipo = objetivo.get("objetivo")
+        dimension = objetivo.get("dimension", "preferencias")
+        areas = objetivo.get("areas_en_conflicto") or objetivo.get("areas_top") or []
+
+        if objetivo_tipo == "desempatar_areas" and areas:
+            texto = "Para afinar mejor tu perfil, ¿qué tipo de actividad te resultaría más motivadora?"
+            opciones = [
+                f"Profundizar en temas relacionados con {areas[0]}",
+                f"Explorar actividades conectadas con {areas[1]}" if len(areas) > 1 else "Explorar otra área práctica",
+                "Combinar varias áreas en proyectos aplicados",
+                "Aún no estoy seguro/a y necesito comparar ejemplos",
+            ]
+            tipo = "opciones"
+        elif dimension == "entorno":
+            texto = "¿Qué ambiente de trabajo te ayudaría a rendir mejor?"
+            opciones = ["Espacios tranquilos de análisis", "Trabajo con personas", "Campo o exteriores", "Laboratorio o espacios técnicos"]
+            tipo = "opciones"
+        elif dimension == "modalidad":
+            texto = "Cuando aprendes algo nuevo, ¿qué forma de trabajo prefieres?"
+            opciones = ["Resolverlo solo/a", "Conversarlo en equipo", "Liderar la organización", "Alternar según la tarea"]
+            tipo = "opciones"
+        elif dimension == "valores":
+            texto = "¿Qué tan importante es para ti que tu carrera tenga estabilidad laboral?"
+            opciones = ["1 - Poco importante", "2", "3", "4", "5 - Muy importante"]
+            tipo = "escala"
+        elif objetivo_tipo == "profundizar_area" and areas:
+            texto = f"¿Qué te atrae más de las actividades relacionadas con {areas[0]}?"
+            opciones = ["Resolver problemas", "Crear soluciones", "Ayudar a otros", "Investigar y aprender más"]
+            tipo = "opciones"
+        else:
+            texto = "Cuéntame qué esperas sentir o lograr con tu futura profesión."
+            opciones = []
+            tipo = "texto_libre"
+
+        pregunta = {
+            "texto": texto,
+            "tipo": tipo,
+            "opciones": opciones,
+            "permite_texto_libre": tipo != "escala",
+        }
+        return self._normalizar_pregunta_adaptativa(pregunta, turno, objetivo, fuente="fallback")
+
     # ── Evaluar si el perfil es suficiente ───────────────────────────
 
     def _perfil_suficiente(self, perfil: dict, historial: list[dict]) -> bool:
-        """Pregunta al LLM si el perfil ya tiene suficiente info para recomendar."""
-        perfil_txt    = json.dumps(perfil, ensure_ascii=False, indent=2)
-        historial_txt = self._formatear_historial(historial)
-
-        prompt = (
-            f"PERFIL ACUMULADO:\n{perfil_txt}\n\n"
-            f"HISTORIAL:\n{historial_txt}\n\n"
-            f"¿Hay suficiente información para recomendar carreras universitarias?"
-        )
-
-        respuesta_raw = self.llm.generar(
-            pregunta=prompt,
-            chunks=[],
-            system_prompt=SYSTEM_EVALUAR_PERFIL,
-        )
-
-        resultado = self._parsear_json(respuesta_raw)
-        if resultado and isinstance(resultado.get("suficiente"), bool):
-            return resultado["suficiente"]
-
-        # Si el LLM no responde bien, ser conservador y seguir preguntando
-        return False
+        """Decide suficiencia con reglas deterministas del motor."""
+        return self.affinity_engine.perfil_suficiente(perfil)
 
     # ── Generar recomendación ─────────────────────────────────────────
 
@@ -350,78 +584,30 @@ class MotorTest:
 
     # ── Actualizar perfil ─────────────────────────────────────────────
 
-    def actualizar_perfil(self, perfil: dict, pregunta: dict, respuesta_texto: str) -> dict:
+    def actualizar_perfil(
+        self,
+        perfil: dict,
+        pregunta: dict,
+        respuesta_texto: str,
+        opcion_ids: list[str] | None = None,
+        turno: int | None = None,
+    ) -> dict:
         """
-        Extrae información del perfil usando el LLM (Opción 1).
-        Sin keywords hardcodeadas: el LLM entiende cualquier respuesta en lenguaje natural.
-
-        Args:
-            perfil:          Perfil acumulado del estudiante.
-            pregunta:        Dict de la pregunta respondida {"texto": str, "tipo": str}.
-            respuesta_texto: Respuesta del estudiante en texto libre.
-
-        Returns:
-            Perfil actualizado con intereses, entorno y modalidad acumulados.
+        Actualiza el perfil con afinidades deterministas.
         """
-        prompt = (
-            f"Pregunta que se le hizo al estudiante: {pregunta.get('texto', '(sin texto)')}\n"
-            f"Respuesta del estudiante: {respuesta_texto}"
-        )
-
-        try:
-            raw = self.llm.generar(
-                pregunta=prompt,
-                chunks=[],
-                system_prompt=SYSTEM_EXTRAER_PERFIL,
-            )
-            extraido = self._parsear_json(raw)
-        except Exception as exc:
-            logger.warning("LLM falló al extraer perfil: %s. Usando perfil sin cambios.", exc)
-            extraido = None
-
-        if not extraido:
-            logger.warning("No se pudo extraer perfil de: '%s'", respuesta_texto[:80])
+        if not pregunta or not pregunta.get("id"):
+            logger.warning("Pregunta no estructurada; perfil sin cambio determinista.")
             return perfil
 
-        # ── Acumular intereses sin duplicar ──
-        intereses = perfil.get("intereses", [])
-        for area in extraido.get("intereses") or []:
-            area = area.strip()
-            if area and area not in intereses:
-                intereses.append(area)
-        perfil["intereses"] = intereses
-
-        # ── Entorno: solo sobreescribir si el LLM detectó algo ──
-        entorno = extraido.get("entorno")
-        if entorno and entorno != "null":
-            perfil["entorno"] = entorno
-
-        # ── Modalidad: solo sobreescribir si el LLM detectó algo ──
-        modalidad = extraido.get("modalidad")
-        if modalidad and modalidad != "null":
-            perfil["modalidad"] = modalidad
-
-        # ── Notas libres: acumular ──
-        notas = extraido.get("notas")
-        if notas and notas != "null":
-            perfil.setdefault("notas", []).append(notas)
-
-        # ── Guardar valor de escala si aplica ──
-        if pregunta.get("tipo") == "escala":
-            import re as _re
-            try:
-                valor = int(_re.search(r"\d", respuesta_texto).group())
-                area_pregunta = pregunta.get("texto", "")[:50]
-                perfil.setdefault("escalas", {})[area_pregunta] = valor
-            except (AttributeError, ValueError):
-                pass
-
-        logger.info(
-            "Perfil actualizado | intereses=%s | entorno=%s | modalidad=%s",
-            perfil.get("intereses"),
-            perfil.get("entorno"),
-            perfil.get("modalidad"),
+        perfil = self.affinity_engine.actualizar(
+            perfil,
+            pregunta,
+            opcion_ids=opcion_ids,
+            respuesta_texto=respuesta_texto,
+            turno=turno,
         )
+        estado = self.affinity_engine.estado_parcial(perfil)
+        logger.info("Perfil actualizado | top_areas=%s | confianza=%s", estado["top_areas"], estado["confianza"])
         return perfil
 
     # ── Utilidades ────────────────────────────────────────────────────
@@ -498,4 +684,3 @@ class MotorTest:
         ]
         idx = (turno - 2) % len(fallbacks)
         return fallbacks[idx]
-
