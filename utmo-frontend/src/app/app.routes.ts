@@ -1,5 +1,3 @@
-import { AdminCampusComponent } from './admin/pages/campus/admin-campus/admin-campus.component';
-import { ListarCampusComponent } from './admin/pages/campus/listar-campus/listar-campus.component';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -138,6 +136,20 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./admin/pages/examenes/listar-examenes/listar-examenes.component').then(
             (m) => m.ListarExamenesComponent,
+          ),
+      },
+      {
+        path: 'examenes/:id',
+        loadComponent: () =>
+          import('./admin/pages/examenes/crear-examenes/crear-examenes.component').then(
+            (m) => m.CrearExamenesComponent,
+          ),
+      },
+      {
+        path: 'crear-examen',
+        loadComponent: () =>
+          import('./admin/pages/examenes/crear-examenes/crear-examenes.component').then(
+            (m) => m.CrearExamenesComponent,
           ),
       },
       {

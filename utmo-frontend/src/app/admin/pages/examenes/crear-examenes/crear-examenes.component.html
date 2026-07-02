@@ -1,3 +1,207 @@
-<p>
-  crear-examenes works!
-</p>
+<div class="admin-wrap">
+
+  <!-- Header -->
+  <div class="admin-header">
+    <div class="admin-header-top">
+      <button class="btn-back" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </div>
+    <div class="admin-header-body">
+      <div class="admin-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Panel de administración</span>
+      </div>
+      <h1 class="admin-title">Exámenes — {{ carrera.nombre }}</h1>
+      <div class="admin-header-bottom">
+        <p class="admin-subtitle">
+          {{ clases.length }} clase(s) detectada(s) · {{ preguntas.length }} pregunta(s) en el examen
+        </p>
+      </div>
+      <div class="admin-header-btn">
+        <button class="btn-save" (click)="guardar()" [disabled]="isSaving || preguntas.length === 0">
+          <i class="fa-solid fa-floppy-disk"></i>
+          {{ isSaving ? 'Guardando...' : 'Guardar examen' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @if (saveSuccess) {
+    <div class="form-alert success">
+      <i class="fa-solid fa-circle-check"></i> Examen guardado correctamente
+    </div>
+  }
+  @if (errorMessage) {
+    <div class="form-alert error">
+      <i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage }}
+    </div>
+  }
+
+  <!-- Sin clases: no se puede generar nada -->
+  @if (clases.length === 0) {
+    <div class="admin-state">
+      <i class="fa-solid fa-layer-group"></i>
+      <p>Esta carrera todavía no tiene clases registradas.</p>
+      <button class="btn-save" (click)="goToClases()">
+        <i class="fa-solid fa-arrow-right"></i> Ir a gestionar clases
+      </button>
+    </div>
+  } @else {
+
+    <!-- Clases detectadas -->
+    <div class="form-card">
+      <div class="form-card-title">
+        <i class="fa-solid fa-layer-group"></i> Clases detectadas
+      </div>
+
+      <div class="clases-check-list">
+        @for (clase of clases; track clase.id) {
+          <div
+            class="clase-check-item"
+            [class.checked]="isClaseSelected(clase)"
+            (click)="toggleClase(clase)"
+          >
+            <div class="clase-check-box">
+              @if (isClaseSelected(clase)) {
+                <i class="fa-solid fa-check"></i>
+              }
+            </div>
+            <div class="clase-check-num">{{ clase.orden }}</div>
+            <div class="clase-check-content">
+              <div class="clase-check-title">{{ clase.titulo }}</div>
+              <div class="clase-check-snippet">{{ clase.contenido }}</div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="clases-footer-row">
+        <span class="selected-count-text">
+          {{ clasesSeleccionadas.length }} de {{ clases.length }} clases seleccionadas
+        </span>
+        <button
+          class="btn-generate-ai"
+          [disabled]="clasesSeleccionadas.length === 0 || isGenerating"
+          (click)="generarConIA()"
+        >
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          {{ preguntas.length > 0 ? 'Generar más preguntas con IA' : 'Generar examen con IA' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Estado: generando con IA -->
+    @if (isGenerating) {
+      <div class="ai-state">
+        <div class="ai-state-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="ai-state-title">Generando preguntas con IA</div>
+        <p class="ai-state-desc">
+          Estamos analizando el contenido de las clases seleccionadas para
+          crear preguntas de opción múltiple...
+        </p>
+        <div class="ai-state-dots"><span></span><span></span><span></span></div>
+      </div>
+    }
+
+    <!-- Preguntas del examen -->
+    @if (!isGenerating) {
+      @if (preguntas.length === 0) {
+        <div class="admin-state admin-state-inline">
+          <i class="fa-solid fa-clipboard-question"></i>
+          <p>Aún no se ha generado ninguna pregunta. Selecciona las clases y genera el examen con IA.</p>
+        </div>
+      } @else {
+        <div class="preguntas-grid">
+          @for (pregunta of preguntas; track pregunta.id; let i = $index) {
+            <div class="pregunta-card">
+              <div class="pregunta-card-header">
+                <div class="pregunta-order-btns">
+                  <button [disabled]="esPrimera(pregunta)" (click)="moverPregunta(pregunta, -1)">
+                    <i class="fa-solid fa-chevron-up"></i>
+                  </button>
+                  <button [disabled]="esUltima(pregunta)" (click)="moverPregunta(pregunta, 1)">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="pregunta-num">{{ i + 1 }}</div>
+
+                @if (pregunta.claseOrigenTitulo) {
+                  <span class="pregunta-origin-chip">
+                    <i class="fa-solid fa-sparkles"></i> {{ pregunta.claseOrigenTitulo }}
+                  </span>
+                } @else {
+                  <span class="pregunta-origin-chip manual">
+                    <i class="fa-solid fa-pen"></i> Manual
+                  </span>
+                }
+
+                <button class="pregunta-delete-btn" (click)="eliminarPregunta(pregunta)">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+
+              <div class="pregunta-card-body">
+                <label>Enunciado</label>
+                <textarea
+                  class="pregunta-textarea"
+                  rows="2"
+                  [(ngModel)]="pregunta.enunciado"
+                  [name]="'enunciado_' + pregunta.id"
+                  placeholder="Escribe la pregunta..."
+                ></textarea>
+
+                <div class="opciones-list">
+                  @for (opcion of pregunta.opciones; track opcion.id) {
+                    <div class="opcion-row" [class.correct]="opcion.esCorrecta">
+                      <button
+                        type="button"
+                        class="opcion-radio"
+                        [class.checked]="opcion.esCorrecta"
+                        (click)="marcarCorrecta(pregunta, opcion)"
+                        title="Marcar como respuesta correcta"
+                      >
+                        @if (opcion.esCorrecta) {
+                          <i class="fa-solid fa-check"></i>
+                        }
+                      </button>
+                      <input
+                        type="text"
+                        class="opcion-input"
+                        [(ngModel)]="opcion.texto"
+                        [name]="'opcion_' + opcion.id"
+                        placeholder="Texto de la opción..."
+                      />
+                      <button
+                        type="button"
+                        class="opcion-remove-btn"
+                        [disabled]="pregunta.opciones.length <= 2"
+                        (click)="eliminarOpcion(pregunta, opcion)"
+                      >
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </div>
+                  }
+                </div>
+
+                @if (pregunta.opciones.length < 6) {
+                  <button type="button" class="btn-add-opcion" (click)="agregarOpcion(pregunta)">
+                    <i class="fa-solid fa-plus"></i> Agregar opción
+                  </button>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+      <button type="button" class="btn-add-pregunta" (click)="agregarPreguntaManual()">
+        <i class="fa-solid fa-plus"></i> Agregar pregunta manual
+      </button>
+    }
+
+  }
+
+</div>

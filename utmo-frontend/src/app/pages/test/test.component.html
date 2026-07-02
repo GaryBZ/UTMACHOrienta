@@ -1,3 +1,119 @@
-<div class="container">
-  Test
+<div class="container page-pad">
+  <div class="test-shell">
+
+    <!-- Header -->
+    <div class="test-page-header">
+      <div class="page-eyebrow">
+        <div class="page-eyebrow-line"></div>
+        <span class="page-eyebrow-text">Test vocacional inteligente</span>
+      </div>
+      <h1 class="page-h1">Descubre tu carrera ideal</h1>
+      <p class="page-sub">Responde con sinceridad. A partir de la pregunta 4, la IA adapta cada pregunta a tus respuestas anteriores.</p>
+    </div>
+
+    <div class="test-card">
+
+      <!-- Progress bar -->
+      <div class="test-progress">
+        <div class="progress-track">
+          @for (segment of progressSegments; track $index) {
+            <div
+              class="progress-seg"
+              [class.filled]="isSegmentFilled($index)"
+              [class.active]="isSegmentActive($index)"
+              [class.pulsing]="isSegmentActive($index) && (isGenerating || isFinishing)"
+            ></div>
+          }
+        </div>
+      </div>
+
+      <!-- QUESTION STATE -->
+      @if (!isGenerating && !isFinishing) {
+        <div class="test-meta-row">
+          <span class="test-meta-text">Sección: {{ currentQuestion.section }}</span>
+          <span class="test-meta-text">Pregunta {{ currentIndex + 1 }} de {{ MAX_QUESTIONS }}</span>
+        </div>
+
+        <span class="test-section-label">{{ currentQuestion.section }}</span>
+        <h2 class="test-question-title">{{ currentQuestion.title }}</h2>
+
+        <div class="test-options">
+          @for (option of currentQuestion.options; track option.id) {
+            <div
+              class="option-card"
+              [class.selected]="isOptionSelected(option)"
+              (click)="selectOption(option)"
+            >
+              <div class="option-radio">
+                @if (isOptionSelected(option)) {
+                  <i class="fa-solid fa-check"></i>
+                }
+              </div>
+              <div class="option-content">
+                <div class="option-title">{{ option.label }}</div>
+                <div class="option-desc">{{ option.desc }}</div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="test-footer">
+          <button class="btn-prev" [disabled]="currentIndex === 0" (click)="goBack()">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+          </button>
+
+          <div class="test-footer-right">
+            <span class="test-progress-text">{{ progressPercent }}% completado</span>
+            <button
+              class="btn-next"
+              [class.is-last]="isLastQuestion"
+              [disabled]="!selectedOptionId"
+              (click)="continue()"
+            >
+              @if (isLastQuestion) {
+                Ver mis resultados <i class="fa-solid fa-list-check"></i>
+              } @else {
+                Siguiente <i class="fa-solid fa-arrow-right"></i>
+              }
+            </button>
+          </div>
+        </div>
+      }
+
+      <!-- GENERATING STATE (IA pensando la siguiente pregunta) -->
+      @if (isGenerating) {
+        <div class="ai-state">
+          <div class="ai-state-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div class="ai-state-title">Generando tu siguiente pregunta</div>
+          <p class="ai-state-desc">
+            Estamos analizando tus respuestas para hacerte una pregunta más
+            precisa sobre tu carrera ideal...
+          </p>
+          <div class="ai-state-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      }
+
+      <!-- FINISHING STATE (calculando resultado final) -->
+      @if (isFinishing) {
+        <div class="ai-state">
+          <div class="ai-state-icon">
+            <i class="fa-solid fa-chart-simple"></i>
+          </div>
+          <div class="ai-state-title">Calculando tu afinidad vocacional</div>
+          <p class="ai-state-desc">
+            Estamos comparando tus respuestas con el perfil de cada carrera
+            de la UTMACH...
+          </p>
+          <div class="ai-state-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
 </div>
